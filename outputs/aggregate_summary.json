@@ -1,0 +1,9 @@
+{
+  "runs": 2,
+  "total_pnl": -71173.5,
+  "realized_pnl": -71132.13571428572,
+  "unrealized_pnl": -41.36428571428405,
+  "submitted_volume": 10439,
+  "filled_volume": 10439,
+  "fill_ratio": 1.0
+}

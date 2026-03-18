@@ -3,9 +3,10 @@ from __future__ import annotations
 import csv
 import math
 import random
+import re
 from collections import defaultdict
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 from prosperity.backtest.types import MarketFrame
 from prosperity.datamodel import Listing, Observation, OrderDepth, Trade
@@ -103,6 +104,28 @@ def load_frames_from_csv(order_depth_path: str | Path, trade_path: str | Path | 
     return frames
 
 
+def discover_replay_files(data_dir: str | Path) -> List[Tuple[str, Path, Path | None]]:
+    data_dir = Path(data_dir)
+    if not data_dir.exists():
+        raise FileNotFoundError(data_dir)
+
+    price_files = sorted(
+        data_dir.glob("prices_*.csv"),
+        key=_replay_sort_key,
+    )
+    if not price_files:
+        raise FileNotFoundError(f"No prices_*.csv files found in {data_dir}")
+
+    pairs: List[Tuple[str, Path, Path | None]] = []
+    for price_file in price_files:
+        suffix = price_file.name.removeprefix("prices_")
+        trade_file = data_dir / f"trades_{suffix}"
+        label = price_file.stem.removeprefix("prices_")
+        pairs.append((label, price_file, trade_file if trade_file.exists() else None))
+
+    return pairs
+
+
 def _build_depth(mid_price: int, spread: int, rng: random.Random, min_size: int, max_size: int) -> OrderDepth:
     buy_orders: Dict[int, int] = {}
     sell_orders: Dict[int, int] = {}
@@ -186,3 +209,10 @@ def _depth_from_row(row: dict) -> OrderDepth:
         sell_orders[int(float(row["ask_price"]))] = -abs(int(float(row["ask_volume"])))
 
     return OrderDepth(buy_orders=buy_orders, sell_orders=sell_orders)
+
+
+def _replay_sort_key(path: Path) -> Tuple[int, int, str]:
+    match = re.match(r"prices_round_(-?\d+)_day_(-?\d+)\.csv", path.name)
+    if match:
+        return (int(match.group(1)), int(match.group(2)), path.name)
+    return (10**9, 10**9, path.name)

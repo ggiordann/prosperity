@@ -5,7 +5,13 @@ import csv
 import json
 from pathlib import Path
 
-from prosperity.backtest import BacktestConfig, BacktestEngine, generate_tutorial_scenario, load_frames_from_csv
+from prosperity.backtest import (
+    BacktestConfig,
+    BacktestEngine,
+    discover_replay_files,
+    generate_tutorial_scenario,
+    load_frames_from_csv,
+)
 from traders.tutorial_trader import Trader
 
 
@@ -24,6 +30,11 @@ def main() -> None:
         help="Optional path to a trade replay CSV matching the order depth timestamps.",
     )
     parser.add_argument(
+        "--data-dir",
+        type=Path,
+        help="Optional directory containing IMC prices_*.csv and trades_*.csv files.",
+    )
+    parser.add_argument(
         "--output-dir",
         type=Path,
         default=Path("outputs"),
@@ -31,11 +42,68 @@ def main() -> None:
     )
     args = parser.parse_args()
 
+    args.output_dir.mkdir(parents=True, exist_ok=True)
+
+    if args.data_dir:
+        _run_directory_backtest(args.data_dir, args.output_dir)
+        return
+
     if args.order_depth_csv:
         frames = load_frames_from_csv(args.order_depth_csv, args.trade_csv)
+        label = args.order_depth_csv.stem.removeprefix("prices_")
     else:
         frames = generate_tutorial_scenario(steps=args.steps, seed=args.seed)
+        label = "tutorial"
 
+    result = _run_single_backtest(frames)
+    _write_result_bundle(args.output_dir, label, result)
+    _print_result(label, result)
+
+
+def _run_directory_backtest(data_dir: Path, output_dir: Path) -> None:
+    replay_files = discover_replay_files(data_dir)
+    aggregate_total_pnl = 0.0
+    aggregate_realized_pnl = 0.0
+    aggregate_unrealized_pnl = 0.0
+    aggregate_submitted_volume = 0
+    aggregate_filled_volume = 0
+    run_count = 0
+
+    for label, order_depth_csv, trade_csv in replay_files:
+        frames = load_frames_from_csv(order_depth_csv, trade_csv)
+        result = _run_single_backtest(frames)
+        _write_result_bundle(output_dir, label, result)
+        _print_result(label, result)
+
+        aggregate_total_pnl += result.total_pnl
+        aggregate_realized_pnl += result.realized_pnl
+        aggregate_unrealized_pnl += result.unrealized_pnl
+        aggregate_submitted_volume += result.submitted_volume
+        aggregate_filled_volume += result.filled_volume
+        run_count += 1
+
+    aggregate_summary = {
+        "runs": run_count,
+        "total_pnl": aggregate_total_pnl,
+        "realized_pnl": aggregate_realized_pnl,
+        "unrealized_pnl": aggregate_unrealized_pnl,
+        "submitted_volume": aggregate_submitted_volume,
+        "filled_volume": aggregate_filled_volume,
+        "fill_ratio": (
+            aggregate_filled_volume / aggregate_submitted_volume if aggregate_submitted_volume else 0.0
+        ),
+    }
+    (output_dir / "aggregate_summary.json").write_text(json.dumps(aggregate_summary, indent=2))
+
+    print("Aggregate")
+    print(f"Runs: {run_count}")
+    print(f"Total PnL: {aggregate_total_pnl:.2f}")
+    print(f"Realized PnL: {aggregate_realized_pnl:.2f}")
+    print(f"Unrealized PnL: {aggregate_unrealized_pnl:.2f}")
+    print(f"Fill ratio: {aggregate_summary['fill_ratio']:.3f}")
+
+
+def _run_single_backtest(frames):
     config = BacktestConfig(
         position_limits={"EMERALDS": 80, "TOMATOES": 80},
         submission_id="SUBMISSION",
@@ -43,13 +111,17 @@ def main() -> None:
         passive_fill_fraction=0.5,
     )
     engine = BacktestEngine(frames=frames, config=config)
-    result = engine.run(Trader())
+    return engine.run(Trader())
 
-    args.output_dir.mkdir(parents=True, exist_ok=True)
-    _write_summary(args.output_dir / "tutorial_summary.json", result)
-    _write_equity_curve(args.output_dir / "tutorial_equity_curve.csv", result)
-    _write_fills(args.output_dir / "tutorial_fills.csv", result)
 
+def _write_result_bundle(output_dir: Path, label: str, result) -> None:
+    _write_summary(output_dir / f"{label}_summary.json", result)
+    _write_equity_curve(output_dir / f"{label}_equity_curve.csv", result)
+    _write_fills(output_dir / f"{label}_fills.csv", result)
+
+
+def _print_result(label: str, result) -> None:
+    print(label)
     print(f"Steps: {len(result.step_summaries)}")
     print(f"Final PnL: {result.total_pnl:.2f}")
     print(f"Realized PnL: {result.realized_pnl:.2f}")

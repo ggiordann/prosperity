@@ -1,0 +1,18 @@
+{
+  "total_pnl": -35702.0,
+  "realized_pnl": -35681.88571428572,
+  "unrealized_pnl": -20.11428571428405,
+  "final_positions": {
+    "EMERALDS": 0,
+    "TOMATOES": 4
+  },
+  "metrics": {
+    "max_drawdown": 35702.0,
+    "mean_step_pnl_change": -3.5705570557055704,
+    "pnl_volatility": 9.100377953008806,
+    "sharpe_like": -39.23329934015446,
+    "fill_ratio": 1.0
+  },
+  "submitted_volume": 5268,
+  "filled_volume": 5268
+}

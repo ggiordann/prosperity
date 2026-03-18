@@ -65,22 +65,25 @@ class Trader:
             return orders
 
         mid_price = (best_bid + best_ask) / 2.0
-        signals = memory.setdefault("TOMATOES", {"ema_fast": mid_price, "ema_slow": mid_price})
-        signals["ema_fast"] = 0.35 * mid_price + 0.65 * signals["ema_fast"]
-        signals["ema_slow"] = 0.10 * mid_price + 0.90 * signals["ema_slow"]
-        trend = signals["ema_fast"] - signals["ema_slow"]
-        target_position = max(-30, min(30, int(round(trend * 4))))
+        signals = memory.setdefault("TOMATOES", {"mean_price": mid_price})
+        signals["mean_price"] = 0.03 * mid_price + 0.97 * signals["mean_price"]
+
+        fair_value = signals["mean_price"] - (0.05 * position)
         buy_capacity, sell_capacity = self._capacities("TOMATOES", position)
 
-        if position < target_position - 2:
-            quantity = min(target_position - position, 10, buy_capacity)
-            if quantity > 0:
-                orders.append(Order("TOMATOES", best_ask, quantity))
+        for ask_price, ask_volume in sorted(order_depth.sell_orders.items()):
+            quantity = min(buy_capacity, -ask_volume, 10)
+            if quantity <= 0 or ask_price > fair_value - 4:
+                continue
+            orders.append(Order("TOMATOES", ask_price, quantity))
+            buy_capacity -= quantity
 
-        if position > target_position + 2:
-            quantity = min(position - target_position, 10, sell_capacity)
-            if quantity > 0:
-                orders.append(Order("TOMATOES", best_bid, -quantity))
+        for bid_price, bid_volume in sorted(order_depth.buy_orders.items(), reverse=True):
+            quantity = min(sell_capacity, bid_volume, 10)
+            if quantity <= 0 or bid_price < fair_value + 4:
+                continue
+            orders.append(Order("TOMATOES", bid_price, -quantity))
+            sell_capacity -= quantity
 
         return orders
 
