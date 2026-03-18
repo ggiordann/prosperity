@@ -1,18 +1,9 @@
 from __future__ import annotations
 
 import argparse
-import csv
-import json
 from pathlib import Path
 
-from prosperity.backtest import (
-    BacktestConfig,
-    BacktestEngine,
-    discover_replay_files,
-    generate_tutorial_scenario,
-    load_frames_from_csv,
-)
-from traders.tutorial_trader import Trader
+from prosperity.backtest import run_directory_backtest, run_single_replay, run_synthetic_backtest
 
 
 def main() -> None:
@@ -45,142 +36,50 @@ def main() -> None:
     args.output_dir.mkdir(parents=True, exist_ok=True)
 
     if args.data_dir:
-        _run_directory_backtest(args.data_dir, args.output_dir)
+        payload = run_directory_backtest(data_dir=args.data_dir, output_dir=args.output_dir)
+        _print_directory_payload(payload)
         return
 
     if args.order_depth_csv:
-        frames = load_frames_from_csv(args.order_depth_csv, args.trade_csv)
         label = args.order_depth_csv.stem.removeprefix("prices_")
-    else:
-        frames = generate_tutorial_scenario(steps=args.steps, seed=args.seed)
-        label = "tutorial"
-
-    result = _run_single_backtest(frames)
-    _write_result_bundle(args.output_dir, label, result)
-    _print_result(label, result)
-
-
-def _run_directory_backtest(data_dir: Path, output_dir: Path) -> None:
-    replay_files = discover_replay_files(data_dir)
-    aggregate_total_pnl = 0.0
-    aggregate_realized_pnl = 0.0
-    aggregate_unrealized_pnl = 0.0
-    aggregate_submitted_volume = 0
-    aggregate_filled_volume = 0
-    run_count = 0
-
-    for label, order_depth_csv, trade_csv in replay_files:
-        frames = load_frames_from_csv(order_depth_csv, trade_csv)
-        result = _run_single_backtest(frames)
-        _write_result_bundle(output_dir, label, result)
-        _print_result(label, result)
-
-        aggregate_total_pnl += result.total_pnl
-        aggregate_realized_pnl += result.realized_pnl
-        aggregate_unrealized_pnl += result.unrealized_pnl
-        aggregate_submitted_volume += result.submitted_volume
-        aggregate_filled_volume += result.filled_volume
-        run_count += 1
-
-    aggregate_summary = {
-        "runs": run_count,
-        "total_pnl": aggregate_total_pnl,
-        "realized_pnl": aggregate_realized_pnl,
-        "unrealized_pnl": aggregate_unrealized_pnl,
-        "submitted_volume": aggregate_submitted_volume,
-        "filled_volume": aggregate_filled_volume,
-        "fill_ratio": (
-            aggregate_filled_volume / aggregate_submitted_volume if aggregate_submitted_volume else 0.0
-        ),
-    }
-    (output_dir / "aggregate_summary.json").write_text(json.dumps(aggregate_summary, indent=2))
-
-    print("Aggregate")
-    print(f"Runs: {run_count}")
-    print(f"Total PnL: {aggregate_total_pnl:.2f}")
-    print(f"Realized PnL: {aggregate_realized_pnl:.2f}")
-    print(f"Unrealized PnL: {aggregate_unrealized_pnl:.2f}")
-    print(f"Fill ratio: {aggregate_summary['fill_ratio']:.3f}")
-
-
-def _run_single_backtest(frames):
-    config = BacktestConfig(
-        position_limits={"EMERALDS": 80, "TOMATOES": 80},
-        submission_id="SUBMISSION",
-        fill_model="queue_reactive",
-        passive_fill_fraction=0.5,
-    )
-    engine = BacktestEngine(frames=frames, config=config)
-    return engine.run(Trader())
-
-
-def _write_result_bundle(output_dir: Path, label: str, result) -> None:
-    _write_summary(output_dir / f"{label}_summary.json", result)
-    _write_equity_curve(output_dir / f"{label}_equity_curve.csv", result)
-    _write_fills(output_dir / f"{label}_fills.csv", result)
-
-
-def _print_result(label: str, result) -> None:
-    print(label)
-    print(f"Steps: {len(result.step_summaries)}")
-    print(f"Final PnL: {result.total_pnl:.2f}")
-    print(f"Realized PnL: {result.realized_pnl:.2f}")
-    print(f"Unrealized PnL: {result.unrealized_pnl:.2f}")
-    print(f"Final positions: {result.final_positions}")
-    print(f"Fill ratio: {result.metrics['fill_ratio']:.3f}")
-    print(f"Max drawdown: {result.metrics['max_drawdown']:.2f}")
-    print(f"Sharpe-like: {result.metrics['sharpe_like']:.2f}")
-
-
-def _write_summary(path: Path, result) -> None:
-    summary = {
-        "total_pnl": result.total_pnl,
-        "realized_pnl": result.realized_pnl,
-        "unrealized_pnl": result.unrealized_pnl,
-        "final_positions": result.final_positions,
-        "metrics": result.metrics,
-        "submitted_volume": result.submitted_volume,
-        "filled_volume": result.filled_volume,
-    }
-    path.write_text(json.dumps(summary, indent=2))
-
-
-def _write_equity_curve(path: Path, result) -> None:
-    with path.open("w", newline="") as handle:
-        writer = csv.writer(handle)
-        writer.writerow(
-            [
-                "timestamp",
-                "cash",
-                "realized_pnl",
-                "unrealized_pnl",
-                "total_pnl",
-                "own_trade_count",
-                "positions",
-            ]
+        payload = run_single_replay(
+            order_depth_csv=args.order_depth_csv,
+            trade_csv=args.trade_csv,
+            output_dir=args.output_dir,
+            label=label,
         )
-        for step in result.step_summaries:
-            writer.writerow(
-                [
-                    step.timestamp,
-                    f"{step.cash:.2f}",
-                    f"{step.realized_pnl:.2f}",
-                    f"{step.unrealized_pnl:.2f}",
-                    f"{step.total_pnl:.2f}",
-                    step.own_trade_count,
-                    json.dumps(step.positions, sort_keys=True),
-                ]
-            )
+    else:
+        payload = run_synthetic_backtest(
+            steps=args.steps,
+            seed=args.seed,
+            output_dir=args.output_dir,
+            label="tutorial",
+        )
+
+    _print_run_payload(payload["run"])
 
 
-def _write_fills(path: Path, result) -> None:
-    with path.open("w", newline="") as handle:
-        writer = csv.writer(handle)
-        writer.writerow(["timestamp", "symbol", "price", "quantity", "buyer", "seller"])
-        for fill in result.fills:
-            writer.writerow(
-                [fill.timestamp, fill.symbol, fill.price, fill.quantity, fill.buyer or "", fill.seller or ""]
-            )
+def _print_directory_payload(payload) -> None:
+    for run in payload["runs"]:
+        _print_run_payload(run)
+    print("Aggregate")
+    print(f"Runs: {payload['aggregate']['runs']}")
+    print(f"Total PnL: {payload['aggregate']['total_pnl']:.2f}")
+    print(f"Realized PnL: {payload['aggregate']['realized_pnl']:.2f}")
+    print(f"Unrealized PnL: {payload['aggregate']['unrealized_pnl']:.2f}")
+    print(f"Fill ratio: {payload['aggregate']['fill_ratio']:.3f}")
+
+
+def _print_run_payload(run) -> None:
+    summary = run["summary"]
+    print(run["label"])
+    print(f"Final PnL: {summary['total_pnl']:.2f}")
+    print(f"Realized PnL: {summary['realized_pnl']:.2f}")
+    print(f"Unrealized PnL: {summary['unrealized_pnl']:.2f}")
+    print(f"Final positions: {summary['final_positions']}")
+    print(f"Fill ratio: {summary['metrics']['fill_ratio']:.3f}")
+    print(f"Max drawdown: {summary['metrics']['max_drawdown']:.2f}")
+    print(f"Sharpe-like: {summary['metrics']['sharpe_like']:.2f}")
 
 
 if __name__ == "__main__":

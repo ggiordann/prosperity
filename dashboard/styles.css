@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+  font-family: "Helvetica Neue", "Nimbus Sans", sans-serif;
+}
+
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.controls,
+.stats,
+.chart-panel {
+  margin-top: 16px;
+  border: 1px solid #fff;
+  background: #000;
+}
+
+.controls {
+  padding: 16px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+label,
+.stat span,
+#chartMeta {
+  font-size: 0.75rem;
+  color: #d9d9d9;
+  text-transform: uppercase;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #fff;
+  background: #000;
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+button {
+  padding: 10px 14px;
+  border: 1px solid #fff;
+  background: #fff;
+  color: #000;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.stats {
+  padding: 12px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.stat {
+  border: 1px solid #fff;
+  padding: 12px;
+  min-height: 82px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.stat strong {
+  font-size: 1.25rem;
+}
+
+.chart-panel {
+  padding: 16px;
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.chart-head h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+#equityCanvas {
+  display: block;
+  width: 100%;
+  height: 460px;
+  border: 1px solid #fff;
+  background: #000;
+  cursor: grab;
+}
+
+#equityCanvas.dragging {
+  cursor: grabbing;
+}
+
+@media (max-width: 980px) {
+  .controls,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+}
