@@ -1,11 +1,17 @@
-welcome to our team repository!
+# prosperity 4 team repo
 
-this is how we won IMC prosperity 4 vibe coding ending with 1 billion money
+welcome to our team's WINNING Prosperity 4 submission! 
 
-created by
+we achieved **1 billion money** in the competition.
 
-giordan masen
-michele pipicelli
-aditya payanadan
-jin xing
-josh antony
+## non photoshopped team
+
+![floating michele](floatingmichele.png)
+
+## team members
+
+Giordan Masen <br>
+Michele Pipicelli<br>
+Aditya Payanadan<br>
+Jin Xing<br>
+Josh Antony
