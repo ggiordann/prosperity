@@ -1,2 +1,0 @@
-"""Local Prosperity research toolkit."""
-

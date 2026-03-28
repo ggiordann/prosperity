@@ -1,3 +1,11 @@
-Welcome to our Team Repository
+welcome to our team repository!
 
-This is how we won IMC Prosperity 4 ending with 1 billion money
+this is how we won IMC prosperity 4 vibe coding ending with 1 billion money
+
+created by
+
+giordan masen
+michele pipicelli
+aditya payanadan
+jin xing
+josh antony
