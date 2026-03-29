@@ -80,6 +80,33 @@ class Trader:
     def _param(self, name: str, default: float) -> float:
         return float(PARAMS.get(name, default))
 
+    def _fair_component_weight(self, component: dict) -> float:
+        params = component.get("params", {})
+        label = params.get("label")
+        weight = float(component.get("weight", 1.0))
+        if label:
+            return self._param(f"{label}_weight", weight)
+        return weight
+
+    def _signal_component_weight(self, signal: dict) -> float:
+        base = float(signal.get("weight", 1.0))
+        return self._param(f"{signal['name']}_weight", base)
+
+    @staticmethod
+    def _level_imbalance(order_depth: OrderDepth, level: int, best_bid_volume: int, best_ask_volume: int) -> float:
+        bid_levels = sorted(order_depth.buy_orders, reverse=True)
+        ask_levels = sorted(order_depth.sell_orders)
+        if level <= 1:
+            bid_volume = best_bid_volume
+            ask_volume = best_ask_volume
+        else:
+            bid_price = bid_levels[level - 1] if len(bid_levels) >= level else bid_levels[-1]
+            ask_price = ask_levels[level - 1] if len(ask_levels) >= level else ask_levels[-1]
+            bid_volume = order_depth.buy_orders.get(bid_price, best_bid_volume)
+            ask_volume = abs(order_depth.sell_orders.get(ask_price, -best_ask_volume))
+        total = bid_volume + ask_volume
+        return (bid_volume - ask_volume) / total if total else 0.0
+
     def _trade_submission_candidate_emeralds(self, order_depth: OrderDepth, position: int) -> List[Order]:
         best_bid = max(order_depth.buy_orders)
         best_ask = min(order_depth.sell_orders)
@@ -208,19 +235,31 @@ class Trader:
         best_ask = min(order_depth.sell_orders)
         best_bid_volume = order_depth.buy_orders[best_bid]
         best_ask_volume = abs(order_depth.sell_orders[best_ask])
+        spread = best_ask - best_bid
         mid = 0.5 * (best_bid + best_ask)
-        wall_threshold = 15
-        wall_bid = max((price for price, volume in order_depth.buy_orders.items() if volume >= wall_threshold), default=best_bid)
-        wall_ask = min((price for price, volume in order_depth.sell_orders.items() if abs(volume) >= wall_threshold), default=best_ask)
-        wall_mid = 0.5 * (wall_bid + wall_ask)
         total = best_bid_volume + best_ask_volume
         micro = (best_ask * best_bid_volume + best_bid * best_ask_volume) / total if total else mid
         imbalance = (best_bid_volume - best_ask_volume) / total if total else 0.0
 
+        bid_levels = sorted(order_depth.buy_orders, reverse=True)
+        ask_levels = sorted(order_depth.sell_orders)
+        bid2 = bid_levels[1] if len(bid_levels) > 1 else best_bid
+        ask2 = ask_levels[1] if len(ask_levels) > 1 else best_ask
+        bid2_volume = order_depth.buy_orders.get(bid2, best_bid_volume)
+        ask2_volume = abs(order_depth.sell_orders.get(ask2, -best_ask_volume))
+        gap_signal = (ask2 - best_ask) - (best_bid - bid2)
+
+        mid_history = list(product_state.get("mid_history", []))
+        mid_history.append(mid)
+        product_state["mid_history"] = mid_history[-16:]
+        spread_history = list(product_state.get("spread_history", []))
+        spread_history.append(spread)
+        product_state["spread_history"] = spread_history[-16:]
+
         fair = 0.0
         for component in SPEC["fair_value_models"]:
             kind = component["kind"]
-            weight = component.get("weight", 1.0)
+            weight = self._fair_component_weight(component)
             params = component.get("params", {})
             target_product = params.get("product")
             if target_product and target_product != product:
@@ -232,19 +271,37 @@ class Trader:
             elif kind == "microprice":
                 fair += weight * micro
             elif kind == "wall_mid":
-                fair += weight * wall_mid
+                threshold_key = params.get("threshold_param")
+                threshold_default = float(params.get("threshold", 15))
+                threshold = int(round(self._param(str(threshold_key), threshold_default))) if threshold_key else int(round(threshold_default))
+                wall_bid = max((price for price, volume in order_depth.buy_orders.items() if volume >= threshold), default=best_bid)
+                wall_ask = min((price for price, volume in order_depth.sell_orders.items() if abs(volume) >= threshold), default=best_ask)
+                fair += weight * (0.5 * (wall_bid + wall_ask))
             elif kind == "ema":
-                alpha = float(params.get("alpha", 0.2))
-                key = f"{kind}_value"
-                previous = float(product_state.get(key, mid))
-                current = alpha * mid + (1.0 - alpha) * previous
+                alpha_key = params.get("alpha_param")
+                alpha_default = float(params.get("alpha", 0.2))
+                alpha = self._param(str(alpha_key), alpha_default) if alpha_key else alpha_default
+                source = params.get("source", "mid")
+                if source == "microprice":
+                    source_value = micro
+                elif source == "wall_mid":
+                    threshold_default = float(params.get("threshold", 15))
+                    threshold = int(round(self._param(str(params.get("threshold_param")), threshold_default))) if params.get("threshold_param") else int(round(threshold_default))
+                    wall_bid = max((price for price, volume in order_depth.buy_orders.items() if volume >= threshold), default=best_bid)
+                    wall_ask = min((price for price, volume in order_depth.sell_orders.items() if abs(volume) >= threshold), default=best_ask)
+                    source_value = 0.5 * (wall_bid + wall_ask)
+                else:
+                    source_value = mid
+                key = f"{kind}_{source}_value"
+                previous = float(product_state.get(key, source_value))
+                current = alpha * source_value + (1.0 - alpha) * previous
                 product_state[key] = current
                 fair += weight * current
 
         signal_value = 0.0
         for signal in SPEC["signal_models"]:
             kind = signal["kind"]
-            weight = signal.get("weight", 1.0)
+            weight = self._signal_component_weight(signal)
             params = signal.get("params", {})
             target_product = params.get("product")
             if target_product and target_product != product:
@@ -252,40 +309,73 @@ class Trader:
             if kind == "mean_reversion":
                 signal_value += weight * (fair - mid)
             elif kind == "momentum":
-                last_mid = float(product_state.get("last_mid", mid))
-                signal_value += weight * (mid - last_mid)
+                lag = max(1, int(params.get("lag", 1)))
+                previous = mid_history[-(lag + 1)] if len(mid_history) > lag else mid
+                signal_value += weight * (mid - previous)
             elif kind == "imbalance":
                 signal_value += weight * imbalance
             elif kind == "trade_pressure":
-                signal_value += weight * float(product_state.get("trade_pressure", 0.0))
+                previous = mid_history[-2] if len(mid_history) >= 2 else mid
+                signal_value += weight * imbalance * (mid - previous)
             elif kind == "volatility":
-                last_mid = float(product_state.get("last_mid", mid))
-                signal_value += weight * abs(mid - last_mid)
+                previous = mid_history[-2] if len(mid_history) >= 2 else mid
+                signal_value += weight * abs(mid - previous)
+            elif kind == "gap_asymmetry":
+                signal_value += weight * gap_signal
+            elif kind == "level_imbalance":
+                signal_value += weight * self._level_imbalance(order_depth, int(params.get("level", 2)), best_bid_volume, best_ask_volume)
+            elif kind == "lagged_return":
+                lag = max(1, int(params.get("lag", 1)))
+                previous = mid_history[-(lag + 1)] if len(mid_history) > lag else mid
+                signal_value += weight * (mid - previous)
+            elif kind == "micro_delta":
+                signal_value += weight * (micro - fair)
+            elif kind == "spread_compression":
+                previous_spreads = spread_history[:-1]
+                rolling_spread = sum(previous_spreads) / len(previous_spreads) if previous_spreads else spread
+                signal_value += weight * (rolling_spread - spread)
 
         product_state["last_mid"] = mid
-        reservation = fair + signal_value
+        signal_scale = self._param("signal_scale", 1.0)
+        reservation = fair + signal_scale * signal_value + self._param("reservation_bias", 0.0)
         risk = SPEC["risk_policy"]
         limit = int(risk["per_product_position_caps"].get(product, 20))
         max_aggressive = int(risk.get("max_aggressive_size", 10))
-        inventory_skew = float(SPEC["execution_policy"]["market_making"].get("inventory_skew", 0.0))
-        reservation -= inventory_skew * (position / max(1, limit)) * max(1.0, best_ask - best_bid)
+        mm = SPEC["execution_policy"]["market_making"]
+        inventory_skew = self._param("inventory_skew", float(mm.get("inventory_skew", 0.0)))
+        reservation -= inventory_skew * (position / max(1, limit)) * max(1.0, spread)
 
         orders: List[Order] = []
         taking = SPEC["execution_policy"]["taking"]
         if taking.get("enabled", True):
-            min_edge = float(taking.get("min_edge", 1.0))
-            max_size = int(taking.get("max_size", max_aggressive))
-            if best_ask <= reservation - min_edge:
+            min_edge = self._param("taking_min_edge", float(taking.get("min_edge", 1.0)))
+            max_size = max(1, int(round(self._param("taking_max_size", float(taking.get("max_size", max_aggressive))))))
+            taking_style = taking.get("params", {}).get("style", "balanced")
+            if taking_style == "strict":
+                min_edge += 0.5
+            elif taking_style == "aggressive":
+                min_edge = max(0.0, min_edge - 0.5)
+
+            buy_allowed = best_ask <= reservation - min_edge
+            sell_allowed = best_bid >= reservation + min_edge
+            if taking_style == "breakout":
+                buy_allowed = buy_allowed and signal_value > 0
+                sell_allowed = sell_allowed and signal_value < 0
+            elif taking_style == "reversion":
+                buy_allowed = buy_allowed and (micro <= fair or gap_signal < 0)
+                sell_allowed = sell_allowed and (micro >= fair or gap_signal > 0)
+
+            if buy_allowed:
                 buy_size = min(best_ask_volume, max_size, limit - position)
                 if buy_size > 0:
                     orders.append(Order(product, best_ask, buy_size))
-            if best_bid >= reservation + min_edge:
+            if sell_allowed:
                 sell_size = min(best_bid_volume, max_size, limit + position)
                 if sell_size > 0:
                     orders.append(Order(product, best_bid, -sell_size))
 
         current_position = position + sum(order.quantity for order in orders)
-        clear_width = float(SPEC["execution_policy"].get("clear_inventory_width", 0.0))
+        clear_width = self._param("clear_width", float(SPEC["execution_policy"].get("clear_inventory_width", 0.0)))
         fair_level_bid = int(reservation - clear_width)
         fair_level_ask = int(reservation + clear_width)
         if current_position > 0 and fair_level_ask in order_depth.buy_orders:
@@ -297,19 +387,34 @@ class Trader:
             if quantity > 0:
                 orders.append(Order(product, fair_level_bid, quantity))
 
-        mm = SPEC["execution_policy"]["market_making"]
         if mm.get("enabled", True):
             buy_remaining = max(0, limit - position - sum(max(0, order.quantity) for order in orders))
             sell_remaining = max(0, limit + position - sum(max(0, -order.quantity) for order in orders))
+            quote_style = mm.get("params", {}).get("style", "balanced")
+            layer_offset_scale = self._param("layer_offset_scale", 1.0)
+            layer_size_scale = self._param("layer_size_scale", 1.0)
+            quote_reservation = reservation
+            if quote_style == "signal_skew":
+                quote_reservation += 0.25 * signal_value
+            elif quote_style == "inventory_first":
+                quote_reservation -= 0.5 * (position / max(1, limit)) * max(1.0, spread)
+            elif quote_style == "passive_wide":
+                layer_offset_scale *= 1.25
+
             for layer in mm.get("layers", []):
                 target_product = layer.get("product")
                 if target_product and target_product != product:
                     continue
-                offset = float(layer.get("offset", mm.get("base_half_spread", 2.0)))
-                size = int(layer.get("size", 5))
+                offset = float(layer.get("offset", mm.get("base_half_spread", 2.0))) * layer_offset_scale
+                size = max(1, int(round(float(layer.get("size", 5)) * layer_size_scale)))
                 side = layer["side"]
+                if quote_style == "one_sided":
+                    if signal_value > 0 and side == "sell":
+                        size = max(1, int(round(size * 0.55)))
+                    elif signal_value < 0 and side == "buy":
+                        size = max(1, int(round(size * 0.55)))
                 if side == "buy" and buy_remaining > 0:
-                    model_price = int(round(reservation - offset))
+                    model_price = int(round(quote_reservation - offset))
                     if layer.get("join_best", True):
                         price = min(best_ask - 1, max(best_bid + 1, model_price))
                     else:
@@ -319,7 +424,7 @@ class Trader:
                         orders.append(Order(product, price, quantity))
                         buy_remaining -= quantity
                 elif side == "sell" and sell_remaining > 0:
-                    model_price = int(round(reservation + offset))
+                    model_price = int(round(quote_reservation + offset))
                     if layer.get("join_best", True):
                         price = max(best_bid + 1, min(best_ask - 1, model_price))
                     else:

@@ -1,7 +1,12 @@
 from __future__ import annotations
 
 from prosperity.dsl.crossover import crossover_specs
-from prosperity.dsl.mutators import apply_structural_profile, jitter_parameters, simplify_spec
+from prosperity.dsl.mutators import (
+    apply_structural_profile,
+    family_component_mutation,
+    jitter_parameters,
+    simplify_spec,
+)
 from prosperity.dsl.validators import validate_spec
 
 
@@ -41,3 +46,10 @@ def test_apply_structural_profile_changes_spec_shape(sample_spec):
     assert mutated.metadata.id.endswith("-low_turnover")
     assert sample_spec.metadata.id in mutated.metadata.parent_ids
     assert mutated.execution_policy.taking.min_edge >= sample_spec.execution_policy.taking.min_edge
+
+
+def test_family_component_mutation_switches_family(sample_spec):
+    mutated = family_component_mutation(sample_spec, "tutorial_pressure_momentum", component="signal")
+    assert "tutorial_pressure_momentum" in mutated.metadata.family
+    assert sample_spec.metadata.id in mutated.metadata.parent_ids
+    assert mutated.signal_models != sample_spec.signal_models

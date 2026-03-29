@@ -137,6 +137,10 @@ right now the frontier is seeded with families like:
 - `tutorial_submission_candidate_alpha`
 - `tutorial_microprice_reversion`
 - `tutorial_wall_mid_mm`
+- `tutorial_latent_book_reversion`
+- `tutorial_pressure_momentum`
+- `tutorial_passive_queue_reversion`
+- `tutorial_gap_repricing`
 
 the loop can mutate those alternate parents too, not just the champion.
 
@@ -157,6 +161,101 @@ examples:
 - crossover between an alternate family and the champion
 
 this is the part that gives the loop a chance to discover a different regime, not just a slightly tweaked clone.
+
+### 4. family jump candidates
+
+this is the new part that makes the loop switch algos for real.
+
+the loop no longer treats every idea as “same bot, slightly different numbers”.
+
+instead, it can deliberately jump between separate coded strategy families.
+
+that can happen in five ways:
+
+- `full_jump`
+  - replace the current family with another whole family
+- `fair`
+  - keep the bot, but swap in another family’s fair-value model
+- `signal`
+  - keep the bot, but swap in another family’s signal block
+- `execution`
+  - keep the alpha, but swap execution style
+- `risk`
+  - keep alpha + execution, but swap the risk policy
+
+so a family jump is a structural change, not just `quote_aggression -= 0.1`.
+
+---
+
+## what “separate families” means
+
+a family is a different trading architecture, not just a different parameter preset.
+
+each family has its own:
+
+- fair value construction
+- signal mix
+- execution style
+- inventory / risk style
+- parameter space
+
+for example:
+
+- `tutorial_passive_queue_reversion`
+  - slower, more passive, queue-priority market making
+- `tutorial_pressure_momentum`
+  - more directional, momentum / pressure driven behavior
+- `tutorial_latent_book_reversion`
+  - blends slower wall information with faster microprice signals
+- `tutorial_gap_repricing`
+  - reacts to asymmetry between first and second book levels
+
+so when the loop changes family, it is changing the *shape* of the algorithm.
+
+---
+
+## two-stage structural search
+
+the loop now works in two stages:
+
+### stage 1: structural screen
+
+it generates:
+
+- exploit candidates
+- explore candidates
+- structural candidates
+- family jump candidates
+
+and backtests all of them.
+
+### stage 2: survivor tune
+
+if one of the structural / family-jump candidates looks promising, the loop does **one more local tuning pass around that survivor**.
+
+that means:
+
+- first ask “is this different algo family any good?”
+- then ask “if yes, can we tune it a bit and make it competitive?”
+
+this is much better than doing endless local tuning around one family and hoping to magically discover something new.
+
+---
+
+## forced family-jump cycles
+
+the loop now has a periodic “don’t get lazy” rule.
+
+by default, every fourth cycle is a **family-jump cycle**.
+
+on those cycles, more search budget is pushed into:
+
+- family jumps
+- structural candidates
+
+and less into local exploitation.
+
+that is how the loop avoids getting stuck forever in one comfortable champion neighborhood.
 
 ---
 

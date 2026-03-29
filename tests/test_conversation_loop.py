@@ -18,6 +18,8 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     settings.conversation.exploit_candidates = 3
     settings.conversation.explore_candidates = 0
     settings.conversation.structural_candidates = 0
+    settings.conversation.family_jump_candidates = 0
+    settings.conversation.survivor_tune_candidates = 0
     settings.conversation.promote_min_improvement = 5.0
 
     def fake_ingest(paths_obj, settings_obj, repo):

@@ -17,6 +17,6 @@ def generate_candidate_specs(
     selected: list[StrategySpec] = []
     for index in range(count):
         family = families[index] if index < len(families) else select_underexplored_family(existing_families, crowded)
-        builder: Callable[[], StrategySpec] = FAMILY_BUILDERS[family]
+        builder: Callable[..., StrategySpec] = FAMILY_BUILDERS[family]
         selected.append(builder())
     return selected

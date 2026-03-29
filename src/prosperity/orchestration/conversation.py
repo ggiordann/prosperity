@@ -16,13 +16,12 @@ from prosperity.db.models import (
     MemoryNoteRecord,
 )
 from prosperity.dsl.crossover import crossover_specs
-from prosperity.dsl.mutators import apply_structural_profile
+from prosperity.dsl.mutators import apply_structural_profile, family_component_mutation
 from prosperity.dsl.schema import ParameterDef, StrategySpec
 from prosperity.external.discord_notifier import send_cycle_summary_message
 from prosperity.generation.family_registry import (
-    tutorial_market_maker,
-    tutorial_microprice_reversion,
-    tutorial_submission_candidate_alpha,
+    FAMILY_BUILDERS,
+    build_family_spec,
 )
 from prosperity.llm.client import LLMClient
 from prosperity.orchestration.jobs import (
@@ -45,17 +44,30 @@ FRONTIER_SEED_SPECS = {
     "tutorial_submission_candidate_alpha": {
         "strategy_id": "conversation-submission-alpha-seed",
         "name": "Conversation Submission Alpha Seed",
-        "builder": tutorial_submission_candidate_alpha,
     },
-    "tutorial_microprice_reversion": {
-        "strategy_id": "conversation-microprice-seed",
-        "name": "Conversation Microprice Seed",
-        "builder": tutorial_microprice_reversion,
+    "tutorial_latent_book_reversion": {
+        "strategy_id": "conversation-latent-book-seed",
+        "name": "Conversation Latent Book Seed",
     },
     "tutorial_wall_mid_mm": {
         "strategy_id": "conversation-wall-mid-seed",
         "name": "Conversation Wall Mid Seed",
-        "builder": tutorial_market_maker,
+    },
+    "tutorial_microprice_reversion": {
+        "strategy_id": "conversation-microprice-seed",
+        "name": "Conversation Microprice Seed",
+    },
+    "tutorial_pressure_momentum": {
+        "strategy_id": "conversation-pressure-momentum-seed",
+        "name": "Conversation Pressure Momentum Seed",
+    },
+    "tutorial_passive_queue_reversion": {
+        "strategy_id": "conversation-passive-queue-seed",
+        "name": "Conversation Passive Queue Seed",
+    },
+    "tutorial_gap_repricing": {
+        "strategy_id": "conversation-gap-repricing-seed",
+        "name": "Conversation Gap Repricing Seed",
     },
 }
 STRUCTURAL_PROFILES = [
@@ -180,34 +192,63 @@ def _normalize_plan(payload: dict, allowed_parameters: list[str], max_candidates
 
 
 def _heuristic_plan(spec: StrategySpec, memory_notes: list[dict], iteration: int, max_candidates: int) -> dict:
-    focus = [
-        "fair_alpha_scale",
-        "second_imb_weight",
-        "gap_weight",
-        "ret1_weight",
-        "micro_weight",
-        "tomato_take_width",
+    available = _allowed_parameters(spec)
+    preferred_groups = [
+        [
+            "fair_alpha_scale",
+            "second_imb_weight",
+            "gap_weight",
+            "ret1_weight",
+            "micro_weight",
+            "tomato_take_width",
+        ],
+        [
+            "taking_min_edge",
+            "inventory_skew",
+            "layer_offset_scale",
+            "layer_size_scale",
+            "clear_width",
+            "signal_scale",
+        ],
     ]
+    focus: list[str] = []
+    for group in preferred_groups:
+        focus.extend([name for name in group if name in available])
+        if len(focus) >= 4:
+            break
+    if len(focus) < 4:
+        ranked = [
+            name
+            for name in available
+            if any(token in name for token in ("weight", "edge", "inventory", "layer", "clear", "signal", "alpha", "take"))
+        ]
+        focus.extend([name for name in ranked if name not in focus])
+    if not focus:
+        focus = available[:4]
+    focus = focus[:6]
     if iteration % 3 == 0:
-        focus = ["quote_aggression", "take_extra", "tomato_take_width", "clear_width"]
+        focus = [name for name in focus if name not in {"fair_alpha_scale", "second_imb_weight"}]
+        focus = (focus + [name for name in ["quote_aggression", "take_extra", "taking_min_edge", "clear_width"] if name in available])[:4]
     note_text = " ".join(note["content"] for note in memory_notes[:4]).lower()
     defensive = any(token in note_text for token in ("aggressive", "inventory", "drawdown", "worse"))
     directions = {name: "neutral" for name in focus}
-    directions["fair_alpha_scale"] = "down" if defensive else "up"
-    directions["second_imb_weight"] = "down" if defensive else "up"
-    directions["tomato_take_width"] = "up" if defensive else "down"
-    directions["take_extra"] = "up" if defensive else "down"
-    directions["quote_aggression"] = "down" if defensive else "up"
+    for name in focus:
+        if any(token in name for token in ("inventory", "clear", "edge", "offset")):
+            directions[name] = "up" if defensive else "down"
+        elif any(token in name for token in ("size_scale", "max_size", "aggression", "signal_scale")):
+            directions[name] = "down" if defensive else "up"
+        elif "weight" in name or "alpha" in name:
+            directions[name] = "down" if defensive else "up"
     return {
-        "thesis": "Search locally around the TOMATOES alpha overlay while keeping EMERALDS stable.",
+        "thesis": "Search locally around the current family edge while keeping EMERALDS stable and forcing at least some structural exploration.",
         "focus_parameters": focus,
         "directions": directions,
         "candidate_count": max(3, min(max_candidates, 6)),
         "guardrails": [
             "Do not disturb EMERALDS unless the change is tiny.",
-            "Keep turnover bounded and avoid purely aggressive variants.",
+            "Keep turnover bounded and force at least one alternate-family probe.",
         ],
-        "reasoning": "Use recent postmortems to alternate between more aggressive and more defensive local search.",
+        "reasoning": "Use recent postmortems to alternate between more aggressive and more defensive local search while preserving room for family jumps.",
     }
 
 
@@ -408,20 +449,41 @@ def _make_candidate_id(base_name: str, iteration: int, variant_index: int) -> st
     return f"{slugify(base_name)}-c{iteration:03d}-v{variant_index:02d}-{uuid4().hex[:6]}"
 
 
-def _budget_split(settings: AppSettings, requested_exploit_count: int) -> dict[str, int]:
+def _budget_split(settings: AppSettings, requested_exploit_count: int, family_jump_cycle: bool) -> dict[str, int]:
     total = max(1, settings.conversation.max_candidates_per_cycle)
-    exploit = min(total, max(1, min(settings.conversation.exploit_candidates, requested_exploit_count)))
-    remaining = total - exploit
-    structural = min(settings.conversation.structural_candidates, remaining)
-    remaining -= structural
-    explore = min(settings.conversation.explore_candidates, remaining)
-    remaining -= explore
-    exploit += remaining
+    available_for_other = max(0, total - 1)
+    desired = {
+        "explore": settings.conversation.explore_candidates,
+        "structural": settings.conversation.structural_candidates,
+        "family_jump": settings.conversation.family_jump_candidates,
+        "survivor_tune": settings.conversation.survivor_tune_candidates,
+    }
+    if family_jump_cycle:
+        desired["family_jump"] += 1
+        desired["structural"] += 1
+
+    allocations = {key: 0 for key in desired}
+    order = ["family_jump", "structural", "explore", "survivor_tune"] if family_jump_cycle else ["explore", "structural", "family_jump", "survivor_tune"]
+    remaining_other = available_for_other
+    for key in order:
+        allocation = min(desired[key], remaining_other)
+        allocations[key] = allocation
+        remaining_other -= allocation
+
+    exploit = max(1, min(requested_exploit_count, total - sum(allocations.values())))
+    leftover = total - (sum(allocations.values()) + exploit)
+    if family_jump_cycle:
+        allocations["family_jump"] += max(0, leftover)
+    else:
+        exploit += max(0, leftover)
     return {
-        "total": exploit + explore + structural,
+        "total": exploit + allocations["explore"] + allocations["structural"] + allocations["family_jump"] + allocations["survivor_tune"],
         "exploit": exploit,
-        "explore": explore,
-        "structural": structural,
+        "explore": allocations["explore"],
+        "structural": allocations["structural"],
+        "family_jump": allocations["family_jump"],
+        "survivor_tune": allocations["survivor_tune"],
+        "family_jump_cycle": int(family_jump_cycle),
     }
 
 
@@ -475,6 +537,12 @@ def _apply_profile_defaults(spec: StrategySpec, profile: str) -> None:
             "take_extra": "up",
             "quote_aggression": "down",
             "fair_alpha_scale": "down",
+            "taking_min_edge": "up",
+            "inventory_skew": "up",
+            "layer_offset_scale": "up",
+            "layer_size_scale": "down",
+            "clear_width": "up",
+            "signal_scale": "down",
         }.items():
             if name not in parameter_map:
                 continue
@@ -585,6 +653,45 @@ def _structural_candidates(
     return candidates[:count]
 
 
+def _family_jump_candidates(
+    champion_entry: dict[str, Any],
+    frontier_entries: list[dict[str, Any]],
+    iteration: int,
+    count: int,
+) -> list[dict[str, Any]]:
+    if count <= 0:
+        return []
+    champion_spec = champion_entry["spec"]
+    seen_families = {entry["family"] for entry in frontier_entries}
+    family_names = [family for family in FAMILY_BUILDERS if family != champion_spec.metadata.family]
+    ordered_families = [family for family in family_names if family in seen_families] + [
+        family for family in family_names if family not in seen_families
+    ]
+    component_modes = ["full_jump", "fair", "signal", "execution", "risk"]
+    candidates: list[dict[str, Any]] = []
+    for index in range(count):
+        if not ordered_families:
+            break
+        family_name = ordered_families[index % len(ordered_families)]
+        mode = component_modes[index % len(component_modes)]
+        mutated = family_component_mutation(champion_spec, family_name, component=mode)
+        mutated.metadata.id = _make_candidate_id(f"{champion_spec.metadata.name}-{mode}-{family_name}", iteration, index + 120)
+        mutated.metadata.name = f"{champion_spec.metadata.name} {mode} {family_name} cycle {iteration}"
+        mutated.metadata.confidence_notes = (
+            f"family jump mode={mode} | source={champion_spec.metadata.family} | target={family_name}"
+        )
+        candidates.append(
+            {
+                "spec": mutated,
+                "bucket": "family_jump",
+                "origin_family": champion_spec.metadata.family,
+                "origin_strategy_id": champion_spec.metadata.id,
+                "profile": f"{mode}:{family_name}",
+            }
+        )
+    return candidates
+
+
 def _explore_candidates_from_frontier(
     frontier_entries: list[dict[str, Any]],
     champion_entry: dict[str, Any],
@@ -640,19 +747,171 @@ def _explore_candidates_from_frontier(
     return candidates[:count]
 
 
+def _evaluate_candidate_batch(
+    resolved_paths: RepoPaths,
+    resolved_settings: AppSettings,
+    resolved_session_name: str,
+    cycle_id: str,
+    champion_pnl: float,
+    candidate_entries: list[dict[str, Any]],
+    candidate_results: list[dict[str, Any]],
+    best_candidate: dict[str, Any] | None,
+) -> tuple[list[dict[str, Any]], dict[str, Any] | None]:
+    running_best = best_candidate
+    for candidate_entry in candidate_entries:
+        candidate = candidate_entry["spec"]
+        compiled = compile_spec_to_artifact(resolved_paths, candidate)
+        _with_repo(
+            resolved_paths,
+            lambda repo, candidate=candidate, compiled=compiled, bucket=candidate_entry["bucket"]: persist_strategy_record(
+                repo,
+                candidate,
+                compiled,
+                stage="conversation_candidate",
+                notes=f"Cycle candidate bucket={bucket}",
+            ),
+        )
+        evaluation = _with_repo(
+            resolved_paths,
+            lambda repo, candidate=candidate, compiled=compiled: evaluate_compiled_strategy(
+                resolved_paths,
+                resolved_settings,
+                repo,
+                candidate,
+                compiled,
+            ),
+        )
+        candidate_summary = {
+            "strategy_id": candidate.metadata.id,
+            "name": candidate.metadata.name,
+            "metrics": evaluation["metrics"],
+            "scoring": evaluation["scoring"],
+            "robustness": evaluation["robustness"],
+            "plagiarism": evaluation["plagiarism"],
+            "decision": evaluation["decision"],
+            "reason": evaluation["reason"],
+            "report_path": evaluation["report_path"],
+            "family": candidate.metadata.family,
+            "search_bucket": candidate_entry["bucket"],
+            "origin_family": candidate_entry["origin_family"],
+            "origin_strategy_id": candidate_entry["origin_strategy_id"],
+            "profile": candidate_entry["profile"],
+        }
+        postmortem = _postmortem_turn(resolved_settings, resolved_paths, candidate_summary, champion_pnl)
+        candidate_summary["postmortem"] = postmortem
+        candidate_results.append(candidate_summary)
+        _append_messages(
+            resolved_paths,
+            cycle_id,
+            resolved_session_name,
+            [
+                ("evaluator", candidate_summary),
+                ("postmortem", postmortem),
+            ],
+        )
+        _write_memory(
+            resolved_paths,
+            resolved_session_name,
+            cycle_id,
+            candidate.metadata.id,
+            "candidate_postmortem",
+            f"{postmortem['result']}: {postmortem['lesson']} Next: {postmortem['next_hint']}",
+        )
+        if running_best is None:
+            running_best = candidate_summary
+        else:
+            current_tuple = (
+                float(candidate_summary["metrics"]["total_pnl"]),
+                float(candidate_summary["scoring"]["score"]),
+            )
+            best_tuple = (
+                float(running_best["metrics"]["total_pnl"]),
+                float(running_best["scoring"]["score"]),
+            )
+            if current_tuple > best_tuple:
+                running_best = candidate_summary
+    return candidate_results, running_best
+
+
+def _select_stage_two_survivors(
+    candidate_results: list[dict[str, Any]],
+    champion_family: str,
+    count: int,
+) -> list[dict[str, Any]]:
+    if count <= 0:
+        return []
+    pool = [
+        candidate
+        for candidate in candidate_results
+        if candidate["search_bucket"] in {"explore", "structural", "family_jump"}
+    ]
+    pool.sort(
+        key=lambda candidate: (
+            float(candidate["metrics"]["total_pnl"]),
+            float(candidate["scoring"]["score"]),
+        ),
+        reverse=True,
+    )
+    survivors: list[dict[str, Any]] = []
+    seen_families: set[str] = set()
+    for candidate in pool:
+        family = candidate["family"]
+        if family == champion_family and candidate["search_bucket"] != "family_jump":
+            continue
+        if family in seen_families:
+            continue
+        survivors.append(candidate)
+        seen_families.add(family)
+        if len(survivors) >= count:
+            break
+    return survivors
+
+
+def _build_stage_two_candidates(
+    resolved_paths: RepoPaths,
+    survivors: list[dict[str, Any]],
+    plan: dict,
+    critique: dict,
+    memory_notes: list[dict],
+    iteration: int,
+) -> list[dict[str, Any]]:
+    tuned: list[dict[str, Any]] = []
+    for index, survivor in enumerate(survivors):
+        row = _with_repo(resolved_paths, lambda repo, strategy_id=survivor["strategy_id"]: repo.get_strategy(strategy_id))
+        if row is None:
+            continue
+        survivor_spec = _spec_from_row(row)
+        survivor_plan = _project_plan_to_spec(plan, survivor_spec, memory_notes, iteration, count=1)
+        tuned_batch = _mutate_candidates(
+            survivor_spec,
+            survivor_plan,
+            critique,
+            iteration,
+            count=1,
+            bucket="survivor_tune",
+        )
+        if not tuned_batch:
+            continue
+        tuned_batch[0]["profile"] = f"survivor_refine_{index}"
+        tuned.append(tuned_batch[0])
+    return tuned
+
+
 def _build_seed_spec(family_name: str, strategy_id: str, name: str) -> StrategySpec:
     if family_name == "tutorial_submission_candidate_alpha":
-        return tutorial_submission_candidate_alpha(
-            role="conversation_seed",
-            strategy_id=strategy_id,
-            name=name,
+        spec = build_family_spec(family_name, role="conversation_seed")
+        spec.metadata.id = strategy_id
+        spec.metadata.name = name
+        spec.metadata.parent_ids = []
+        spec.metadata.created_by_role = "conversation_seed"
+        spec.metadata.confidence_notes = (
+            "Seed strategy for multi-family frontier search. "
+            "This family acts as an exploration anchor rather than a guaranteed champion."
         )
-    if family_name == "tutorial_microprice_reversion":
-        spec = tutorial_microprice_reversion(role="conversation_seed")
-    elif family_name == "tutorial_wall_mid_mm":
-        spec = tutorial_market_maker(role="conversation_seed")
-    else:
+        return spec
+    if family_name not in FAMILY_BUILDERS:
         raise ValueError(f"Unsupported frontier family: {family_name}")
+    spec = build_family_spec(family_name, role="conversation_seed")
     spec.metadata.id = strategy_id
     spec.metadata.name = name
     spec.metadata.parent_ids = []
@@ -847,9 +1106,14 @@ def run_conversation_cycle(
         iteration = _with_repo(resolved_paths, lambda repo: repo.next_cycle_iteration(resolved_session_name))
         cycle_id = _create_cycle(resolved_paths, resolved_session_name, iteration, champion_spec.metadata.id)
         memory_notes = _recent_memory(resolved_paths, resolved_session_name, resolved_settings.conversation.max_memory_notes)
+        family_jump_cycle = (
+            resolved_settings.conversation.family_jump_interval > 0
+            and iteration % resolved_settings.conversation.family_jump_interval == 0
+        )
         candidate_budget = _budget_split(
             resolved_settings,
             requested_exploit_count=max(1, min(resolved_settings.conversation.exploit_candidates, resolved_settings.conversation.max_candidates_per_cycle)),
+            family_jump_cycle=family_jump_cycle,
         )
 
         strategist_plan = _strategist_turn(
@@ -865,6 +1129,7 @@ def run_conversation_cycle(
         candidate_budget = _budget_split(
             resolved_settings,
             requested_exploit_count=max(1, strategist_plan["candidate_count"]),
+            family_jump_cycle=family_jump_cycle,
         )
         critic_plan = _critic_turn(
             resolved_settings,
@@ -914,84 +1179,50 @@ def run_conversation_cycle(
             iteration,
             candidate_budget["structural"],
         )
-        candidates = exploit_candidates + explore_candidates + structural_candidates
+        family_jump_candidates = _family_jump_candidates(
+            champion_entry,
+            frontier_entries,
+            iteration,
+            candidate_budget["family_jump"],
+        )
+        candidates = exploit_candidates + explore_candidates + structural_candidates + family_jump_candidates
         candidate_results: list[dict] = []
         best_candidate: dict | None = None
         champion_pnl = float(champion_eval.get("metrics", {}).get("total_pnl", 0.0))
         champion_score = float(champion_eval.get("scoring", {}).get("score", 0.0))
-
-        for candidate_entry in candidates:
-            candidate = candidate_entry["spec"]
-            compiled = compile_spec_to_artifact(resolved_paths, candidate)
-            _with_repo(
-                resolved_paths,
-                lambda repo, candidate=candidate, compiled=compiled: persist_strategy_record(
-                    repo,
-                    candidate,
-                    compiled,
-                    stage="conversation_candidate",
-                    notes=f"Cycle {iteration} candidate",
-                ),
-            )
-            evaluation = _with_repo(
-                resolved_paths,
-                lambda repo, candidate=candidate, compiled=compiled: evaluate_compiled_strategy(
-                    resolved_paths,
-                    resolved_settings,
-                    repo,
-                    candidate,
-                    compiled,
-                ),
-            )
-            candidate_summary = {
-                "strategy_id": candidate.metadata.id,
-                "name": candidate.metadata.name,
-                "metrics": evaluation["metrics"],
-                "scoring": evaluation["scoring"],
-                "robustness": evaluation["robustness"],
-                "plagiarism": evaluation["plagiarism"],
-                "decision": evaluation["decision"],
-                "reason": evaluation["reason"],
-                "report_path": evaluation["report_path"],
-                "family": candidate.metadata.family,
-                "search_bucket": candidate_entry["bucket"],
-                "origin_family": candidate_entry["origin_family"],
-                "origin_strategy_id": candidate_entry["origin_strategy_id"],
-                "profile": candidate_entry["profile"],
-            }
-            postmortem = _postmortem_turn(resolved_settings, resolved_paths, candidate_summary, champion_pnl)
-            candidate_summary["postmortem"] = postmortem
-            candidate_results.append(candidate_summary)
-            _append_messages(
-                resolved_paths,
-                cycle_id,
-                resolved_session_name,
-                [
-                    ("evaluator", candidate_summary),
-                    ("postmortem", postmortem),
-                ],
-            )
-            _write_memory(
-                resolved_paths,
-                resolved_session_name,
-                cycle_id,
-                candidate.metadata.id,
-                "candidate_postmortem",
-                f"{postmortem['result']}: {postmortem['lesson']} Next: {postmortem['next_hint']}",
-            )
-            if best_candidate is None:
-                best_candidate = candidate_summary
-            else:
-                current_tuple = (
-                    float(candidate_summary["metrics"]["total_pnl"]),
-                    float(candidate_summary["scoring"]["score"]),
-                )
-                best_tuple = (
-                    float(best_candidate["metrics"]["total_pnl"]),
-                    float(best_candidate["scoring"]["score"]),
-                )
-                if current_tuple > best_tuple:
-                    best_candidate = candidate_summary
+        candidate_results, best_candidate = _evaluate_candidate_batch(
+            resolved_paths,
+            resolved_settings,
+            resolved_session_name,
+            cycle_id,
+            champion_pnl,
+            candidates,
+            candidate_results,
+            best_candidate,
+        )
+        stage_two_survivors = _select_stage_two_survivors(
+            candidate_results,
+            champion_spec.metadata.family,
+            candidate_budget["survivor_tune"],
+        )
+        stage_two_candidates = _build_stage_two_candidates(
+            resolved_paths,
+            stage_two_survivors,
+            strategist_plan,
+            critic_plan,
+            memory_notes,
+            iteration,
+        )
+        candidate_results, best_candidate = _evaluate_candidate_batch(
+            resolved_paths,
+            resolved_settings,
+            resolved_session_name,
+            cycle_id,
+            champion_pnl,
+            stage_two_candidates,
+            candidate_results,
+            best_candidate,
+        )
 
         promoted_strategy_id: str | None = None
         promotion_reason = "No candidate cleared the champion gate."
@@ -1089,6 +1320,7 @@ def run_conversation_cycle(
             "ingested_documents": ingested,
             "frontier": _frontier_brief(frontier_entries),
             "candidate_budget": candidate_budget,
+            "stage_two_survivors": [candidate["strategy_id"] for candidate in stage_two_survivors],
             "champion_before": champion_spec.metadata.id,
             "champion_after": promoted_strategy_id or champion_spec.metadata.id,
             "champion_pnl": champion_pnl,
@@ -1098,6 +1330,7 @@ def run_conversation_cycle(
             "reason": promotion_reason,
             "strategist": strategist_plan,
             "critic": critic_plan,
+            "family_jump_cycle": family_jump_cycle,
         }
         if promoted_strategy_id:
             cycle_summary["current_best_path"] = str(current_best_path)

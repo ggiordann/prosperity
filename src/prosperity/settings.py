@@ -56,6 +56,9 @@ class ConversationSettings(BaseModel):
     exploit_candidates: int = 4
     explore_candidates: int = 2
     structural_candidates: int = 2
+    family_jump_candidates: int = 1
+    survivor_tune_candidates: int = 1
+    family_jump_interval: int = 4
     promote_min_improvement: float = 10.0
     max_memory_notes: int = 12
     default_sleep_seconds: int = 0

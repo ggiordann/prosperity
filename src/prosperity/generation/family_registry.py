@@ -33,6 +33,41 @@ def _metadata(name: str, family: str, role: str, source_refs: list[str]) -> Stra
     )
 
 
+def _layer(name: str, product: str, side: str, offset: float, size: int, *, join_best: bool = True) -> QuoteLayer:
+    return QuoteLayer.model_validate(
+        {
+            "name": name,
+            "product": product,
+            "side": side,
+            "offset": offset,
+            "size": size,
+            "join_best": join_best,
+        }
+    )
+
+
+def _generic_parameters(*extra: ParameterDef) -> list[ParameterDef]:
+    base = [
+        ParameterDef(name="taking_min_edge", lower=0.0, upper=3.0, default=1.0, mutation_scale=0.20),
+        ParameterDef(name="taking_max_size", lower=4.0, upper=60.0, default=18.0, mutation_scale=0.20),
+        ParameterDef(name="inventory_skew", lower=0.0, upper=1.0, default=0.25, mutation_scale=0.20),
+        ParameterDef(name="layer_offset_scale", lower=0.6, upper=1.8, default=1.0, mutation_scale=0.15),
+        ParameterDef(name="layer_size_scale", lower=0.5, upper=1.8, default=1.0, mutation_scale=0.15),
+        ParameterDef(name="clear_width", lower=0.0, upper=2.0, default=0.8, mutation_scale=0.20),
+        ParameterDef(name="reservation_bias", lower=-2.0, upper=2.0, default=0.0, mutation_scale=0.15),
+        ParameterDef(name="signal_scale", lower=0.5, upper=2.5, default=1.0, mutation_scale=0.15),
+    ]
+    return base + list(extra)
+
+
+def _generic_scope() -> StrategyScope:
+    return StrategyScope(
+        products=["EMERALDS", "TOMATOES"],
+        round_assumptions="Tutorial/submission regime with stable EMERALDS and alpha-rich TOMATOES.",
+        required_datasets=["submission", "tutorial"],
+    )
+
+
 def tutorial_market_maker(role: str = "hypothesis_generator") -> StrategySpec:
     return StrategySpec(
         metadata=_metadata("Tutorial Wall Mid MM", "tutorial_wall_mid_mm", role, ["internal:tutorial"]),
@@ -43,30 +78,31 @@ def tutorial_market_maker(role: str = "hypothesis_generator") -> StrategySpec:
             required_datasets=["tutorial"],
         ),
         fair_value_models=[
-            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS"}),
-            FairValueComponent(kind="wall_mid", weight=0.7, params={"product": "TOMATOES", "threshold": 12}),
-            FairValueComponent(kind="ema", weight=0.3, params={"product": "TOMATOES", "alpha": 0.25}),
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="wall_mid", weight=0.75, params={"product": "TOMATOES", "threshold": 12, "threshold_param": "wall_threshold", "label": "tom_wall"}),
+            FairValueComponent(kind="ema", weight=0.25, params={"product": "TOMATOES", "alpha": 0.25, "alpha_param": "ema_alpha", "label": "tom_ema"}),
         ],
         signal_models=[
             SignalComponent(name="tomato_reversion", kind="mean_reversion", weight=1.0, params={"product": "TOMATOES"}),
             SignalComponent(name="tomato_imbalance", kind="imbalance", weight=0.25, params={"product": "TOMATOES"}),
         ],
         execution_policy=ExecutionPolicy(
-            taking=TakingRule(enabled=True, min_edge=1.0, max_size=12),
+            taking=TakingRule(enabled=True, min_edge=1.0, max_size=12, params={"style": "balanced"}),
             market_making=MarketMakingRule(
                 enabled=True,
                 base_half_spread=2.0,
                 inventory_skew=0.35,
                 layers=[
-                    QuoteLayer.model_validate({"name": "em_buy", "product": "EMERALDS", "side": "buy", "offset": 20.0, "size": 5, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "em_sell", "product": "EMERALDS", "side": "sell", "offset": 20.0, "size": 5, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "tom_inner_buy", "product": "TOMATOES", "side": "buy", "offset": 3.0, "size": 40, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "tom_outer_buy", "product": "TOMATOES", "side": "buy", "offset": 6.0, "size": 20, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "tom_inner_sell", "product": "TOMATOES", "side": "sell", "offset": 3.0, "size": 40, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "tom_outer_sell", "product": "TOMATOES", "side": "sell", "offset": 6.0, "size": 20, "join_best": True}),
+                    _layer("em_buy", "EMERALDS", "buy", 20.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 20.0, 5),
+                    _layer("tom_inner_buy", "TOMATOES", "buy", 3.0, 40),
+                    _layer("tom_outer_buy", "TOMATOES", "buy", 6.0, 20),
+                    _layer("tom_inner_sell", "TOMATOES", "sell", 3.0, 40),
+                    _layer("tom_outer_sell", "TOMATOES", "sell", 6.0, 20),
                 ],
+                params={"style": "inventory_first"},
             ),
-            clear_inventory_width=0.0,
+            clear_inventory_width=0.4,
         ),
         risk_policy=RiskPolicy(
             per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
@@ -76,10 +112,12 @@ def tutorial_market_maker(role: str = "hypothesis_generator") -> StrategySpec:
             turnover_throttles={"max_aggressive_size": 12},
             max_aggressive_size=12,
         ),
-        parameter_space=[
-            ParameterDef(name="tomato_threshold", lower=8, upper=20, default=12, mutation_scale=0.15),
-            ParameterDef(name="inventory_skew", lower=0.0, upper=1.0, default=0.35, mutation_scale=0.20),
-        ],
+        parameter_space=_generic_parameters(
+            ParameterDef(name="wall_threshold", lower=8.0, upper=24.0, default=12.0, mutation_scale=0.15),
+            ParameterDef(name="ema_alpha", lower=0.05, upper=0.6, default=0.25, mutation_scale=0.20),
+            ParameterDef(name="tomato_reversion_weight", lower=0.1, upper=1.8, default=1.0, mutation_scale=0.15),
+            ParameterDef(name="tomato_imbalance_weight", lower=-1.0, upper=1.0, default=0.25, mutation_scale=0.20),
+        ),
         expected_edge=ExpectedEdge(
             narrative_hypothesis="Exploit stable anchor pricing in EMERALDS and market-maker mid reversion in TOMATOES.",
             target_inefficiency="Passive queue priority plus occasional positive-edge taking.",
@@ -95,20 +133,308 @@ def tutorial_market_maker(role: str = "hypothesis_generator") -> StrategySpec:
 
 
 def tutorial_microprice_reversion(role: str = "anti_consensus_generator") -> StrategySpec:
-    spec = tutorial_market_maker(role=role)
-    spec.metadata = _metadata("Tutorial Microprice Reversion", "tutorial_microprice_reversion", role, ["internal:tutorial"])
-    spec.fair_value_models = [
-        FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS"}),
-        FairValueComponent(kind="microprice", weight=0.6, params={"product": "TOMATOES"}),
-        FairValueComponent(kind="ema", weight=0.4, params={"product": "TOMATOES", "alpha": 0.35}),
-    ]
-    spec.signal_models = [
-        SignalComponent(name="tomato_reversion", kind="mean_reversion", weight=0.8, params={"product": "TOMATOES"}),
-        SignalComponent(name="tomato_momentum", kind="momentum", weight=-0.25, params={"product": "TOMATOES"}),
-    ]
-    spec.explainability.anti_consensus_rationale = "Shifts away from public wall-mid consensus toward microprice + lagged smoothing."
-    spec.explainability.novelty_rationale = "Behaviorally distinct via a more reactive fair value and weaker layering."
-    return spec
+    return StrategySpec(
+        metadata=_metadata("Tutorial Microprice Reversion", "tutorial_microprice_reversion", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="microprice", weight=0.65, params={"product": "TOMATOES", "label": "tom_micro"}),
+            FairValueComponent(kind="ema", weight=0.35, params={"product": "TOMATOES", "alpha": 0.35, "alpha_param": "ema_alpha", "source": "microprice", "label": "tom_micro_ema"}),
+        ],
+        signal_models=[
+            SignalComponent(name="micro_reversion", kind="micro_delta", weight=-0.55, params={"product": "TOMATOES"}),
+            SignalComponent(name="lag1_fade", kind="lagged_return", weight=-0.25, params={"product": "TOMATOES", "lag": 1}),
+            SignalComponent(name="level_two_imbalance", kind="level_imbalance", weight=0.35, params={"product": "TOMATOES", "level": 2}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=1.0, max_size=18, params={"style": "reversion"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.18,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 18.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 18.0, 5),
+                    _layer("tom_inner_buy", "TOMATOES", "buy", 2.0, 30),
+                    _layer("tom_outer_buy", "TOMATOES", "buy", 4.0, 15),
+                    _layer("tom_inner_sell", "TOMATOES", "sell", 2.0, 30),
+                    _layer("tom_outer_sell", "TOMATOES", "sell", 4.0, 15),
+                ],
+                params={"style": "signal_skew"},
+            ),
+            clear_inventory_width=0.7,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
+            dynamic_inventory_aversion=0.15,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 18},
+            max_aggressive_size=18,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="ema_alpha", lower=0.05, upper=0.75, default=0.35, mutation_scale=0.20),
+            ParameterDef(name="micro_reversion_weight", lower=-1.5, upper=0.5, default=-0.55, mutation_scale=0.20),
+            ParameterDef(name="lag1_fade_weight", lower=-1.2, upper=1.2, default=-0.25, mutation_scale=0.20),
+            ParameterDef(name="level_two_imbalance_weight", lower=-1.5, upper=1.5, default=0.35, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Use reactive microprice fair value and short lagged fade to harvest fast TOMATOES dislocations.",
+            target_inefficiency="Short-horizon reversion around transient queue imbalance.",
+            expected_conditions=["Frequent two-sided books", "Microprice overshoots that mean-revert quickly"],
+            failure_modes=["Momentum continuation", "Signal oversensitivity during thin books"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["microprice", "lagged_fade"],
+            anti_consensus_rationale="Shifts away from wall-mid orthodoxy toward a more reactive fair.",
+            novelty_rationale="Uses microprice-driven reversion with level-two pressure rather than purely wall-based anchoring.",
+        ),
+    )
+
+
+def tutorial_latent_book_reversion(role: str = "hypothesis_generator") -> StrategySpec:
+    return StrategySpec(
+        metadata=_metadata("Tutorial Latent Book Reversion", "tutorial_latent_book_reversion", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="wall_mid", weight=0.45, params={"product": "TOMATOES", "threshold": 14, "threshold_param": "wall_threshold", "label": "latent_wall"}),
+            FairValueComponent(kind="microprice", weight=0.20, params={"product": "TOMATOES", "label": "latent_micro"}),
+            FairValueComponent(kind="ema", weight=0.35, params={"product": "TOMATOES", "alpha": 0.28, "alpha_param": "ema_alpha", "source": "wall_mid", "label": "latent_ema"}),
+        ],
+        signal_models=[
+            SignalComponent(name="lag1_fade", kind="lagged_return", weight=-0.35, params={"product": "TOMATOES", "lag": 1}),
+            SignalComponent(name="micro_gap", kind="micro_delta", weight=-0.25, params={"product": "TOMATOES"}),
+            SignalComponent(name="level_two_imbalance", kind="level_imbalance", weight=0.45, params={"product": "TOMATOES", "level": 2}),
+            SignalComponent(name="latent_reversion", kind="mean_reversion", weight=0.30, params={"product": "TOMATOES"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=0.9, max_size=22, params={"style": "balanced"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.22,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 18.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 18.0, 5),
+                    _layer("tom_inner_buy", "TOMATOES", "buy", 2.0, 28),
+                    _layer("tom_outer_buy", "TOMATOES", "buy", 5.0, 18),
+                    _layer("tom_inner_sell", "TOMATOES", "sell", 2.0, 28),
+                    _layer("tom_outer_sell", "TOMATOES", "sell", 5.0, 18),
+                ],
+                params={"style": "signal_skew"},
+            ),
+            clear_inventory_width=0.8,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
+            dynamic_inventory_aversion=0.18,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 22},
+            max_aggressive_size=22,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="wall_threshold", lower=8.0, upper=24.0, default=14.0, mutation_scale=0.15),
+            ParameterDef(name="ema_alpha", lower=0.05, upper=0.6, default=0.28, mutation_scale=0.20),
+            ParameterDef(name="lag1_fade_weight", lower=-1.5, upper=1.0, default=-0.35, mutation_scale=0.20),
+            ParameterDef(name="micro_gap_weight", lower=-1.5, upper=1.0, default=-0.25, mutation_scale=0.20),
+            ParameterDef(name="level_two_imbalance_weight", lower=-1.5, upper=1.5, default=0.45, mutation_scale=0.20),
+            ParameterDef(name="latent_reversion_weight", lower=-1.0, upper=1.5, default=0.30, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Blend slower wall information with faster microprice cues and fade short-lived dislocations back to a latent fair.",
+            target_inefficiency="Temporary divergence between latent book fair and immediate microprice.",
+            expected_conditions=["Stable wall anchors", "Short-lived queue dislocations"],
+            failure_modes=["Persistent trends", "Wall spoofing or rapid wall migration"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["wall_mid", "microprice", "lagged_return"],
+            anti_consensus_rationale="Combines multiple book views rather than committing to one consensus fair.",
+            novelty_rationale="Latent-fair blend is behaviorally distinct from both pure wall-mid and pure microprice seeds.",
+        ),
+    )
+
+
+def tutorial_pressure_momentum(role: str = "anti_consensus_generator") -> StrategySpec:
+    return StrategySpec(
+        metadata=_metadata("Tutorial Pressure Momentum", "tutorial_pressure_momentum", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="ema", weight=0.65, params={"product": "TOMATOES", "alpha": 0.42, "alpha_param": "ema_alpha", "source": "microprice", "label": "mom_ema"}),
+            FairValueComponent(kind="microprice", weight=0.35, params={"product": "TOMATOES", "label": "mom_micro"}),
+        ],
+        signal_models=[
+            SignalComponent(name="momentum_drive", kind="momentum", weight=0.55, params={"product": "TOMATOES", "lag": 1}),
+            SignalComponent(name="level_two_pressure", kind="level_imbalance", weight=0.40, params={"product": "TOMATOES", "level": 2}),
+            SignalComponent(name="gap_drive", kind="gap_asymmetry", weight=0.25, params={"product": "TOMATOES"}),
+            SignalComponent(name="volatility_brake", kind="volatility", weight=-0.10, params={"product": "TOMATOES"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=0.8, max_size=26, params={"style": "breakout"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.15,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 20.0, 4),
+                    _layer("em_sell", "EMERALDS", "sell", 20.0, 4),
+                    _layer("tom_buy", "TOMATOES", "buy", 3.0, 20),
+                    _layer("tom_sell", "TOMATOES", "sell", 3.0, 20),
+                ],
+                params={"style": "one_sided"},
+            ),
+            clear_inventory_width=0.6,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
+            dynamic_inventory_aversion=0.10,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 26},
+            max_aggressive_size=26,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="ema_alpha", lower=0.05, upper=0.75, default=0.42, mutation_scale=0.20),
+            ParameterDef(name="momentum_drive_weight", lower=-1.0, upper=1.5, default=0.55, mutation_scale=0.20),
+            ParameterDef(name="level_two_pressure_weight", lower=-1.5, upper=1.5, default=0.40, mutation_scale=0.20),
+            ParameterDef(name="gap_drive_weight", lower=-1.0, upper=1.0, default=0.25, mutation_scale=0.20),
+            ParameterDef(name="volatility_brake_weight", lower=-1.0, upper=0.5, default=-0.10, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Lean with short-horizon directional pressure when both momentum and second-level imbalance align.",
+            target_inefficiency="Brief continuation bursts that passive reversion bots under-react to.",
+            expected_conditions=["Directional queue pressure", "Fast continuation windows"],
+            failure_modes=["Mean reversion snapback", "Momentum failing in wide unstable books"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["momentum", "imbalance"],
+            anti_consensus_rationale="Deliberately explores continuation rather than defaulting to fade logic.",
+            novelty_rationale="Taker-leaning momentum seed gives the frontier a genuinely different trading style.",
+        ),
+    )
+
+
+def tutorial_passive_queue_reversion(role: str = "anti_consensus_generator") -> StrategySpec:
+    return StrategySpec(
+        metadata=_metadata("Tutorial Passive Queue Reversion", "tutorial_passive_queue_reversion", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="wall_mid", weight=0.85, params={"product": "TOMATOES", "threshold": 18, "threshold_param": "wall_threshold", "label": "queue_wall"}),
+            FairValueComponent(kind="ema", weight=0.15, params={"product": "TOMATOES", "alpha": 0.15, "alpha_param": "ema_alpha", "label": "queue_ema"}),
+        ],
+        signal_models=[
+            SignalComponent(name="queue_reversion", kind="mean_reversion", weight=0.65, params={"product": "TOMATOES"}),
+            SignalComponent(name="queue_imbalance", kind="imbalance", weight=0.20, params={"product": "TOMATOES"}),
+            SignalComponent(name="spread_guard", kind="spread_compression", weight=0.15, params={"product": "TOMATOES"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=1.8, max_size=10, params={"style": "strict"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=3.0,
+                inventory_skew=0.40,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 18.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 18.0, 5),
+                    _layer("tom_inner_buy", "TOMATOES", "buy", 3.0, 28),
+                    _layer("tom_mid_buy", "TOMATOES", "buy", 5.0, 18),
+                    _layer("tom_outer_buy", "TOMATOES", "buy", 8.0, 10),
+                    _layer("tom_inner_sell", "TOMATOES", "sell", 3.0, 28),
+                    _layer("tom_mid_sell", "TOMATOES", "sell", 5.0, 18),
+                    _layer("tom_outer_sell", "TOMATOES", "sell", 8.0, 10),
+                ],
+                params={"style": "passive_wide"},
+            ),
+            clear_inventory_width=1.1,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
+            dynamic_inventory_aversion=0.30,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["zero_edge_clear_when_stuck"],
+            turnover_throttles={"max_aggressive_size": 10},
+            max_aggressive_size=10,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="wall_threshold", lower=10.0, upper=28.0, default=18.0, mutation_scale=0.15),
+            ParameterDef(name="ema_alpha", lower=0.05, upper=0.4, default=0.15, mutation_scale=0.20),
+            ParameterDef(name="queue_reversion_weight", lower=0.1, upper=1.5, default=0.65, mutation_scale=0.15),
+            ParameterDef(name="queue_imbalance_weight", lower=-1.0, upper=1.0, default=0.20, mutation_scale=0.20),
+            ParameterDef(name="spread_guard_weight", lower=-0.5, upper=1.0, default=0.15, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Favor queue priority and passive spread capture, taking only when edge is clearly positive.",
+            target_inefficiency="Bots that cross too eagerly leave passive spread for a patient inventory-aware maker.",
+            expected_conditions=["Stable two-sided books", "Reasonable passive fill frequency"],
+            failure_modes=["Directional market with weak reversion", "Passive orders becoming stale under trend"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["passive_mm", "queue_priority"],
+            anti_consensus_rationale="More patient and queue-priority focused than the dominant alpha-overlay family.",
+            novelty_rationale="Provides a slower, lower-turnover anchor family for the frontier.",
+        ),
+    )
+
+
+def tutorial_gap_repricing(role: str = "hypothesis_generator") -> StrategySpec:
+    return StrategySpec(
+        metadata=_metadata("Tutorial Gap Repricing", "tutorial_gap_repricing", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="wall_mid", weight=0.50, params={"product": "TOMATOES", "threshold": 15, "threshold_param": "wall_threshold", "label": "gap_wall"}),
+            FairValueComponent(kind="microprice", weight=0.50, params={"product": "TOMATOES", "label": "gap_micro"}),
+        ],
+        signal_models=[
+            SignalComponent(name="gap_push", kind="gap_asymmetry", weight=0.55, params={"product": "TOMATOES"}),
+            SignalComponent(name="lag2_fade", kind="lagged_return", weight=-0.20, params={"product": "TOMATOES", "lag": 2}),
+            SignalComponent(name="micro_gap", kind="micro_delta", weight=-0.15, params={"product": "TOMATOES"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=1.1, max_size=20, params={"style": "balanced"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.12,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 18.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 18.0, 5),
+                    _layer("tom_buy", "TOMATOES", "buy", 2.0, 24),
+                    _layer("tom_sell", "TOMATOES", "sell", 2.0, 24),
+                ],
+                params={"style": "signal_skew"},
+            ),
+            clear_inventory_width=0.7,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
+            dynamic_inventory_aversion=0.14,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 20},
+            max_aggressive_size=20,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="wall_threshold", lower=8.0, upper=24.0, default=15.0, mutation_scale=0.15),
+            ParameterDef(name="gap_push_weight", lower=-1.0, upper=1.5, default=0.55, mutation_scale=0.20),
+            ParameterDef(name="lag2_fade_weight", lower=-1.0, upper=1.0, default=-0.20, mutation_scale=0.20),
+            ParameterDef(name="micro_gap_weight", lower=-1.0, upper=1.0, default=-0.15, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Trade asymmetry in second-level gaps and reprice quickly when one side of the book opens up.",
+            target_inefficiency="Uneven gap formation between first and second levels.",
+            expected_conditions=["Visible second-level book structure", "Frequent gap resets"],
+            failure_modes=["Noisy thin books", "Gap signal becoming too jumpy without follow-through"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["gap_asymmetry", "micro_delta"],
+            anti_consensus_rationale="Focuses on level spacing rather than only on volume imbalance.",
+            novelty_rationale="Gap repricing is behaviorally different from both passive queue and pure microprice reversion families.",
+        ),
+    )
 
 
 def tutorial_submission_candidate_alpha(
@@ -129,12 +455,7 @@ def tutorial_submission_candidate_alpha(
         scope=StrategyScope(
             products=["EMERALDS", "TOMATOES"],
             round_assumptions="Tutorial/submission tutorial regime with stable EMERALDS and alpha-rich TOMATOES.",
-            required_signals=[
-                "gap_asymmetry",
-                "level_imbalance",
-                "lagged_return",
-                "micro_delta",
-            ],
+            required_signals=["gap_asymmetry", "level_imbalance", "lagged_return", "micro_delta"],
             required_datasets=["submission", "tutorial"],
         ),
         fair_value_models=[
@@ -155,10 +476,10 @@ def tutorial_submission_candidate_alpha(
                 base_half_spread=2.0,
                 inventory_skew=0.0,
                 layers=[
-                    QuoteLayer.model_validate({"name": "em_inner_buy", "product": "EMERALDS", "side": "buy", "offset": 1.0, "size": 5, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "em_inner_sell", "product": "EMERALDS", "side": "sell", "offset": 1.0, "size": 5, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "tomato_full_buy", "product": "TOMATOES", "side": "buy", "offset": 2.0, "size": 80, "join_best": True}),
-                    QuoteLayer.model_validate({"name": "tomato_full_sell", "product": "TOMATOES", "side": "sell", "offset": 2.0, "size": 80, "join_best": True}),
+                    _layer("em_inner_buy", "EMERALDS", "buy", 1.0, 5),
+                    _layer("em_inner_sell", "EMERALDS", "sell", 1.0, 5),
+                    _layer("tomato_full_buy", "TOMATOES", "buy", 2.0, 80),
+                    _layer("tomato_full_sell", "TOMATOES", "sell", 2.0, 80),
                 ],
                 params={"family_mode": "submission_candidate"},
             ),
@@ -201,8 +522,19 @@ def tutorial_submission_candidate_alpha(
     )
 
 
-FAMILY_BUILDERS: dict[str, Callable[[], StrategySpec]] = {
+FAMILY_BUILDERS: dict[str, Callable[..., StrategySpec]] = {
     "tutorial_wall_mid_mm": tutorial_market_maker,
     "tutorial_microprice_reversion": tutorial_microprice_reversion,
+    "tutorial_latent_book_reversion": tutorial_latent_book_reversion,
+    "tutorial_pressure_momentum": tutorial_pressure_momentum,
+    "tutorial_passive_queue_reversion": tutorial_passive_queue_reversion,
+    "tutorial_gap_repricing": tutorial_gap_repricing,
     "tutorial_submission_candidate_alpha": tutorial_submission_candidate_alpha,
 }
+
+
+def build_family_spec(family_name: str, role: str = "hypothesis_generator") -> StrategySpec:
+    if family_name == "tutorial_submission_candidate_alpha":
+        return tutorial_submission_candidate_alpha(role=role)
+    builder = FAMILY_BUILDERS[family_name]
+    return builder(role=role)

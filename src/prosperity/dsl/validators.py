@@ -13,6 +13,7 @@ SUPPORTED_SIGNAL_KINDS = {
     "level_imbalance",
     "lagged_return",
     "micro_delta",
+    "spread_compression",
 }
 
 
