@@ -1,0 +1,7 @@
+ingest_interval_minutes: 240
+generation_batch_size: 4
+mutation_batch_size: 6
+max_candidates_per_cycle: 12
+max_robustness_candidates: 3
+sleep_seconds: 1800
+enable_daemon: false

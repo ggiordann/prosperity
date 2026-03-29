@@ -1,0 +1,11 @@
+ROLE_NAMES = [
+    "mechanics_summarizer",
+    "public_idea_summarizer",
+    "hypothesis_generator",
+    "anti_consensus_generator",
+    "strategy_critic",
+    "strategy_mutator",
+    "strategy_crossover",
+    "postmortem",
+    "strategy_explainer",
+]

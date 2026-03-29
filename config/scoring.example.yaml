@@ -1,0 +1,13 @@
+weights:
+  oos_pnl_component: 0.35
+  robustness_component: 0.20
+  worst_day_component: 0.10
+  novelty_component: 0.10
+  simplicity_component: 0.10
+  baseline_outperformance_component: 0.10
+  anti_crowding_component: 0.05
+thresholds:
+  plagiarism_hard_block: 0.82
+  external_code_warning: 0.65
+  internal_similarity_warning: 0.85
+  minimum_promotion_score: 0.55

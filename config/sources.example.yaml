@@ -1,0 +1,15 @@
+official_urls:
+  - https://prosperity.imc.com/
+  - https://prosperity.imc.com/docs/terms-and-conditions.pdf
+local_paths:
+  - docs
+  - README.md
+  - imcdata
+research_repo_root: .research_repos
+reddit:
+  enabled: false
+discord:
+  enabled: false
+generic_web:
+  enabled: false
+  allowlist: []

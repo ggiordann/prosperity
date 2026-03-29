@@ -1,0 +1,24 @@
+project_name: prosperity-research-platform
+repo_root: .
+data_dir: data
+artifacts_dir: artifacts
+db_path: data/db/prosperity.sqlite3
+backtester:
+  path: prosperity_rust_backtester
+  default_dataset: tutorial
+  default_products_mode: summary
+llm:
+  strategist_model: gpt-5.4
+  critic_model: gpt-5.4-mini
+  summarizer_model: gpt-5.4-mini
+  embeddings_model: text-embedding-3-small
+  provider: openai
+  daily_budget_usd: 10.0
+  allow_live_requests: false
+dashboard:
+  host: 127.0.0.1
+  port: 8501
+portal:
+  mode: manual
+  enable_browser_automation: false
+  enable_live_upload: false
