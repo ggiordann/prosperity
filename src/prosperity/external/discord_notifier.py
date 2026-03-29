@@ -92,6 +92,12 @@ def build_cycle_summary_payload(cycle_summary: dict[str, Any], settings: AppSett
     decision = str(cycle_summary.get("decision", "unknown")).upper()
     best_candidate = cycle_summary.get("best_candidate", {})
     reason = str(cycle_summary.get("reason", ""))
+    mention_user_id = settings.discord.promote_ping_user_id
+    should_ping = str(cycle_summary.get("decision", "")).lower() == "promote" and bool(mention_user_id)
+    content = f"<@{mention_user_id}>" if should_ping and mention_user_id else None
+    allowed_mentions: dict[str, list[str]] = {"parse": []}
+    if should_ping and mention_user_id:
+        allowed_mentions = {"users": [mention_user_id]}
     embed = {
         "title": f"prosperity loop #{cycle_summary.get('iteration')}",
         "description": (
@@ -133,9 +139,9 @@ def build_cycle_summary_payload(cycle_summary: dict[str, Any], settings: AppSett
         "timestamp": _now_iso(),
     }
     return {
-        "content": None,
+        "content": content,
         "embeds": [embed],
-        "allowed_mentions": {"parse": []},
+        "allowed_mentions": allowed_mentions,
     }
 
 

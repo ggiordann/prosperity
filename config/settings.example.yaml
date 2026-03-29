@@ -21,6 +21,7 @@ dashboard:
 discord:
   enabled: false
   channel_id: "1487759408711729192"
+  promote_ping_user_id: "1487799311113650316"
   application_id: "1487768831517655060"
   client_id: "1487768831517655060"
 portal:

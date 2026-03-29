@@ -57,6 +57,18 @@ def test_build_cycle_summary_payload_creates_embed():
     assert "strategy" in field_names
     assert "pnl vs champion" in field_names
     assert "system health" in field_names
+    assert payload["content"] is None
+    assert payload["allowed_mentions"] == {"parse": []}
+
+
+def test_build_cycle_summary_payload_pings_on_promotion():
+    settings = AppSettings()
+    settings.discord.promote_ping_user_id = "1487799311113650316"
+    cycle = _sample_cycle_summary()
+    cycle["decision"] = "promote"
+    payload = build_cycle_summary_payload(cycle, settings)
+    assert payload["content"] == "<@1487799311113650316>"
+    assert payload["allowed_mentions"] == {"users": ["1487799311113650316"]}
 
 
 def test_send_cycle_summary_message_skips_without_bot_token():

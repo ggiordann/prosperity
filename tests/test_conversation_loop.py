@@ -52,6 +52,10 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     def fake_package(paths_obj, spec, compiled_path, evaluation):
         package_dir = paths_obj.submissions / spec.metadata.id
         package_dir.mkdir(parents=True, exist_ok=True)
+        (package_dir / "submission.py").write_text(
+            f"# packaged {spec.metadata.id}\nclass Trader:\n    pass\n",
+            encoding="utf-8",
+        )
         return package_dir
 
     monkeypatch.setattr("prosperity.orchestration.conversation.ingest_all", fake_ingest)
@@ -78,3 +82,6 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     assert cycles[0]["promoted_strategy_id"] == result["champion_after"]
     assert len(messages) >= 3
     assert any(row["note_kind"] == "promotion" for row in memory)
+    exported = root / "current_best_algo" / "current_best_V1.py"
+    assert exported.exists()
+    assert f"# packaged {result['champion_after']}" in exported.read_text(encoding="utf-8")

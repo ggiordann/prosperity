@@ -42,6 +42,7 @@ class DiscordSettings(BaseModel):
     enabled: bool = False
     channel_id: str | None = None
     bot_token: str | None = None
+    promote_ping_user_id: str | None = None
     application_id: str | None = None
     client_id: str | None = None
     client_secret: str | None = None

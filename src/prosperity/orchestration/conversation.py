@@ -3,6 +3,7 @@ from __future__ import annotations
 import copy
 import json
 import random
+import re
 import time
 from pathlib import Path
 from typing import Any
@@ -132,6 +133,27 @@ def _frontier_brief(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
         }
         for entry in entries
     ]
+
+
+def _next_current_best_version(paths: RepoPaths) -> int:
+    export_dir = paths.root / "current_best_algo"
+    export_dir.mkdir(parents=True, exist_ok=True)
+    versions: list[int] = []
+    for search_root in (export_dir, paths.root):
+        for candidate in search_root.glob("current_best_V*.py"):
+            match = re.fullmatch(r"current_best_V(\d+)\.py", candidate.name)
+            if match:
+                versions.append(int(match.group(1)))
+    return (max(versions) + 1) if versions else 1
+
+
+def _export_current_best(paths: RepoPaths, source_path: Path) -> Path:
+    export_dir = paths.root / "current_best_algo"
+    export_dir.mkdir(parents=True, exist_ok=True)
+    version = _next_current_best_version(paths)
+    target = export_dir / f"current_best_V{version}.py"
+    target.write_text(source_path.read_text(encoding="utf-8"), encoding="utf-8")
+    return target
 
 
 def _normalize_plan(payload: dict, allowed_parameters: list[str], max_candidates: int) -> dict:
@@ -1015,6 +1037,10 @@ def run_conversation_cycle(
                     notes=str(package_dir),
                 ),
             )
+            export_source = package_dir / "submission.py"
+            if not export_source.exists():
+                export_source = compiled
+            current_best_path = _export_current_best(resolved_paths, export_source)
             promotion_reason = (
                 f"Promoted {promoted_strategy_id} over {champion_spec.metadata.id} with "
                 f"submission PnL delta {best_pnl - champion_pnl:.1f}."
@@ -1025,7 +1051,7 @@ def run_conversation_cycle(
                 cycle_id,
                 promoted_strategy_id,
                 "promotion",
-                promotion_reason,
+                f"{promotion_reason} Exported as {current_best_path.name}.",
             )
         else:
             _write_memory(
@@ -1073,6 +1099,8 @@ def run_conversation_cycle(
             "strategist": strategist_plan,
             "critic": critic_plan,
         }
+        if promoted_strategy_id:
+            cycle_summary["current_best_path"] = str(current_best_path)
         cycle_summary["discord_notification"] = send_cycle_summary_message(cycle_summary, resolved_settings)
         _finish_cycle(
             resolved_paths,
