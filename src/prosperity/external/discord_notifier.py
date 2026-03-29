@@ -1,0 +1,166 @@
+from __future__ import annotations
+
+from datetime import datetime, timezone
+from typing import Any
+
+import httpx
+
+from prosperity.settings import AppSettings
+
+
+def _fmt_number(value: float | int | None) -> str:
+    if value is None:
+        return "n/a"
+    if isinstance(value, int):
+        return str(value)
+    return f"{value:.1f}"
+
+
+def _fmt_delta(value: float) -> str:
+    return f"{value:+.1f}"
+
+
+def _decision_color(decision: str) -> int:
+    normalized = decision.lower()
+    if normalized == "promote":
+        return 0x2ECC71
+    if normalized == "hold":
+        return 0xF39C12
+    return 0x95A5A6
+
+
+def _now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+
+
+def _cycle_stats(cycle_summary: dict[str, Any], settings: AppSettings) -> dict[str, str]:
+    best_candidate = cycle_summary.get("best_candidate", {})
+    best_metrics = best_candidate.get("metrics", {})
+    best_scoring = best_candidate.get("scoring", {})
+    best_robustness = best_candidate.get("robustness", {})
+    strategist = cycle_summary.get("strategist", {})
+    champion_pnl = float(cycle_summary.get("champion_pnl", 0.0))
+    best_pnl = float(best_metrics.get("total_pnl", 0.0))
+    pnl_delta = best_pnl - champion_pnl
+    llm_mode = "live" if settings.llm.allow_live_requests and settings.openai_api_key else "off"
+    discord_mode = "enabled" if settings.discord.enabled else "disabled"
+    per_product = best_metrics.get("per_product_pnl", {})
+    emr = _fmt_number(per_product.get("EMR", {}).get("SUB"))
+    tom = _fmt_number(per_product.get("TOM", {}).get("SUB"))
+
+    return {
+        "strategy": strategist.get("thesis", "no strategist thesis recorded."),
+        "pnl_compare": (
+            f"candidate `{best_candidate.get('strategy_id', 'unknown')}`: `{_fmt_number(best_pnl)}`\n"
+            f"champion `{cycle_summary.get('champion_before', 'unknown')}`: `{_fmt_number(champion_pnl)}`\n"
+            f"delta: `{_fmt_delta(pnl_delta)}`"
+        ),
+        "stats": (
+            f"trades: `{_fmt_number(best_metrics.get('own_trade_count'))}`\n"
+            f"emr: `{emr}` | tom: `{tom}`\n"
+            f"robustness: `{best_robustness.get('score', 0.0):.3f}`\n"
+            f"score: `{best_scoring.get('score', 0.0):.3f}`\n"
+            f"plagiarism: `{best_candidate.get('plagiarism', {}).get('max_score', 0.0):.3f}`\n"
+            f"candidates: `{cycle_summary.get('candidate_count', 0)}`"
+        ),
+        "health": (
+            f"db: `ok`\n"
+            f"backtester: `ok`\n"
+            f"llm: `{llm_mode}`\n"
+            f"discord: `{discord_mode}`\n"
+            f"ingested: `{cycle_summary.get('ingested_documents', 0)}`"
+        ),
+    }
+
+
+def render_cycle_summary_message(cycle_summary: dict[str, Any], settings: AppSettings) -> str:
+    stats = _cycle_stats(cycle_summary, settings)
+    decision = str(cycle_summary.get("decision", "unknown")).upper()
+    return "\n".join(
+        [
+            f"loop {cycle_summary.get('iteration')} | session `{cycle_summary.get('session_name')}` | decision `{decision}`",
+            f"strategy: {stats['strategy']}",
+            f"pnl:\n{stats['pnl_compare']}",
+            f"stats:\n{stats['stats']}",
+            f"health:\n{stats['health']}",
+        ]
+    )
+
+
+def build_cycle_summary_payload(cycle_summary: dict[str, Any], settings: AppSettings) -> dict[str, Any]:
+    stats = _cycle_stats(cycle_summary, settings)
+    decision = str(cycle_summary.get("decision", "unknown")).upper()
+    best_candidate = cycle_summary.get("best_candidate", {})
+    reason = str(cycle_summary.get("reason", ""))
+    embed = {
+        "title": f"prosperity loop #{cycle_summary.get('iteration')}",
+        "description": (
+            f"session `{cycle_summary.get('session_name')}`\n"
+            f"decision `{decision}`\n"
+            f"best candidate `{best_candidate.get('strategy_id', 'unknown')}`"
+        ),
+        "color": _decision_color(str(cycle_summary.get("decision", "unknown"))),
+        "fields": [
+            {
+                "name": "strategy",
+                "value": stats["strategy"][:1024],
+                "inline": False,
+            },
+            {
+                "name": "pnl vs champion",
+                "value": stats["pnl_compare"][:1024],
+                "inline": True,
+            },
+            {
+                "name": "stats",
+                "value": stats["stats"][:1024],
+                "inline": True,
+            },
+            {
+                "name": "system health",
+                "value": stats["health"][:1024],
+                "inline": True,
+            },
+            {
+                "name": "reason",
+                "value": reason[:1024] if reason else "no additional reason recorded",
+                "inline": False,
+            },
+        ],
+        "footer": {
+            "text": f"champion: {cycle_summary.get('champion_before', 'unknown')} -> {cycle_summary.get('champion_after', 'unknown')}",
+        },
+        "timestamp": _now_iso(),
+    }
+    return {
+        "content": None,
+        "embeds": [embed],
+        "allowed_mentions": {"parse": []},
+    }
+
+
+def send_cycle_summary_message(cycle_summary: dict[str, Any], settings: AppSettings) -> dict[str, Any]:
+    if not settings.discord.enabled:
+        return {"status": "skipped", "reason": "discord notifications disabled"}
+    if not settings.discord.channel_id:
+        return {"status": "skipped", "reason": "discord channel_id missing"}
+    if not settings.discord.bot_token:
+        return {"status": "skipped", "reason": "discord bot_token missing"}
+
+    payload = build_cycle_summary_payload(cycle_summary, settings)
+    url = f"{settings.discord.api_base_url}/channels/{settings.discord.channel_id}/messages"
+    headers = {
+        "Authorization": f"Bot {settings.discord.bot_token}",
+        "Content-Type": "application/json",
+    }
+    try:
+        response = httpx.post(url, headers=headers, json=payload, timeout=20.0)
+        response.raise_for_status()
+    except httpx.HTTPError as exc:
+        return {"status": "error", "reason": str(exc)}
+    data = response.json()
+    return {
+        "status": "sent",
+        "message_id": data.get("id"),
+        "channel_id": data.get("channel_id"),
+    }

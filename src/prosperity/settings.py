@@ -38,9 +38,23 @@ class PortalSettings(BaseModel):
     enable_live_upload: bool = False
 
 
+class DiscordSettings(BaseModel):
+    enabled: bool = False
+    channel_id: str | None = None
+    bot_token: str | None = None
+    application_id: str | None = None
+    client_id: str | None = None
+    client_secret: str | None = None
+    api_base_url: str = "https://discord.com/api/v10"
+
+
 class ConversationSettings(BaseModel):
     session_name: str = "codex-conversation"
-    max_candidates_per_cycle: int = 6
+    max_candidates_per_cycle: int = 8
+    frontier_size: int = 4
+    exploit_candidates: int = 4
+    explore_candidates: int = 2
+    structural_candidates: int = 2
     promote_min_improvement: float = 10.0
     max_memory_notes: int = 12
     default_sleep_seconds: int = 0
@@ -69,6 +83,7 @@ class AppSettings(BaseSettings):
     llm: LLMSettings = Field(default_factory=LLMSettings)
     dashboard: DashboardSettings = Field(default_factory=DashboardSettings)
     portal: PortalSettings = Field(default_factory=PortalSettings)
+    discord: DiscordSettings = Field(default_factory=DiscordSettings)
     conversation: ConversationSettings = Field(default_factory=ConversationSettings)
 
 

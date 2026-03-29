@@ -12,7 +12,12 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     (root / "pyproject.toml").write_text("[project]\nname='demo'\n", encoding="utf-8")
     paths = RepoPaths.discover(root)
     settings = AppSettings()
+    settings.discord.enabled = False
     settings.conversation.max_candidates_per_cycle = 3
+    settings.conversation.frontier_size = 2
+    settings.conversation.exploit_candidates = 3
+    settings.conversation.explore_candidates = 0
+    settings.conversation.structural_candidates = 0
     settings.conversation.promote_min_improvement = 5.0
 
     def fake_ingest(paths_obj, settings_obj, repo):
@@ -23,13 +28,14 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
         target.write_text("class Trader:\n    pass\n", encoding="utf-8")
         return target
 
-    call_counter = {"value": 0}
-
     def fake_evaluate(paths_obj, settings_obj, repo, spec, compiled_path):
-        call_counter["value"] += 1
         if spec.metadata.id == "conversation-submission-alpha-seed":
             pnl = 100.0
-        elif call_counter["value"] == 2:
+        elif spec.metadata.id.startswith("conversation-microprice-seed"):
+            pnl = 80.0
+        elif spec.metadata.id.startswith("conversation-wall-mid-seed"):
+            pnl = 70.0
+        elif "v00" in spec.metadata.id:
             pnl = 120.0
         else:
             pnl = 90.0
@@ -59,6 +65,8 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     assert result["champion_before"] == "conversation-submission-alpha-seed"
     assert result["champion_after"] != result["champion_before"]
     assert result["candidate_count"] == 3
+    assert result["candidate_budget"]["exploit"] == 3
+    assert len(result["frontier"]) >= 2
 
     with DatabaseSession(paths.db_dir / "prosperity.sqlite3") as db:
         repo = ExperimentRepository(db.connection)

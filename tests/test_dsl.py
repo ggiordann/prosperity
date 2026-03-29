@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from prosperity.dsl.crossover import crossover_specs
-from prosperity.dsl.mutators import jitter_parameters, simplify_spec
+from prosperity.dsl.mutators import apply_structural_profile, jitter_parameters, simplify_spec
 from prosperity.dsl.validators import validate_spec
 
 
@@ -34,3 +34,10 @@ def test_crossover_specs_combines_expected_sections(sample_spec):
     assert child.metadata.parent_ids == [sample_spec.metadata.id, other.metadata.id]
     assert child.signal_models == other.signal_models
     assert child.risk_policy == sample_spec.risk_policy
+
+
+def test_apply_structural_profile_changes_spec_shape(sample_spec):
+    mutated = apply_structural_profile(sample_spec, "low_turnover")
+    assert mutated.metadata.id.endswith("-low_turnover")
+    assert sample_spec.metadata.id in mutated.metadata.parent_ids
+    assert mutated.execution_policy.taking.min_edge >= sample_spec.execution_policy.taking.min_edge

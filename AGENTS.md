@@ -48,6 +48,8 @@ This repository is a local research platform for IMC Prosperity 4. It supports:
 - Conversation loop until `Ctrl-C`: `make loop-run` or `python3 -m prosperity.cli loop run`
 - Conversation loop for `n` cycles: `python3 -m prosperity.cli loop run --cycles 10`
 - Single conversation cycle: `python3 -m prosperity.cli loop cycle`
+- Preview latest Discord cycle message: `python3 -m prosperity.cli discord latest`
+- Send latest Discord cycle message: `python3 -m prosperity.cli discord latest --send`
 - Dashboard: `make dashboard`
 
 ## Done Means

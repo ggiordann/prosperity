@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import typer
@@ -12,6 +13,10 @@ from prosperity.db import DatabaseSession, ExperimentRepository
 from prosperity.db.models import RunRecord
 from prosperity.dsl.mutators import jitter_parameters
 from prosperity.dsl.schema import StrategySpec
+from prosperity.external.discord_notifier import (
+    render_cycle_summary_message,
+    send_cycle_summary_message,
+)
 from prosperity.external.equirag_adapter import prepare_equirag_bundle
 from prosperity.external.manual_submission import package_manual_submission
 from prosperity.external.playwright_portal import dry_run_upload
@@ -37,6 +42,7 @@ loop_app = typer.Typer(help="Loop commands")
 submission_app = typer.Typer(help="Submission packaging commands")
 dashboard_app = typer.Typer(help="Dashboard commands")
 portal_app = typer.Typer(help="Portal adapter commands")
+discord_app = typer.Typer(help="Discord notification commands")
 
 app.add_typer(baselines_app, name="baselines")
 app.add_typer(backtest_app, name="backtest")
@@ -45,6 +51,7 @@ app.add_typer(loop_app, name="loop")
 app.add_typer(submission_app, name="submission")
 app.add_typer(dashboard_app, name="dashboard")
 app.add_typer(portal_app, name="portal")
+app.add_typer(discord_app, name="discord")
 
 
 def _context():
@@ -286,6 +293,22 @@ def serve_dashboard() -> None:
     paths, _ = _context()
     script_path = paths.root / "scripts" / "serve_dashboard.py"
     subprocess.run([sys.executable, "-m", "streamlit", "run", str(script_path)], check=False)
+
+
+@discord_app.command("latest")
+def discord_latest(session_name: str | None = None, send: bool = typer.Option(False, help="Actually send to Discord instead of previewing the message.")) -> None:
+    paths, settings = _context()
+    target_session = session_name or settings.conversation.session_name
+    with DatabaseSession(paths.db_dir / "prosperity.sqlite3") as db:
+        repo = ExperimentRepository(db.connection)
+        rows = repo.list_recent_conversation_cycles(target_session, limit=1)
+        if not rows:
+            raise typer.BadParameter(f"No conversation cycles found for session: {target_session}")
+        cycle_summary = json.loads(rows[0]["summary_json"])
+    if send:
+        typer.echo(json_dumps(send_cycle_summary_message(cycle_summary, settings)))
+    else:
+        typer.echo(render_cycle_summary_message(cycle_summary, settings))
 
 
 def main() -> None:

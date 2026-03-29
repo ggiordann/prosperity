@@ -9,7 +9,7 @@ backtester:
   default_products_mode: summary
 llm:
   strategist_model: gpt-5.4
-  critic_model: gpt-5.4-mini
+  critic_model: gpt-5.4
   summarizer_model: gpt-5.4-mini
   embeddings_model: text-embedding-3-small
   provider: openai
@@ -18,7 +18,25 @@ llm:
 dashboard:
   host: 127.0.0.1
   port: 8501
+discord:
+  enabled: false
+  channel_id: "1487759408711729192"
+  application_id: "1487768831517655060"
+  client_id: "1487768831517655060"
 portal:
   mode: manual
   enable_browser_automation: false
   enable_live_upload: false
+conversation:
+  session_name: codex-conversation
+  max_candidates_per_cycle: 8
+  frontier_size: 4
+  exploit_candidates: 4
+  explore_candidates: 2
+  structural_candidates: 2
+  promote_min_improvement: 10.0
+  max_memory_notes: 12
+  default_sleep_seconds: 0
+  use_llm_roles: true
+  seed_strategy_path: submission_candidate.py
+  fallback_family: tutorial_submission_candidate_alpha

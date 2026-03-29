@@ -5,6 +5,7 @@ import json
 import random
 import time
 from pathlib import Path
+from typing import Any
 from uuid import uuid4
 
 from prosperity.db import DatabaseSession, ExperimentRepository
@@ -13,8 +14,15 @@ from prosperity.db.models import (
     ConversationMessageRecord,
     MemoryNoteRecord,
 )
+from prosperity.dsl.crossover import crossover_specs
+from prosperity.dsl.mutators import apply_structural_profile
 from prosperity.dsl.schema import ParameterDef, StrategySpec
-from prosperity.generation.family_registry import tutorial_submission_candidate_alpha
+from prosperity.external.discord_notifier import send_cycle_summary_message
+from prosperity.generation.family_registry import (
+    tutorial_market_maker,
+    tutorial_microprice_reversion,
+    tutorial_submission_candidate_alpha,
+)
 from prosperity.llm.client import LLMClient
 from prosperity.orchestration.jobs import (
     compile_spec_to_artifact,
@@ -32,6 +40,29 @@ PROMPT_DIR = Path(__file__).resolve().parents[1] / "llm" / "prompts"
 STRATEGIST_PROMPT = PROMPT_DIR / "conversation_strategist.md"
 CRITIC_PROMPT = PROMPT_DIR / "conversation_critic.md"
 POSTMORTEM_PROMPT = PROMPT_DIR / "conversation_postmortem.md"
+FRONTIER_SEED_SPECS = {
+    "tutorial_submission_candidate_alpha": {
+        "strategy_id": "conversation-submission-alpha-seed",
+        "name": "Conversation Submission Alpha Seed",
+        "builder": tutorial_submission_candidate_alpha,
+    },
+    "tutorial_microprice_reversion": {
+        "strategy_id": "conversation-microprice-seed",
+        "name": "Conversation Microprice Seed",
+        "builder": tutorial_microprice_reversion,
+    },
+    "tutorial_wall_mid_mm": {
+        "strategy_id": "conversation-wall-mid-seed",
+        "name": "Conversation Wall Mid Seed",
+        "builder": tutorial_market_maker,
+    },
+}
+STRUCTURAL_PROFILES = [
+    "low_turnover",
+    "inventory_hardening",
+    "signal_rotation",
+    "aggressive_repricing",
+]
 
 
 def _with_repo(paths: RepoPaths, callback):
@@ -74,6 +105,33 @@ def _evaluation_from_row(row) -> dict:
         "behavior_fingerprint": payload.get("behavior_fingerprint", {}),
         "critique": payload.get("critique", {}),
     }
+
+
+def _strategy_entry(spec: StrategySpec, compiled_path: Path, evaluation: dict) -> dict[str, Any]:
+    metrics = evaluation.get("metrics", {})
+    scoring = evaluation.get("scoring", {})
+    return {
+        "strategy_id": spec.metadata.id,
+        "family": spec.metadata.family,
+        "name": spec.metadata.name,
+        "spec": spec,
+        "compiled_path": compiled_path,
+        "evaluation": evaluation,
+        "pnl": float(metrics.get("total_pnl", 0.0)),
+        "score": float(scoring.get("score", 0.0)),
+    }
+
+
+def _frontier_brief(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    return [
+        {
+            "strategy_id": entry["strategy_id"],
+            "family": entry["family"],
+            "pnl": entry["pnl"],
+            "score": entry["score"],
+        }
+        for entry in entries
+    ]
 
 
 def _normalize_plan(payload: dict, allowed_parameters: list[str], max_candidates: int) -> dict:
@@ -231,6 +289,8 @@ def _strategist_turn(
     paths: RepoPaths,
     champion_spec: StrategySpec,
     champion_eval: dict,
+    frontier_entries: list[dict[str, Any]],
+    candidate_budget: dict[str, int],
     memory_notes: list[dict],
     iteration: int,
 ) -> dict:
@@ -242,6 +302,8 @@ def _strategist_turn(
             "champion_id": champion_spec.metadata.id,
             "champion_family": champion_spec.metadata.family,
             "champion_metrics": champion_eval.get("metrics", {}),
+            "frontier": _frontier_brief(frontier_entries),
+            "candidate_budget": candidate_budget,
             "recent_memory_notes": memory_excerpt,
             "iteration": iteration,
             "max_candidates": settings.conversation.max_candidates_per_cycle,
@@ -264,6 +326,7 @@ def _critic_turn(
     settings: AppSettings,
     paths: RepoPaths,
     champion_spec: StrategySpec,
+    frontier_entries: list[dict[str, Any]],
     plan: dict,
     champion_eval: dict,
 ) -> dict:
@@ -272,6 +335,7 @@ def _critic_turn(
         {
             "allowed_parameters": allowed,
             "plan": plan,
+            "frontier": _frontier_brief(frontier_entries),
             "champion_metrics": champion_eval.get("metrics", {}),
             "champion_scoring": champion_eval.get("scoring", {}),
         }
@@ -322,6 +386,44 @@ def _make_candidate_id(base_name: str, iteration: int, variant_index: int) -> st
     return f"{slugify(base_name)}-c{iteration:03d}-v{variant_index:02d}-{uuid4().hex[:6]}"
 
 
+def _budget_split(settings: AppSettings, requested_exploit_count: int) -> dict[str, int]:
+    total = max(1, settings.conversation.max_candidates_per_cycle)
+    exploit = min(total, max(1, min(settings.conversation.exploit_candidates, requested_exploit_count)))
+    remaining = total - exploit
+    structural = min(settings.conversation.structural_candidates, remaining)
+    remaining -= structural
+    explore = min(settings.conversation.explore_candidates, remaining)
+    remaining -= explore
+    exploit += remaining
+    return {
+        "total": exploit + explore + structural,
+        "exploit": exploit,
+        "explore": explore,
+        "structural": structural,
+    }
+
+
+def _project_plan_to_spec(
+    plan: dict,
+    spec: StrategySpec,
+    memory_notes: list[dict],
+    iteration: int,
+    count: int,
+) -> dict:
+    allowed = set(_allowed_parameters(spec))
+    focus = [name for name in plan["focus_parameters"] if name in allowed]
+    directions = {name: plan["directions"].get(name, "neutral") for name in focus}
+    if not focus:
+        fallback = _heuristic_plan(spec, memory_notes, iteration, count)
+        fallback["candidate_count"] = count
+        return fallback
+    projected = dict(plan)
+    projected["focus_parameters"] = focus
+    projected["directions"] = directions
+    projected["candidate_count"] = count
+    return projected
+
+
 def _mutate_parameter(
     parameter: ParameterDef,
     direction: str,
@@ -361,13 +463,20 @@ def _apply_profile_defaults(spec: StrategySpec, profile: str) -> None:
             parameter.default = _clamp(parameter.default + sign * step, parameter.lower, parameter.upper)
 
 
-def _mutate_candidates(champion_spec: StrategySpec, plan: dict, critique: dict, iteration: int) -> list[StrategySpec]:
+def _mutate_candidates(
+    champion_spec: StrategySpec,
+    plan: dict,
+    critique: dict,
+    iteration: int,
+    count: int,
+    bucket: str,
+) -> list[dict[str, Any]]:
     profiles = ["thesis", "half_step", "contrarian", "defensive", "jitter", "jitter"]
     focus = plan["focus_parameters"]
     avoid = set(critique["avoid_parameters"])
     directions = plan["directions"]
-    candidates: list[StrategySpec] = []
-    for index in range(plan["candidate_count"]):
+    candidates: list[dict[str, Any]] = []
+    for index in range(count):
         profile = profiles[index % len(profiles)]
         rng = random.Random(f"{champion_spec.metadata.id}:{iteration}:{profile}:{index}")
         mutated = copy.deepcopy(champion_spec)
@@ -389,25 +498,164 @@ def _mutate_candidates(champion_spec: StrategySpec, plan: dict, critique: dict, 
         mutated.metadata.name = f"{champion_spec.metadata.name} {profile} cycle {iteration}"
         mutated.metadata.created_by_role = "conversation_mutator"
         mutated.metadata.confidence_notes = (
-            f"{plan['thesis']} | profile={profile} | critic={'; '.join(critique['main_risks'][:2])}"
+            f"{plan['thesis']} | bucket={bucket} | profile={profile} | critic={'; '.join(critique['main_risks'][:2])}"
         )
-        candidates.append(mutated)
+        candidates.append(
+            {
+                "spec": mutated,
+                "bucket": bucket,
+                "origin_family": champion_spec.metadata.family,
+                "origin_strategy_id": champion_spec.metadata.id,
+                "profile": profile,
+            }
+        )
     return candidates
 
 
-def _ensure_seed_strategy(paths: RepoPaths) -> StrategySpec:
-    strategy_id = "conversation-submission-alpha-seed"
+def _structural_candidates(
+    champion_entry: dict[str, Any],
+    frontier_entries: list[dict[str, Any]],
+    iteration: int,
+    count: int,
+) -> list[dict[str, Any]]:
+    if count <= 0:
+        return []
+    champion_spec = champion_entry["spec"]
+    candidates: list[dict[str, Any]] = []
+    for index, profile in enumerate(STRUCTURAL_PROFILES):
+        if len(candidates) >= count:
+            break
+        mutated = apply_structural_profile(champion_spec, profile)
+        mutated.metadata.id = _make_candidate_id(champion_spec.metadata.name, iteration, index + 50)
+        mutated.metadata.name = f"{champion_spec.metadata.name} {profile} cycle {iteration}"
+        mutated.metadata.confidence_notes = (
+            f"structural profile={profile} | parent={champion_spec.metadata.id}"
+        )
+        candidates.append(
+            {
+                "spec": mutated,
+                "bucket": "structural",
+                "origin_family": champion_spec.metadata.family,
+                "origin_strategy_id": champion_spec.metadata.id,
+                "profile": profile,
+            }
+        )
+    alternate_entries = [entry for entry in frontier_entries if entry["strategy_id"] != champion_entry["strategy_id"]]
+    for alt_index, alternate in enumerate(alternate_entries):
+        if len(candidates) >= count:
+            break
+        crossover = crossover_specs(alternate["spec"], champion_spec)
+        crossover.metadata.id = _make_candidate_id(alternate["name"], iteration, alt_index + 80)
+        crossover.metadata.name = f"{alternate['name']} x {champion_spec.metadata.name} cycle {iteration}"
+        crossover.metadata.created_by_role = "conversation_crossover"
+        crossover.metadata.confidence_notes = (
+            f"frontier crossover | left={alternate['strategy_id']} | right={champion_spec.metadata.id}"
+        )
+        candidates.append(
+            {
+                "spec": crossover,
+                "bucket": "structural",
+                "origin_family": alternate["family"],
+                "origin_strategy_id": alternate["strategy_id"],
+                "profile": "frontier_crossover",
+            }
+        )
+    return candidates[:count]
+
+
+def _explore_candidates_from_frontier(
+    frontier_entries: list[dict[str, Any]],
+    champion_entry: dict[str, Any],
+    plan: dict,
+    critique: dict,
+    memory_notes: list[dict],
+    iteration: int,
+    count: int,
+) -> list[dict[str, Any]]:
+    if count <= 0:
+        return []
+    candidates: list[dict[str, Any]] = []
+    alternate_entries = [entry for entry in frontier_entries if entry["strategy_id"] != champion_entry["strategy_id"]]
+    for index, entry in enumerate(alternate_entries):
+        if len(candidates) >= count:
+            break
+        projected_plan = _project_plan_to_spec(plan, entry["spec"], memory_notes, iteration, count=1)
+        mutated_batch = _mutate_candidates(
+            entry["spec"],
+            projected_plan,
+            critique,
+            iteration,
+            count=1,
+            bucket="explore",
+        )
+        if not mutated_batch:
+            continue
+        candidate = mutated_batch[0]
+        candidate["profile"] = f"frontier_probe_{index}"
+        candidates.append(candidate)
+    for family_name in FRONTIER_SEED_SPECS:
+        if len(candidates) >= count:
+            break
+        if family_name in {entry["family"] for entry in alternate_entries}:
+            continue
+        seed_info = FRONTIER_SEED_SPECS[family_name]
+        seed_spec = _build_seed_spec(
+            family_name,
+            strategy_id=f"{str(seed_info['strategy_id'])}-temp",
+            name=f"{str(seed_info['name'])} Explore",
+        )
+        projected_plan = _project_plan_to_spec(plan, seed_spec, memory_notes, iteration, count=1)
+        mutated_batch = _mutate_candidates(
+            seed_spec,
+            projected_plan,
+            critique,
+            iteration,
+            count=1,
+            bucket="explore",
+        )
+        if mutated_batch:
+            candidates.append(mutated_batch[0])
+    return candidates[:count]
+
+
+def _build_seed_spec(family_name: str, strategy_id: str, name: str) -> StrategySpec:
+    if family_name == "tutorial_submission_candidate_alpha":
+        return tutorial_submission_candidate_alpha(
+            role="conversation_seed",
+            strategy_id=strategy_id,
+            name=name,
+        )
+    if family_name == "tutorial_microprice_reversion":
+        spec = tutorial_microprice_reversion(role="conversation_seed")
+    elif family_name == "tutorial_wall_mid_mm":
+        spec = tutorial_market_maker(role="conversation_seed")
+    else:
+        raise ValueError(f"Unsupported frontier family: {family_name}")
+    spec.metadata.id = strategy_id
+    spec.metadata.name = name
+    spec.metadata.parent_ids = []
+    spec.metadata.created_by_role = "conversation_seed"
+    spec.metadata.confidence_notes = (
+        "Seed strategy for multi-family frontier search. "
+        "This family acts as an exploration anchor rather than a guaranteed champion."
+    )
+    return spec
+
+
+def _ensure_seed_strategy(paths: RepoPaths, family_name: str) -> StrategySpec:
+    seed_info = FRONTIER_SEED_SPECS[family_name]
+    strategy_id = str(seed_info["strategy_id"])
     existing = _with_repo(paths, lambda repo: repo.get_strategy(strategy_id))
     if existing is not None:
         return _spec_from_row(existing)
-    spec = tutorial_submission_candidate_alpha(
-        role="conversation_seed",
-        strategy_id=strategy_id,
-        name="Conversation Submission Alpha Seed",
-    )
+    spec = _build_seed_spec(family_name, strategy_id=strategy_id, name=str(seed_info["name"]))
     compiled = compile_spec_to_artifact(paths, spec)
     _with_repo(paths, lambda repo: persist_strategy_record(repo, spec, compiled, stage="conversation_seed", notes="Seed strategy"))
     return spec
+
+
+def _ensure_frontier_seed_strategies(paths: RepoPaths) -> list[StrategySpec]:
+    return [_ensure_seed_strategy(paths, family_name) for family_name in FRONTIER_SEED_SPECS]
 
 
 def _resolve_compiled_path(paths: RepoPaths, strategy_id: str) -> Path:
@@ -436,24 +684,53 @@ def _ensure_strategy_evaluation(
     )
 
 
-def _select_champion(paths: RepoPaths, settings: AppSettings) -> tuple[StrategySpec, Path, dict]:
-    seed_spec = _ensure_seed_strategy(paths)
-    seed_compiled_path = _resolve_compiled_path(paths, seed_spec.metadata.id)
-    seed_evaluation = _ensure_strategy_evaluation(paths, settings, seed_spec, seed_compiled_path)
-    seed_pnl = float(seed_evaluation.get("metrics", {}).get("total_pnl", 0.0))
+def _select_frontier(paths: RepoPaths, settings: AppSettings) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    seed_specs = _ensure_frontier_seed_strategies(paths)
+    entries: list[dict[str, Any]] = []
+    for seed_spec in seed_specs:
+        compiled_path = _resolve_compiled_path(paths, seed_spec.metadata.id)
+        evaluation = _ensure_strategy_evaluation(paths, settings, seed_spec, compiled_path)
+        entries.append(_strategy_entry(seed_spec, compiled_path, evaluation))
 
-    best_row = _with_repo(paths, lambda repo: repo.get_best_strategy_by_submission_pnl())
-    if best_row is None:
-        return seed_spec, seed_compiled_path, seed_evaluation
+    strategy_rows = _with_repo(paths, lambda repo: repo.list_strategies())
+    best_by_family: dict[str, dict[str, Any]] = {}
+    for row in strategy_rows:
+        strategy_id = row["strategy_id"]
+        if any(entry["strategy_id"] == strategy_id for entry in entries):
+            continue
+        evaluation_row = _with_repo(paths, lambda repo, strategy_id=strategy_id: repo.get_latest_evaluation(strategy_id))
+        if evaluation_row is None:
+            continue
+        spec = _spec_from_row(row)
+        compiled_path = _resolve_compiled_path(paths, spec.metadata.id)
+        evaluation = _evaluation_from_row(evaluation_row)
+        evaluation["decision"] = "cached"
+        evaluation["reason"] = "Using cached evaluation."
+        evaluation["report_path"] = str(paths.reports / f"{spec.metadata.id}.md")
+        entry = _strategy_entry(spec, compiled_path, evaluation)
+        current = best_by_family.get(spec.metadata.family)
+        if current is None or (entry["pnl"], entry["score"]) > (current["pnl"], current["score"]):
+            best_by_family[spec.metadata.family] = entry
 
-    best_row_pnl = float(best_row["best_submission_pnl"]) if "best_submission_pnl" in best_row.keys() else float("-inf")
-    if best_row["strategy_id"] == seed_spec.metadata.id or seed_pnl >= best_row_pnl:
-        return seed_spec, seed_compiled_path, seed_evaluation
+    merged = {entry["strategy_id"]: entry for entry in entries}
+    for entry in best_by_family.values():
+        merged[entry["strategy_id"]] = entry
+    sorted_entries = sorted(merged.values(), key=lambda entry: (entry["pnl"], entry["score"]), reverse=True)
+    champion_entry = sorted_entries[0]
 
-    champion_spec = _spec_from_row(best_row)
-    compiled_path = _resolve_compiled_path(paths, champion_spec.metadata.id)
-    evaluation = _ensure_strategy_evaluation(paths, settings, champion_spec, compiled_path)
-    return champion_spec, compiled_path, evaluation
+    frontier: list[dict[str, Any]] = []
+    seen_families: set[str] = set()
+    for entry in sorted_entries:
+        if entry["family"] in seen_families:
+            continue
+        frontier.append(entry)
+        seen_families.add(entry["family"])
+        if len(frontier) >= settings.conversation.frontier_size:
+            break
+    if champion_entry["strategy_id"] not in {entry["strategy_id"] for entry in frontier}:
+        frontier.insert(0, champion_entry)
+        frontier = frontier[: settings.conversation.frontier_size]
+    return champion_entry, frontier
 
 
 def _recent_memory(paths: RepoPaths, session_name: str, limit: int) -> list[dict]:
@@ -542,23 +819,36 @@ def run_conversation_cycle(
     lock_path = resolved_paths.caches / "conversation.loop.lock"
     with file_lock(lock_path):
         ingested = _with_repo(resolved_paths, lambda repo: ingest_all(resolved_paths, resolved_settings, repo))
-        champion_spec, _champion_path, champion_eval = _select_champion(resolved_paths, resolved_settings)
+        champion_entry, frontier_entries = _select_frontier(resolved_paths, resolved_settings)
+        champion_spec = champion_entry["spec"]
+        champion_eval = champion_entry["evaluation"]
         iteration = _with_repo(resolved_paths, lambda repo: repo.next_cycle_iteration(resolved_session_name))
         cycle_id = _create_cycle(resolved_paths, resolved_session_name, iteration, champion_spec.metadata.id)
         memory_notes = _recent_memory(resolved_paths, resolved_session_name, resolved_settings.conversation.max_memory_notes)
+        candidate_budget = _budget_split(
+            resolved_settings,
+            requested_exploit_count=max(1, min(resolved_settings.conversation.exploit_candidates, resolved_settings.conversation.max_candidates_per_cycle)),
+        )
 
         strategist_plan = _strategist_turn(
             resolved_settings,
             resolved_paths,
             champion_spec,
             champion_eval,
+            frontier_entries,
+            candidate_budget,
             memory_notes,
             iteration,
+        )
+        candidate_budget = _budget_split(
+            resolved_settings,
+            requested_exploit_count=max(1, strategist_plan["candidate_count"]),
         )
         critic_plan = _critic_turn(
             resolved_settings,
             resolved_paths,
             champion_spec,
+            frontier_entries,
             strategist_plan,
             champion_eval,
         )
@@ -572,13 +862,44 @@ def run_conversation_cycle(
             ],
         )
 
-        candidates = _mutate_candidates(champion_spec, strategist_plan, critic_plan, iteration)
+        exploit_plan = _project_plan_to_spec(
+            strategist_plan,
+            champion_spec,
+            memory_notes,
+            iteration,
+            candidate_budget["exploit"],
+        )
+        exploit_candidates = _mutate_candidates(
+            champion_spec,
+            exploit_plan,
+            critic_plan,
+            iteration,
+            count=candidate_budget["exploit"],
+            bucket="exploit",
+        )
+        explore_candidates = _explore_candidates_from_frontier(
+            frontier_entries,
+            champion_entry,
+            strategist_plan,
+            critic_plan,
+            memory_notes,
+            iteration,
+            candidate_budget["explore"],
+        )
+        structural_candidates = _structural_candidates(
+            champion_entry,
+            frontier_entries,
+            iteration,
+            candidate_budget["structural"],
+        )
+        candidates = exploit_candidates + explore_candidates + structural_candidates
         candidate_results: list[dict] = []
         best_candidate: dict | None = None
         champion_pnl = float(champion_eval.get("metrics", {}).get("total_pnl", 0.0))
         champion_score = float(champion_eval.get("scoring", {}).get("score", 0.0))
 
-        for candidate in candidates:
+        for candidate_entry in candidates:
+            candidate = candidate_entry["spec"]
             compiled = compile_spec_to_artifact(resolved_paths, candidate)
             _with_repo(
                 resolved_paths,
@@ -610,6 +931,11 @@ def run_conversation_cycle(
                 "decision": evaluation["decision"],
                 "reason": evaluation["reason"],
                 "report_path": evaluation["report_path"],
+                "family": candidate.metadata.family,
+                "search_bucket": candidate_entry["bucket"],
+                "origin_family": candidate_entry["origin_family"],
+                "origin_strategy_id": candidate_entry["origin_strategy_id"],
+                "profile": candidate_entry["profile"],
             }
             postmortem = _postmortem_turn(resolved_settings, resolved_paths, candidate_summary, champion_pnl)
             candidate_summary["postmortem"] = postmortem
@@ -735,6 +1061,8 @@ def run_conversation_cycle(
             "cycle_id": cycle_id,
             "iteration": iteration,
             "ingested_documents": ingested,
+            "frontier": _frontier_brief(frontier_entries),
+            "candidate_budget": candidate_budget,
             "champion_before": champion_spec.metadata.id,
             "champion_after": promoted_strategy_id or champion_spec.metadata.id,
             "champion_pnl": champion_pnl,
@@ -745,6 +1073,7 @@ def run_conversation_cycle(
             "strategist": strategist_plan,
             "critic": critic_plan,
         }
+        cycle_summary["discord_notification"] = send_cycle_summary_message(cycle_summary, resolved_settings)
         _finish_cycle(
             resolved_paths,
             cycle_id,
