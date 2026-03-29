@@ -38,6 +38,17 @@ class PortalSettings(BaseModel):
     enable_live_upload: bool = False
 
 
+class ConversationSettings(BaseModel):
+    session_name: str = "codex-conversation"
+    max_candidates_per_cycle: int = 6
+    promote_min_improvement: float = 10.0
+    max_memory_notes: int = 12
+    default_sleep_seconds: int = 0
+    use_llm_roles: bool = True
+    seed_strategy_path: str = "submission_candidate.py"
+    fallback_family: str = "tutorial_submission_candidate_alpha"
+
+
 class AppSettings(BaseSettings):
     model_config = SettingsConfigDict(
         env_prefix="PROSPERITY_",
@@ -58,6 +69,7 @@ class AppSettings(BaseSettings):
     llm: LLMSettings = Field(default_factory=LLMSettings)
     dashboard: DashboardSettings = Field(default_factory=DashboardSettings)
     portal: PortalSettings = Field(default_factory=PortalSettings)
+    conversation: ConversationSettings = Field(default_factory=ConversationSettings)
 
 
 def _load_yaml_file(path: Path | None) -> dict[str, Any]:

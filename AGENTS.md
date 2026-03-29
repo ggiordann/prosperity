@@ -45,6 +45,9 @@ This repository is a local research platform for IMC Prosperity 4. It supports:
 - Tests: `make test`
 - Smoke baseline: `make baseline`
 - One loop cycle: `make loop-once`
+- Conversation loop until `Ctrl-C`: `make loop-run` or `python3 -m prosperity.cli loop run`
+- Conversation loop for `n` cycles: `python3 -m prosperity.cli loop run --cycles 10`
+- Single conversation cycle: `python3 -m prosperity.cli loop cycle`
 - Dashboard: `make dashboard`
 
 ## Done Means
@@ -53,4 +56,5 @@ This repository is a local research platform for IMC Prosperity 4. It supports:
 - Similarity / novelty / plagiarism checks run.
 - A manual submission bundle can be packaged.
 - `prosperity loop once` completes locally on repo data.
+- `prosperity loop run` can run continuously until interrupted, or for a bounded number of cycles.
 - The dashboard opens and shows persisted data.

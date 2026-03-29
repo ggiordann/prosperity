@@ -1,7 +1,7 @@
 PYTHON ?= python3
 PIP ?= $(PYTHON) -m pip
 
-.PHONY: setup lint typecheck test smoke baseline loop-once dashboard ingest
+.PHONY: setup lint typecheck test smoke baseline loop-once loop-run dashboard ingest
 
 setup:
 	$(PIP) install --upgrade pip
@@ -24,6 +24,9 @@ baseline:
 
 loop-once:
 	$(PYTHON) -m prosperity.cli loop once
+
+loop-run:
+	$(PYTHON) -m prosperity.cli loop run
 
 dashboard:
 	$(PYTHON) -m prosperity.cli dashboard serve

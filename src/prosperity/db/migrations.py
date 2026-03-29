@@ -80,6 +80,40 @@ SCHEMA = [
         created_at TEXT NOT NULL
     )
     """,
+    """
+    CREATE TABLE IF NOT EXISTS conversation_cycles (
+        cycle_id TEXT PRIMARY KEY,
+        session_name TEXT NOT NULL,
+        iteration INTEGER NOT NULL,
+        champion_strategy_id TEXT,
+        promoted_strategy_id TEXT,
+        status TEXT NOT NULL,
+        summary_json TEXT NOT NULL,
+        created_at TEXT NOT NULL,
+        finished_at TEXT
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS conversation_messages (
+        message_id TEXT PRIMARY KEY,
+        cycle_id TEXT NOT NULL,
+        session_name TEXT NOT NULL,
+        role TEXT NOT NULL,
+        content_json TEXT NOT NULL,
+        created_at TEXT NOT NULL
+    )
+    """,
+    """
+    CREATE TABLE IF NOT EXISTS memory_notes (
+        note_id TEXT PRIMARY KEY,
+        session_name TEXT NOT NULL,
+        cycle_id TEXT,
+        strategy_id TEXT,
+        note_kind TEXT NOT NULL,
+        content TEXT NOT NULL,
+        created_at TEXT NOT NULL
+    )
+    """,
 ]
 
 

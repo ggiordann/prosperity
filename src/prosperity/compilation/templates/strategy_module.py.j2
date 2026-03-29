@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 
 from dataclasses import dataclass
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 try:
     from datamodel import Order, OrderDepth, TradingState
@@ -32,6 +32,8 @@ except ImportError:
         observations: object
 
 SPEC = json.loads(r'''__SPEC_JSON__''')
+FAMILY = SPEC["metadata"]["family"]
+PARAMS = {parameter["name"]: parameter["default"] for parameter in SPEC.get("parameter_space", [])}
 
 
 class Trader:
@@ -41,6 +43,24 @@ class Trader:
     def run(self, state: TradingState):
         persisted = self._load_state(state.traderData)
         result: Dict[str, List[Order]] = {}
+        if FAMILY == "tutorial_submission_candidate_alpha":
+            tomato_history = persisted.get("tomato_fair_history", [])
+            for product in SPEC["scope"]["products"]:
+                order_depth = state.order_depths.get(product)
+                if order_depth is None or not order_depth.buy_orders or not order_depth.sell_orders:
+                    result[product] = []
+                    continue
+                position = state.position.get(product, 0)
+                if product == "EMERALDS":
+                    result[product] = self._trade_submission_candidate_emeralds(order_depth, position)
+                elif product == "TOMATOES":
+                    orders, tomato_history = self._trade_submission_candidate_tomatoes(order_depth, position, tomato_history)
+                    result[product] = orders
+                else:
+                    result[product] = []
+            persisted["tomato_fair_history"] = tomato_history[-20:]
+            return result, 0, json.dumps(persisted, separators=(",", ":"))
+
         for product in SPEC["scope"]["products"]:
             order_depth = state.order_depths.get(product)
             if order_depth is None or not order_depth.buy_orders or not order_depth.sell_orders:
@@ -53,6 +73,135 @@ class Trader:
                 persisted.setdefault(product, {}),
             )
         return result, 0, json.dumps(persisted, separators=(",", ":"))
+
+    def _limit(self, product: str) -> int:
+        return int(SPEC["risk_policy"]["per_product_position_caps"].get(product, 20))
+
+    def _param(self, name: str, default: float) -> float:
+        return float(PARAMS.get(name, default))
+
+    def _trade_submission_candidate_emeralds(self, order_depth: OrderDepth, position: int) -> List[Order]:
+        best_bid = max(order_depth.buy_orders)
+        best_ask = min(order_depth.sell_orders)
+        spread = best_ask - best_bid
+        bid_price = best_bid + 1 if spread > 1 else best_bid
+        ask_price = best_ask - 1 if spread > 1 else best_ask
+        quote_size = max(1, int(round(self._param("emeralds_quote_size", 5.0))))
+        limit = self._limit("EMERALDS")
+        buy_size = min(quote_size, max(0, limit - position))
+        sell_size = min(quote_size, max(0, limit + position))
+        orders: List[Order] = []
+        if buy_size > 0 and bid_price < best_ask:
+            orders.append(Order("EMERALDS", bid_price, buy_size))
+        if sell_size > 0 and ask_price > best_bid:
+            orders.append(Order("EMERALDS", ask_price, -sell_size))
+        return orders
+
+    def _trade_submission_candidate_tomatoes(
+        self,
+        order_depth: OrderDepth,
+        position: int,
+        history: List[float],
+    ) -> Tuple[List[Order], List[float]]:
+        best_bid = max(order_depth.buy_orders)
+        best_ask = min(order_depth.sell_orders)
+        limit = self._limit("TOMATOES")
+
+        filter_volume = max(1, int(round(self._param("tomato_filter_volume", 16.0))))
+        filtered_asks = [price for price, volume in order_depth.sell_orders.items() if abs(volume) >= filter_volume]
+        filtered_bids = [price for price, volume in order_depth.buy_orders.items() if abs(volume) >= filter_volume]
+        mm_ask = min(filtered_asks) if filtered_asks else best_ask
+        mm_bid = max(filtered_bids) if filtered_bids else best_bid
+        fair_value = 0.5 * (mm_ask + mm_bid)
+
+        bid_volume_1 = order_depth.buy_orders[best_bid]
+        ask_volume_1 = abs(order_depth.sell_orders[best_ask])
+        total_volume = bid_volume_1 + ask_volume_1
+        microprice = (best_ask * bid_volume_1 + best_bid * ask_volume_1) / total_volume if total_volume else fair_value
+
+        history.append(fair_value)
+        prev1 = history[-2] if len(history) >= 2 else fair_value
+        prev3 = history[-4] if len(history) >= 4 else prev1
+        if len(history) >= 4:
+            fair_value = 0.6 * fair_value + 0.25 * history[-2] + 0.15 * history[-4]
+        elif len(history) >= 2:
+            fair_value = 0.75 * fair_value + 0.25 * history[-2]
+
+        second_bids = sorted(order_depth.buy_orders, reverse=True)
+        second_asks = sorted(order_depth.sell_orders)
+        bid2 = second_bids[1] if len(second_bids) > 1 else best_bid
+        ask2 = second_asks[1] if len(second_asks) > 1 else best_ask
+        bid2_vol = order_depth.buy_orders.get(bid2, bid_volume_1)
+        ask2_vol = abs(order_depth.sell_orders.get(ask2, ask_volume_1))
+        second_total = bid2_vol + ask2_vol
+        second_imb = (bid2_vol - ask2_vol) / second_total if second_total else 0.0
+        gap_signal = (ask2 - best_ask) - (best_bid - bid2)
+        ret1 = fair_value - prev1
+        ret3 = fair_value - prev3
+        micro_delta = microprice - fair_value
+
+        alpha = self._param("fair_alpha_scale", 1.3) * (
+            self._param("gap_weight", 0.1) * gap_signal
+            + self._param("second_imb_weight", 1.0) * second_imb
+            + self._param("ret1_weight", -0.045) * ret1
+            + self._param("ret3_weight", 0.0) * ret3
+            + self._param("micro_weight", -0.025) * micro_delta
+        )
+        fair_value = fair_value + alpha - self._param("inventory_skew", 0.0) * (position / max(1, limit))
+
+        orders: List[Order] = []
+        buy_volume = 0
+        sell_volume = 0
+        take_width = max(0, int(round(self._param("tomato_take_width", 2.0))))
+        take_extra = self._param("take_extra", 1.5)
+        buy_take_width = max(0, take_width - int(abs(alpha) >= take_extra and alpha > 0))
+        sell_take_width = max(0, take_width - int(abs(alpha) >= take_extra and alpha < 0))
+
+        best_ask_size = -order_depth.sell_orders[best_ask]
+        if best_ask <= fair_value - buy_take_width:
+            quantity = min(best_ask_size, limit - position - buy_volume)
+            if quantity > 0:
+                orders.append(Order("TOMATOES", best_ask, quantity))
+                buy_volume += quantity
+
+        best_bid_size = order_depth.buy_orders[best_bid]
+        if best_bid >= fair_value + sell_take_width:
+            quantity = min(best_bid_size, limit + position - sell_volume)
+            if quantity > 0:
+                orders.append(Order("TOMATOES", best_bid, -quantity))
+                sell_volume += quantity
+
+        position_after_take = position + buy_volume - sell_volume
+        clear_width = self._param("clear_width", 1.0)
+        fair_bid = round(fair_value - clear_width)
+        fair_ask = round(fair_value + clear_width)
+        if position_after_take > 0 and fair_ask in order_depth.buy_orders:
+            quantity = min(order_depth.buy_orders[fair_ask], position_after_take, limit + position - sell_volume)
+            if quantity > 0:
+                orders.append(Order("TOMATOES", fair_ask, -quantity))
+                sell_volume += quantity
+        if position_after_take < 0 and fair_bid in order_depth.sell_orders:
+            quantity = min(abs(order_depth.sell_orders[fair_bid]), -position_after_take, limit - position - buy_volume)
+            if quantity > 0:
+                orders.append(Order("TOMATOES", fair_bid, quantity))
+                buy_volume += quantity
+
+        quote_aggression = int(round(self._param("quote_aggression", 1.0)))
+        shift = quote_aggression if alpha > take_extra else (-quote_aggression if alpha < -take_extra else 0)
+        ask_candidates = [price for price in order_depth.sell_orders if price > fair_value + 1]
+        bid_candidates = [price for price in order_depth.buy_orders if price < fair_value - 1]
+        ask_price = min(ask_candidates) - 1 - max(0, -shift) if ask_candidates else int(round(fair_value + 2 - max(0, -shift)))
+        bid_price = max(bid_candidates) + 1 + max(0, shift) if bid_candidates else int(round(fair_value - 2 + max(0, shift)))
+        bid_price = min(bid_price, best_ask - 1)
+        ask_price = max(ask_price, best_bid + 1)
+
+        buy_size = limit - (position + buy_volume)
+        sell_size = limit + (position - sell_volume)
+        if buy_size > 0:
+            orders.append(Order("TOMATOES", bid_price, buy_size))
+        if sell_size > 0:
+            orders.append(Order("TOMATOES", ask_price, -sell_size))
+        return orders, history
 
     def _trade_product(self, product: str, order_depth: OrderDepth, position: int, product_state: dict) -> List[Order]:
         best_bid = max(order_depth.buy_orders)

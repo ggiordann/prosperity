@@ -1,0 +1,72 @@
+from __future__ import annotations
+
+from prosperity.db import DatabaseSession, ExperimentRepository
+from prosperity.orchestration.conversation import run_conversation_cycle
+from prosperity.paths import RepoPaths
+from prosperity.settings import AppSettings
+
+
+def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
+    root = tmp_path / "repo"
+    root.mkdir()
+    (root / "pyproject.toml").write_text("[project]\nname='demo'\n", encoding="utf-8")
+    paths = RepoPaths.discover(root)
+    settings = AppSettings()
+    settings.conversation.max_candidates_per_cycle = 3
+    settings.conversation.promote_min_improvement = 5.0
+
+    def fake_ingest(paths_obj, settings_obj, repo):
+        return 4
+
+    def fake_compile(paths_obj, spec):
+        target = paths_obj.strategies / f"{spec.metadata.id}.py"
+        target.write_text("class Trader:\n    pass\n", encoding="utf-8")
+        return target
+
+    call_counter = {"value": 0}
+
+    def fake_evaluate(paths_obj, settings_obj, repo, spec, compiled_path):
+        call_counter["value"] += 1
+        if spec.metadata.id == "conversation-submission-alpha-seed":
+            pnl = 100.0
+        elif call_counter["value"] == 2:
+            pnl = 120.0
+        else:
+            pnl = 90.0
+        return {
+            "decision": "promote" if pnl >= 105.0 else "reject",
+            "reason": "stubbed evaluation",
+            "metrics": {"total_pnl": pnl},
+            "robustness": {"score": 0.8},
+            "scoring": {"score": pnl / 1000.0},
+            "plagiarism": {"max_score": 0.0},
+            "report_path": str(paths_obj.reports / f"{spec.metadata.id}.md"),
+        }
+
+    def fake_package(paths_obj, spec, compiled_path, evaluation):
+        package_dir = paths_obj.submissions / spec.metadata.id
+        package_dir.mkdir(parents=True, exist_ok=True)
+        return package_dir
+
+    monkeypatch.setattr("prosperity.orchestration.conversation.ingest_all", fake_ingest)
+    monkeypatch.setattr("prosperity.orchestration.conversation.compile_spec_to_artifact", fake_compile)
+    monkeypatch.setattr("prosperity.orchestration.conversation.evaluate_compiled_strategy", fake_evaluate)
+    monkeypatch.setattr("prosperity.orchestration.conversation.package_strategy", fake_package)
+
+    result = run_conversation_cycle(session_name="unit-test", paths=paths, settings=settings)
+
+    assert result["decision"] == "promote"
+    assert result["champion_before"] == "conversation-submission-alpha-seed"
+    assert result["champion_after"] != result["champion_before"]
+    assert result["candidate_count"] == 3
+
+    with DatabaseSession(paths.db_dir / "prosperity.sqlite3") as db:
+        repo = ExperimentRepository(db.connection)
+        cycles = repo.list_recent_conversation_cycles("unit-test", limit=5)
+        messages = repo.list_recent_conversation_messages("unit-test", limit=20)
+        memory = repo.list_memory_notes("unit-test", limit=20)
+
+    assert len(cycles) == 1
+    assert cycles[0]["promoted_strategy_id"] == result["champion_after"]
+    assert len(messages) >= 3
+    assert any(row["note_kind"] == "promotion" for row in memory)

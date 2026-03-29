@@ -17,6 +17,7 @@ from prosperity.external.manual_submission import package_manual_submission
 from prosperity.external.playwright_portal import dry_run_upload
 from prosperity.generation.generator import generate_candidate_specs
 from prosperity.logging import configure_logging
+from prosperity.orchestration.conversation import run_conversation_cycle
 from prosperity.orchestration.jobs import (
     compile_spec_to_artifact,
     evaluate_compiled_strategy,
@@ -239,6 +240,35 @@ def portal_dry_run(strategy_id: str) -> None:
 @loop_app.command("once")
 def loop_once() -> None:
     typer.echo(json_dumps(run_loop_once()))
+
+
+@loop_app.command("cycle")
+def loop_cycle(session_name: str | None = None) -> None:
+    typer.echo(json_dumps(run_conversation_cycle(session_name=session_name)))
+
+
+@loop_app.command("run")
+def loop_run(
+    cycles: int | None = typer.Option(None, help="Number of conversation cycles to run. Omit to run until Ctrl-C."),
+    sleep_seconds: int | None = typer.Option(None, help="Sleep between cycles. Defaults to conversation.default_sleep_seconds."),
+    session_name: str | None = typer.Option(None, help="Optional conversation session name override."),
+) -> None:
+    import time
+
+    paths, settings = _context()
+    resolved_sleep = settings.conversation.default_sleep_seconds if sleep_seconds is None else sleep_seconds
+    completed = 0
+    try:
+        while cycles is None or completed < cycles:
+            result = run_conversation_cycle(session_name=session_name, paths=paths, settings=settings)
+            typer.echo(json_dumps(result))
+            completed += 1
+            if cycles is not None and completed >= cycles:
+                break
+            if resolved_sleep > 0:
+                time.sleep(resolved_sleep)
+    except KeyboardInterrupt:
+        typer.echo(json_dumps({"status": "interrupted", "completed_cycles": completed}))
 
 
 @loop_app.command("daemon")

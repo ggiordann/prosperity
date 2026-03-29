@@ -5,8 +5,11 @@ import sqlite3
 from typing import Iterable
 
 from prosperity.db.models import (
+    ConversationCycleRecord,
+    ConversationMessageRecord,
     DocumentRecord,
     EvaluationRecord,
+    MemoryNoteRecord,
     PromotionRecord,
     RunRecord,
     SimilarityRecord,
@@ -140,6 +143,63 @@ class ExperimentRepository:
             ),
         )
 
+    def upsert_conversation_cycle(self, record: ConversationCycleRecord) -> None:
+        self.connection.execute(
+            """
+            INSERT OR REPLACE INTO conversation_cycles
+            (cycle_id, session_name, iteration, champion_strategy_id, promoted_strategy_id, status,
+             summary_json, created_at, finished_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                record.cycle_id,
+                record.session_name,
+                record.iteration,
+                record.champion_strategy_id,
+                record.promoted_strategy_id,
+                record.status,
+                record.summary_json,
+                record.created_at,
+                record.finished_at,
+            ),
+        )
+
+    def insert_conversation_messages(self, records: Iterable[ConversationMessageRecord]) -> None:
+        for record in records:
+            self.connection.execute(
+                """
+                INSERT OR REPLACE INTO conversation_messages
+                (message_id, cycle_id, session_name, role, content_json, created_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    record.message_id,
+                    record.cycle_id,
+                    record.session_name,
+                    record.role,
+                    record.content_json,
+                    record.created_at,
+                ),
+            )
+
+    def insert_memory_note(self, record: MemoryNoteRecord) -> None:
+        self.connection.execute(
+            """
+            INSERT OR REPLACE INTO memory_notes
+            (note_id, session_name, cycle_id, strategy_id, note_kind, content, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+            """,
+            (
+                record.note_id,
+                record.session_name,
+                record.cycle_id,
+                record.strategy_id,
+                record.note_kind,
+                record.content,
+                record.created_at,
+            ),
+        )
+
     def list_strategies(self) -> list[sqlite3.Row]:
         return self.connection.execute(
             "SELECT * FROM strategies ORDER BY created_at DESC"
@@ -154,6 +214,91 @@ class ExperimentRepository:
         return self.connection.execute(
             "SELECT * FROM promotions ORDER BY created_at DESC"
         ).fetchall()
+
+    def list_recent_conversation_cycles(self, session_name: str, limit: int = 20) -> list[sqlite3.Row]:
+        return self.connection.execute(
+            """
+            SELECT * FROM conversation_cycles
+            WHERE session_name = ?
+            ORDER BY iteration DESC, created_at DESC
+            LIMIT ?
+            """,
+            (session_name, limit),
+        ).fetchall()
+
+    def list_recent_conversation_messages(self, session_name: str, limit: int = 50) -> list[sqlite3.Row]:
+        return self.connection.execute(
+            """
+            SELECT * FROM conversation_messages
+            WHERE session_name = ?
+            ORDER BY created_at DESC
+            LIMIT ?
+            """,
+            (session_name, limit),
+        ).fetchall()
+
+    def list_memory_notes(self, session_name: str, limit: int = 50) -> list[sqlite3.Row]:
+        return self.connection.execute(
+            """
+            SELECT * FROM memory_notes
+            WHERE session_name = ?
+            ORDER BY created_at DESC
+            LIMIT ?
+            """,
+            (session_name, limit),
+        ).fetchall()
+
+    def get_latest_evaluation(self, strategy_id: str) -> sqlite3.Row | None:
+        return self.connection.execute(
+            """
+            SELECT * FROM evaluations
+            WHERE strategy_id = ?
+            ORDER BY created_at DESC
+            LIMIT 1
+            """,
+            (strategy_id,),
+        ).fetchone()
+
+    def get_latest_run(self, strategy_id: str, dataset_id: str | None = None) -> sqlite3.Row | None:
+        if dataset_id is None:
+            return self.connection.execute(
+                """
+                SELECT * FROM runs
+                WHERE strategy_id = ?
+                ORDER BY created_at DESC
+                LIMIT 1
+                """,
+                (strategy_id,),
+            ).fetchone()
+        return self.connection.execute(
+            """
+            SELECT * FROM runs
+            WHERE strategy_id = ? AND dataset_id = ?
+            ORDER BY created_at DESC
+            LIMIT 1
+            """,
+            (strategy_id, dataset_id),
+        ).fetchone()
+
+    def get_best_strategy_by_submission_pnl(self) -> sqlite3.Row | None:
+        return self.connection.execute(
+            """
+            SELECT s.*, MAX(r.final_pnl_total) AS best_submission_pnl
+            FROM strategies s
+            JOIN runs r ON r.strategy_id = s.strategy_id
+            WHERE r.dataset_id = 'submission'
+            GROUP BY s.strategy_id
+            ORDER BY best_submission_pnl DESC, s.created_at DESC
+            LIMIT 1
+            """
+        ).fetchone()
+
+    def next_cycle_iteration(self, session_name: str) -> int:
+        row = self.connection.execute(
+            "SELECT COALESCE(MAX(iteration), 0) AS iteration FROM conversation_cycles WHERE session_name = ?",
+            (session_name,),
+        ).fetchone()
+        return int(row["iteration"]) + 1 if row is not None else 1
 
     def get_strategy(self, strategy_id: str) -> sqlite3.Row | None:
         return self.connection.execute(

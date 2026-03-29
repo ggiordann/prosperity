@@ -3,7 +3,17 @@ from __future__ import annotations
 from prosperity.dsl.schema import StrategySpec
 
 SUPPORTED_FAIR_VALUE_KINDS = {"constant", "mid", "microprice", "wall_mid", "ema"}
-SUPPORTED_SIGNAL_KINDS = {"mean_reversion", "momentum", "imbalance", "trade_pressure", "volatility"}
+SUPPORTED_SIGNAL_KINDS = {
+    "mean_reversion",
+    "momentum",
+    "imbalance",
+    "trade_pressure",
+    "volatility",
+    "gap_asymmetry",
+    "level_imbalance",
+    "lagged_return",
+    "micro_delta",
+}
 
 
 def validate_spec(spec: StrategySpec) -> list[str]:

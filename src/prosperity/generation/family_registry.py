@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from typing import Callable
 from uuid import uuid4
 
 from prosperity.dsl.schema import (
@@ -110,7 +111,98 @@ def tutorial_microprice_reversion(role: str = "anti_consensus_generator") -> Str
     return spec
 
 
-FAMILY_BUILDERS = {
+def tutorial_submission_candidate_alpha(
+    role: str = "conversation_seed",
+    strategy_id: str | None = None,
+    name: str = "Tutorial Submission Candidate Alpha",
+    parent_ids: list[str] | None = None,
+) -> StrategySpec:
+    metadata = _metadata(name, "tutorial_submission_candidate_alpha", role, ["internal:submission_candidate"])
+    metadata.id = strategy_id or metadata.id
+    metadata.parent_ids = list(parent_ids or [])
+    metadata.confidence_notes = (
+        "Search family anchored on the current best local submission candidate. "
+        "Use this family for champion-challenger hill climbing and conversational mutation."
+    )
+    return StrategySpec(
+        metadata=metadata,
+        scope=StrategyScope(
+            products=["EMERALDS", "TOMATOES"],
+            round_assumptions="Tutorial/submission tutorial regime with stable EMERALDS and alpha-rich TOMATOES.",
+            required_signals=[
+                "gap_asymmetry",
+                "level_imbalance",
+                "lagged_return",
+                "micro_delta",
+            ],
+            required_datasets=["submission", "tutorial"],
+        ),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS"}),
+            FairValueComponent(kind="wall_mid", weight=1.0, params={"product": "TOMATOES", "threshold": 16}),
+            FairValueComponent(kind="ema", weight=1.0, params={"product": "TOMATOES", "alpha": 0.6}),
+        ],
+        signal_models=[
+            SignalComponent(name="gap_asymmetry", kind="gap_asymmetry", weight=0.1, params={"product": "TOMATOES"}),
+            SignalComponent(name="level_two_imbalance", kind="level_imbalance", weight=1.0, params={"product": "TOMATOES", "level": 2}),
+            SignalComponent(name="ret1_fade", kind="lagged_return", weight=-0.045, params={"product": "TOMATOES", "lag": 1}),
+            SignalComponent(name="micro_fade", kind="micro_delta", weight=-0.025, params={"product": "TOMATOES"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=2.0, max_size=80, params={"family_mode": "submission_candidate"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.0,
+                layers=[
+                    QuoteLayer.model_validate({"name": "em_inner_buy", "product": "EMERALDS", "side": "buy", "offset": 1.0, "size": 5, "join_best": True}),
+                    QuoteLayer.model_validate({"name": "em_inner_sell", "product": "EMERALDS", "side": "sell", "offset": 1.0, "size": 5, "join_best": True}),
+                    QuoteLayer.model_validate({"name": "tomato_full_buy", "product": "TOMATOES", "side": "buy", "offset": 2.0, "size": 80, "join_best": True}),
+                    QuoteLayer.model_validate({"name": "tomato_full_sell", "product": "TOMATOES", "side": "sell", "offset": 2.0, "size": 80, "join_best": True}),
+                ],
+                params={"family_mode": "submission_candidate"},
+            ),
+            clear_inventory_width=1.0,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
+            dynamic_inventory_aversion=0.0,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 80},
+            max_aggressive_size=80,
+        ),
+        parameter_space=[
+            ParameterDef(name="emeralds_quote_size", lower=1, upper=10, default=5, mutation_scale=0.15),
+            ParameterDef(name="tomato_filter_volume", lower=8, upper=30, default=16, mutation_scale=0.20),
+            ParameterDef(name="tomato_take_width", lower=0, upper=4, default=2, mutation_scale=0.20),
+            ParameterDef(name="fair_alpha_scale", lower=0.5, upper=2.5, default=1.3, mutation_scale=0.15),
+            ParameterDef(name="gap_weight", lower=-0.4, upper=0.4, default=0.1, mutation_scale=0.25),
+            ParameterDef(name="second_imb_weight", lower=-2.0, upper=2.0, default=1.0, mutation_scale=0.15),
+            ParameterDef(name="ret1_weight", lower=-0.2, upper=0.2, default=-0.045, mutation_scale=0.25),
+            ParameterDef(name="ret3_weight", lower=-0.2, upper=0.2, default=0.0, mutation_scale=0.25),
+            ParameterDef(name="micro_weight", lower=-0.2, upper=0.2, default=-0.025, mutation_scale=0.25),
+            ParameterDef(name="inventory_skew", lower=0.0, upper=1.0, default=0.0, mutation_scale=0.20),
+            ParameterDef(name="clear_width", lower=0.0, upper=2.0, default=1.0, mutation_scale=0.20),
+            ParameterDef(name="quote_aggression", lower=0.0, upper=2.0, default=1.0, mutation_scale=0.20),
+            ParameterDef(name="take_extra", lower=0.0, upper=3.0, default=1.5, mutation_scale=0.20),
+        ],
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Keep EMERALDS simple and let TOMATOES harvest short-horizon book alpha without abandoning passive inventory capture.",
+            target_inefficiency="Second-level order-book asymmetry and lagged reversion around filtered market-maker fair value.",
+            expected_conditions=["Stable EMERALDS spread", "TOMATOES order-book skew", "Sufficient passive fill frequency"],
+            failure_modes=["Trend continuation overpowering fade signals", "Over-aggressive quote shift causing adverse selection"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["filtered_wall_mid", "book_imbalance", "micro_fade"],
+            anti_consensus_rationale="Anchors on an internal champion family and searches locally with explicit anti-overfit guardrails.",
+            novelty_rationale="Uses a deterministic alpha-overlay family that is preserved as an internal primitive instead of copying external code motifs.",
+        ),
+    )
+
+
+FAMILY_BUILDERS: dict[str, Callable[[], StrategySpec]] = {
     "tutorial_wall_mid_mm": tutorial_market_maker,
     "tutorial_microprice_reversion": tutorial_microprice_reversion,
+    "tutorial_submission_candidate_alpha": tutorial_submission_candidate_alpha,
 }

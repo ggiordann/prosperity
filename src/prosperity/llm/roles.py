@@ -8,4 +8,8 @@ ROLE_NAMES = [
     "strategy_crossover",
     "postmortem",
     "strategy_explainer",
+    "conversation_strategist",
+    "conversation_critic",
+    "conversation_postmortem",
+    "conversation_promoter",
 ]

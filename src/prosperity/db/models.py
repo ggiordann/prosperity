@@ -74,3 +74,34 @@ class PromotionRecord(BaseModel):
     reason: str
     package_dir: str | None = None
     created_at: str
+
+
+class ConversationCycleRecord(BaseModel):
+    cycle_id: str
+    session_name: str
+    iteration: int
+    champion_strategy_id: str | None = None
+    promoted_strategy_id: str | None = None
+    status: str
+    summary_json: str
+    created_at: str
+    finished_at: str | None = None
+
+
+class ConversationMessageRecord(BaseModel):
+    message_id: str
+    cycle_id: str
+    session_name: str
+    role: str
+    content_json: str
+    created_at: str
+
+
+class MemoryNoteRecord(BaseModel):
+    note_id: str
+    session_name: str
+    cycle_id: str | None = None
+    strategy_id: str | None = None
+    note_kind: str
+    content: str
+    created_at: str
