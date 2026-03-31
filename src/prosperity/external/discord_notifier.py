@@ -66,9 +66,15 @@ def _cycle_stats(cycle_summary: dict[str, Any], settings: AppSettings) -> dict[s
     expert_profiles = cycle_summary.get("expert_builder_profiles_tried", [])
     family_jump_profiles = cycle_summary.get("family_jump_profiles_tried", [])
     plateau = cycle_summary.get("plateau_state", {})
+    recent_performance = cycle_summary.get("recent_performance", {})
+    bucket_scores = recent_performance.get("bucket_scores", {})
     family_lab_line = ", ".join(f"`{profile}`" for profile in family_lab_profiles[:4]) if family_lab_profiles else "`none`"
     expert_line = ", ".join(f"`{profile}`" for profile in expert_profiles[:4]) if expert_profiles else "`none`"
     family_jump_line = ", ".join(f"`{profile}`" for profile in family_jump_profiles[:4]) if family_jump_profiles else "`none`"
+    adaptive_line = ", ".join(
+        f"`{bucket}:{score:.2f}`"
+        for bucket, score in sorted(bucket_scores.items(), key=lambda item: item[1], reverse=True)[:4]
+    ) or "`none`"
 
     return {
         "strategy": strategist.get("thesis", "no strategist thesis recorded."),
@@ -86,6 +92,7 @@ def _cycle_stats(cycle_summary: dict[str, Any], settings: AppSettings) -> dict[s
             f"score: `{best_scoring.get('score', 0.0):.3f}`\n"
             f"plagiarism: `{best_candidate.get('plagiarism', {}).get('max_score', 0.0):.3f}`\n"
             f"candidates: `{cycle_summary.get('candidate_count', 0)}`\n"
+            f"screened/full: `{cycle_summary.get('screened_candidate_count', 0)} / {cycle_summary.get('full_evaluation_count', 0)}`\n"
             f"search: `x{candidate_budget.get('exploit', 0)} e{candidate_budget.get('explore', 0)} "
             f"s{candidate_budget.get('structural', 0)} j{candidate_budget.get('family_jump', 0)} "
             f"l{candidate_budget.get('family_lab', 0)} b{candidate_budget.get('expert_builder', 0)} "
@@ -96,6 +103,7 @@ def _cycle_stats(cycle_summary: dict[str, Any], settings: AppSettings) -> dict[s
             f"lab {bucket_counts.get('family_lab', 0)} | builder {bucket_counts.get('expert_builder', 0)}`"
         ),
         "algo_search": (
+            f"adaptive frontier:\n{adaptive_line}\n"
             f"family lab:\n{family_lab_line}\n"
             f"expert builder:\n{expert_line}\n"
             f"family jumps:\n{family_jump_line}"

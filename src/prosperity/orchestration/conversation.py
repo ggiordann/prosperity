@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
+from prosperity.backtester.runner import BacktesterRunner
 from prosperity.db import DatabaseSession, ExperimentRepository
 from prosperity.db.models import (
     ConversationCycleRecord,
@@ -20,6 +21,7 @@ from prosperity.dsl.mutators import apply_structural_profile, family_component_m
 from prosperity.dsl.normalization import normalized_spec_json
 from prosperity.dsl.schema import ParameterDef, StrategySpec
 from prosperity.evaluation.promotion import champion_challenger_decision
+from prosperity.evaluation.screening import quick_screen_candidate
 from prosperity.external.discord_notifier import send_cycle_summary_message
 from prosperity.generation.expert_builder import build_expert_candidates
 from prosperity.generation.family_registry import (
@@ -72,6 +74,18 @@ FRONTIER_SEED_SPECS = {
     "tutorial_gap_repricing": {
         "strategy_id": "conversation-gap-repricing-seed",
         "name": "Conversation Gap Repricing Seed",
+    },
+    "tutorial_trade_pressure_reversion": {
+        "strategy_id": "conversation-trade-pressure-seed",
+        "name": "Conversation Trade Pressure Seed",
+    },
+    "tutorial_volatility_breakout": {
+        "strategy_id": "conversation-volatility-breakout-seed",
+        "name": "Conversation Volatility Breakout Seed",
+    },
+    "tutorial_asymmetric_queue_hybrid": {
+        "strategy_id": "conversation-asymmetric-queue-seed",
+        "name": "Conversation Asymmetric Queue Seed",
     },
 }
 STRUCTURAL_PROFILES = [
@@ -459,6 +473,7 @@ def _strategist_turn(
     memory_notes: list[dict],
     iteration: int,
     plateau_state: dict[str, Any],
+    recent_performance: dict[str, dict[str, float]],
 ) -> dict:
     allowed = _allowed_parameters(champion_spec)
     memory_excerpt = [note["content"] for note in memory_notes[:6]]
@@ -474,6 +489,7 @@ def _strategist_turn(
             "iteration": iteration,
             "max_candidates": settings.conversation.max_candidates_per_cycle,
             "plateau_state": plateau_state,
+            "recent_performance": recent_performance,
         }
     )
     payload = _llm_role_json(
@@ -507,6 +523,7 @@ def _critic_turn(
     plan: dict,
     champion_eval: dict,
     plateau_state: dict[str, Any],
+    recent_performance: dict[str, dict[str, float]],
 ) -> dict:
     allowed = _allowed_parameters(champion_spec)
     context = json_dumps(
@@ -517,6 +534,7 @@ def _critic_turn(
             "champion_metrics": champion_eval.get("metrics", {}),
             "champion_scoring": champion_eval.get("scoring", {}),
             "plateau_state": plateau_state,
+            "recent_performance": recent_performance,
         }
     )
     payload = _llm_role_json(
@@ -578,6 +596,7 @@ def _budget_split(
     requested_exploit_count: int,
     family_jump_cycle: bool,
     plateau_mode: bool,
+    recent_performance: dict[str, dict[str, float]] | None = None,
 ) -> dict[str, int]:
     total = max(1, settings.conversation.max_candidates_per_cycle)
     available_for_other = max(0, total - 1)
@@ -601,6 +620,21 @@ def _budget_split(
         desired["expert_builder"] = max(desired["expert_builder"], 4)
         desired["survivor_tune"] = 0
         requested_exploit_count = 1
+    bucket_scores = (recent_performance or {}).get("bucket_scores", {})
+    if bucket_scores and not plateau_mode:
+        exploit_score = bucket_scores.get("exploit", 0.0)
+        adaptive_buckets = [
+            ("family_lab", bucket_scores.get("family_lab", 0.0)),
+            ("expert_builder", bucket_scores.get("expert_builder", 0.0)),
+            ("family_jump", bucket_scores.get("family_jump", 0.0)),
+            ("structural", bucket_scores.get("structural", 0.0)),
+            ("explore", bucket_scores.get("explore", 0.0)),
+        ]
+        adaptive_buckets.sort(key=lambda item: item[1], reverse=True)
+        best_bucket, best_bucket_score = adaptive_buckets[0]
+        if best_bucket != "exploit" and best_bucket_score > exploit_score + 0.05:
+            desired[best_bucket] = min(total, desired[best_bucket] + 1)
+            requested_exploit_count = max(1, requested_exploit_count - 1)
 
     allocations = {key: 0 for key in desired}
     if plateau_mode:
@@ -994,6 +1028,67 @@ def _candidate_bucket_summary(candidate_results: list[dict[str, Any]]) -> dict[s
     return counts
 
 
+def _recent_search_performance(
+    recent_cycles: list[dict[str, Any]],
+    lookback: int,
+) -> dict[str, dict[str, float]]:
+    bucket_totals: dict[str, list[float]] = {}
+    family_totals: dict[str, list[float]] = {}
+    for cycle in recent_cycles[:lookback]:
+        best_candidate = cycle.get("best_candidate")
+        if not isinstance(best_candidate, dict):
+            continue
+        bucket = str(best_candidate.get("search_bucket", ""))
+        family = str(best_candidate.get("family", ""))
+        champion_pnl = float(cycle.get("champion_pnl", 0.0))
+        metrics = best_candidate.get("metrics", {})
+        validation = best_candidate.get("validation", {})
+        scoring = best_candidate.get("scoring", {})
+        candidate_pnl = float(metrics.get("total_pnl", 0.0))
+        validation_score = float(validation.get("score", 0.0))
+        score = float(scoring.get("score", 0.0))
+        pnl_closeness = max(0.0, 1.0 - max(0.0, champion_pnl - candidate_pnl) / 400.0)
+        merit = 0.55 * pnl_closeness + 0.25 * validation_score + 0.20 * score
+        decision = str(cycle.get("decision", "hold"))
+        if decision == "promote":
+            merit += 1.0
+        elif decision == "shadow_promote":
+            merit += 0.6
+        if bucket:
+            bucket_totals.setdefault(bucket, []).append(merit)
+        if family:
+            family_totals.setdefault(family, []).append(merit)
+    return {
+        "bucket_scores": {key: sum(values) / len(values) for key, values in bucket_totals.items() if values},
+        "family_scores": {key: sum(values) / len(values) for key, values in family_totals.items() if values},
+    }
+
+
+def _regime_day_pnls(evaluation: dict[str, Any]) -> dict[str, float]:
+    validation = evaluation.get("validation", {})
+    if not isinstance(validation, dict):
+        return {}
+    payload = validation.get("day_pnls", {})
+    if not isinstance(payload, dict):
+        return {}
+    return {str(key): float(value) for key, value in payload.items()}
+
+
+def _regime_complementarity(entry: dict[str, Any], champion_entry: dict[str, Any]) -> float:
+    candidate_days = _regime_day_pnls(entry["evaluation"])
+    champion_days = _regime_day_pnls(champion_entry["evaluation"])
+    if not candidate_days or not champion_days:
+        return 0.0
+    score = 0.0
+    for day, champion_pnl in champion_days.items():
+        candidate_pnl = candidate_days.get(day)
+        if candidate_pnl is None:
+            continue
+        if candidate_pnl > champion_pnl:
+            score += min(1.0, (candidate_pnl - champion_pnl) / 800.0)
+    return score
+
+
 def _profiles_for_bucket(candidate_results: list[dict[str, Any]], bucket: str, limit: int = 6) -> list[str]:
     profiles: list[str] = []
     seen: set[str] = set()
@@ -1145,6 +1240,105 @@ def _family_lab_candidates(
     return candidates[:count]
 
 
+def _screen_candidate_entries(
+    resolved_paths: RepoPaths,
+    resolved_settings: AppSettings,
+    candidate_entries: list[dict[str, Any]],
+    family_scores: dict[str, float],
+    bucket_scores: dict[str, float],
+    iteration: int,
+) -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
+    if not candidate_entries:
+        return [], []
+    runner = BacktesterRunner(resolved_paths, resolved_settings)
+    screen_days = resolved_settings.conversation.screening_tutorial_days or [-1]
+    screened: list[dict[str, Any]] = []
+    for index, candidate_entry in enumerate(candidate_entries):
+        candidate = candidate_entry["spec"]
+        compiled = compile_spec_to_artifact(resolved_paths, candidate)
+        day = screen_days[(iteration + index) % len(screen_days)]
+        family_prior = family_scores.get(candidate.metadata.family, 0.0)
+        bucket_prior = bucket_scores.get(candidate_entry["bucket"], 0.0)
+        try:
+            screening = quick_screen_candidate(
+                runner,
+                str(compiled),
+                tutorial_day=day,
+                family_prior=family_prior,
+                bucket_prior=bucket_prior,
+            )
+        except Exception as exc:
+            screening = {
+                "status": "failed",
+                "score": float("-inf"),
+                "screen_day": day,
+                "error": str(exc),
+                "metrics": {"total_pnl": float("-inf")},
+            }
+        enriched = dict(candidate_entry)
+        enriched["compiled_path"] = compiled
+        enriched["screening"] = screening
+        screened.append(enriched)
+
+    keep_count = max(
+        1,
+        min(
+            resolved_settings.conversation.max_full_evaluations_per_cycle,
+            len(screened),
+        ),
+    )
+    winners: list[dict[str, Any]] = []
+    kept_indices: set[int] = set()
+    bucket_order = [
+        "family_lab",
+        "expert_builder",
+        "family_jump",
+        "structural",
+        "explore",
+        "exploit",
+    ]
+    for bucket in bucket_order:
+        bucket_candidates = [
+            (idx, entry)
+            for idx, entry in enumerate(screened)
+            if entry["bucket"] == bucket
+        ]
+        if not bucket_candidates:
+            continue
+        idx, winner = max(
+            bucket_candidates,
+            key=lambda item: (
+                float(item[1]["screening"].get("score", float("-inf"))),
+                float(item[1]["screening"].get("metrics", {}).get("total_pnl", float("-inf"))),
+            ),
+        )
+        if idx not in kept_indices:
+            winners.append(winner)
+            kept_indices.add(idx)
+        if len(winners) >= keep_count:
+            break
+
+    ranked = sorted(
+        [
+            (idx, entry)
+            for idx, entry in enumerate(screened)
+            if idx not in kept_indices
+        ],
+        key=lambda item: (
+            float(item[1]["screening"].get("score", float("-inf"))),
+            float(item[1]["screening"].get("metrics", {}).get("total_pnl", float("-inf"))),
+        ),
+        reverse=True,
+    )
+    for idx, entry in ranked:
+        if len(winners) >= keep_count:
+            break
+        winners.append(entry)
+        kept_indices.add(idx)
+
+    return winners, screened
+
+
 def _evaluate_candidate_batch(
     resolved_paths: RepoPaths,
     resolved_settings: AppSettings,
@@ -1158,7 +1352,7 @@ def _evaluate_candidate_batch(
     running_best = best_candidate
     for candidate_entry in candidate_entries:
         candidate = candidate_entry["spec"]
-        compiled = compile_spec_to_artifact(resolved_paths, candidate)
+        compiled = candidate_entry.get("compiled_path") or compile_spec_to_artifact(resolved_paths, candidate)
         _with_repo(
             resolved_paths,
             lambda repo, candidate=candidate, compiled=compiled, bucket=candidate_entry["bucket"]: persist_strategy_record(
@@ -1195,6 +1389,7 @@ def _evaluate_candidate_batch(
             "origin_family": candidate_entry["origin_family"],
             "origin_strategy_id": candidate_entry["origin_strategy_id"],
             "profile": candidate_entry["profile"],
+            "screening": candidate_entry.get("screening", {}),
         }
         postmortem = _postmortem_turn(resolved_settings, resolved_paths, candidate_summary, champion_pnl)
         candidate_summary["postmortem"] = postmortem
@@ -1419,18 +1614,29 @@ def _select_frontier(paths: RepoPaths, settings: AppSettings) -> tuple[dict[str,
     )
     champion_entry = sorted_entries[0]
 
-    frontier: list[dict[str, Any]] = []
-    seen_families: set[str] = set()
-    for entry in sorted_entries:
+    frontier: list[dict[str, Any]] = [champion_entry]
+    seen_families: set[str] = {champion_entry["family"]}
+    alternate_entries = [
+        entry
+        for entry in sorted_entries
+        if entry["strategy_id"] != champion_entry["strategy_id"]
+    ]
+    alternate_entries.sort(
+        key=lambda entry: (
+            _regime_complementarity(entry, champion_entry),
+            entry["validation_score"],
+            entry["score"],
+            entry["pnl"],
+        ),
+        reverse=True,
+    )
+    for entry in alternate_entries:
         if entry["family"] in seen_families:
             continue
         frontier.append(entry)
         seen_families.add(entry["family"])
         if len(frontier) >= settings.conversation.frontier_size:
             break
-    if champion_entry["strategy_id"] not in {entry["strategy_id"] for entry in frontier}:
-        frontier.insert(0, champion_entry)
-        frontier = frontier[: settings.conversation.frontier_size]
     return champion_entry, frontier
 
 
@@ -1537,6 +1743,10 @@ def run_conversation_cycle(
             resolved_settings.conversation.plateau_lookback_cycles,
             resolved_settings.conversation.plateau_repeat_threshold,
         )
+        recent_performance = _recent_search_performance(
+            recent_cycles,
+            resolved_settings.conversation.adaptive_lookback_cycles,
+        )
         family_jump_cycle = (
             resolved_settings.conversation.family_jump_interval > 0
             and iteration % resolved_settings.conversation.family_jump_interval == 0
@@ -1546,6 +1756,7 @@ def run_conversation_cycle(
             requested_exploit_count=max(1, min(resolved_settings.conversation.exploit_candidates, resolved_settings.conversation.max_candidates_per_cycle)),
             family_jump_cycle=family_jump_cycle,
             plateau_mode=bool(plateau_state["active"]),
+            recent_performance=recent_performance,
         )
 
         strategist_plan = _strategist_turn(
@@ -1558,12 +1769,14 @@ def run_conversation_cycle(
             memory_notes,
             iteration,
             plateau_state,
+            recent_performance,
         )
         candidate_budget = _budget_split(
             resolved_settings,
             requested_exploit_count=max(1, strategist_plan["candidate_count"]),
             family_jump_cycle=family_jump_cycle,
             plateau_mode=bool(plateau_state["active"]),
+            recent_performance=recent_performance,
         )
         critic_plan = _critic_turn(
             resolved_settings,
@@ -1573,6 +1786,7 @@ def run_conversation_cycle(
             strategist_plan,
             champion_eval,
             plateau_state,
+            recent_performance,
         )
         _append_messages(
             resolved_paths,
@@ -1646,6 +1860,14 @@ def run_conversation_cycle(
             + expert_builder_candidates
         )
         candidates, duplicates_blocked = _dedupe_candidates(resolved_paths, candidates)
+        screened_candidates, screening_results = _screen_candidate_entries(
+            resolved_paths,
+            resolved_settings,
+            candidates,
+            recent_performance.get("family_scores", {}),
+            recent_performance.get("bucket_scores", {}),
+            iteration,
+        )
         candidate_results: list[dict] = []
         best_candidate: dict | None = None
         champion_pnl = float(champion_eval.get("metrics", {}).get("total_pnl", 0.0))
@@ -1664,7 +1886,7 @@ def run_conversation_cycle(
             resolved_session_name,
             cycle_id,
             champion_pnl,
-            candidates,
+            screened_candidates,
             candidate_results,
             best_candidate,
         )
@@ -1823,8 +2045,21 @@ def run_conversation_cycle(
             "iteration": iteration,
             "ingested_documents": ingested,
             "frontier": _frontier_brief(frontier_entries),
+            "recent_performance": recent_performance,
             "candidate_budget": candidate_budget,
             "duplicates_blocked": duplicates_blocked,
+            "screened_candidate_count": len(candidates),
+            "full_evaluation_count": len(screened_candidates),
+            "screening_profiles": [
+                {
+                    "strategy_id": entry["spec"].metadata.id,
+                    "bucket": entry["bucket"],
+                    "profile": entry["profile"],
+                    "screen_day": entry.get("screening", {}).get("screen_day"),
+                    "screen_score": entry.get("screening", {}).get("score"),
+                }
+                for entry in screening_results[: min(8, len(screening_results))]
+            ],
             "stage_two_survivors": [candidate["strategy_id"] for candidate in stage_two_survivors],
             "champion_before": champion_spec.metadata.id,
             "champion_after": promoted_strategy_id or champion_spec.metadata.id,

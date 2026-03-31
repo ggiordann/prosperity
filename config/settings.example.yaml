@@ -30,7 +30,8 @@ portal:
   enable_live_upload: false
 conversation:
   session_name: codex-conversation
-  max_candidates_per_cycle: 14
+  max_candidates_per_cycle: 18
+  max_full_evaluations_per_cycle: 8
   frontier_size: 8
   exploit_candidates: 2
   explore_candidates: 2
@@ -47,11 +48,15 @@ conversation:
   shadow_promotion_min_robustness_delta: 0.05
   shadow_promotion_min_validation_delta: 0.08
   stale_champion_cycles: 12
+  adaptive_lookback_cycles: 12
   max_memory_notes: 12
   default_sleep_seconds: 0
   use_llm_roles: true
   seed_strategy_path: submission_candidate.py
   fallback_family: tutorial_submission_candidate_alpha
   tutorial_validation_days:
+    - -2
+    - -1
+  screening_tutorial_days:
     - -2
     - -1

@@ -31,4 +31,13 @@ def test_build_expert_candidates_creates_codex_families():
     assert len(candidates) == 3
     assert all(candidate["bucket"] == "expert_builder" for candidate in candidates)
     assert all(candidate["spec"].metadata.family.startswith("codex_") for candidate in candidates)
-    assert any(candidate["spec"].metadata.family == "codex_frontier_splice_engine" for candidate in candidates)
+    expected = {
+        "codex_frontier_splice_engine",
+        "codex_volatility_regime_hunter",
+        "codex_asymmetric_repricing_engine",
+        "codex_guarded_momentum_breakout",
+        "codex_inventory_pressure_rotor",
+        "codex_pressure_exhaustion_engine",
+        "codex_regime_switch_queue_barbell",
+    }
+    assert any(candidate["spec"].metadata.family in expected for candidate in candidates)

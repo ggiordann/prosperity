@@ -522,6 +522,196 @@ def tutorial_submission_candidate_alpha(
     )
 
 
+def tutorial_trade_pressure_reversion(role: str = "anti_consensus_generator") -> StrategySpec:
+    return StrategySpec(
+        metadata=_metadata("Tutorial Trade Pressure Reversion", "tutorial_trade_pressure_reversion", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="microprice", weight=0.40, params={"product": "TOMATOES", "label": "tp_micro"}),
+            FairValueComponent(kind="wall_mid", weight=0.30, params={"product": "TOMATOES", "threshold": 13, "threshold_param": "tp_wall_threshold", "label": "tp_wall"}),
+            FairValueComponent(kind="ema", weight=0.30, params={"product": "TOMATOES", "alpha": 0.30, "alpha_param": "tp_ema_alpha", "source": "microprice", "label": "tp_ema"}),
+        ],
+        signal_models=[
+            SignalComponent(name="trade_pressure_fade", kind="trade_pressure", weight=-0.60, params={"product": "TOMATOES"}),
+            SignalComponent(name="lag2_fade", kind="lagged_return", weight=-0.28, params={"product": "TOMATOES", "lag": 2}),
+            SignalComponent(name="spread_snap", kind="spread_compression", weight=0.25, params={"product": "TOMATOES"}),
+            SignalComponent(name="queue_pull", kind="level_imbalance", weight=0.38, params={"product": "TOMATOES", "level": 2}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=0.9, max_size=20, params={"style": "reversion"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.20,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 18.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 18.0, 5),
+                    _layer("tom_inner_buy", "TOMATOES", "buy", 2.0, 26),
+                    _layer("tom_outer_buy", "TOMATOES", "buy", 5.0, 18),
+                    _layer("tom_inner_sell", "TOMATOES", "sell", 2.0, 26),
+                    _layer("tom_outer_sell", "TOMATOES", "sell", 5.0, 18),
+                ],
+                params={"style": "signal_skew"},
+            ),
+            clear_inventory_width=0.8,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 80},
+            dynamic_inventory_aversion=0.16,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 20},
+            max_aggressive_size=20,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="tp_wall_threshold", lower=8.0, upper=24.0, default=13.0, mutation_scale=0.15),
+            ParameterDef(name="tp_ema_alpha", lower=0.05, upper=0.70, default=0.30, mutation_scale=0.20),
+            ParameterDef(name="trade_pressure_fade_weight", lower=-1.8, upper=0.4, default=-0.60, mutation_scale=0.20),
+            ParameterDef(name="lag2_fade_weight", lower=-1.2, upper=0.8, default=-0.28, mutation_scale=0.20),
+            ParameterDef(name="spread_snap_weight", lower=-1.0, upper=1.2, default=0.25, mutation_scale=0.20),
+            ParameterDef(name="queue_pull_weight", lower=-1.0, upper=1.5, default=0.38, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Fade one-sided trade pressure after fast queue depletion while retaining a latent fair anchor.",
+            target_inefficiency="Short-lived aggressive flow exhaustion in TOMATOES.",
+            expected_conditions=["Burst-like trade pressure", "Transient queue imbalance"],
+            failure_modes=["Persistent momentum continuation", "Flow staying informed longer than expected"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["trade_pressure", "microprice", "queue_reversion"],
+            anti_consensus_rationale="Targets exhaustion after aggressive prints instead of generic wall-mid or passive-only behavior.",
+            novelty_rationale="Adds a flow-exhaustion family with explicit pressure-fade logic and queue snapback.",
+        ),
+    )
+
+
+def tutorial_volatility_breakout(role: str = "anti_consensus_generator") -> StrategySpec:
+    return StrategySpec(
+        metadata=_metadata("Tutorial Volatility Breakout", "tutorial_volatility_breakout", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="ema", weight=0.45, params={"product": "TOMATOES", "alpha": 0.22, "alpha_param": "vb_ema_alpha", "label": "vb_ema"}),
+            FairValueComponent(kind="microprice", weight=0.25, params={"product": "TOMATOES", "label": "vb_micro"}),
+            FairValueComponent(kind="wall_mid", weight=0.30, params={"product": "TOMATOES", "threshold": 15, "threshold_param": "vb_wall_threshold", "label": "vb_wall"}),
+        ],
+        signal_models=[
+            SignalComponent(name="momentum_drive", kind="momentum", weight=0.50, params={"product": "TOMATOES"}),
+            SignalComponent(name="volatility_gate", kind="volatility", weight=0.42, params={"product": "TOMATOES"}),
+            SignalComponent(name="level_two_pressure", kind="level_imbalance", weight=0.33, params={"product": "TOMATOES", "level": 2}),
+            SignalComponent(name="spread_release", kind="spread_compression", weight=0.22, params={"product": "TOMATOES"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=0.8, max_size=24, params={"style": "breakout"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.16,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 18.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 18.0, 5),
+                    _layer("tom_probe_buy", "TOMATOES", "buy", 2.0, 18),
+                    _layer("tom_probe_sell", "TOMATOES", "sell", 2.0, 18),
+                ],
+                params={"style": "one_sided"},
+            ),
+            clear_inventory_width=1.0,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 70},
+            dynamic_inventory_aversion=0.25,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 24},
+            max_aggressive_size=24,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="vb_ema_alpha", lower=0.05, upper=0.55, default=0.22, mutation_scale=0.20),
+            ParameterDef(name="vb_wall_threshold", lower=8.0, upper=24.0, default=15.0, mutation_scale=0.15),
+            ParameterDef(name="momentum_drive_weight", lower=-0.6, upper=1.6, default=0.50, mutation_scale=0.20),
+            ParameterDef(name="volatility_gate_weight", lower=-0.6, upper=1.6, default=0.42, mutation_scale=0.20),
+            ParameterDef(name="level_two_pressure_weight", lower=-1.2, upper=1.5, default=0.33, mutation_scale=0.20),
+            ParameterDef(name="spread_release_weight", lower=-1.0, upper=1.2, default=0.22, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Exploit fast directional repricing when volatility expands and the book goes one-sided.",
+            target_inefficiency="Breakout continuation after spread compression releases into directional flow.",
+            expected_conditions=["Compressed spread followed by violent book shift", "Positive directional pressure"],
+            failure_modes=["False breakouts", "Immediate mean reversion after entry"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["momentum", "volatility", "breakout"],
+            anti_consensus_rationale="Gives the frontier a truly directional family rather than another fade-first shell.",
+            novelty_rationale="Breakout family with explicit volatility gating and one-sided quoting.",
+        ),
+    )
+
+
+def tutorial_asymmetric_queue_hybrid(role: str = "hypothesis_generator") -> StrategySpec:
+    return StrategySpec(
+        metadata=_metadata("Tutorial Asymmetric Queue Hybrid", "tutorial_asymmetric_queue_hybrid", role, ["internal:tutorial"]),
+        scope=_generic_scope(),
+        fair_value_models=[
+            FairValueComponent(kind="constant", weight=1.0, params={"value": 10000, "product": "EMERALDS", "label": "em_anchor"}),
+            FairValueComponent(kind="wall_mid", weight=0.40, params={"product": "TOMATOES", "threshold": 16, "threshold_param": "aq_wall_threshold", "label": "aq_wall"}),
+            FairValueComponent(kind="microprice", weight=0.35, params={"product": "TOMATOES", "label": "aq_micro"}),
+            FairValueComponent(kind="ema", weight=0.25, params={"product": "TOMATOES", "alpha": 0.26, "alpha_param": "aq_ema_alpha", "label": "aq_ema"}),
+        ],
+        signal_models=[
+            SignalComponent(name="gap_asym", kind="gap_asymmetry", weight=0.38, params={"product": "TOMATOES"}),
+            SignalComponent(name="queue_pressure", kind="level_imbalance", weight=0.42, params={"product": "TOMATOES", "level": 2}),
+            SignalComponent(name="latent_snapback", kind="mean_reversion", weight=0.22, params={"product": "TOMATOES"}),
+            SignalComponent(name="micro_fade", kind="micro_delta", weight=-0.18, params={"product": "TOMATOES"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=1.0, max_size=18, params={"style": "balanced"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=2.0,
+                inventory_skew=0.24,
+                layers=[
+                    _layer("em_buy", "EMERALDS", "buy", 18.0, 5),
+                    _layer("em_sell", "EMERALDS", "sell", 18.0, 5),
+                    _layer("tom_inner_buy", "TOMATOES", "buy", 3.0, 24),
+                    _layer("tom_outer_buy", "TOMATOES", "buy", 6.0, 16),
+                    _layer("tom_inner_sell", "TOMATOES", "sell", 2.0, 20),
+                    _layer("tom_outer_sell", "TOMATOES", "sell", 5.0, 14),
+                ],
+                params={"style": "passive_wide"},
+            ),
+            clear_inventory_width=0.9,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"EMERALDS": 80, "TOMATOES": 75},
+            dynamic_inventory_aversion=0.22,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["clear_at_fair_if_inventory_crosses"],
+            turnover_throttles={"max_aggressive_size": 18},
+            max_aggressive_size=18,
+        ),
+        parameter_space=_generic_parameters(
+            ParameterDef(name="aq_wall_threshold", lower=8.0, upper=24.0, default=16.0, mutation_scale=0.15),
+            ParameterDef(name="aq_ema_alpha", lower=0.05, upper=0.55, default=0.26, mutation_scale=0.20),
+            ParameterDef(name="gap_asym_weight", lower=-1.2, upper=1.4, default=0.38, mutation_scale=0.20),
+            ParameterDef(name="queue_pressure_weight", lower=-1.2, upper=1.6, default=0.42, mutation_scale=0.20),
+            ParameterDef(name="latent_snapback_weight", lower=-1.0, upper=1.2, default=0.22, mutation_scale=0.20),
+            ParameterDef(name="micro_fade_weight", lower=-1.2, upper=0.8, default=-0.18, mutation_scale=0.20),
+        ),
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis="Use asymmetric queue depth and gap structure to bias passive liquidity placement before reverting toward a latent fair.",
+            target_inefficiency="Different information content on bid and ask queues rather than symmetric microprice noise.",
+            expected_conditions=["Asymmetric queue replenishment", "Stable passive fill opportunity"],
+            failure_modes=["Queue signal whipsaw", "Passive fill decay during sustained trend"],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["queue_reversion", "gap_asymmetry", "passive_mm"],
+            anti_consensus_rationale="Searches on asymmetric queue information instead of a symmetric fair-only rule.",
+            novelty_rationale="Queue-biased hybrid gives the frontier a different fill profile and reserve-price behavior.",
+        ),
+    )
+
+
 FAMILY_BUILDERS: dict[str, Callable[..., StrategySpec]] = {
     "tutorial_wall_mid_mm": tutorial_market_maker,
     "tutorial_microprice_reversion": tutorial_microprice_reversion,
@@ -529,6 +719,9 @@ FAMILY_BUILDERS: dict[str, Callable[..., StrategySpec]] = {
     "tutorial_pressure_momentum": tutorial_pressure_momentum,
     "tutorial_passive_queue_reversion": tutorial_passive_queue_reversion,
     "tutorial_gap_repricing": tutorial_gap_repricing,
+    "tutorial_trade_pressure_reversion": tutorial_trade_pressure_reversion,
+    "tutorial_volatility_breakout": tutorial_volatility_breakout,
+    "tutorial_asymmetric_queue_hybrid": tutorial_asymmetric_queue_hybrid,
     "tutorial_submission_candidate_alpha": tutorial_submission_candidate_alpha,
 }
 

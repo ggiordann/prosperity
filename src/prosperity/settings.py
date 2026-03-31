@@ -51,7 +51,8 @@ class DiscordSettings(BaseModel):
 
 class ConversationSettings(BaseModel):
     session_name: str = "codex-conversation"
-    max_candidates_per_cycle: int = 14
+    max_candidates_per_cycle: int = 18
+    max_full_evaluations_per_cycle: int = 8
     frontier_size: int = 8
     exploit_candidates: int = 2
     explore_candidates: int = 2
@@ -68,12 +69,14 @@ class ConversationSettings(BaseModel):
     shadow_promotion_min_robustness_delta: float = 0.05
     shadow_promotion_min_validation_delta: float = 0.08
     stale_champion_cycles: int = 12
+    adaptive_lookback_cycles: int = 12
     max_memory_notes: int = 12
     default_sleep_seconds: int = 0
     use_llm_roles: bool = True
     seed_strategy_path: str = "submission_candidate.py"
     fallback_family: str = "tutorial_submission_candidate_alpha"
     tutorial_validation_days: list[int] = Field(default_factory=lambda: [-2, -1])
+    screening_tutorial_days: list[int] = Field(default_factory=lambda: [-2, -1])
 
 
 class AppSettings(BaseSettings):

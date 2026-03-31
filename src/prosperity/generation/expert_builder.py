@@ -427,6 +427,63 @@ def _inventory_pressure_rotor(
     )
 
 
+def _pressure_exhaustion_engine(
+    champion_spec: StrategySpec,
+    iteration: int,
+) -> StrategySpec:
+    pressure = build_family_spec("tutorial_trade_pressure_reversion", role="codex_expert_builder")
+    queue = build_family_spec("tutorial_asymmetric_queue_hybrid", role="codex_expert_builder")
+    blended = _blend_specs(
+        pressure,
+        fair_from=pressure,
+        signal_from=pressure,
+        execution_from=queue,
+        risk_from=champion_spec,
+        parameter_sources=[pressure, queue, champion_spec],
+    )
+    _shift_parameter(blended, "trade_pressure_fade_weight", "down", 0.7)
+    _shift_parameter(blended, "queue_pull_weight", "up", 0.5)
+    _shift_parameter(blended, "signal_scale", "up", 0.4)
+    _shift_parameter(blended, "taking_min_edge", "down", 0.2)
+    return _rename_candidate(
+        blended,
+        family_name="codex_pressure_exhaustion_engine",
+        profile="pressure_exhaustion_engine",
+        iteration=iteration,
+        source_family=champion_spec.metadata.family,
+        notes="Combines trade-pressure exhaustion with asymmetric queue placement to create a stronger alternate reversion family.",
+    )
+
+
+def _regime_switch_queue_barbell(
+    champion_spec: StrategySpec,
+    iteration: int,
+) -> StrategySpec:
+    breakout = build_family_spec("tutorial_volatility_breakout", role="codex_expert_builder")
+    queue = build_family_spec("tutorial_asymmetric_queue_hybrid", role="codex_expert_builder")
+    blended = _blend_specs(
+        queue,
+        fair_from=queue,
+        signal_from=breakout,
+        execution_from=breakout,
+        risk_from=queue,
+        parameter_sources=[queue, breakout, champion_spec],
+    )
+    _shift_parameter(blended, "momentum_drive_weight", "up", 0.5)
+    _shift_parameter(blended, "volatility_gate_weight", "up", 0.5)
+    _shift_parameter(blended, "queue_pressure_weight", "up", 0.4)
+    _shift_parameter(blended, "taking_max_size", "down", 0.2)
+    _shift_parameter(blended, "reservation_bias", "up", 0.4)
+    return _rename_candidate(
+        blended,
+        family_name="codex_regime_switch_queue_barbell",
+        profile="regime_switch_queue_barbell",
+        iteration=iteration,
+        source_family=champion_spec.metadata.family,
+        notes="Blends directional volatility bursts with queue-aware reserve pricing so the frontier has a stronger regime-switch alternate.",
+    )
+
+
 def build_expert_candidates(
     champion_entry: dict[str, Any],
     frontier_entries: list[dict[str, Any]],
@@ -447,6 +504,8 @@ def build_expert_candidates(
         lambda spec, notes, cycle: _asymmetric_repricing_engine(spec, frontier_entries, cycle),
         lambda spec, notes, cycle: _guarded_momentum_breakout(spec, notes, cycle),
         lambda spec, notes, cycle: _inventory_pressure_rotor(spec, notes, cycle),
+        lambda spec, notes, cycle: _pressure_exhaustion_engine(spec, cycle),
+        lambda spec, notes, cycle: _regime_switch_queue_barbell(spec, cycle),
         lambda spec, notes, cycle: _latent_gap_hybrid(spec, cycle),
         lambda spec, notes, cycle: _micro_queue_blend(spec, cycle),
         lambda spec, notes, cycle: _breakout_gap_barbell(spec, cycle),
@@ -460,6 +519,8 @@ def build_expert_candidates(
             lambda spec, notes, cycle: _guarded_momentum_breakout(spec, notes, cycle),
             lambda spec, notes, cycle: _breakout_gap_barbell(spec, cycle),
             lambda spec, notes, cycle: _inventory_pressure_rotor(spec, notes, cycle),
+            lambda spec, notes, cycle: _pressure_exhaustion_engine(spec, cycle),
+            lambda spec, notes, cycle: _regime_switch_queue_barbell(spec, cycle),
             lambda spec, notes, cycle: _latent_gap_hybrid(spec, cycle),
             lambda spec, notes, cycle: _micro_queue_blend(spec, cycle),
             lambda spec, notes, cycle: _passive_alpha_barbell(spec, notes, cycle),
