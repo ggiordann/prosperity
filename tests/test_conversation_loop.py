@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from prosperity.db import DatabaseSession, ExperimentRepository
-from prosperity.orchestration.conversation import run_conversation_cycle
+from prosperity.orchestration.conversation import _detect_plateau, run_conversation_cycle
 from prosperity.paths import RepoPaths
 from prosperity.settings import AppSettings
 
@@ -19,6 +19,8 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     settings.conversation.explore_candidates = 0
     settings.conversation.structural_candidates = 0
     settings.conversation.family_jump_candidates = 0
+    settings.conversation.family_lab_candidates = 0
+    settings.conversation.expert_builder_candidates = 0
     settings.conversation.survivor_tune_candidates = 0
     settings.conversation.promote_min_improvement = 5.0
 
@@ -72,6 +74,7 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     assert result["champion_after"] != result["champion_before"]
     assert result["candidate_count"] == 3
     assert result["candidate_budget"]["exploit"] == 3
+    assert result["candidate_budget"]["expert_builder"] == 0
     assert len(result["frontier"]) >= 2
 
     with DatabaseSession(paths.db_dir / "prosperity.sqlite3") as db:
@@ -87,3 +90,28 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     exported = root / "current_best_algo" / "current_best_V1.py"
     assert exported.exists()
     assert f"# packaged {result['champion_after']}" in exported.read_text(encoding="utf-8")
+
+
+def test_detect_plateau_activates_on_long_hold_streak():
+    cycles = [
+        {
+            "decision": "hold",
+            "champion_after": "champion-alpha",
+            "best_candidate": {
+                "search_bucket": "exploit",
+                "family": "tutorial_submission_candidate_alpha",
+                "profile": "thesis",
+                "metrics": {"total_pnl": 2700.0},
+                "scoring": {"score": 0.64},
+            },
+        }
+        for _ in range(7)
+    ]
+    plateau = _detect_plateau(
+        cycles,
+        "champion-alpha",
+        lookback=8,
+        repeat_threshold=3,
+    )
+    assert plateau["active"] is True
+    assert plateau["hold_streak"] == 7

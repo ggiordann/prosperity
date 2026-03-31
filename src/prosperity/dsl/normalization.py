@@ -7,11 +7,28 @@ from prosperity.dsl.schema import StrategySpec
 
 def normalize_spec(spec: StrategySpec) -> dict:
     payload = spec.model_dump(mode="json")
+    payload["metadata"] = {
+        "family": payload["metadata"]["family"],
+    }
     payload["fair_value_models"] = sorted(
         payload["fair_value_models"], key=lambda item: (item["kind"], item.get("weight", 0.0))
     )
     payload["signal_models"] = sorted(
         payload["signal_models"], key=lambda item: (item["kind"], item["name"])
+    )
+    payload["parameter_space"] = sorted(
+        payload["parameter_space"],
+        key=lambda item: item["name"],
+    )
+    payload["execution_policy"]["market_making"]["layers"] = sorted(
+        payload["execution_policy"]["market_making"]["layers"],
+        key=lambda item: (
+            item["product"],
+            item["side"],
+            item["offset"],
+            item["size"],
+            item["name"],
+        ),
     )
     return payload
 

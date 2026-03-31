@@ -13,7 +13,7 @@ llm:
   summarizer_model: gpt-5.4-mini
   embeddings_model: text-embedding-3-small
   provider: openai
-  daily_budget_usd: 10.0
+  daily_budget_usd: 50.0
   allow_live_requests: false
 dashboard:
   host: 127.0.0.1
@@ -30,17 +30,28 @@ portal:
   enable_live_upload: false
 conversation:
   session_name: codex-conversation
-  max_candidates_per_cycle: 8
-  frontier_size: 5
-  exploit_candidates: 3
-  explore_candidates: 1
+  max_candidates_per_cycle: 14
+  frontier_size: 8
+  exploit_candidates: 2
+  explore_candidates: 2
   structural_candidates: 2
-  family_jump_candidates: 1
-  survivor_tune_candidates: 1
-  family_jump_interval: 4
-  promote_min_improvement: 10.0
+  family_jump_candidates: 2
+  family_lab_candidates: 2
+  expert_builder_candidates: 4
+  survivor_tune_candidates: 2
+  family_jump_interval: 3
+  plateau_lookback_cycles: 6
+  plateau_repeat_threshold: 2
+  promote_min_improvement: 5.0
+  shadow_promotion_max_pnl_gap: 20.0
+  shadow_promotion_min_robustness_delta: 0.05
+  shadow_promotion_min_validation_delta: 0.08
+  stale_champion_cycles: 12
   max_memory_notes: 12
   default_sleep_seconds: 0
   use_llm_roles: true
   seed_strategy_path: submission_candidate.py
   fallback_family: tutorial_submission_candidate_alpha
+  tutorial_validation_days:
+    - -2
+    - -1

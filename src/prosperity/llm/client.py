@@ -26,12 +26,12 @@ class LLMClient:
             return extract_json_object(cached)
         if not self.settings.llm.allow_live_requests or not self.settings.openai_api_key:
             raise RuntimeError("Live LLM requests are disabled. Use heuristic generators or enable config.")
-        response = self._call_openai(prompt, selected_model)
+        response = self._call_openai(prompt, selected_model, role)
         self.cache.set(key, response)
         return extract_json_object(response)
 
     @retry(stop=stop_after_attempt(3), wait=wait_fixed(1))
-    def _call_openai(self, prompt: str, model: str) -> str:
+    def _call_openai(self, prompt: str, model: str, role: str) -> str:
         if not self.budget.can_spend(0.02):
             raise RuntimeError("Daily LLM budget exhausted")
         from openai import OpenAI
@@ -41,5 +41,5 @@ class LLMClient:
             model=model,
             input=prompt,
         )
-        self.budget.record(0.02, role="generic", model=model)
+        self.budget.record(0.02, role=role, model=model)
         return response.output_text

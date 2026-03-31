@@ -16,6 +16,18 @@ def _sample_cycle_summary() -> dict:
         "champion_before": "champion-alpha",
         "champion_pnl": 2944.5,
         "candidate_count": 4,
+        "candidate_bucket_counts": {
+            "exploit": 1,
+            "family_jump": 1,
+            "expert_builder": 2,
+        },
+        "expert_builder_profiles_tried": [
+            "codex_frontier_splice_engine",
+            "codex_volatility_regime_hunter",
+        ],
+        "family_jump_profiles_tried": [
+            "signal:tutorial_pressure_momentum",
+        ],
         "ingested_documents": 59,
         "strategist": {
             "thesis": "tighten execution around the current tomato alpha while keeping emr stable.",
@@ -33,6 +45,11 @@ def _sample_cycle_summary() -> dict:
             "scoring": {"score": 0.653},
             "robustness": {"score": 0.307},
             "plagiarism": {"max_score": 0.164},
+        },
+        "llm_status": {
+            "mode": "live",
+            "remaining_usd": 31.5,
+            "daily_budget_usd": 50.0,
         },
     }
 
@@ -56,9 +73,12 @@ def test_build_cycle_summary_payload_creates_embed():
     field_names = [field["name"] for field in embed["fields"]]
     assert "strategy" in field_names
     assert "pnl vs champion" in field_names
+    assert "algo search" in field_names
     assert "system health" in field_names
     assert payload["content"] is None
     assert payload["allowed_mentions"] == {"parse": []}
+    algo_field = next(field for field in embed["fields"] if field["name"] == "algo search")
+    assert "codex_frontier_splice_engine" in algo_field["value"]
 
 
 def test_build_cycle_summary_payload_pings_on_promotion():

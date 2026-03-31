@@ -7,6 +7,7 @@ from prosperity.dsl.mutators import (
     jitter_parameters,
     simplify_spec,
 )
+from prosperity.dsl.normalization import normalized_spec_json
 from prosperity.dsl.validators import validate_spec
 
 
@@ -53,3 +54,11 @@ def test_family_component_mutation_switches_family(sample_spec):
     assert "tutorial_pressure_momentum" in mutated.metadata.family
     assert sample_spec.metadata.id in mutated.metadata.parent_ids
     assert mutated.signal_models != sample_spec.signal_models
+
+
+def test_normalized_spec_json_ignores_metadata_identity(sample_spec):
+    other = sample_spec.model_copy(deep=True)
+    other.metadata.id = "different-id"
+    other.metadata.name = "Different Name"
+    other.metadata.parent_ids = ["x", "y"]
+    assert normalized_spec_json(sample_spec) == normalized_spec_json(other)

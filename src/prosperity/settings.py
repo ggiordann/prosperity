@@ -23,7 +23,7 @@ class LLMSettings(BaseModel):
     summarizer_model: str = "gpt-5.4-mini"
     embeddings_model: str = "text-embedding-3-small"
     provider: str = "openai"
-    daily_budget_usd: float = 10.0
+    daily_budget_usd: float = 50.0
     allow_live_requests: bool = False
 
 
@@ -51,20 +51,29 @@ class DiscordSettings(BaseModel):
 
 class ConversationSettings(BaseModel):
     session_name: str = "codex-conversation"
-    max_candidates_per_cycle: int = 8
-    frontier_size: int = 4
-    exploit_candidates: int = 4
+    max_candidates_per_cycle: int = 14
+    frontier_size: int = 8
+    exploit_candidates: int = 2
     explore_candidates: int = 2
     structural_candidates: int = 2
-    family_jump_candidates: int = 1
-    survivor_tune_candidates: int = 1
-    family_jump_interval: int = 4
-    promote_min_improvement: float = 10.0
+    family_jump_candidates: int = 2
+    family_lab_candidates: int = 2
+    expert_builder_candidates: int = 4
+    survivor_tune_candidates: int = 2
+    family_jump_interval: int = 3
+    plateau_lookback_cycles: int = 6
+    plateau_repeat_threshold: int = 2
+    promote_min_improvement: float = 5.0
+    shadow_promotion_max_pnl_gap: float = 20.0
+    shadow_promotion_min_robustness_delta: float = 0.05
+    shadow_promotion_min_validation_delta: float = 0.08
+    stale_champion_cycles: int = 12
     max_memory_notes: int = 12
     default_sleep_seconds: int = 0
     use_llm_roles: bool = True
     seed_strategy_path: str = "submission_candidate.py"
     fallback_family: str = "tutorial_submission_candidate_alpha"
+    tutorial_validation_days: list[int] = Field(default_factory=lambda: [-2, -1])
 
 
 class AppSettings(BaseSettings):

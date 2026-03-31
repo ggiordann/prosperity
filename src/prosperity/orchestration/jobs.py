@@ -33,6 +33,7 @@ from prosperity.evaluation.promotion import promotion_decision
 from prosperity.evaluation.robustness import run_robustness_suite
 from prosperity.evaluation.scoring import score_candidate
 from prosperity.evaluation.similarity import code_similarity, spec_similarity
+from prosperity.evaluation.validation import run_validation_suite
 from prosperity.external.manual_submission import package_manual_submission
 from prosperity.generation.critic import critique_spec
 from prosperity.generation.generator import generate_candidate_specs
@@ -86,6 +87,11 @@ def evaluate_compiled_strategy(paths, settings, repository: ExperimentRepository
     )
     metrics = compute_metrics(backtest_result.summary)
     robustness = run_robustness_suite(runner, str(compiled_path), resolve_dataset_argument("submission"))
+    validation = run_validation_suite(
+        runner,
+        str(compiled_path),
+        settings.conversation.tutorial_validation_days,
+    )
     prior_rows = repository.list_strategies()
     prior_specs = []
     similarity_records: list[SimilarityRecord] = []
@@ -134,7 +140,13 @@ def evaluate_compiled_strategy(paths, settings, repository: ExperimentRepository
         paths.research_repos,
         paths.caches / spec.metadata.id,
     )
-    scoring = score_candidate(metrics, robustness, novelty, plagiarism_score=plagiarism["max_score"])
+    scoring = score_candidate(
+        metrics,
+        robustness,
+        novelty,
+        plagiarism_score=plagiarism["max_score"],
+        validation=validation,
+    )
     decision, reason = promotion_decision(scoring["score"], plagiarism["max_score"])
     report = build_diagnostics_report(spec.metadata.name, metrics, robustness, scoring, plagiarism)
     report_path = paths.reports / f"{spec.metadata.id}.md"
@@ -170,6 +182,7 @@ def evaluate_compiled_strategy(paths, settings, repository: ExperimentRepository
                 {
                     "metrics": metrics,
                     "robustness": robustness,
+                    "validation": validation,
                     "scoring": scoring,
                     "plagiarism": plagiarism,
                     "behavior_fingerprint": behavior_fingerprint(backtest_result.summary),
@@ -195,6 +208,7 @@ def evaluate_compiled_strategy(paths, settings, repository: ExperimentRepository
         "reason": reason,
         "metrics": metrics,
         "robustness": robustness,
+        "validation": validation,
         "scoring": scoring,
         "plagiarism": plagiarism,
         "report_path": str(report_path),

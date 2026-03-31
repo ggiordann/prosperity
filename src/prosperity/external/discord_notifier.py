@@ -24,6 +24,8 @@ def _decision_color(decision: str) -> int:
     normalized = decision.lower()
     if normalized == "promote":
         return 0x2ECC71
+    if normalized == "shadow_promote":
+        return 0x3498DB
     if normalized == "hold":
         return 0xF39C12
     return 0x95A5A6
@@ -38,37 +40,73 @@ def _cycle_stats(cycle_summary: dict[str, Any], settings: AppSettings) -> dict[s
     best_metrics = best_candidate.get("metrics", {})
     best_scoring = best_candidate.get("scoring", {})
     best_robustness = best_candidate.get("robustness", {})
+    best_validation = best_candidate.get("validation", {})
     strategist = cycle_summary.get("strategist", {})
     champion_pnl = float(cycle_summary.get("champion_pnl", 0.0))
+    champion_validation_score = float(cycle_summary.get("champion_validation_score", 0.0))
     best_pnl = float(best_metrics.get("total_pnl", 0.0))
     pnl_delta = best_pnl - champion_pnl
-    llm_mode = "live" if settings.llm.allow_live_requests and settings.openai_api_key else "off"
+    llm_status = cycle_summary.get("llm_status", {})
+    llm_mode = llm_status.get("mode")
+    if not llm_mode:
+        llm_mode = "live" if settings.llm.allow_live_requests and settings.openai_api_key else "off"
+    llm_budget = ""
+    if llm_status:
+        llm_budget = (
+            f" (${llm_status.get('remaining_usd', 0.0):.2f} left / "
+            f"${llm_status.get('daily_budget_usd', 0.0):.2f})"
+        )
     discord_mode = "enabled" if settings.discord.enabled else "disabled"
     per_product = best_metrics.get("per_product_pnl", {})
     emr = _fmt_number(per_product.get("EMR", {}).get("SUB"))
     tom = _fmt_number(per_product.get("TOM", {}).get("SUB"))
+    candidate_budget = cycle_summary.get("candidate_budget", {})
+    bucket_counts = cycle_summary.get("candidate_bucket_counts", {})
+    family_lab_profiles = cycle_summary.get("family_lab_profiles_tried", [])
+    expert_profiles = cycle_summary.get("expert_builder_profiles_tried", [])
+    family_jump_profiles = cycle_summary.get("family_jump_profiles_tried", [])
+    plateau = cycle_summary.get("plateau_state", {})
+    family_lab_line = ", ".join(f"`{profile}`" for profile in family_lab_profiles[:4]) if family_lab_profiles else "`none`"
+    expert_line = ", ".join(f"`{profile}`" for profile in expert_profiles[:4]) if expert_profiles else "`none`"
+    family_jump_line = ", ".join(f"`{profile}`" for profile in family_jump_profiles[:4]) if family_jump_profiles else "`none`"
 
     return {
         "strategy": strategist.get("thesis", "no strategist thesis recorded."),
         "pnl_compare": (
             f"candidate `{best_candidate.get('strategy_id', 'unknown')}`: `{_fmt_number(best_pnl)}`\n"
             f"champion `{cycle_summary.get('champion_before', 'unknown')}`: `{_fmt_number(champion_pnl)}`\n"
-            f"delta: `{_fmt_delta(pnl_delta)}`"
+            f"delta: `{_fmt_delta(pnl_delta)}`\n"
+            f"validation: `{best_validation.get('score', 0.0):.3f}` vs champ `{champion_validation_score:.3f}`"
         ),
         "stats": (
             f"trades: `{_fmt_number(best_metrics.get('own_trade_count'))}`\n"
             f"emr: `{emr}` | tom: `{tom}`\n"
             f"robustness: `{best_robustness.get('score', 0.0):.3f}`\n"
+            f"validation: `{best_validation.get('score', 0.0):.3f}`\n"
             f"score: `{best_scoring.get('score', 0.0):.3f}`\n"
             f"plagiarism: `{best_candidate.get('plagiarism', {}).get('max_score', 0.0):.3f}`\n"
-            f"candidates: `{cycle_summary.get('candidate_count', 0)}`"
+            f"candidates: `{cycle_summary.get('candidate_count', 0)}`\n"
+            f"search: `x{candidate_budget.get('exploit', 0)} e{candidate_budget.get('explore', 0)} "
+            f"s{candidate_budget.get('structural', 0)} j{candidate_budget.get('family_jump', 0)} "
+            f"l{candidate_budget.get('family_lab', 0)} b{candidate_budget.get('expert_builder', 0)} "
+            f"t{candidate_budget.get('survivor_tune', 0)}`\n"
+            f"dedupe blocked: `{cycle_summary.get('duplicates_blocked', 0)}`\n"
+            f"eval mix: `exp {bucket_counts.get('exploit', 0)} | exr {bucket_counts.get('explore', 0)} | "
+            f"str {bucket_counts.get('structural', 0)} | jump {bucket_counts.get('family_jump', 0)} | "
+            f"lab {bucket_counts.get('family_lab', 0)} | builder {bucket_counts.get('expert_builder', 0)}`"
+        ),
+        "algo_search": (
+            f"family lab:\n{family_lab_line}\n"
+            f"expert builder:\n{expert_line}\n"
+            f"family jumps:\n{family_jump_line}"
         ),
         "health": (
             f"db: `ok`\n"
             f"backtester: `ok`\n"
-            f"llm: `{llm_mode}`\n"
+            f"llm: `{llm_mode}{llm_budget}`\n"
             f"discord: `{discord_mode}`\n"
-            f"ingested: `{cycle_summary.get('ingested_documents', 0)}`"
+            f"ingested: `{cycle_summary.get('ingested_documents', 0)}`\n"
+            f"plateau: `{'on' if plateau.get('active') else 'off'}`"
         ),
     }
 
@@ -120,6 +158,11 @@ def build_cycle_summary_payload(cycle_summary: dict[str, Any], settings: AppSett
             {
                 "name": "stats",
                 "value": stats["stats"][:1024],
+                "inline": True,
+            },
+            {
+                "name": "algo search",
+                "value": stats["algo_search"][:1024],
                 "inline": True,
             },
             {
