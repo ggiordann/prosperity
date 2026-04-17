@@ -54,6 +54,7 @@ def discover_datasets(paths: RepoPaths) -> list[DatasetInfo]:
 
 def resolve_dataset_argument(dataset_name: str) -> str:
     aliases = {
+        "round1": "round1",
         "submission": "datasets/tutorial/submission.log",
         "tutorial": "tutorial",
         "latest": "latest",
