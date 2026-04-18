@@ -13,7 +13,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BACKTESTER_ROOT = ROOT / "prosperity_rust_backtester_upstream"
+BACKTESTER_ROOT = ROOT / "round 1" / "backtesters" / "prosperity_rust_backtester_upstream"
 BACKTESTER_BIN = BACKTESTER_ROOT / "target" / "debug" / "rust_backtester"
 ROUND1_DATASET = "round1"
 

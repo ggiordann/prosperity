@@ -34,9 +34,6 @@ def discover_datasets(paths: RepoPaths) -> list[DatasetInfo]:
         )
 
     dataset_roots = [paths.backtester / "datasets"]
-    legacy_upstream_root = paths.root / "prosperity_rust_backtester_upstream" / "datasets"
-    if not dataset_roots[0].exists() and legacy_upstream_root.exists():
-        dataset_roots.append(legacy_upstream_root)
     seen_paths: set[Path] = set()
     for dataset_root in dataset_roots:
         if not dataset_root.exists():

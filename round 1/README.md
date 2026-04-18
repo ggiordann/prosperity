@@ -14,4 +14,5 @@ This folder preserves the Round 1 assets before the platform moved to Round 2.
 - `data/`: official Round 1 price and trade CSVs.
 - `submissions/`: the best submitted/derived Round 1 strategy files kept for reference.
 - `results/`: downloaded Prosperity upload output for `256418`.
-
+- `tutorial/`: tutorial-round data and submission artifacts.
+- `backtesters/`: archived duplicate backtester checkout kept out of the active Round 2 path.
