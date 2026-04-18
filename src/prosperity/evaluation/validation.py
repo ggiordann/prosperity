@@ -8,7 +8,8 @@ from prosperity.backtester.runner import BacktesterRunner, BacktestRequest
 def run_validation_suite(
     runner: BacktesterRunner,
     trader_path: str,
-    tutorial_days: list[int],
+    dataset: str,
+    validation_days: list[int],
 ) -> dict:
     tests: list[dict] = []
     pnls: list[float] = []
@@ -17,15 +18,15 @@ def run_validation_suite(
         aggregate = runner.run(
             BacktestRequest(
                 trader_path=trader_path,
-                dataset="tutorial",
+                dataset=dataset,
                 products_mode="summary",
             )
         )
         aggregate_pnl = float(aggregate.summary.total_final_pnl)
         tests.append(
             {
-                "name": "tutorial_all",
-                "dataset": "tutorial",
+                "name": f"{dataset}_all",
+                "dataset": dataset,
                 "day": None,
                 "total_pnl": aggregate_pnl,
                 "status": "ok",
@@ -35,20 +36,20 @@ def run_validation_suite(
     except Exception as exc:
         tests.append(
             {
-                "name": "tutorial_all",
-                "dataset": "tutorial",
+                "name": f"{dataset}_all",
+                "dataset": dataset,
                 "day": None,
                 "status": "failed",
                 "error": str(exc),
             }
         )
 
-    for day in tutorial_days:
+    for day in validation_days:
         try:
             result = runner.run(
                 BacktestRequest(
                     trader_path=trader_path,
-                    dataset="tutorial",
+                    dataset=dataset,
                     day=day,
                     products_mode="summary",
                 )
@@ -56,8 +57,8 @@ def run_validation_suite(
             pnl = float(result.summary.total_final_pnl)
             tests.append(
                 {
-                    "name": f"tutorial_day_{day}",
-                    "dataset": "tutorial",
+                    "name": f"{dataset}_day_{day}",
+                    "dataset": dataset,
                     "day": day,
                     "total_pnl": pnl,
                     "status": "ok",
@@ -68,8 +69,8 @@ def run_validation_suite(
         except Exception as exc:
             tests.append(
                 {
-                    "name": f"tutorial_day_{day}",
-                    "dataset": "tutorial",
+                    "name": f"{dataset}_day_{day}",
+                    "dataset": dataset,
                     "day": day,
                     "status": "failed",
                     "error": str(exc),

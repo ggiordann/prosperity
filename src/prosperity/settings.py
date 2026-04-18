@@ -12,8 +12,8 @@ from prosperity.paths import RepoPaths
 
 
 class BacktesterSettings(BaseModel):
-    path: str = "prosperity_rust_backtester_upstream"
-    default_dataset: str = "round1"
+    path: str = "prosperity_rust_backtester"
+    default_dataset: str = "round2"
     default_products_mode: str = "summary"
 
 
@@ -73,10 +73,10 @@ class ConversationSettings(BaseModel):
     max_memory_notes: int = 12
     default_sleep_seconds: int = 0
     use_llm_roles: bool = True
-    seed_strategy_path: str = "submission_candidate.py"
-    fallback_family: str = "tutorial_submission_candidate_alpha"
-    tutorial_validation_days: list[int] = Field(default_factory=lambda: [-2, -1])
-    screening_tutorial_days: list[int] = Field(default_factory=lambda: [-2, -1])
+    seed_strategy_path: str = "baselines/round1_256418.py"
+    fallback_family: str = "round1_256418_alpha"
+    tutorial_validation_days: list[int] = Field(default_factory=lambda: [-1, 0, 1])
+    screening_tutorial_days: list[int] = Field(default_factory=lambda: [-1, 0, 1])
 
 
 class AppSettings(BaseSettings):

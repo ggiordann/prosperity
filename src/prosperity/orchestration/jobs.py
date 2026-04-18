@@ -48,6 +48,9 @@ def ingest_all(paths, settings, repository: ExperimentRepository) -> int:
     documents.extend(load_markdown_documents(paths.docs, "internal_research_corpus", SourceType.INTERNAL_CODE))
     documents.extend(load_official_documents(paths.docs))
     documents.extend(load_imcdata_documents(paths.root / "imcdata"))
+    configured_dataset_root = paths.root / settings.backtester.path / "datasets" / settings.backtester.default_dataset
+    round_dataset_root = configured_dataset_root if configured_dataset_root.exists() else paths.backtester / "datasets" / settings.backtester.default_dataset
+    documents.extend(load_imcdata_documents(round_dataset_root))
     documents.extend(
         load_research_repo_documents(
             paths.research_repos,
@@ -78,18 +81,20 @@ def compile_spec_to_artifact(paths, spec: StrategySpec) -> Path:
 
 def evaluate_compiled_strategy(paths, settings, repository: ExperimentRepository, spec: StrategySpec, compiled_path: Path) -> dict:
     runner = BacktesterRunner(paths, settings)
+    dataset = resolve_dataset_argument(settings.backtester.default_dataset)
     backtest_result = runner.run(
         BacktestRequest(
             trader_path=str(compiled_path),
-            dataset=resolve_dataset_argument("submission"),
+            dataset=dataset,
             products_mode=settings.backtester.default_products_mode,
         )
     )
     metrics = compute_metrics(backtest_result.summary)
-    robustness = run_robustness_suite(runner, str(compiled_path), resolve_dataset_argument("submission"))
+    robustness = run_robustness_suite(runner, str(compiled_path), dataset)
     validation = run_validation_suite(
         runner,
         str(compiled_path),
+        dataset,
         settings.conversation.tutorial_validation_days,
     )
     prior_rows = repository.list_strategies()
@@ -156,7 +161,7 @@ def evaluate_compiled_strategy(paths, settings, repository: ExperimentRepository
         RunRecord(
             run_id=backtest_result.run_id,
             strategy_id=spec.metadata.id,
-            dataset_id="submission",
+            dataset_id=settings.backtester.default_dataset,
             trader_path=str(compiled_path),
             status="completed",
             final_pnl_total=metrics["total_pnl"],

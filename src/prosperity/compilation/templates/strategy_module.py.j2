@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import math
 
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
@@ -59,6 +60,20 @@ class Trader:
                 else:
                     result[product] = []
             persisted["tomato_fair_history"] = tomato_history[-20:]
+            return result, 0, json.dumps(persisted, separators=(",", ":"))
+
+        if FAMILY == "round1_256418_alpha":
+            for product in SPEC["scope"]["products"]:
+                order_depth = state.order_depths.get(product)
+                if order_depth is None:
+                    result[product] = []
+                    continue
+                if product == "ASH_COATED_OSMIUM":
+                    result[product] = self._trade_round1_ash(order_depth, state.position.get(product, 0), persisted)
+                elif product == "INTARIAN_PEPPER_ROOT":
+                    result[product] = self._trade_round1_pepper(state.timestamp, order_depth, state.position.get(product, 0), persisted)
+                else:
+                    result[product] = []
             return result, 0, json.dumps(persisted, separators=(",", ":"))
 
         for product in SPEC["scope"]["products"]:
@@ -229,6 +244,154 @@ class Trader:
         if sell_size > 0:
             orders.append(Order("TOMATOES", ask_price, -sell_size))
         return orders, history
+
+    @staticmethod
+    def _round1_best_bid_ask(order_depth: OrderDepth):
+        best_bid = max(order_depth.buy_orders) if order_depth.buy_orders else None
+        best_ask = min(order_depth.sell_orders) if order_depth.sell_orders else None
+        return best_bid, best_ask
+
+    @staticmethod
+    def _round1_mid(best_bid, best_ask, fallback):
+        if best_bid is not None and best_ask is not None:
+            return (best_bid + best_ask) / 2.0
+        if best_bid is not None:
+            return float(best_bid)
+        if best_ask is not None:
+            return float(best_ask)
+        return fallback
+
+    @staticmethod
+    def _round1_update_long_ma(memory: dict, key: str, value: float, alpha: float) -> float:
+        previous = memory.get(key)
+        if previous is None:
+            long_ma = value
+        else:
+            long_ma = alpha * value + (1.0 - alpha) * float(previous)
+        memory[key] = long_ma
+        return long_ma
+
+    def _trade_round1_pepper(self, timestamp: int, order_depth: OrderDepth, position: int, memory: dict) -> List[Order]:
+        product = "INTARIAN_PEPPER_ROOT"
+        limit = self._limit(product)
+        orders: List[Order] = []
+        best_bid, best_ask = self._round1_best_bid_ask(order_depth)
+        mid = self._round1_mid(best_bid, best_ask, memory.get("pep_last_mid"))
+        if mid is None:
+            return orders
+
+        long_ma = self._round1_update_long_ma(
+            memory,
+            "pep_long_ma",
+            float(mid),
+            self._param("pepper_long_ma_alpha", 0.004),
+        )
+        slope = float(memory.get("pep_slope", self._param("pepper_slope_prior", 0.001)))
+        prev_ts = memory.get("pep_prev_ts")
+        prev_mid = memory.get("pep_prev_mid")
+        if prev_ts is not None and prev_mid is not None and timestamp > prev_ts:
+            inst_slope = (mid - float(prev_mid)) / max(1.0, float(timestamp - prev_ts))
+            alpha = self._param("pepper_slope_alpha", 0.30)
+            slope = alpha * inst_slope + (1.0 - alpha) * slope
+            slope = max(0.0, min(self._param("pepper_slope_max", 0.003), slope))
+
+        memory["pep_prev_ts"] = timestamp
+        memory["pep_prev_mid"] = mid
+        memory["pep_slope"] = slope
+        memory["pep_last_mid"] = mid
+
+        trend_fair = mid + slope * self._param("pepper_horizon", 4000.0)
+        reversion_drag = self._param("pepper_reversion_weight", 0.020) * (mid - long_ma)
+        fair_value = trend_fair - reversion_drag
+        buy_cap = max(0, limit - position)
+        if buy_cap <= 0:
+            return orders
+
+        take_edge = self._param("pepper_take_edge", 10.0)
+        for ask in sorted(order_depth.sell_orders):
+            if buy_cap <= 0:
+                break
+            ask_qty = -order_depth.sell_orders[ask]
+            if ask <= fair_value + take_edge:
+                quantity = min(buy_cap, ask_qty)
+                if quantity > 0:
+                    orders.append(Order(product, ask, quantity))
+                    buy_cap -= quantity
+
+        if buy_cap > 0:
+            bid_price = None
+            if best_bid is not None:
+                bid_price = best_bid + 1
+                if best_ask is not None:
+                    bid_price = min(bid_price, best_ask - 1)
+            elif best_ask is not None:
+                bid_price = best_ask - 1
+            if bid_price is not None and (best_ask is None or bid_price < best_ask):
+                quantity = min(buy_cap, max(1, int(round(self._param("pepper_passive_size", 80.0)))))
+                if quantity > 0:
+                    orders.append(Order(product, int(bid_price), quantity))
+        return orders
+
+    def _trade_round1_ash(self, order_depth: OrderDepth, position: int, memory: dict) -> List[Order]:
+        product = "ASH_COATED_OSMIUM"
+        limit = self._limit(product)
+        orders: List[Order] = []
+        best_bid, best_ask = self._round1_best_bid_ask(order_depth)
+        mid = self._round1_mid(best_bid, best_ask, memory.get("ash_long_ma", 10000.0))
+        long_ma = self._round1_update_long_ma(
+            memory,
+            "ash_long_ma",
+            float(mid or 10000.0),
+            self._param("ash_long_ma_alpha", 0.010),
+        )
+        anchor = (1.0 - self._param("ash_long_ma_weight", 0.05)) * 10000.0 + self._param("ash_long_ma_weight", 0.05) * long_ma
+        reservation = anchor - self._param("ash_skew", 0.125) * position
+        buy_cap = max(0, limit - position)
+        sell_cap = max(0, limit + position)
+        take_edge = self._param("ash_take_edge", 1.0)
+
+        for ask in sorted(order_depth.sell_orders):
+            if buy_cap <= 0:
+                break
+            ask_qty = -order_depth.sell_orders[ask]
+            if ask <= reservation - take_edge:
+                quantity = min(buy_cap, ask_qty)
+                if quantity > 0:
+                    orders.append(Order(product, ask, quantity))
+                    buy_cap -= quantity
+
+        for bid in sorted(order_depth.buy_orders, reverse=True):
+            if sell_cap <= 0:
+                break
+            bid_qty = order_depth.buy_orders[bid]
+            if bid >= reservation + take_edge:
+                quantity = min(sell_cap, bid_qty)
+                if quantity > 0:
+                    orders.append(Order(product, bid, -quantity))
+                    sell_cap -= quantity
+
+        passive_edge = self._param("ash_passive_edge", 1.0)
+        passive_size = max(1, int(round(self._param("ash_passive_size", 40.0))))
+        if buy_cap > 0 and (best_bid is not None or best_ask is not None):
+            if best_bid is not None:
+                bid_price = min(int(math.floor(reservation - passive_edge)), best_bid + 1)
+            else:
+                bid_price = int(math.floor(reservation - passive_edge))
+            if best_ask is None or bid_price < best_ask:
+                quantity = min(buy_cap, passive_size)
+                if quantity > 0:
+                    orders.append(Order(product, bid_price, quantity))
+
+        if sell_cap > 0 and (best_bid is not None or best_ask is not None):
+            if best_ask is not None:
+                ask_price = max(int(math.ceil(reservation + passive_edge)), best_ask - 1)
+            else:
+                ask_price = int(math.ceil(reservation + passive_edge))
+            if best_bid is None or ask_price > best_bid:
+                quantity = min(sell_cap, passive_size)
+                if quantity > 0:
+                    orders.append(Order(product, ask_price, -quantity))
+        return orders
 
     def _trade_product(self, product: str, order_depth: OrderDepth, position: int, product_state: dict) -> List[Order]:
         best_bid = max(order_depth.buy_orders)

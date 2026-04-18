@@ -127,16 +127,17 @@ def list_datasets() -> None:
 @backtest_app.command("run")
 def run_backtest(
     trader: str,
-    dataset: str = "tutorial",
+    dataset: str | None = None,
     day: int | None = None,
     persist: bool = False,
 ) -> None:
     paths, settings = _context()
     runner = BacktesterRunner(paths, settings)
+    dataset_name = dataset or settings.backtester.default_dataset
     result = runner.run(
         BacktestRequest(
             trader_path=str(Path(trader).resolve()),
-            dataset=resolve_dataset_argument(dataset),
+            dataset=resolve_dataset_argument(dataset_name),
             day=day,
             persist=persist,
             products_mode=settings.backtester.default_products_mode,

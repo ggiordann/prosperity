@@ -53,7 +53,7 @@ class BacktesterRunner:
             request.products_mode,
         ]
         if request.day is not None:
-            command.extend(["--day", str(request.day)])
+            command.append(f"--day={request.day}")
         if request.persist:
             command.append("--persist")
         if request.trade_match_mode:

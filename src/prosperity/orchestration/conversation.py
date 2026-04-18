@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
+from prosperity.backtester.datasets import resolve_dataset_argument
 from prosperity.backtester.runner import BacktesterRunner
 from prosperity.db import DatabaseSession, ExperimentRepository
 from prosperity.db.models import (
@@ -47,6 +48,10 @@ STRATEGIST_PROMPT = PROMPT_DIR / "conversation_strategist.md"
 CRITIC_PROMPT = PROMPT_DIR / "conversation_critic.md"
 POSTMORTEM_PROMPT = PROMPT_DIR / "conversation_postmortem.md"
 FRONTIER_SEED_SPECS = {
+    "round1_256418_alpha": {
+        "strategy_id": "conversation-round1-256418-seed",
+        "name": "Conversation Round1 256418 Seed",
+    },
     "tutorial_submission_candidate_alpha": {
         "strategy_id": "conversation-submission-alpha-seed",
         "name": "Conversation Submission Alpha Seed",
@@ -94,6 +99,10 @@ STRUCTURAL_PROFILES = [
     "signal_rotation",
     "aggressive_repricing",
 ]
+DATASET_PRODUCTS = {
+    "round1": {"ASH_COATED_OSMIUM", "INTARIAN_PEPPER_ROOT"},
+    "round2": {"ASH_COATED_OSMIUM", "INTARIAN_PEPPER_ROOT"},
+}
 
 
 def _with_repo(paths: RepoPaths, callback):
@@ -116,6 +125,13 @@ def _load_prompt(path: Path) -> str:
 
 def _allowed_parameters(spec: StrategySpec) -> list[str]:
     return [parameter.name for parameter in spec.parameter_space]
+
+
+def _spec_matches_dataset(spec: StrategySpec, settings: AppSettings) -> bool:
+    expected_products = DATASET_PRODUCTS.get(settings.backtester.default_dataset)
+    if expected_products is None:
+        return True
+    return set(spec.scope.products) == expected_products
 
 
 def _param_def_map(spec: StrategySpec) -> dict[str, ParameterDef]:
@@ -588,7 +604,8 @@ def _postmortem_turn(
 
 
 def _make_candidate_id(base_name: str, iteration: int, variant_index: int) -> str:
-    return f"{slugify(base_name)}-c{iteration:03d}-v{variant_index:02d}-{uuid4().hex[:6]}"
+    base_slug = slugify(base_name)[:72].strip("-") or "candidate"
+    return f"{base_slug}-c{iteration:03d}-v{variant_index:02d}-{uuid4().hex[:6]}"
 
 
 def _budget_split(
@@ -1252,6 +1269,7 @@ def _screen_candidate_entries(
         return [], []
     runner = BacktesterRunner(resolved_paths, resolved_settings)
     screen_days = resolved_settings.conversation.screening_tutorial_days or [-1]
+    screen_dataset = resolve_dataset_argument(resolved_settings.backtester.default_dataset)
     screened: list[dict[str, Any]] = []
     for index, candidate_entry in enumerate(candidate_entries):
         candidate = candidate_entry["spec"]
@@ -1263,7 +1281,8 @@ def _screen_candidate_entries(
             screening = quick_screen_candidate(
                 runner,
                 str(compiled),
-                tutorial_day=day,
+                dataset=screen_dataset,
+                day=day,
                 family_prior=family_prior,
                 bucket_prior=bucket_prior,
             )
@@ -1529,17 +1548,37 @@ def _build_seed_spec(family_name: str, strategy_id: str, name: str) -> StrategyS
 def _ensure_seed_strategy(paths: RepoPaths, family_name: str) -> StrategySpec:
     seed_info = FRONTIER_SEED_SPECS[family_name]
     strategy_id = str(seed_info["strategy_id"])
+    spec = _build_seed_spec(family_name, strategy_id=strategy_id, name=str(seed_info["name"]))
     existing = _with_repo(paths, lambda repo: repo.get_strategy(strategy_id))
     if existing is not None:
-        return _spec_from_row(existing)
-    spec = _build_seed_spec(family_name, strategy_id=strategy_id, name=str(seed_info["name"]))
+        existing_spec = _spec_from_row(existing)
+        if normalized_spec_json(existing_spec) == normalized_spec_json(spec):
+            return existing_spec
+        compiled = compile_spec_to_artifact(paths, spec)
+        _with_repo(
+            paths,
+            lambda repo: persist_strategy_record(
+                repo,
+                spec,
+                compiled,
+                stage="conversation_seed",
+                notes="Seed strategy refreshed from current family definition",
+            ),
+        )
+        return spec
     compiled = compile_spec_to_artifact(paths, spec)
     _with_repo(paths, lambda repo: persist_strategy_record(repo, spec, compiled, stage="conversation_seed", notes="Seed strategy"))
     return spec
 
 
-def _ensure_frontier_seed_strategies(paths: RepoPaths) -> list[StrategySpec]:
-    return [_ensure_seed_strategy(paths, family_name) for family_name in FRONTIER_SEED_SPECS]
+def _ensure_frontier_seed_strategies(paths: RepoPaths, settings: AppSettings) -> list[StrategySpec]:
+    seed_specs: list[StrategySpec] = []
+    for family_name in FRONTIER_SEED_SPECS:
+        probe = build_family_spec(family_name, role="compatibility_probe")
+        if not _spec_matches_dataset(probe, settings):
+            continue
+        seed_specs.append(_ensure_seed_strategy(paths, family_name))
+    return seed_specs
 
 
 def _resolve_compiled_path(paths: RepoPaths, strategy_id: str) -> Path:
@@ -1557,11 +1596,14 @@ def _ensure_strategy_evaluation(
 ) -> dict:
     latest_eval = _with_repo(paths, lambda repo: repo.get_latest_evaluation(spec.metadata.id))
     if latest_eval is not None:
-        cached = _evaluation_from_row(latest_eval)
-        cached["decision"] = "cached"
-        cached["reason"] = "Using cached evaluation."
-        cached["report_path"] = str(paths.reports / f"{spec.metadata.id}.md")
-        return cached
+        strategy_row = _with_repo(paths, lambda repo: repo.get_strategy(spec.metadata.id))
+        strategy_created_at = str(strategy_row["created_at"]) if strategy_row is not None else ""
+        if str(latest_eval["created_at"]) >= strategy_created_at:
+            cached = _evaluation_from_row(latest_eval)
+            cached["decision"] = "cached"
+            cached["reason"] = "Using cached evaluation."
+            cached["report_path"] = str(paths.reports / f"{spec.metadata.id}.md")
+            return cached
     return _with_repo(
         paths,
         lambda repo: evaluate_compiled_strategy(paths, settings, repo, spec, compiled_path),
@@ -1569,7 +1611,7 @@ def _ensure_strategy_evaluation(
 
 
 def _select_frontier(paths: RepoPaths, settings: AppSettings) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    seed_specs = _ensure_frontier_seed_strategies(paths)
+    seed_specs = _ensure_frontier_seed_strategies(paths, settings)
     entries: list[dict[str, Any]] = []
     for seed_spec in seed_specs:
         compiled_path = _resolve_compiled_path(paths, seed_spec.metadata.id)
@@ -1859,6 +1901,11 @@ def run_conversation_cycle(
             + family_jump_candidates
             + expert_builder_candidates
         )
+        candidates = [
+            candidate
+            for candidate in candidates
+            if _spec_matches_dataset(candidate["spec"], resolved_settings)
+        ]
         candidates, duplicates_blocked = _dedupe_candidates(resolved_paths, candidates)
         screened_candidates, screening_results = _screen_candidate_entries(
             resolved_paths,

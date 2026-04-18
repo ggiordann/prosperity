@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from pydantic import BaseModel
 
 from prosperity.paths import RepoPaths
@@ -31,13 +33,23 @@ def discover_datasets(paths: RepoPaths) -> list[DatasetInfo]:
             )
         )
 
-    dataset_root = paths.backtester / "datasets"
-    if dataset_root.exists():
+    dataset_roots = [paths.backtester / "datasets"]
+    legacy_upstream_root = paths.root / "prosperity_rust_backtester_upstream" / "datasets"
+    if not dataset_roots[0].exists() and legacy_upstream_root.exists():
+        dataset_roots.append(legacy_upstream_root)
+    seen_paths: set[Path] = set()
+    for dataset_root in dataset_roots:
+        if not dataset_root.exists():
+            continue
         for path in sorted(dataset_root.rglob("*")):
             if path.is_dir():
                 continue
             if path.suffix.lower() not in {".csv", ".log", ".json"}:
                 continue
+            resolved = path.resolve()
+            if resolved in seen_paths:
+                continue
+            seen_paths.add(resolved)
             round_name = path.parent.name
             datasets.append(
                 DatasetInfo(
@@ -55,6 +67,7 @@ def discover_datasets(paths: RepoPaths) -> list[DatasetInfo]:
 def resolve_dataset_argument(dataset_name: str) -> str:
     aliases = {
         "round1": "round1",
+        "round2": "round2",
         "submission": "datasets/tutorial/submission.log",
         "tutorial": "tutorial",
         "latest": "latest",

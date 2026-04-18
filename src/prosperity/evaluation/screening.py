@@ -8,15 +8,16 @@ def quick_screen_candidate(
     runner: BacktesterRunner,
     trader_path: str,
     *,
-    tutorial_day: int,
+    dataset: str,
+    day: int,
     family_prior: float = 0.0,
     bucket_prior: float = 0.0,
 ) -> dict:
     result = runner.run(
         BacktestRequest(
             trader_path=trader_path,
-            dataset="tutorial",
-            day=tutorial_day,
+            dataset=dataset,
+            day=day,
             products_mode="summary",
         )
     )
@@ -28,7 +29,8 @@ def quick_screen_candidate(
     return {
         "score": quick_score,
         "metrics": metrics,
-        "screen_day": tutorial_day,
+        "screen_dataset": dataset,
+        "screen_day": day,
         "family_prior": family_prior,
         "bucket_prior": bucket_prior,
         "simplicity": simplicity,

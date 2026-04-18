@@ -33,7 +33,7 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
         return target
 
     def fake_evaluate(paths_obj, settings_obj, repo, spec, compiled_path):
-        if spec.metadata.id == "conversation-submission-alpha-seed":
+        if spec.metadata.id == "conversation-round1-256418-seed":
             pnl = 100.0
         elif spec.metadata.id.startswith("conversation-microprice-seed"):
             pnl = 80.0
@@ -70,12 +70,12 @@ def test_run_conversation_cycle_promotes_and_persists(tmp_path, monkeypatch):
     result = run_conversation_cycle(session_name="unit-test", paths=paths, settings=settings)
 
     assert result["decision"] == "promote"
-    assert result["champion_before"] == "conversation-submission-alpha-seed"
+    assert result["champion_before"] == "conversation-round1-256418-seed"
     assert result["champion_after"] != result["champion_before"]
     assert result["candidate_count"] == 3
     assert result["candidate_budget"]["exploit"] == 3
     assert result["candidate_budget"]["expert_builder"] == 0
-    assert len(result["frontier"]) >= 2
+    assert len(result["frontier"]) >= 1
 
     with DatabaseSession(paths.db_dir / "prosperity.sqlite3") as db:
         repo = ExperimentRepository(db.connection)

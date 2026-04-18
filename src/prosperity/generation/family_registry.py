@@ -522,6 +522,106 @@ def tutorial_submission_candidate_alpha(
     )
 
 
+def round1_256418_alpha(
+    role: str = "conversation_seed",
+    strategy_id: str | None = None,
+    name: str = "Round1 256418 Alpha",
+    parent_ids: list[str] | None = None,
+) -> StrategySpec:
+    metadata = _metadata(name, "round1_256418_alpha", role, ["internal:round1_256418"])
+    metadata.id = strategy_id or metadata.id
+    metadata.parent_ids = list(parent_ids or [])
+    metadata.confidence_notes = (
+        "Round 1 frontier family distilled from the team's 256418 submission. "
+        "ASH is treated as a long-moving-average anchored market-maker product, "
+        "while INTARIAN_PEPPER_ROOT uses adaptive slope-following accumulation "
+        "with a slow mean-reversion dampener around its long-term average."
+    )
+    return StrategySpec(
+        metadata=metadata,
+        scope=StrategyScope(
+            products=["ASH_COATED_OSMIUM", "INTARIAN_PEPPER_ROOT"],
+            round_assumptions=(
+                "Round 1 regime with ASH_COATED_OSMIUM reverting around a slow moving anchor "
+                "and INTARIAN_PEPPER_ROOT combining drift with long-average stretch control."
+            ),
+            required_signals=["long_moving_average", "mean_reversion", "adaptive_slope", "passive_bid_improvement"],
+            required_datasets=["round1"],
+        ),
+        fair_value_models=[
+            FairValueComponent(kind="ema", weight=1.0, params={"product": "ASH_COATED_OSMIUM", "alpha": 0.010, "anchor": 10000}),
+            FairValueComponent(kind="ema", weight=1.0, params={"product": "INTARIAN_PEPPER_ROOT", "alpha": 0.004}),
+        ],
+        signal_models=[
+            SignalComponent(name="pepper_slope", kind="momentum", weight=1.0, params={"product": "INTARIAN_PEPPER_ROOT"}),
+            SignalComponent(name="pepper_long_ma_reversion", kind="mean_reversion", weight=0.02, params={"product": "INTARIAN_PEPPER_ROOT"}),
+            SignalComponent(name="ash_long_ma_anchor", kind="mean_reversion", weight=1.0, params={"product": "ASH_COATED_OSMIUM"}),
+        ],
+        execution_policy=ExecutionPolicy(
+            taking=TakingRule(enabled=True, min_edge=1.0, max_size=80, params={"family_mode": "round1_256418"}),
+            market_making=MarketMakingRule(
+                enabled=True,
+                base_half_spread=1.0,
+                inventory_skew=0.125,
+                layers=[
+                    _layer("ash_anchor_buy", "ASH_COATED_OSMIUM", "buy", 1.0, 40),
+                    _layer("ash_anchor_sell", "ASH_COATED_OSMIUM", "sell", 1.0, 40),
+                    _layer("pepper_improve_bid", "INTARIAN_PEPPER_ROOT", "buy", 1.0, 80),
+                ],
+                params={"family_mode": "round1_256418"},
+            ),
+            clear_inventory_width=0.0,
+        ),
+        risk_policy=RiskPolicy(
+            per_product_position_caps={"ASH_COATED_OSMIUM": 80, "INTARIAN_PEPPER_ROOT": 80},
+            dynamic_inventory_aversion=0.0,
+            kill_switches=["stop_if_book_empty"],
+            unwind_rules=["anchor_skew_ash", "trend_accumulate_pepper"],
+            turnover_throttles={"max_aggressive_size": 80},
+            max_aggressive_size=80,
+        ),
+        parameter_space=[
+            ParameterDef(name="ash_skew", lower=0.0, upper=0.35, default=0.125, mutation_scale=0.20),
+            ParameterDef(name="ash_take_edge", lower=0.0, upper=4.0, default=1.0, mutation_scale=0.25),
+            ParameterDef(name="ash_passive_edge", lower=0.0, upper=4.0, default=1.0, mutation_scale=0.20),
+            ParameterDef(name="ash_passive_size", lower=5.0, upper=80.0, default=40.0, mutation_scale=0.20),
+            ParameterDef(name="ash_long_ma_alpha", lower=0.002, upper=0.050, default=0.010, mutation_scale=0.20),
+            ParameterDef(name="ash_long_ma_weight", lower=0.0, upper=0.35, default=0.05, mutation_scale=0.20),
+            ParameterDef(name="pepper_slope_prior", lower=0.0, upper=0.004, default=0.001, mutation_scale=0.25),
+            ParameterDef(name="pepper_slope_alpha", lower=0.05, upper=0.75, default=0.30, mutation_scale=0.20),
+            ParameterDef(name="pepper_slope_max", lower=0.001, upper=0.006, default=0.003, mutation_scale=0.20),
+            ParameterDef(name="pepper_horizon", lower=1000.0, upper=7000.0, default=4000.0, mutation_scale=0.20),
+            ParameterDef(name="pepper_take_edge", lower=0.0, upper=20.0, default=10.0, mutation_scale=0.20),
+            ParameterDef(name="pepper_passive_size", lower=10.0, upper=80.0, default=80.0, mutation_scale=0.15),
+            ParameterDef(name="pepper_long_ma_alpha", lower=0.001, upper=0.030, default=0.004, mutation_scale=0.25),
+            ParameterDef(name="pepper_reversion_weight", lower=0.0, upper=0.12, default=0.020, mutation_scale=0.25),
+        ],
+        expected_edge=ExpectedEdge(
+            narrative_hypothesis=(
+                "Keep the proven 256418 round1 structure, but add slow moving-average anchors "
+                "so the search can tune trend-following versus mean reversion instead of only knob-tweaking execution."
+            ),
+            target_inefficiency="Persistent PEPPER drift that periodically overstretches from its slow average, plus stale ASH quotes around a moving anchor.",
+            expected_conditions=[
+                "Positive PEPPER slope persistence",
+                "PEPPER stretch periodically mean-reverts toward its long average",
+                "ASH mean reversion around a slow anchor",
+                "Visible liquidity near the best levels",
+            ],
+            failure_modes=[
+                "Slope prior over-accumulates when PEPPER stops trending",
+                "Mean-reversion drag becomes too strong during clean trend days",
+                "ASH moving anchor chases noise instead of true fair value",
+            ],
+        ),
+        explainability=Explainability(
+            crowded_motif_references=["anchor_market_making", "trend_accumulation", "long_ma_mean_reversion"],
+            anti_consensus_rationale="Uses a known internal round1 winner as a seed while keeping parameters mutable and non-hardcoded.",
+            novelty_rationale="The family is internal team work, not copied public code, and targets the actual round1 products directly.",
+        ),
+    )
+
+
 def tutorial_trade_pressure_reversion(role: str = "anti_consensus_generator") -> StrategySpec:
     return StrategySpec(
         metadata=_metadata("Tutorial Trade Pressure Reversion", "tutorial_trade_pressure_reversion", role, ["internal:tutorial"]),
@@ -713,6 +813,7 @@ def tutorial_asymmetric_queue_hybrid(role: str = "hypothesis_generator") -> Stra
 
 
 FAMILY_BUILDERS: dict[str, Callable[..., StrategySpec]] = {
+    "round1_256418_alpha": round1_256418_alpha,
     "tutorial_wall_mid_mm": tutorial_market_maker,
     "tutorial_microprice_reversion": tutorial_microprice_reversion,
     "tutorial_latent_book_reversion": tutorial_latent_book_reversion,
@@ -727,6 +828,8 @@ FAMILY_BUILDERS: dict[str, Callable[..., StrategySpec]] = {
 
 
 def build_family_spec(family_name: str, role: str = "hypothesis_generator") -> StrategySpec:
+    if family_name == "round1_256418_alpha":
+        return round1_256418_alpha(role=role)
     if family_name == "tutorial_submission_candidate_alpha":
         return tutorial_submission_candidate_alpha(role=role)
     builder = FAMILY_BUILDERS[family_name]

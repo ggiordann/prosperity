@@ -3,7 +3,7 @@ import json
 
 def retrieve_messages(channel_id):
     headers = {
-        'authorization': 'a',
+        'authorization': 's', #env idk how to do python
         'User-Agent': 'Mozilla/5.0 (compatible; MyApp/1.0)'
     }
     url = f'https://discord.com/api/v10/channels/{channel_id}/messages?limit=100'
@@ -14,9 +14,9 @@ def retrieve_messages(channel_id):
         for msg in jsonn:
             print(f"{msg['author']['username']}: {msg['content']}", '\n')
 
-retrieve_messages('1476867246000177162')
+retrieve_messages('1476867369186885653')
 
-# prosperity discord channel ID's
+# prosperity discord channel IDs
 
 # general: 1476867246000177162
 # algo-trading: 1476867343068958781
