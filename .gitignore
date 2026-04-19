@@ -20,6 +20,8 @@ data/caches/
 data/corpora/
 data/exports/
 data/processed/
+data/autoresearch/
+data/quant/
 artifacts/runs/
 artifacts/reports/
 artifacts/portal/

@@ -79,6 +79,51 @@ class ConversationSettings(BaseModel):
     screening_tutorial_days: list[int] = Field(default_factory=lambda: [-1, 0, 1])
 
 
+class QuantSettings(BaseModel):
+    session_name: str = "quant-main"
+    state_path: str = "data/quant/state.json"
+    report_dir: str = "artifacts/reports/quant"
+    artifacts_dir: str = "artifacts/strategies/quant"
+    fetch_remote: bool = True
+    initial_git_scan_commits: int = 3
+    max_changed_files_per_cycle: int = 40
+    max_git_strategy_tests: int = 3
+    max_alpha_strategies: int = 4
+    top_alpha_features: int = 10
+    alpha_horizons: list[int] = Field(default_factory=lambda: [1, 5, 20])
+    git_budget_fraction: float = 0.15
+    max_git_budget_fraction: float = 0.30
+    raw_alpha_budget_fraction: float = 0.40
+    champion_budget_fraction: float = 0.25
+    structural_budget_fraction: float = 0.20
+    min_git_direct_tests: int = 1
+    min_git_variant_tests: int = 1
+    champion_strategy_path: str | None = None
+    auto_promote: bool = False
+    promote_min_improvement: float = 5.0
+
+
+class AutoResearchSettings(BaseModel):
+    session_name: str = "autoresearch-main"
+    state_path: str = "data/autoresearch/state.json"
+    report_dir: str = "artifacts/reports/autoresearch"
+    artifacts_dir: str = "artifacts/strategies/autoresearch"
+    target_strategy_path: str | None = None
+    experiments_per_cycle: int = 6
+    train_days: list[int] = Field(default_factory=lambda: [-1, 0])
+    validation_days: list[int] = Field(default_factory=lambda: [1])
+    stress_queue_penetration: float = 0.35
+    stress_price_slippage_bps: float = 2.0
+    stress_trade_match_mode: str = "strict"
+    promote_min_score_delta: float = 100.0
+    promote_min_validation_delta: float = 0.0
+    max_train_validation_gap: float = 50_000.0
+    max_product_concentration: float = 0.92
+    auto_promote: bool = False
+    send_discord: bool = True
+    write_reports: bool = False
+
+
 class AppSettings(BaseSettings):
     model_config = SettingsConfigDict(
         env_prefix="PROSPERITY_",
@@ -101,6 +146,8 @@ class AppSettings(BaseSettings):
     portal: PortalSettings = Field(default_factory=PortalSettings)
     discord: DiscordSettings = Field(default_factory=DiscordSettings)
     conversation: ConversationSettings = Field(default_factory=ConversationSettings)
+    quant: QuantSettings = Field(default_factory=QuantSettings)
+    autoresearch: AutoResearchSettings = Field(default_factory=AutoResearchSettings)
 
 
 def _load_yaml_file(path: Path | None) -> dict[str, Any]:

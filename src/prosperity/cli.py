@@ -6,6 +6,7 @@ from pathlib import Path
 import typer
 
 from baselines.baseline_wrappers import list_baselines
+from prosperity.autoresearch.orchestrator import run_autoresearch_cycle, run_autoresearch_loop
 from prosperity.backtester.datasets import discover_datasets, resolve_dataset_argument
 from prosperity.backtester.runner import BacktesterRunner, BacktestRequest
 from prosperity.backtester.smoke import smoke_baseline
@@ -31,6 +32,7 @@ from prosperity.orchestration.jobs import (
 )
 from prosperity.orchestration.loop import run_loop_once
 from prosperity.paths import RepoPaths
+from prosperity.quant.orchestrator import run_quant_cycle, run_quant_loop
 from prosperity.settings import load_settings
 from prosperity.utils import json_dumps, utcnow_iso
 
@@ -43,6 +45,8 @@ submission_app = typer.Typer(help="Submission packaging commands")
 dashboard_app = typer.Typer(help="Dashboard commands")
 portal_app = typer.Typer(help="Portal adapter commands")
 discord_app = typer.Typer(help="Discord notification commands")
+quant_app = typer.Typer(help="AI quant research loop commands")
+autoresearch_app = typer.Typer(help="Autonomous locked-evaluator research commands")
 
 app.add_typer(baselines_app, name="baselines")
 app.add_typer(backtest_app, name="backtest")
@@ -52,6 +56,8 @@ app.add_typer(submission_app, name="submission")
 app.add_typer(dashboard_app, name="dashboard")
 app.add_typer(portal_app, name="portal")
 app.add_typer(discord_app, name="discord")
+app.add_typer(quant_app, name="quant")
+app.add_typer(autoresearch_app, name="autoresearch")
 
 
 def _context():
@@ -310,6 +316,57 @@ def discord_latest(session_name: str | None = None, send: bool = typer.Option(Fa
         typer.echo(json_dumps(send_cycle_summary_message(cycle_summary, settings)))
     else:
         typer.echo(render_cycle_summary_message(cycle_summary, settings))
+
+
+@quant_app.command("cycle")
+def quant_cycle(
+    fetch_git: bool | None = typer.Option(None, help="Override quant.fetch_remote for this cycle."),
+    no_backtests: bool = typer.Option(False, help="Mine alpha and git context without running backtests."),
+    promote: bool | None = typer.Option(None, help="Override quant.auto_promote for this cycle."),
+) -> None:
+    typer.echo(json_dumps(run_quant_cycle(fetch_git=fetch_git, run_backtests=not no_backtests, promote=promote)))
+
+
+@quant_app.command("run")
+def quant_run(
+    cycles: int | None = typer.Option(None, help="Number of quant cycles. Omit to run until Ctrl-C."),
+    sleep_seconds: int = typer.Option(300, help="Sleep between quant cycles."),
+    fetch_git: bool | None = typer.Option(None, help="Override quant.fetch_remote for all cycles."),
+    promote: bool | None = typer.Option(None, help="Override quant.auto_promote for all cycles."),
+) -> None:
+    try:
+        run_quant_loop(cycles=cycles, sleep_seconds=sleep_seconds, fetch_git=fetch_git, promote=promote)
+    except KeyboardInterrupt:
+        typer.echo(json_dumps({"status": "interrupted"}))
+
+
+@autoresearch_app.command("cycle")
+def autoresearch_cycle(
+    experiments: int | None = typer.Option(None, help="Override autoresearch.experiments_per_cycle for this cycle."),
+    promote: bool | None = typer.Option(None, "--promote/--no-promote", help="Override autoresearch.auto_promote for this cycle."),
+    discord: bool | None = typer.Option(None, "--discord/--no-discord", help="Override autoresearch.send_discord for this cycle."),
+) -> None:
+    typer.echo(json_dumps(run_autoresearch_cycle(experiments=experiments, promote=promote, send_discord=discord)))
+
+
+@autoresearch_app.command("run")
+def autoresearch_run(
+    cycles: int | None = typer.Option(None, help="Number of autoresearch cycles. Omit to run until Ctrl-C."),
+    sleep_seconds: int = typer.Option(300, help="Sleep between autoresearch cycles."),
+    experiments: int | None = typer.Option(None, help="Override autoresearch.experiments_per_cycle for all cycles."),
+    promote: bool | None = typer.Option(None, "--promote/--no-promote", help="Override autoresearch.auto_promote for all cycles."),
+    discord: bool | None = typer.Option(None, "--discord/--no-discord", help="Override autoresearch.send_discord for all cycles."),
+) -> None:
+    try:
+        run_autoresearch_loop(
+            cycles=cycles,
+            sleep_seconds=sleep_seconds,
+            experiments=experiments,
+            promote=promote,
+            send_discord=discord,
+        )
+    except KeyboardInterrupt:
+        typer.echo(json_dumps({"status": "interrupted"}))
 
 
 def main() -> None:

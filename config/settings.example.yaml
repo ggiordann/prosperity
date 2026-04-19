@@ -62,3 +62,50 @@ conversation:
     - -1
     - 0
     - 1
+quant:
+  session_name: quant-main
+  state_path: data/quant/state.json
+  report_dir: artifacts/reports/quant
+  artifacts_dir: artifacts/strategies/quant
+  fetch_remote: true
+  initial_git_scan_commits: 3
+  max_changed_files_per_cycle: 40
+  max_git_strategy_tests: 3
+  max_alpha_strategies: 4
+  top_alpha_features: 10
+  alpha_horizons:
+    - 1
+    - 5
+    - 20
+  git_budget_fraction: 0.15
+  max_git_budget_fraction: 0.30
+  raw_alpha_budget_fraction: 0.40
+  champion_budget_fraction: 0.25
+  structural_budget_fraction: 0.20
+  min_git_direct_tests: 1
+  min_git_variant_tests: 1
+  champion_strategy_path:
+  auto_promote: false
+  promote_min_improvement: 5.0
+autoresearch:
+  session_name: autoresearch-main
+  state_path: data/autoresearch/state.json
+  report_dir: artifacts/reports/autoresearch
+  artifacts_dir: artifacts/strategies/autoresearch
+  target_strategy_path:
+  experiments_per_cycle: 6
+  train_days:
+    - -1
+    - 0
+  validation_days:
+    - 1
+  stress_queue_penetration: 0.35
+  stress_price_slippage_bps: 2.0
+  stress_trade_match_mode: strict
+  promote_min_score_delta: 100.0
+  promote_min_validation_delta: 0.0
+  max_train_validation_gap: 50000.0
+  max_product_concentration: 0.92
+  auto_promote: false
+  send_discord: true
+  write_reports: false

@@ -1,0 +1,144 @@
+name: Prosperity Autoresearch
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+    inputs:
+      experiments:
+        description: "Number of autoresearch experiments to run this cycle"
+        required: false
+        default: "6"
+      discord:
+        description: "Send the full cycle log to Discord"
+        required: false
+        type: choice
+        options:
+          - "true"
+          - "false"
+        default: "true"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: prosperity-autoresearch
+  cancel-in-progress: false
+
+jobs:
+  autoresearch:
+    name: Run autoresearch cycle
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYO3_PYTHON: python
+      PROSPERITY_BACKTESTER__DEFAULT_DATASET: ${{ vars.PROSPERITY_DEFAULT_DATASET || 'round2' }}
+      PROSPERITY_DISCORD__ENABLED: "true"
+      PROSPERITY_DISCORD__BOT_TOKEN: ${{ secrets.DISCORD_BOT_TOKEN }}
+      PROSPERITY_DISCORD__CHANNEL_ID: ${{ vars.DISCORD_CHANNEL_ID || '1487759408711729192' }}
+      PROSPERITY_DISCORD__PROMOTE_PING_USER_ID: ${{ vars.DISCORD_PROMOTE_PING_USER_ID || '1487799311113650316' }}
+      PROSPERITY_AUTORESEARCH__SEND_DISCORD: "true"
+      PROSPERITY_AUTORESEARCH__WRITE_REPORTS: "false"
+      AUTORESEARCH_EXPERIMENTS: ${{ inputs.experiments || vars.AUTORESEARCH_EXPERIMENTS || '6' }}
+      AUTORESEARCH_DISCORD: ${{ inputs.discord || 'true' }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: pyproject.toml
+
+      - name: Update Rust toolchain
+        run: rustup update stable
+
+      - name: Cache Rust build
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            prosperity_rust_backtester/target
+          key: cargo-${{ runner.os }}-${{ hashFiles('prosperity_rust_backtester/Cargo.lock') }}
+          restore-keys: |
+            cargo-${{ runner.os }}-
+
+      - name: Restore autoresearch memory
+        uses: actions/cache@v4
+        with:
+          path: data/autoresearch
+          key: autoresearch-state-${{ github.run_id }}
+          restore-keys: |
+            autoresearch-state-
+
+      - name: Install Python package
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Check Discord secret
+        if: ${{ env.AUTORESEARCH_DISCORD != 'false' }}
+        run: |
+          if [ -z "${PROSPERITY_DISCORD__BOT_TOKEN}" ]; then
+            echo "::error::Missing required GitHub secret DISCORD_BOT_TOKEN."
+            exit 1
+          fi
+          if [ -z "${PROSPERITY_DISCORD__CHANNEL_ID}" ]; then
+            echo "::error::Missing Discord channel id. Set repository variable DISCORD_CHANNEL_ID."
+            exit 1
+          fi
+
+      - name: Warm backtester build
+        run: |
+          cd prosperity_rust_backtester
+          ./scripts/cargo_local.sh build
+
+      - name: Run autoresearch cycle
+        run: |
+          set -euo pipefail
+          cmd=(python -m prosperity.cli autoresearch cycle --experiments "${AUTORESEARCH_EXPERIMENTS}" --no-promote)
+          if [ "${AUTORESEARCH_DISCORD}" = "false" ]; then
+            cmd+=(--no-discord)
+          else
+            cmd+=(--discord)
+          fi
+          "${cmd[@]}" | tee /tmp/autoresearch-cycle.json
+
+      - name: Mark promotion candidate artifact
+        id: promotion
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          output = Path(os.environ["GITHUB_OUTPUT"])
+          payload_path = Path("/tmp/autoresearch-cycle.json")
+          if not payload_path.exists():
+              output.write_text("has_candidate=false\n", encoding="utf-8")
+              raise SystemExit(0)
+
+          payload = json.loads(payload_path.read_text(encoding="utf-8"))
+          decision = str(payload.get("decision", "")).lower()
+          best = payload.get("best_experiment") or {}
+          candidate_path = Path(str(best.get("path", "")))
+          if decision in {"promote_ready", "promote"} and candidate_path.exists():
+              with output.open("a", encoding="utf-8") as handle:
+                  handle.write("has_candidate=true\n")
+                  handle.write(f"candidate_path={candidate_path}\n")
+          else:
+              output.write_text("has_candidate=false\n", encoding="utf-8")
+          PY
+
+      - name: Upload promotion candidate
+        if: ${{ steps.promotion.outputs.has_candidate == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: autoresearch-${{ github.run_id }}-candidate
+          path: ${{ steps.promotion.outputs.candidate_path }}
+          retention-days: 7
