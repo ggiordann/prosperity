@@ -17,6 +17,14 @@ on:
           - "true"
           - "false"
         default: "true"
+      duration_minutes:
+        description: "Keep the runner alive and repeat cycles for this many minutes. Use 0 for one cycle."
+        required: false
+        default: "0"
+      sleep_seconds:
+        description: "Delay between repeated cycles when duration_minutes is above 0"
+        required: false
+        default: "300"
 
 permissions:
   contents: read
@@ -29,7 +37,7 @@ jobs:
   autoresearch:
     name: Run autoresearch cycle
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 360
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
       PYO3_PYTHON: python
@@ -42,6 +50,8 @@ jobs:
       PROSPERITY_AUTORESEARCH__WRITE_REPORTS: "false"
       AUTORESEARCH_EXPERIMENTS: ${{ inputs.experiments || vars.AUTORESEARCH_EXPERIMENTS || '6' }}
       AUTORESEARCH_DISCORD: ${{ inputs.discord || 'true' }}
+      AUTORESEARCH_DURATION_MINUTES: ${{ inputs.duration_minutes || vars.AUTORESEARCH_DURATION_MINUTES || '0' }}
+      AUTORESEARCH_SLEEP_SECONDS: ${{ inputs.sleep_seconds || vars.AUTORESEARCH_SLEEP_SECONDS || '300' }}
 
     steps:
       - name: Checkout repository without submodules
@@ -111,13 +121,24 @@ jobs:
       - name: Run autoresearch cycle
         run: |
           set -euo pipefail
-          cmd=(python -m prosperity.cli autoresearch cycle --experiments "${AUTORESEARCH_EXPERIMENTS}" --no-promote)
-          if [ "${AUTORESEARCH_DISCORD}" = "false" ]; then
-            cmd+=(--no-discord)
-          else
-            cmd+=(--discord)
-          fi
-          "${cmd[@]}" | tee /tmp/autoresearch-cycle.json
+          run_cycle() {
+            cmd=(python -m prosperity.cli autoresearch cycle --experiments "${AUTORESEARCH_EXPERIMENTS}" --no-promote)
+            if [ "${AUTORESEARCH_DISCORD}" = "false" ]; then
+              cmd+=(--no-discord)
+            else
+              cmd+=(--discord)
+            fi
+            "${cmd[@]}" | tee /tmp/autoresearch-cycle.json
+          }
+
+          duration_seconds=$((AUTORESEARCH_DURATION_MINUTES * 60))
+          end_time=$(($(date +%s) + duration_seconds))
+
+          run_cycle
+          while [ "${duration_seconds}" -gt 0 ] && [ "$(($(date +%s) + AUTORESEARCH_SLEEP_SECONDS))" -lt "${end_time}" ]; do
+            sleep "${AUTORESEARCH_SLEEP_SECONDS}"
+            run_cycle
+          done
 
       - name: Mark promotion candidate artifact
         id: promotion
