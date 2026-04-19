@@ -31,6 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
       PYO3_PYTHON: python
       PROSPERITY_BACKTESTER__DEFAULT_DATASET: ${{ vars.PROSPERITY_DEFAULT_DATASET || 'round2' }}
       PROSPERITY_DISCORD__ENABLED: "true"
@@ -43,11 +44,13 @@ jobs:
       AUTORESEARCH_DISCORD: ${{ inputs.discord || 'true' }}
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          submodules: false
-          persist-credentials: false
+      - name: Checkout repository without submodules
+        run: |
+          git init .
+          git remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git -c protocol.version=2 fetch --depth=1 --no-tags --no-recurse-submodules origin "${GITHUB_SHA}"
+          git checkout --force FETCH_HEAD
+          git config --global --add safe.directory "${GITHUB_WORKSPACE}"
 
       - name: Set up Python
         uses: actions/setup-python@v5
