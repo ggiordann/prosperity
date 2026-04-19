@@ -41,8 +41,10 @@ class BacktesterRunner:
         self.backtester_root = discover_backtester_path(paths, settings.backtester.path)
 
     def run(self, request: BacktestRequest) -> BacktestResult:
+        cargo_wrapper = self.backtester_root / "scripts" / "cargo_local.sh"
+        cargo_command = ["./scripts/cargo_local.sh"] if cargo_wrapper.exists() else ["cargo"]
         command = [
-            "./scripts/cargo_local.sh",
+            *cargo_command,
             "run",
             "--",
             "--trader",

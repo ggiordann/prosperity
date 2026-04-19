@@ -45,6 +45,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          submodules: false
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -55,6 +58,11 @@ jobs:
 
       - name: Update Rust toolchain
         run: rustup update stable
+
+      - name: Prepare Rust backtester
+        run: |
+          rm -rf prosperity_rust_backtester
+          git clone --depth 1 https://github.com/GeyzsoN/prosperity_rust_backtester prosperity_rust_backtester
 
       - name: Cache Rust build
         uses: actions/cache@v4
@@ -95,7 +103,7 @@ jobs:
       - name: Warm backtester build
         run: |
           cd prosperity_rust_backtester
-          ./scripts/cargo_local.sh build
+          cargo build
 
       - name: Run autoresearch cycle
         run: |
