@@ -1,0 +1,149 @@
+[
+  {
+    "strategy": "best_bid_ask_mid_quote",
+    "day": 0,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "best_bid_ask_mid_quote",
+    "day": 1,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "best_bid_ask_mid_quote",
+    "day": 2,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "wall_mid_reversion",
+    "day": 0,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "wall_mid_reversion",
+    "day": 1,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "wall_mid_reversion",
+    "day": 2,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "volume_imbalance",
+    "day": 0,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "volume_imbalance",
+    "day": 1,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "volume_imbalance",
+    "day": 2,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "microprice",
+    "day": 0,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "microprice",
+    "day": 1,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "microprice",
+    "day": 2,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "over_underbid",
+    "day": 0,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "over_underbid",
+    "day": 1,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "over_underbid",
+    "day": 2,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "take_favorable_levels",
+    "day": 0,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "take_favorable_levels",
+    "day": 1,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "take_favorable_levels",
+    "day": 2,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "hybrid_book_signal",
+    "day": 0,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "hybrid_book_signal",
+    "day": 1,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  },
+  {
+    "strategy": "hybrid_book_signal",
+    "day": 2,
+    "return_code": -6,
+    "final_pnl_total": null,
+    "cumulative_pnl": 0.0
+  }
+]

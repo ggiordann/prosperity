@@ -1,0 +1,65 @@
+[
+  {
+    "strategy": "best_bid_ask_mid_quote",
+    "description": "Quote around the visible best bid/ask and midpoint.",
+    "mode": "best_bid_ask_mid",
+    "return_code": -6,
+    "final_pnl_total": null,
+    "stdout": "",
+    "stderr": "   Compiling target-lexicon v0.13.5\n   Compiling proc-macro2 v1.0.106\n   Compiling unicode-ident v1.0.24\n   Compiling quote v1.0.45\n   Compiling heck v0.5.0\n   Compiling serde_core v1.0.228\n   Compiling utf8parse v0.2.2\n   Compiling libc v0.2.183\n   Compiling autocfg v1.5.0\n   Compiling anstyle-query v1.1.5\n   Compiling anstyle-parse v1.0.0\n   Compiling zmij v1.0.21\n   Compiling is_terminal_polyfill v1.70.2\n   Compiling anstyle v1.0.14\n   Compiling colorchoice v1.0.5\n   Compiling anyhow v1.0.102\n   Compiling memoffset v0.9.1\n   Compiling serde v1.0.228\n   Compiling anstream v1.0.0\n   Compiling hashbrown v0.16.1\n   Compiling serde_json v1.0.149\n   Compiling equivalent v1.0.2\n   Compiling itoa v1.0.17\n   Compiling powerfmt v0.2.0\n   Compiling strsim v0.11.1\n   Compiling clap_lex v1.1.0\n   Compiling deranged v0.5.8\n   Compiling syn v2.0.117\n   Compiling clap_builder v4.6.0\n   Compiling num-conv v0.2.0\n   Compiling pyo3-build-config v0.27.2\n   Compiling time-core v0.1.8\n   Compiling memchr v2.8.0\n   Compiling indoc v2.0.7\n   Compiling unindent v0.2.4\n   Compiling once_cell v1.21.4\n   Compiling time v0.3.47\n   Compiling pyo3-ffi v0.27.2\n   Compiling pyo3-macros-backend v0.27.2\n   Compiling pyo3 v0.27.2\n   Compiling indexmap v2.13.0\n   Compiling clap_derive v4.6.0\n   Compiling serde_derive v1.0.228\n   Compiling clap v4.6.0\n   Compiling pyo3-macros v0.27.2\n   Compiling rust_backtester v0.4.7 (/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester)\n    Finished `release` profile [optimized] target(s) in 26.87s\n     Running `target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_frankfurt_methods/frankfurt_methods_chn9yxmi/best_bid_ask_mid_quote.py --dataset /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3`\ndyld[24261]: Library not loaded: @rpath/libpython3.11.dylib\n  Referenced from: <160F0267-AA91-31C1-86B9-049335E8420F> /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester\n  Reason: tried: '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/deps/libpython3.11.dylib' (no such file), '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/lib/libpython3.11.dylib' (no such file), '/usr/local/lib/libpython3.11.dylib' (no such file), '/usr/lib/libpython3.11.dylib' (no such file, not in dyld cache)\n"
+  },
+  {
+    "strategy": "wall_mid_reversion",
+    "description": "Use wall_mid as the anchor and fade short-term deviations.",
+    "mode": "wall_mid_reversion",
+    "return_code": -6,
+    "final_pnl_total": null,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.04s\n     Running `target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_frankfurt_methods/frankfurt_methods_chn9yxmi/wall_mid_reversion.py --dataset /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3`\ndyld[24910]: Library not loaded: @rpath/libpython3.11.dylib\n  Referenced from: <160F0267-AA91-31C1-86B9-049335E8420F> /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester\n  Reason: tried: '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/deps/libpython3.11.dylib' (no such file), '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/lib/libpython3.11.dylib' (no such file), '/usr/local/lib/libpython3.11.dylib' (no such file), '/usr/lib/libpython3.11.dylib' (no such file, not in dyld cache)\n"
+  },
+  {
+    "strategy": "volume_imbalance",
+    "description": "Trade only when top-of-book volume imbalance is strong.",
+    "mode": "imbalance",
+    "return_code": -6,
+    "final_pnl_total": null,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.07s\n     Running `target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_frankfurt_methods/frankfurt_methods_chn9yxmi/volume_imbalance.py --dataset /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3`\ndyld[24919]: Library not loaded: @rpath/libpython3.11.dylib\n  Referenced from: <160F0267-AA91-31C1-86B9-049335E8420F> /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester\n  Reason: tried: '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/deps/libpython3.11.dylib' (no such file), '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/lib/libpython3.11.dylib' (no such file), '/usr/local/lib/libpython3.11.dylib' (no such file), '/usr/lib/libpython3.11.dylib' (no such file, not in dyld cache)\n"
+  },
+  {
+    "strategy": "microprice",
+    "description": "Use the microprice edge from best bid/ask sizes.",
+    "mode": "microprice",
+    "return_code": -6,
+    "final_pnl_total": null,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.08s\n     Running `target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_frankfurt_methods/frankfurt_methods_chn9yxmi/microprice.py --dataset /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3`\ndyld[24926]: Library not loaded: @rpath/libpython3.11.dylib\n  Referenced from: <160F0267-AA91-31C1-86B9-049335E8420F> /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester\n  Reason: tried: '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/deps/libpython3.11.dylib' (no such file), '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/lib/libpython3.11.dylib' (no such file), '/usr/local/lib/libpython3.11.dylib' (no such file), '/usr/lib/libpython3.11.dylib' (no such file, not in dyld cache)\n"
+  },
+  {
+    "strategy": "over_underbid",
+    "description": "Improve the book by one tick where the spread allows it.",
+    "mode": "over_underbid",
+    "return_code": -6,
+    "final_pnl_total": null,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.07s\n     Running `target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_frankfurt_methods/frankfurt_methods_chn9yxmi/over_underbid.py --dataset /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3`\ndyld[24930]: Library not loaded: @rpath/libpython3.11.dylib\n  Referenced from: <160F0267-AA91-31C1-86B9-049335E8420F> /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester\n  Reason: tried: '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/deps/libpython3.11.dylib' (no such file), '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/lib/libpython3.11.dylib' (no such file), '/usr/local/lib/libpython3.11.dylib' (no such file), '/usr/lib/libpython3.11.dylib' (no such file, not in dyld cache)\n"
+  },
+  {
+    "strategy": "take_favorable_levels",
+    "description": "Sweep visible liquidity when it is favorable versus fair value.",
+    "mode": "take",
+    "return_code": -6,
+    "final_pnl_total": null,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.04s\n     Running `target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_frankfurt_methods/frankfurt_methods_chn9yxmi/take_favorable_levels.py --dataset /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3`\ndyld[24938]: Library not loaded: @rpath/libpython3.11.dylib\n  Referenced from: <160F0267-AA91-31C1-86B9-049335E8420F> /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester\n  Reason: tried: '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/deps/libpython3.11.dylib' (no such file), '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/lib/libpython3.11.dylib' (no such file), '/usr/local/lib/libpython3.11.dylib' (no such file), '/usr/lib/libpython3.11.dylib' (no such file, not in dyld cache)\n"
+  },
+  {
+    "strategy": "hybrid_book_signal",
+    "description": "Blend wall_mid, imbalance, and microprice into one signal.",
+    "mode": "hybrid",
+    "return_code": -6,
+    "final_pnl_total": null,
+    "stdout": "",
+    "stderr": "    Finished `release` profile [optimized] target(s) in 0.07s\n     Running `target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_frankfurt_methods/frankfurt_methods_chn9yxmi/hybrid_book_signal.py --dataset /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3`\ndyld[24949]: Library not loaded: @rpath/libpython3.11.dylib\n  Referenced from: <160F0267-AA91-31C1-86B9-049335E8420F> /Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester\n  Reason: tried: '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/deps/libpython3.11.dylib' (no such file), '/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/.rustup/toolchains/stable-aarch64-apple-darwin/lib/libpython3.11.dylib' (no such file), '/Users/giordanmasen/lib/libpython3.11.dylib' (no such file), '/usr/local/lib/libpython3.11.dylib' (no such file), '/usr/lib/libpython3.11.dylib' (no such file, not in dyld cache)\n"
+  }
+]

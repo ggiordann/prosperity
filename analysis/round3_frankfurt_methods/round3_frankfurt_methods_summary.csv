@@ -1,0 +1,8 @@
+strategy,description,mode,return_code,final_pnl_total
+best_bid_ask_mid_quote,Quote around the visible best bid/ask and midpoint.,best_bid_ask_mid,-6,
+wall_mid_reversion,Use wall_mid as the anchor and fade short-term deviations.,wall_mid_reversion,-6,
+volume_imbalance,Trade only when top-of-book volume imbalance is strong.,imbalance,-6,
+microprice,Use the microprice edge from best bid/ask sizes.,microprice,-6,
+over_underbid,Improve the book by one tick where the spread allows it.,over_underbid,-6,
+take_favorable_levels,Sweep visible liquidity when it is favorable versus fair value.,take,-6,
+hybrid_book_signal,"Blend wall_mid, imbalance, and microprice into one signal.",hybrid,-6,
