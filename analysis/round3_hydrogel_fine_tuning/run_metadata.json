@@ -1,0 +1,99 @@
+{
+  "target_product": "HYDROGEL_PACK",
+  "ignored_products": "VELVETFRUIT_EXTRACT, all VEV_* vouchers, and every non-Hydrogel product",
+  "manual_bio_pod_challenge": "not implemented or simulated",
+  "round3_position_limit": {
+    "HYDROGEL_PACK": 200
+  },
+  "inventory_carry_between_days": false,
+  "end_of_round_liquidation": "handled by Rust backtester",
+  "dataset": "/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/datasets/round3",
+  "output_dir": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_hydrogel_fine_tuning",
+  "generated_trader_dir": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_hydrogel_fine_tuning/generated_traders",
+  "rust_binary": "/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester/target/release/rust_backtester",
+  "variant_count": 180,
+  "k_micro": [
+    1.0,
+    1.1,
+    1.2,
+    1.25,
+    1.3,
+    1.4
+  ],
+  "k_imbalance": [
+    1.0,
+    1.15,
+    1.25,
+    1.35,
+    1.5
+  ],
+  "thresholds": [
+    0.0,
+    0.1,
+    0.2
+  ],
+  "max_order_clips": [
+    20
+  ],
+  "passive_offsets": [
+    0,
+    1
+  ],
+  "turnover_top_n": 25,
+  "turnover_note": "Exact turnover is collected for top-ranked variants and the coarse Hydrogel baseline; other rows retain trade counts and blank turnover fields.",
+  "previous_coarse_combined_total_pnl": 8143.0,
+  "best_variant": {
+    "variant_id": "hydro_k1_imb1_thr0p2_clip20_po1",
+    "k_micro": 1.0,
+    "k_imbalance": 1.0,
+    "threshold": 0.2,
+    "max_order_clip": 20,
+    "passive_offset": 1,
+    "final_pnl_total": 395.0,
+    "day_0_pnl": 981.0,
+    "day_1_pnl": -310.0,
+    "day_2_pnl": -276.0,
+    "mean_day_pnl": 131.66666666666666,
+    "std_day_pnl": 600.7297414164061,
+    "min_day_pnl": -310.0,
+    "positive_days": 1,
+    "stability_score": 0.21917787249221687,
+    "own_trade_count": 11,
+    "turnover_units": 52,
+    "notional_turnover": 519369.0,
+    "turnover_units_per_trade": 4.7272727272727275,
+    "turnover_collected": true,
+    "beats_previous_coarse_combined": false
+  },
+  "coarse_hydrogel_baseline_variant": {
+    "variant_id": "hydro_k1p25_imb1p25_thr0_clip20_po1",
+    "k_micro": 1.25,
+    "k_imbalance": 1.25,
+    "threshold": 0.0,
+    "max_order_clip": 20,
+    "passive_offset": 1,
+    "final_pnl_total": 251.0,
+    "day_0_pnl": 981.0,
+    "day_1_pnl": -454.0,
+    "day_2_pnl": -276.0,
+    "mean_day_pnl": 83.66666666666667,
+    "std_day_pnl": 638.6581419055285,
+    "min_day_pnl": -454.0,
+    "positive_days": 1,
+    "stability_score": 0.13100383628854104,
+    "own_trade_count": 12,
+    "turnover_units": null,
+    "notional_turnover": null,
+    "turnover_units_per_trade": null,
+    "turnover_collected": false,
+    "beats_previous_coarse_combined": false
+  },
+  "elapsed_seconds": 336.6070909500122,
+  "files": [
+    "summary.csv",
+    "per_day.csv",
+    "walk_forward.csv",
+    "rust_runs.csv",
+    "run_metadata.json"
+  ]
+}

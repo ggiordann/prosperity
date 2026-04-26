@@ -1,0 +1,30 @@
+{
+  "dataset_id": "prices_round_3_day_2",
+  "dataset_path": "datasets/round3/prices_round_3_day_2.csv",
+  "day": 2,
+  "final_pnl_by_product": {
+    "HYDROGEL_PACK": 0.0,
+    "VELVETFRUIT_EXTRACT": -4655.0,
+    "VEV_4000": 0.0,
+    "VEV_4500": 0.0,
+    "VEV_5000": 3048.0,
+    "VEV_5100": 1668.0,
+    "VEV_5200": 984.0,
+    "VEV_5300": 80.0,
+    "VEV_5400": 64.0,
+    "VEV_5500": -120.0,
+    "VEV_6000": 0.0,
+    "VEV_6500": 0.0
+  },
+  "final_pnl_total": 1069.0,
+  "generated_at": "2026-04-26T06:54:13+00:00",
+  "matching": {
+    "price_slippage_bps": 0.0,
+    "queue_penetration": 1.0,
+    "trade_match_mode": "all"
+  },
+  "own_trade_count": 98,
+  "run_id": "gamma_a0p015_w0p55_rho0_e0p035_pe1_c0p01_vs0_m1_clip8_pos120_dh20_hi300_hc60_gh0_gm8-rust-1777186446142-round3-day+2",
+  "tick_count": 10000,
+  "trader_path": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_velvet_gamma_scalper/generated_traders/gamma_a0p015_w0p55_rho0_e0p035_pe1_c0p01_vs0_m1_clip8_pos120_dh20_hi300_hc60_gh0_gm8.py"
+}

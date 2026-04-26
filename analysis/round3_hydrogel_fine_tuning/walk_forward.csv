@@ -1,0 +1,4 @@
+test_day,train_days,selected_variant_id,k_micro,k_imbalance,threshold,max_order_clip,passive_offset,train_pnl,test_pnl,test_rank,test_variant_count
+0,"1,2",hydro_k1p4_imb1p5_thr0p2_clip20_po0,1.4,1.5,0.2,20,0,0.0,0.0,91,180
+1,"0,2",hydro_k1p4_imb1p5_thr0p2_clip20_po1,1.4,1.5,0.2,20,1,705.0,-454.0,115,180
+2,"0,1",hydro_k1p4_imb1p35_thr0p2_clip20_po1,1.4,1.35,0.2,20,1,671.0,-276.0,91,180
