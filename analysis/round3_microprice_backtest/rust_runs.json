@@ -1,0 +1,272 @@
+[
+  {
+    "variant_id": "micro_k1p25_imb0p75_thr0",
+    "k_micro": 1.25,
+    "k_imbalance": 0.75,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": 3029.5,
+    "stdout_tail": "trader: micro_k1p25_imb0p75_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         229       669.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0-1777183523751-round3-day-0\\nD+1               1    10000         249      1848.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0-1777183523751-round3-day+1\\nD+2               2    10000         267       512.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0-1777183523751-round3-day+2\\nTOTAL             -    30000         745      3029.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb0p75_thr0p25",
+    "k_micro": 1.25,
+    "k_imbalance": 0.75,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": 773.0,
+    "stdout_tail": "trader: micro_k1p25_imb0p75_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         113       828.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0p25-1777183528343-round3-day-0\\nD+1               1    10000         113      -772.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0p25-1777183528343-round3-day+1\\nD+2               2    10000         121       717.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0p25-1777183528343-round3-day+2\\nTOTAL             -    30000         347       773.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb0p75_thr0p5",
+    "k_micro": 1.25,
+    "k_imbalance": 0.75,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": 712.5,
+    "stdout_tail": "trader: micro_k1p25_imb0p75_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         110       507.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0p5-1777183532416-round3-day-0\\nD+1               1    10000         112      -596.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0p5-1777183532416-round3-day+1\\nD+2               2    10000         121       802.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb0p75_thr0p5-1777183532416-round3-day+2\\nTOTAL             -    30000         343       712.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb1_thr0",
+    "k_micro": 1.25,
+    "k_imbalance": 1.0,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": 7449.5,
+    "stdout_tail": "trader: micro_k1p25_imb1_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         259       984.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0-1777183536448-round3-day-0\\nD+1               1    10000         261      1888.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0-1777183536448-round3-day+1\\nD+2               2    10000         298      4577.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0-1777183536448-round3-day+2\\nTOTAL             -    30000         818      7449.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb1_thr0p25",
+    "k_micro": 1.25,
+    "k_imbalance": 1.0,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": 209.5,
+    "stdout_tail": "trader: micro_k1p25_imb1_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         113       828.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0p25-1777183540386-round3-day-0\\nD+1               1    10000         113      -772.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0p25-1777183540386-round3-day+1\\nD+2               2    10000         122       153.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0p25-1777183540386-round3-day+2\\nTOTAL             -    30000         348       209.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb1_thr0p5",
+    "k_micro": 1.25,
+    "k_imbalance": 1.0,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": 768.5,
+    "stdout_tail": "trader: micro_k1p25_imb1_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         111       563.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0p5-1777183544446-round3-day-0\\nD+1               1    10000         112      -596.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0p5-1777183544446-round3-day+1\\nD+2               2    10000         121       802.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1_thr0p5-1777183544446-round3-day+2\\nTOTAL             -    30000         344       768.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb1p25_thr0",
+    "k_micro": 1.25,
+    "k_imbalance": 1.25,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": 8143.0,
+    "stdout_tail": "trader: micro_k1p25_imb1p25_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         278      1286.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0-1777183548345-round3-day-0\\nD+1               1    10000         284      2098.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0-1777183548345-round3-day+1\\nD+2               2    10000         322      4758.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0-1777183548345-round3-day+2\\nTOTAL             -    30000         884      8143.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb1p25_thr0p25",
+    "k_micro": 1.25,
+    "k_imbalance": 1.25,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": 209.5,
+    "stdout_tail": "trader: micro_k1p25_imb1p25_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         113       828.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0p25-1777183552638-round3-day-0\\nD+1               1    10000         113      -772.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0p25-1777183552638-round3-day+1\\nD+2               2    10000         122       153.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0p25-1777183552638-round3-day+2\\nTOTAL             -    30000         348       209.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p25_imb1p25_thr0p5",
+    "k_micro": 1.25,
+    "k_imbalance": 1.25,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": 768.5,
+    "stdout_tail": "trader: micro_k1p25_imb1p25_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         111       563.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0p5-1777183557136-round3-day-0\\nD+1               1    10000         112      -596.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0p5-1777183557136-round3-day+1\\nD+2               2    10000         121       802.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p25_imb1p25_thr0p5-1777183557136-round3-day+2\\nTOTAL             -    30000         344       768.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb0p75_thr0",
+    "k_micro": 1.5,
+    "k_imbalance": 0.75,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": -8122.0,
+    "stdout_tail": "trader: micro_k1p5_imb0p75_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         416     -1946.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0-1777183561255-round3-day-0\\nD+1               1    10000         437      -401.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0-1777183561255-round3-day+1\\nD+2               2    10000         477     -5775.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0-1777183561255-round3-day+2\\nTOTAL             -    30000        1330     -8122.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb0p75_thr0p25",
+    "k_micro": 1.5,
+    "k_imbalance": 0.75,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": -11773.0,
+    "stdout_tail": "trader: micro_k1p5_imb0p75_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         199       403.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0p25-1777183565634-round3-day-0\\nD+1               1    10000         233     -4555.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0p25-1777183565634-round3-day+1\\nD+2               2    10000         237     -7621.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0p25-1777183565634-round3-day+2\\nTOTAL             -    30000         669    -11773.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb0p75_thr0p5",
+    "k_micro": 1.5,
+    "k_imbalance": 0.75,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": -965.0,
+    "stdout_tail": "trader: micro_k1p5_imb0p75_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         116       692.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0p5-1777183569881-round3-day-0\\nD+1               1    10000         115     -1072.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0p5-1777183569881-round3-day+1\\nD+2               2    10000         128      -584.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb0p75_thr0p5-1777183569881-round3-day+2\\nTOTAL             -    30000         359      -965.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb1_thr0",
+    "k_micro": 1.5,
+    "k_imbalance": 1.0,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": -6756.5,
+    "stdout_tail": "trader: micro_k1p5_imb1_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         435     -2625.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0-1777183573945-round3-day-0\\nD+1               1    10000         448       905.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0-1777183573945-round3-day+1\\nD+2               2    10000         484     -5036.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0-1777183573945-round3-day+2\\nTOTAL             -    30000        1367     -6756.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb1_thr0p25",
+    "k_micro": 1.5,
+    "k_imbalance": 1.0,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": -14064.0,
+    "stdout_tail": "trader: micro_k1p5_imb1_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         209      -999.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0p25-1777183577738-round3-day-0\\nD+1               1    10000         249     -5287.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0p25-1777183577738-round3-day+1\\nD+2               2    10000         255     -7778.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0p25-1777183577738-round3-day+2\\nTOTAL             -    30000         713    -14064.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb1_thr0p5",
+    "k_micro": 1.5,
+    "k_imbalance": 1.0,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": -1069.5,
+    "stdout_tail": "trader: micro_k1p5_imb1_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         117       614.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0p5-1777183581714-round3-day-0\\nD+1               1    10000         116     -1105.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0p5-1777183581714-round3-day+1\\nD+2               2    10000         129      -578.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1_thr0p5-1777183581714-round3-day+2\\nTOTAL             -    30000         362     -1069.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb1p25_thr0",
+    "k_micro": 1.5,
+    "k_imbalance": 1.25,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": -6971.5,
+    "stdout_tail": "trader: micro_k1p5_imb1p25_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         440     -2146.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0-1777183585579-round3-day-0\\nD+1               1    10000         456       357.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0-1777183585579-round3-day+1\\nD+2               2    10000         494     -5182.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0-1777183585579-round3-day+2\\nTOTAL             -    30000        1390     -6971.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb1p25_thr0p25",
+    "k_micro": 1.5,
+    "k_imbalance": 1.25,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": -12851.5,
+    "stdout_tail": "trader: micro_k1p5_imb1p25_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         222     -1062.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0p25-1777183589592-round3-day-0\\nD+1               1    10000         267     -4283.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0p25-1777183589592-round3-day+1\\nD+2               2    10000         272     -7506.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0p25-1777183589592-round3-day+2\\nTOTAL             -    30000         761    -12851.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p5_imb1p25_thr0p5",
+    "k_micro": 1.5,
+    "k_imbalance": 1.25,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": -1704.5,
+    "stdout_tail": "trader: micro_k1p5_imb1p25_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         118       725.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0p5-1777183593404-round3-day-0\\nD+1               1    10000         117     -1162.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0p5-1777183593404-round3-day+1\\nD+2               2    10000         132     -1267.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p5_imb1p25_thr0p5-1777183593404-round3-day+2\\nTOTAL             -    30000         367     -1704.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb0p75_thr0",
+    "k_micro": 1.75,
+    "k_imbalance": 0.75,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": -76245.5,
+    "stdout_tail": "trader: micro_k1p75_imb0p75_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000        1111    -22795.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0-1777183597369-round3-day-0\\nD+1               1    10000        1100    -26325.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0-1777183597369-round3-day+1\\nD+2               2    10000        1121    -27125.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0-1777183597369-round3-day+2\\nTOTAL             -    30000        3332    -76245.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb0p75_thr0p25",
+    "k_micro": 1.75,
+    "k_imbalance": 0.75,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": -9973.0,
+    "stdout_tail": "trader: micro_k1p75_imb0p75_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         384     -1753.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0p25-1777183601275-round3-day-0\\nD+1               1    10000         414     -1545.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0p25-1777183601275-round3-day+1\\nD+2               2    10000         443     -6675.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0p25-1777183601275-round3-day+2\\nTOTAL             -    30000        1241     -9973.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb0p75_thr0p5",
+    "k_micro": 1.75,
+    "k_imbalance": 0.75,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": -13888.0,
+    "stdout_tail": "trader: micro_k1p75_imb0p75_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         179     -1331.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0p5-1777183605176-round3-day-0\\nD+1               1    10000         200     -5090.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0p5-1777183605176-round3-day+1\\nD+2               2    10000         227     -7467.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb0p75_thr0p5-1777183605176-round3-day+2\\nTOTAL             -    30000         606    -13888.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb1_thr0",
+    "k_micro": 1.75,
+    "k_imbalance": 1.0,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": -76611.5,
+    "stdout_tail": "trader: micro_k1p75_imb1_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000        1115    -22980.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0-1777183609286-round3-day-0\\nD+1               1    10000        1103    -26145.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0-1777183609286-round3-day+1\\nD+2               2    10000        1128    -27486.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0-1777183609286-round3-day+2\\nTOTAL             -    30000        3346    -76611.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb1_thr0p25",
+    "k_micro": 1.75,
+    "k_imbalance": 1.0,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": -9980.5,
+    "stdout_tail": "trader: micro_k1p75_imb1_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         391     -1438.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0p25-1777183613167-round3-day-0\\nD+1               1    10000         424     -1666.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0p25-1777183613167-round3-day+1\\nD+2               2    10000         447     -6876.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0p25-1777183613167-round3-day+2\\nTOTAL             -    30000        1262     -9980.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb1_thr0p5",
+    "k_micro": 1.75,
+    "k_imbalance": 1.0,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": -13758.0,
+    "stdout_tail": "trader: micro_k1p75_imb1_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         186     -1406.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0p5-1777183617024-round3-day-0\\nD+1               1    10000         213     -4927.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0p5-1777183617024-round3-day+1\\nD+2               2    10000         232     -7425.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1_thr0p5-1777183617024-round3-day+2\\nTOTAL             -    30000         631    -13758.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb1p25_thr0",
+    "k_micro": 1.75,
+    "k_imbalance": 1.25,
+    "threshold": 0.0,
+    "return_code": 0,
+    "rust_final_pnl_total": -77014.0,
+    "stdout_tail": "trader: micro_k1p75_imb1p25_thr0.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000        1122    -23063.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0-1777183621515-round3-day-0\\nD+1               1    10000        1107    -26322.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0-1777183621515-round3-day+1\\nD+2               2    10000        1133    -27628.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0-1777183621515-round3-day+2\\nTOTAL             -    30000        3362    -77014.00  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb1p25_thr0p25",
+    "k_micro": 1.75,
+    "k_imbalance": 1.25,
+    "threshold": 0.25,
+    "return_code": 0,
+    "rust_final_pnl_total": -10564.5,
+    "stdout_tail": "trader: micro_k1p75_imb1p25_thr0p25.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         394     -1456.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0p25-1777183625615-round3-day-0\\nD+1               1    10000         429     -1781.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0p25-1777183625615-round3-day+1\\nD+2               2    10000         462     -7327.50  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0p25-1777183625615-round3-day+2\\nTOTAL             -    30000        1285    -10564.50  -\\n",
+    "stderr_tail": ""
+  },
+  {
+    "variant_id": "micro_k1p75_imb1p25_thr0p5",
+    "k_micro": 1.75,
+    "k_imbalance": 1.25,
+    "threshold": 0.5,
+    "return_code": 0,
+    "rust_final_pnl_total": -13615.0,
+    "stdout_tail": "trader: micro_k1p75_imb1p25_thr0p5.py\\ndataset: round3\\nmode: fast\\nartifacts: metrics-only\\nSET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR\\nD=0               0    10000         202     -1833.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0p5-1777183629523-round3-day-0\\nD+1               1    10000         218     -4709.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0p5-1777183629523-round3-day+1\\nD+2               2    10000         240     -7073.00  /Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/rust_runs/micro_k1p75_imb1p25_thr0p5-1777183629523-round3-day+2\\nTOTAL             -    30000         660    -13615.00  -\\n",
+    "stderr_tail": ""
+  }
+]

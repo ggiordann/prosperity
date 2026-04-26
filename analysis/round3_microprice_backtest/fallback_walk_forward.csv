@@ -1,0 +1,4 @@
+engine,test_day,train_days,selected_variant_id,k_micro,k_imbalance,threshold,train_pnl,test_pnl,test_rank,test_variant_count
+fallback,0,"1,2",micro_k1p25_imb1p25_thr0,1.25,1.25,0.0,10278.0,712.0,1,27
+fallback,1,"0,2",micro_k1p25_imb1p25_thr0,1.25,1.25,0.0,6823.5,4166.5,2,27
+fallback,2,"0,1",micro_k1p25_imb1_thr0,1.25,1.0,0.0,5178.0,4727.5,2,27

@@ -1,0 +1,40 @@
+{
+  "target_products": [
+    "HYDROGEL_PACK",
+    "VELVETFRUIT_EXTRACT"
+  ],
+  "ignored_products": "all non-target products, including VEV_*",
+  "variant_count": 27,
+  "engine_requested": "auto",
+  "primary_engine": "rust",
+  "k_micro": [
+    1.25,
+    1.5,
+    1.75
+  ],
+  "k_imbalance": [
+    0.75,
+    1.0,
+    1.25
+  ],
+  "thresholds": [
+    0.0,
+    0.25,
+    0.5
+  ],
+  "output_dir": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest",
+  "generated_trader_dir": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/generated_traders",
+  "rust_failure": null,
+  "files": [
+    "primary_summary.csv",
+    "primary_per_day.csv",
+    "primary_walk_forward.csv",
+    "fallback_summary.csv",
+    "fallback_per_day.csv",
+    "fallback_per_product_day.csv",
+    "metric_summary.csv",
+    "rust_summary.csv",
+    "rust_per_day.csv",
+    "rust_runs.csv"
+  ]
+}

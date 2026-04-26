@@ -1,0 +1,30 @@
+{
+  "dataset_id": "prices_round_3_day_2",
+  "dataset_path": "datasets/round3/prices_round_3_day_2.csv",
+  "day": 2,
+  "final_pnl_by_product": {
+    "HYDROGEL_PACK": -334.0,
+    "VELVETFRUIT_EXTRACT": 487.5,
+    "VEV_4000": 0.0,
+    "VEV_4500": 0.0,
+    "VEV_5000": 0.0,
+    "VEV_5100": 0.0,
+    "VEV_5200": 0.0,
+    "VEV_5300": 0.0,
+    "VEV_5400": 0.0,
+    "VEV_5500": 0.0,
+    "VEV_6000": 0.0,
+    "VEV_6500": 0.0
+  },
+  "final_pnl_total": 153.5,
+  "generated_at": "2026-04-26T06:05:43+00:00",
+  "matching": {
+    "price_slippage_bps": 0.0,
+    "queue_penetration": 1.0,
+    "trade_match_mode": "all"
+  },
+  "own_trade_count": 122,
+  "run_id": "micro_k1p25_imb1_thr0p25-1777183540386-round3-day+2",
+  "tick_count": 10000,
+  "trader_path": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_microprice_backtest/generated_traders/micro_k1p25_imb1_thr0p25.py"
+}
