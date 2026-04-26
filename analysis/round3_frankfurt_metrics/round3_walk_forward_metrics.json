@@ -1,0 +1,1298 @@
+[
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": 0.011234996176076921,
+    "hit_rate": 0.40447154471544716,
+    "signal_x_return_proxy": 332.5,
+    "cumulative_proxy": 332.5
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": -0.022632409032087672,
+    "hit_rate": 0.3766497461928934,
+    "signal_x_return_proxy": -665.5,
+    "cumulative_proxy": -333.0
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": -0.0023593050721704683,
+    "hit_rate": 0.4115853658536585,
+    "signal_x_return_proxy": -70.5,
+    "cumulative_proxy": -403.5
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.32774533565762,
+    "hit_rate": 0.025423728813559324,
+    "signal_x_return_proxy": -121.588999186341,
+    "cumulative_proxy": -121.588999186341
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.33278814700131903,
+    "hit_rate": 0.012195121951219513,
+    "signal_x_return_proxy": -115.09971627568194,
+    "cumulative_proxy": -236.68871546202294
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.32017410612968883,
+    "hit_rate": 0.00974025974025974,
+    "signal_x_return_proxy": -108.12074481345458,
+    "cumulative_proxy": -344.80946027547753
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.2983484297456465,
+    "hit_rate": 0.967930029154519,
+    "signal_x_return_proxy": 1509.84398901839,
+    "cumulative_proxy": 1509.84398901839
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.29519848961615425,
+    "hit_rate": 0.9682539682539683,
+    "signal_x_return_proxy": 1478.569447986919,
+    "cumulative_proxy": 2988.413437005309
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.29757935640551764,
+    "hit_rate": 0.9867986798679867,
+    "signal_x_return_proxy": 1466.5692502759548,
+    "cumulative_proxy": 4454.982687281264
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.04234886745968556,
+    "hit_rate": 0.4064,
+    "signal_x_return_proxy": -443120.5,
+    "cumulative_proxy": -443120.5
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.02905747708691342,
+    "hit_rate": 0.4152,
+    "signal_x_return_proxy": 506098.5,
+    "cumulative_proxy": 62978.0
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.03434002297527642,
+    "hit_rate": 0.4083408340834083,
+    "signal_x_return_proxy": -33548.75,
+    "cumulative_proxy": 29429.25
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": 0.046220819987255385,
+    "hit_rate": 0.4169230769230769,
+    "signal_x_return_proxy": 1243.0,
+    "cumulative_proxy": 1243.0
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.030512386374119335,
+    "hit_rate": 0.3889315910837817,
+    "signal_x_return_proxy": 844.0,
+    "cumulative_proxy": 2087.0
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 0.057685646639619816,
+    "hit_rate": 0.4295612009237875,
+    "signal_x_return_proxy": 1567.5,
+    "cumulative_proxy": 3654.5
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.3142315438915041,
+    "hit_rate": 0.06359945872801083,
+    "signal_x_return_proxy": -68.61479170149303,
+    "cumulative_proxy": -68.61479170149303
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.31357446570983566,
+    "hit_rate": 0.07887700534759358,
+    "signal_x_return_proxy": -70.9551381541158,
+    "cumulative_proxy": -139.56992985560885
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.3342433861823787,
+    "hit_rate": 0.05648267008985879,
+    "signal_x_return_proxy": -77.24600032116862,
+    "cumulative_proxy": -216.81593017677747
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.2264640794665146,
+    "hit_rate": 0.49227897505515017,
+    "signal_x_return_proxy": 2355.6700778342074,
+    "cumulative_proxy": 2355.6700778342074
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.22871305453178656,
+    "hit_rate": 0.4989754098360656,
+    "signal_x_return_proxy": 2395.9006573811007,
+    "cumulative_proxy": 4751.570735215308
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.22573070942078813,
+    "hit_rate": 0.4969125214408233,
+    "signal_x_return_proxy": 2366.8766641948264,
+    "cumulative_proxy": 7118.447399410134
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.0409953781015726,
+    "hit_rate": 0.3771,
+    "signal_x_return_proxy": -32515.25,
+    "cumulative_proxy": -32515.25
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.037765385021076785,
+    "hit_rate": 0.3834,
+    "signal_x_return_proxy": 111825.25,
+    "cumulative_proxy": 79310.0
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.029726927335102273,
+    "hit_rate": 0.37663766376637664,
+    "signal_x_return_proxy": 141406.75,
+    "cumulative_proxy": 220716.75
+  },
+  {
+    "product": "VEV_4000",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": 0.005137608598521778,
+    "hit_rate": 0.3758241758241758,
+    "signal_x_return_proxy": 33.5,
+    "cumulative_proxy": 33.5
+  },
+  {
+    "product": "VEV_4000",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.0014866439322949237,
+    "hit_rate": 0.37362637362637363,
+    "signal_x_return_proxy": 10.0,
+    "cumulative_proxy": 43.5
+  },
+  {
+    "product": "VEV_4000",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 0.010856674798528356,
+    "hit_rate": 0.38377192982456143,
+    "signal_x_return_proxy": 72.0,
+    "cumulative_proxy": 115.5
+  },
+  {
+    "product": "VEV_4000",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.4697572910507153,
+    "hit_rate": 0.00558659217877095,
+    "signal_x_return_proxy": -45.789377613015105,
+    "cumulative_proxy": -45.789377613015105
+  },
+  {
+    "product": "VEV_4000",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.48193057123953814,
+    "hit_rate": 0.005208333333333333,
+    "signal_x_return_proxy": -53.16815476246252,
+    "cumulative_proxy": -98.95753237547763
+  },
+  {
+    "product": "VEV_4000",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.47481859263727233,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": -46.27943261591625,
+    "cumulative_proxy": -145.23696499139388
+  },
+  {
+    "product": "VEV_4000",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.4777020911788896,
+    "hit_rate": 0.994413407821229,
+    "signal_x_return_proxy": 2593.3796782788086,
+    "cumulative_proxy": 2593.3796782788086
+  },
+  {
+    "product": "VEV_4000",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.485850116536549,
+    "hit_rate": 0.9895833333333334,
+    "signal_x_return_proxy": 2615.5440587577195,
+    "cumulative_proxy": 5208.923737036528
+  },
+  {
+    "product": "VEV_4000",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.47750285735118275,
+    "hit_rate": 1.0,
+    "signal_x_return_proxy": 2555.78449845863,
+    "cumulative_proxy": 7764.708235495158
+  },
+  {
+    "product": "VEV_4000",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.051184640422247775,
+    "hit_rate": 0.3653,
+    "signal_x_return_proxy": -16058.5,
+    "cumulative_proxy": -16058.5
+  },
+  {
+    "product": "VEV_4000",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.048205153240257696,
+    "hit_rate": 0.3669,
+    "signal_x_return_proxy": 17964.0,
+    "cumulative_proxy": 1905.5
+  },
+  {
+    "product": "VEV_4000",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.03860964279774384,
+    "hit_rate": 0.37073707370737075,
+    "signal_x_return_proxy": 25250.75,
+    "cumulative_proxy": 27156.25
+  },
+  {
+    "product": "VEV_4500",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": -4.030560002228954e-06,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_4500",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.059183195526378095,
+    "hit_rate": 1.0,
+    "signal_x_return_proxy": 7.5,
+    "cumulative_proxy": 7.5
+  },
+  {
+    "product": "VEV_4500",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 2.2834006615484638e-05,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 7.5
+  },
+  {
+    "product": "VEV_4500",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.3994571195990569,
+    "hit_rate": 0.00558659217877095,
+    "signal_x_return_proxy": -42.17733323331785,
+    "cumulative_proxy": -42.17733323331785
+  },
+  {
+    "product": "VEV_4500",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.42176273748664217,
+    "hit_rate": 0.005208333333333333,
+    "signal_x_return_proxy": -50.54297824140517,
+    "cumulative_proxy": -92.72031147472302
+  },
+  {
+    "product": "VEV_4500",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.4047928796538508,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": -44.57149108457592,
+    "cumulative_proxy": -137.29180255929893
+  },
+  {
+    "product": "VEV_4500",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.3889760326739714,
+    "hit_rate": 0.994413407821229,
+    "signal_x_return_proxy": 1255.7083672454994,
+    "cumulative_proxy": 1255.7083672454994
+  },
+  {
+    "product": "VEV_4500",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.40883634617544495,
+    "hit_rate": 0.9947916666666666,
+    "signal_x_return_proxy": 1269.3320099018633,
+    "cumulative_proxy": 2525.040377147363
+  },
+  {
+    "product": "VEV_4500",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.39529171539053226,
+    "hit_rate": 1.0,
+    "signal_x_return_proxy": 1248.8591473885567,
+    "cumulative_proxy": 3773.8995245359197
+  },
+  {
+    "product": "VEV_4500",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.045352086770537814,
+    "hit_rate": 0.3686,
+    "signal_x_return_proxy": -11432.75,
+    "cumulative_proxy": -11432.75
+  },
+  {
+    "product": "VEV_4500",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.04240669118436062,
+    "hit_rate": 0.3645,
+    "signal_x_return_proxy": 8606.25,
+    "cumulative_proxy": -2826.5
+  },
+  {
+    "product": "VEV_4500",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.0332671431298369,
+    "hit_rate": 0.37483748374837483,
+    "signal_x_return_proxy": 14474.0,
+    "cumulative_proxy": 11647.5
+  },
+  {
+    "product": "VEV_5000",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": -6.209183408542043e-06,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_5000",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.03045287722571218,
+    "hit_rate": 1.0,
+    "signal_x_return_proxy": 3.0,
+    "cumulative_proxy": 3.0
+  },
+  {
+    "product": "VEV_5000",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 2.672920970735524e-05,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 3.0
+  },
+  {
+    "product": "VEV_5000",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.1936489766927323,
+    "hit_rate": 0.0335195530726257,
+    "signal_x_return_proxy": -15.926859833951625,
+    "cumulative_proxy": -15.926859833951625
+  },
+  {
+    "product": "VEV_5000",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.21004575018561453,
+    "hit_rate": 0.026041666666666668,
+    "signal_x_return_proxy": -19.56098157441437,
+    "cumulative_proxy": -35.487841408365995
+  },
+  {
+    "product": "VEV_5000",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.1929261454220135,
+    "hit_rate": 0.02247191011235955,
+    "signal_x_return_proxy": -16.875110278571547,
+    "cumulative_proxy": -52.36295168693754
+  },
+  {
+    "product": "VEV_5000",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.20915997317489662,
+    "hit_rate": 0.44240552325581395,
+    "signal_x_return_proxy": 2299.445829727452,
+    "cumulative_proxy": 2299.445829727452
+  },
+  {
+    "product": "VEV_5000",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.1976902469513568,
+    "hit_rate": 0.4455505891913856,
+    "signal_x_return_proxy": 2076.2554687462452,
+    "cumulative_proxy": 4375.7012984736975
+  },
+  {
+    "product": "VEV_5000",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.17293644629130667,
+    "hit_rate": 0.45464601769911506,
+    "signal_x_return_proxy": 1810.1218621786727,
+    "cumulative_proxy": 6185.8231606523705
+  },
+  {
+    "product": "VEV_5000",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.038727667631576396,
+    "hit_rate": 0.3517,
+    "signal_x_return_proxy": -6193.25,
+    "cumulative_proxy": -6193.25
+  },
+  {
+    "product": "VEV_5000",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.035217295873554905,
+    "hit_rate": 0.3585,
+    "signal_x_return_proxy": 102.75,
+    "cumulative_proxy": -6090.5
+  },
+  {
+    "product": "VEV_5000",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.02661246387069652,
+    "hit_rate": 0.36823682368236826,
+    "signal_x_return_proxy": 2590.0,
+    "cumulative_proxy": -3500.5
+  },
+  {
+    "product": "VEV_5100",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": -7.860439741267997e-06,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_5100",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.02348977753102528,
+    "hit_rate": 1.0,
+    "signal_x_return_proxy": 2.0,
+    "cumulative_proxy": 2.0
+  },
+  {
+    "product": "VEV_5100",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": -2.5536265248649726e-05,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 2.0
+  },
+  {
+    "product": "VEV_5100",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.1645680764421581,
+    "hit_rate": 0.05027932960893855,
+    "signal_x_return_proxy": -11.58259588136811,
+    "cumulative_proxy": -11.58259588136811
+  },
+  {
+    "product": "VEV_5100",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.17006004246693363,
+    "hit_rate": 0.052083333333333336,
+    "signal_x_return_proxy": -13.687004061694713,
+    "cumulative_proxy": -25.269599943062822
+  },
+  {
+    "product": "VEV_5100",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.14963882005382953,
+    "hit_rate": 0.06179775280898876,
+    "signal_x_return_proxy": -11.632647356204217,
+    "cumulative_proxy": -36.90224729926704
+  },
+  {
+    "product": "VEV_5100",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.21057906610599517,
+    "hit_rate": 0.43018147086914993,
+    "signal_x_return_proxy": 1319.072454615924,
+    "cumulative_proxy": 1319.072454615924
+  },
+  {
+    "product": "VEV_5100",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.21505842045425916,
+    "hit_rate": 0.44294044148271555,
+    "signal_x_return_proxy": 1293.3563750921917,
+    "cumulative_proxy": 2612.4288297081157
+  },
+  {
+    "product": "VEV_5100",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.20915987375240916,
+    "hit_rate": 0.45208900999091733,
+    "signal_x_return_proxy": 1286.311491499555,
+    "cumulative_proxy": 3898.7403212076706
+  },
+  {
+    "product": "VEV_5100",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.03775668399390922,
+    "hit_rate": 0.3473,
+    "signal_x_return_proxy": -4513.0,
+    "cumulative_proxy": -4513.0
+  },
+  {
+    "product": "VEV_5100",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.03467533719014019,
+    "hit_rate": 0.3544,
+    "signal_x_return_proxy": -1212.0,
+    "cumulative_proxy": -5725.0
+  },
+  {
+    "product": "VEV_5100",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.0258047794108311,
+    "hit_rate": 0.354035403540354,
+    "signal_x_return_proxy": 397.75,
+    "cumulative_proxy": -5327.25
+  },
+  {
+    "product": "VEV_5200",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": 0.008767443176518426,
+    "hit_rate": 0.3333333333333333,
+    "signal_x_return_proxy": 9.5,
+    "cumulative_proxy": 9.5
+  },
+  {
+    "product": "VEV_5200",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.006871917947106408,
+    "hit_rate": 0.3888888888888889,
+    "signal_x_return_proxy": 7.5,
+    "cumulative_proxy": 17.0
+  },
+  {
+    "product": "VEV_5200",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 0.005035316734352956,
+    "hit_rate": 0.3888888888888889,
+    "signal_x_return_proxy": 5.5,
+    "cumulative_proxy": 22.5
+  },
+  {
+    "product": "VEV_5200",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.123862156472409,
+    "hit_rate": 0.08379888268156424,
+    "signal_x_return_proxy": -7.246080477776478,
+    "cumulative_proxy": -7.246080477776478
+  },
+  {
+    "product": "VEV_5200",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.14098868120519617,
+    "hit_rate": 0.07291666666666667,
+    "signal_x_return_proxy": -9.27451877064798,
+    "cumulative_proxy": -16.520599248424457
+  },
+  {
+    "product": "VEV_5200",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.11902287116946894,
+    "hit_rate": 0.07865168539325842,
+    "signal_x_return_proxy": -7.369568951340849,
+    "cumulative_proxy": -23.890168199765306
+  },
+  {
+    "product": "VEV_5200",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.2897580623571733,
+    "hit_rate": 0.4463145676146257,
+    "signal_x_return_proxy": 859.6478479872598,
+    "cumulative_proxy": 859.6478479872598
+  },
+  {
+    "product": "VEV_5200",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.2964150196519341,
+    "hit_rate": 0.4647845468053492,
+    "signal_x_return_proxy": 857.3575260585484,
+    "cumulative_proxy": 1717.0053740458081
+  },
+  {
+    "product": "VEV_5200",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.2478521587639401,
+    "hit_rate": 0.44198452920778875,
+    "signal_x_return_proxy": 736.3665720163875,
+    "cumulative_proxy": 2453.3719460621955
+  },
+  {
+    "product": "VEV_5200",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.041699395859175155,
+    "hit_rate": 0.2754,
+    "signal_x_return_proxy": -2897.25,
+    "cumulative_proxy": -2897.25
+  },
+  {
+    "product": "VEV_5200",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.03912033656654616,
+    "hit_rate": 0.2858,
+    "signal_x_return_proxy": -1527.25,
+    "cumulative_proxy": -4424.5
+  },
+  {
+    "product": "VEV_5200",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.027037304334402212,
+    "hit_rate": 0.29572957295729574,
+    "signal_x_return_proxy": -756.75,
+    "cumulative_proxy": -5181.25
+  },
+  {
+    "product": "VEV_5300",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": 0.018822141847079192,
+    "hit_rate": 0.23529411764705882,
+    "signal_x_return_proxy": 37.0,
+    "cumulative_proxy": 37.0
+  },
+  {
+    "product": "VEV_5300",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": -0.004799096714557252,
+    "hit_rate": 0.2184873949579832,
+    "signal_x_return_proxy": -9.5,
+    "cumulative_proxy": 27.5
+  },
+  {
+    "product": "VEV_5300",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 0.018586449136283784,
+    "hit_rate": 0.2773109243697479,
+    "signal_x_return_proxy": 38.0,
+    "cumulative_proxy": 65.5
+  },
+  {
+    "product": "VEV_5300",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.0845110773045049,
+    "hit_rate": 0.1005586592178771,
+    "signal_x_return_proxy": -4.423050197613412,
+    "cumulative_proxy": -4.423050197613412
+  },
+  {
+    "product": "VEV_5300",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.09891896426593494,
+    "hit_rate": 0.109375,
+    "signal_x_return_proxy": -5.675451722069988,
+    "cumulative_proxy": -10.0985019196834
+  },
+  {
+    "product": "VEV_5300",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.056508105592609936,
+    "hit_rate": 0.16853932584269662,
+    "signal_x_return_proxy": -3.193600269795202,
+    "cumulative_proxy": -13.292102189478602
+  },
+  {
+    "product": "VEV_5300",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.36895963529706427,
+    "hit_rate": 0.43642276422764226,
+    "signal_x_return_proxy": 503.2965068438968,
+    "cumulative_proxy": 503.2965068438968
+  },
+  {
+    "product": "VEV_5300",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.3576087788157506,
+    "hit_rate": 0.44063047285464096,
+    "signal_x_return_proxy": 470.4686155200813,
+    "cumulative_proxy": 973.7651223639781
+  },
+  {
+    "product": "VEV_5300",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.3215514289888538,
+    "hit_rate": 0.43636363636363634,
+    "signal_x_return_proxy": 381.11890934147164,
+    "cumulative_proxy": 1354.8840317054496
+  },
+  {
+    "product": "VEV_5300",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.04760109612288001,
+    "hit_rate": 0.2135,
+    "signal_x_return_proxy": -1502.5,
+    "cumulative_proxy": -1502.5
+  },
+  {
+    "product": "VEV_5300",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.04487128680935456,
+    "hit_rate": 0.2112,
+    "signal_x_return_proxy": -941.5,
+    "cumulative_proxy": -2444.0
+  },
+  {
+    "product": "VEV_5300",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.03384476079559928,
+    "hit_rate": 0.21172117211721173,
+    "signal_x_return_proxy": -971.75,
+    "cumulative_proxy": -3415.75
+  },
+  {
+    "product": "VEV_5400",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": 0.003950336084405927,
+    "hit_rate": 0.15,
+    "signal_x_return_proxy": 6.5,
+    "cumulative_proxy": 6.5
+  },
+  {
+    "product": "VEV_5400",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.02509273021323527,
+    "hit_rate": 0.19545454545454546,
+    "signal_x_return_proxy": 37.0,
+    "cumulative_proxy": 43.5
+  },
+  {
+    "product": "VEV_5400",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 0.007139997230284047,
+    "hit_rate": 0.12272727272727273,
+    "signal_x_return_proxy": 10.5,
+    "cumulative_proxy": 54.0
+  },
+  {
+    "product": "VEV_5400",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.05598256725204342,
+    "hit_rate": 0.10614525139664804,
+    "signal_x_return_proxy": -1.7036030552490609,
+    "cumulative_proxy": -1.7036030552490609
+  },
+  {
+    "product": "VEV_5400",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.02677232286436246,
+    "hit_rate": 0.14583333333333334,
+    "signal_x_return_proxy": -0.8751568309598887,
+    "cumulative_proxy": -2.5787598862089496
+  },
+  {
+    "product": "VEV_5400",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.027211980047761843,
+    "hit_rate": 0.10112359550561797,
+    "signal_x_return_proxy": -0.8496584768261694,
+    "cumulative_proxy": -3.428418363035119
+  },
+  {
+    "product": "VEV_5400",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.28117264212414494,
+    "hit_rate": 0.42751235584843494,
+    "signal_x_return_proxy": 66.74786693803323,
+    "cumulative_proxy": 66.74786693803323
+  },
+  {
+    "product": "VEV_5400",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.276374482633415,
+    "hit_rate": 0.4179372197309417,
+    "signal_x_return_proxy": 59.80720673278797,
+    "cumulative_proxy": 126.5550736708212
+  },
+  {
+    "product": "VEV_5400",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.2595030757104769,
+    "hit_rate": 0.4009950248756219,
+    "signal_x_return_proxy": 52.45147462136104,
+    "cumulative_proxy": 179.00654829218223
+  },
+  {
+    "product": "VEV_5400",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.05073204758388452,
+    "hit_rate": 0.1461,
+    "signal_x_return_proxy": -509.5,
+    "cumulative_proxy": -509.5
+  },
+  {
+    "product": "VEV_5400",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.05009777274655597,
+    "hit_rate": 0.1395,
+    "signal_x_return_proxy": -352.75,
+    "cumulative_proxy": -862.25
+  },
+  {
+    "product": "VEV_5400",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.04224455672079624,
+    "hit_rate": 0.1345134513451345,
+    "signal_x_return_proxy": -295.0,
+    "cumulative_proxy": -1157.25
+  },
+  {
+    "product": "VEV_5500",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": 0.010274690576691194,
+    "hit_rate": 0.06870229007633588,
+    "signal_x_return_proxy": 12.0,
+    "cumulative_proxy": 12.0
+  },
+  {
+    "product": "VEV_5500",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": 0.022794152495096236,
+    "hit_rate": 0.08396946564885496,
+    "signal_x_return_proxy": 24.5,
+    "cumulative_proxy": 36.5
+  },
+  {
+    "product": "VEV_5500",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": 0.018516643888376663,
+    "hit_rate": 0.061068702290076333,
+    "signal_x_return_proxy": 18.5,
+    "cumulative_proxy": 55.0
+  },
+  {
+    "product": "VEV_5500",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.03509333299341073,
+    "hit_rate": 0.0446927374301676,
+    "signal_x_return_proxy": -0.7550497409160787,
+    "cumulative_proxy": -0.7550497409160787
+  },
+  {
+    "product": "VEV_5500",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": -0.006401040920194153,
+    "hit_rate": 0.0625,
+    "signal_x_return_proxy": -0.13972530633422392,
+    "cumulative_proxy": -0.8947750472503027
+  },
+  {
+    "product": "VEV_5500",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": 0.01166032946393506,
+    "hit_rate": 0.07303370786516854,
+    "signal_x_return_proxy": 0.23138534732233734,
+    "cumulative_proxy": -0.6633896999279654
+  },
+  {
+    "product": "VEV_5500",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.30319403874118656,
+    "hit_rate": 0.3834355828220859,
+    "signal_x_return_proxy": 34.321196254291195,
+    "cumulative_proxy": 34.321196254291195
+  },
+  {
+    "product": "VEV_5500",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.2833348484729765,
+    "hit_rate": 0.3631484794275492,
+    "signal_x_return_proxy": 25.722795549101996,
+    "cumulative_proxy": 60.04399180339319
+  },
+  {
+    "product": "VEV_5500",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": 0.26803847194534425,
+    "hit_rate": 0.326271186440678,
+    "signal_x_return_proxy": 20.281155089993863,
+    "cumulative_proxy": 80.32514689338706
+  },
+  {
+    "product": "VEV_5500",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.07699669454800892,
+    "hit_rate": 0.0695,
+    "signal_x_return_proxy": -189.5,
+    "cumulative_proxy": -189.5
+  },
+  {
+    "product": "VEV_5500",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.066973551686724,
+    "hit_rate": 0.06,
+    "signal_x_return_proxy": -164.5,
+    "cumulative_proxy": -354.0
+  },
+  {
+    "product": "VEV_5500",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": -0.059097002362263264,
+    "hit_rate": 0.052505250525052505,
+    "signal_x_return_proxy": -134.0,
+    "cumulative_proxy": -488.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 0,
+    "feature": "flow",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 1,
+    "feature": "flow",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 2,
+    "feature": "flow",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 0,
+    "feature": "imbalance",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 1,
+    "feature": "imbalance",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 2,
+    "feature": "imbalance",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 0,
+    "feature": "micro_edge",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 1,
+    "feature": "micro_edge",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 2,
+    "feature": "micro_edge",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 0,
+    "feature": "wall_mid",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 1,
+    "feature": "wall_mid",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "day": 2,
+    "feature": "wall_mid",
+    "pearson_fwd1": NaN,
+    "hit_rate": 0.0,
+    "signal_x_return_proxy": 0.0,
+    "cumulative_proxy": 0.0
+  }
+]

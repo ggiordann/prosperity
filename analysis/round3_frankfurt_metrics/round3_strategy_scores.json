@@ -1,0 +1,322 @@
+[
+  {
+    "strategy": "best_bid_ask_mid_quote",
+    "description": "Midpoint / inside spread quoting.",
+    "mode": "mid",
+    "n": 359988,
+    "corr_signal_next_return": -0.035348621297708355,
+    "corr_signal_next_return_pct": -0.009357949562693172,
+    "hit_rate": 0.29059784260899646,
+    "proxy_pnl": -176103.25
+  },
+  {
+    "strategy": "wall_mid_reversion",
+    "description": "Wall-mid reversion anchor.",
+    "mode": "wall_mid",
+    "n": 359988,
+    "corr_signal_next_return": NaN,
+    "corr_signal_next_return_pct": NaN,
+    "hit_rate": NaN,
+    "proxy_pnl": 0.0
+  },
+  {
+    "strategy": "volume_imbalance",
+    "description": "Top-of-book imbalance signal.",
+    "mode": "imbalance",
+    "n": 359988,
+    "corr_signal_next_return": -0.2155389270038063,
+    "corr_signal_next_return_pct": -0.03468773720583959,
+    "hit_rate": 0.048593642808140866,
+    "proxy_pnl": -974.6934354413595
+  },
+  {
+    "strategy": "microprice",
+    "description": "Microprice edge signal.",
+    "mode": "microprice",
+    "n": 359988,
+    "corr_signal_next_return": 0.203693636010469,
+    "corr_signal_next_return_pct": 0.07155875915064029,
+    "hit_rate": 0.46201215395003375,
+    "proxy_pnl": 37264.189001535735
+  },
+  {
+    "strategy": "over_underbid",
+    "description": "One-tick book improvement logic.",
+    "mode": "quote_improve",
+    "n": 359988,
+    "corr_signal_next_return": 0.0064931170289448305,
+    "corr_signal_next_return_pct": 0.004831854886371491,
+    "hit_rate": 0.24269420091780838,
+    "proxy_pnl": 14231.5
+  },
+  {
+    "strategy": "take_favorable_levels",
+    "description": "Take favorable visible liquidity.",
+    "mode": "take",
+    "n": 359988,
+    "corr_signal_next_return": 0.14388327205697618,
+    "corr_signal_next_return_pct": 0.025886388667902438,
+    "hit_rate": 0.4663470260463911,
+    "proxy_pnl": 17011.5
+  },
+  {
+    "strategy": "hybrid_book_signal",
+    "description": "Blend wall-mid, imbalance, and microprice.",
+    "mode": "hybrid",
+    "n": 359988,
+    "corr_signal_next_return": 0.19435559707147465,
+    "corr_signal_next_return_pct": 0.07032054454255483,
+    "hit_rate": 0.45826584602094805,
+    "proxy_pnl": 17657.401065326507
+  },
+  {
+    "strategy": "micro_invimb_0.25_0.25",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20812954025893787,
+    "corr_signal_next_return_pct": 0.07210721929588874,
+    "hit_rate": 0.46204308622644563,
+    "proxy_pnl": 9559.720609244272
+  },
+  {
+    "strategy": "micro_invimb_0.25_0.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.2124040497415671,
+    "corr_signal_next_return_pct": 0.07260873144157869,
+    "hit_rate": 0.46205863297700034,
+    "proxy_pnl": 9803.393968104612
+  },
+  {
+    "strategy": "micro_invimb_0.25_0.75",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.21651387096357325,
+    "corr_signal_next_return_pct": 0.07306371017155343,
+    "hit_rate": 0.46196415073966096,
+    "proxy_pnl": 10047.06732696495
+  },
+  {
+    "strategy": "micro_invimb_0.25_1",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.2204566523725134,
+    "corr_signal_next_return_pct": 0.07347279452919615,
+    "hit_rate": 0.46191016088975273,
+    "proxy_pnl": 10290.74068582529
+  },
+  {
+    "strategy": "micro_invimb_0.25_1.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.22783622892503916,
+    "corr_signal_next_return_pct": 0.07415685373918006,
+    "hit_rate": 0.4617751862649822,
+    "proxy_pnl": 10778.087403545973
+  },
+  {
+    "strategy": "micro_invimb_0.5_0.25",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.2059315193689195,
+    "corr_signal_next_return_pct": 0.07183887444437552,
+    "hit_rate": 0.463144082355965,
+    "proxy_pnl": 18875.767859628206
+  },
+  {
+    "strategy": "micro_invimb_0.5_0.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20812954025893787,
+    "corr_signal_next_return_pct": 0.07210721929588874,
+    "hit_rate": 0.46204308622644563,
+    "proxy_pnl": 19119.441218488544
+  },
+  {
+    "strategy": "micro_invimb_0.5_0.75",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.21028719749438754,
+    "corr_signal_next_return_pct": 0.07236382340394562,
+    "hit_rate": 0.46207213043947737,
+    "proxy_pnl": 19363.114577348882
+  },
+  {
+    "strategy": "micro_invimb_0.5_1",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.2124040497415671,
+    "corr_signal_next_return_pct": 0.07260873144157869,
+    "hit_rate": 0.46205863297700034,
+    "proxy_pnl": 19606.787936209224
+  },
+  {
+    "strategy": "micro_invimb_0.5_1.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.21651387096357325,
+    "corr_signal_next_return_pct": 0.07306371017155343,
+    "hit_rate": 0.46196415073966096,
+    "proxy_pnl": 20094.1346539299
+  },
+  {
+    "strategy": "micro_invimb_0.75_0.25",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20518996093499284,
+    "corr_signal_next_return_pct": 0.07174681153407549,
+    "hit_rate": 0.462220602526725,
+    "proxy_pnl": 28191.81511001214
+  },
+  {
+    "strategy": "micro_invimb_0.75_0.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20666864814583932,
+    "corr_signal_next_return_pct": 0.0719296294011976,
+    "hit_rate": 0.4620991253644315,
+    "proxy_pnl": 28435.488468872474
+  },
+  {
+    "strategy": "micro_invimb_0.75_0.75",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20812954025893746,
+    "corr_signal_next_return_pct": 0.07210721929588852,
+    "hit_rate": 0.46204308622644563,
+    "proxy_pnl": 28679.161827732816
+  },
+  {
+    "strategy": "micro_invimb_0.75_1",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20957249173795492,
+    "corr_signal_next_return_pct": 0.07227959077415526,
+    "hit_rate": 0.4620991253644315,
+    "proxy_pnl": 28922.83518659316
+  },
+  {
+    "strategy": "micro_invimb_0.75_1.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.21240404974156665,
+    "corr_signal_next_return_pct": 0.07260873144157891,
+    "hit_rate": 0.46205863297700034,
+    "proxy_pnl": 29410.18190431384
+  },
+  {
+    "strategy": "micro_invimb_1_0.25",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20481752683127127,
+    "corr_signal_next_return_pct": 0.07170028936283605,
+    "hit_rate": 0.462220602526725,
+    "proxy_pnl": 37507.86236039607
+  },
+  {
+    "strategy": "micro_invimb_1_0.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.2059315193689195,
+    "corr_signal_next_return_pct": 0.07183887444437552,
+    "hit_rate": 0.463144082355965,
+    "proxy_pnl": 37751.53571925641
+  },
+  {
+    "strategy": "micro_invimb_1_0.75",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20703554535192314,
+    "corr_signal_next_return_pct": 0.07197451667508475,
+    "hit_rate": 0.4620991253644315,
+    "proxy_pnl": 37995.20907811675
+  },
+  {
+    "strategy": "micro_invimb_1_1",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20812954025893787,
+    "corr_signal_next_return_pct": 0.07210721929588874,
+    "hit_rate": 0.46204308622644563,
+    "proxy_pnl": 38238.88243697709
+  },
+  {
+    "strategy": "micro_invimb_1_1.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.21028719749438754,
+    "corr_signal_next_return_pct": 0.07236382340394562,
+    "hit_rate": 0.46207213043947737,
+    "proxy_pnl": 38726.229154697765
+  },
+  {
+    "strategy": "micro_invimb_1.5_0.25",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20444399288745121,
+    "corr_signal_next_return_pct": 0.07165343994685272,
+    "hit_rate": 0.462220602526725,
+    "proxy_pnl": 56139.95686116393
+  },
+  {
+    "strategy": "micro_invimb_1.5_0.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20518996093499284,
+    "corr_signal_next_return_pct": 0.07174681153407549,
+    "hit_rate": 0.462220602526725,
+    "proxy_pnl": 56383.63022002428
+  },
+  {
+    "strategy": "micro_invimb_1.5_0.75",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20593151936892126,
+    "corr_signal_next_return_pct": 0.07183887444437619,
+    "hit_rate": 0.4631503476637537,
+    "proxy_pnl": 56627.30357888461
+  },
+  {
+    "strategy": "micro_invimb_1.5_1",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20666864814583932,
+    "corr_signal_next_return_pct": 0.0719296294011976,
+    "hit_rate": 0.4620991253644315,
+    "proxy_pnl": 56870.97693774495
+  },
+  {
+    "strategy": "micro_invimb_1.5_1.5",
+    "description": "Blend microprice edge with inverted imbalance.",
+    "mode": "blend",
+    "n": 359988,
+    "corr_signal_next_return": 0.20812954025893746,
+    "corr_signal_next_return_pct": 0.07210721929588852,
+    "hit_rate": 0.46204308622644563,
+    "proxy_pnl": 57358.32365546563
+  }
+]
