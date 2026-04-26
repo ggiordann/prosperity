@@ -3,6 +3,9 @@ from datamodel import Order, OrderDepth, TradingState
 from typing import Dict, List, Optional
 
 
+# make backtest TRADER=path/to/trader.py DAY=-1 PRODUCTS=summary
+
+
 class Trader:
     """Round 3 trader using the Velvetfruit volatility smile."""
 

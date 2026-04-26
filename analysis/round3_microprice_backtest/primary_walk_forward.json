@@ -1,0 +1,41 @@
+[
+  {
+    "engine": "rust",
+    "test_day": 0,
+    "train_days": "1,2",
+    "selected_variant_id": "micro_k1p25_imb1p25_thr0",
+    "k_micro": 1.25,
+    "k_imbalance": 1.25,
+    "threshold": 0.0,
+    "train_pnl": 6857.0,
+    "test_pnl": 1286.0,
+    "test_rank": 1,
+    "test_variant_count": 27
+  },
+  {
+    "engine": "rust",
+    "test_day": 1,
+    "train_days": "0,2",
+    "selected_variant_id": "micro_k1p25_imb1p25_thr0",
+    "k_micro": 1.25,
+    "k_imbalance": 1.25,
+    "threshold": 0.0,
+    "train_pnl": 6044.5,
+    "test_pnl": 2098.5,
+    "test_rank": 1,
+    "test_variant_count": 27
+  },
+  {
+    "engine": "rust",
+    "test_day": 2,
+    "train_days": "0,1",
+    "selected_variant_id": "micro_k1p25_imb1p25_thr0",
+    "k_micro": 1.25,
+    "k_imbalance": 1.25,
+    "threshold": 0.0,
+    "train_pnl": 3384.5,
+    "test_pnl": 4758.5,
+    "test_rank": 1,
+    "test_variant_count": 27
+  }
+]

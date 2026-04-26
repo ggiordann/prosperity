@@ -1,0 +1,29 @@
+{
+  "underlying": "VELVETFRUIT_EXTRACT",
+  "days": [
+    0,
+    1,
+    2
+  ],
+  "strikes": [
+    5000,
+    5100,
+    5200,
+    5300,
+    5400,
+    5500
+  ],
+  "rolling_window_ticks": 200,
+  "min_periods": 50,
+  "observations_per_day": 10000,
+  "tte_years": 0.0136986301369863,
+  "rows": 30000,
+  "implied_vol_rows": 179997,
+  "realized_vol_mean": 0.4103361398845454,
+  "implied_vol_median_mean": 0.275400604334155,
+  "outputs": {
+    "timeseries": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_velvet_volatility/velvet_realized_vs_implied_vol.csv",
+    "implied_by_strike": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_velvet_volatility/velvet_implied_vol_by_strike.csv",
+    "chart": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_velvet_volatility/velvet_realized_vs_implied_vol.png"
+  }
+}
