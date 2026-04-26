@@ -1,0 +1,30 @@
+{
+  "dataset_id": "prices_round_3_day_1",
+  "dataset_path": "datasets/round3/prices_round_3_day_1.csv",
+  "day": 1,
+  "final_pnl_by_product": {
+    "HYDROGEL_PACK": 0.0,
+    "VELVETFRUIT_EXTRACT": 0.0,
+    "VEV_4000": 0.0,
+    "VEV_4500": 0.0,
+    "VEV_5000": -65.0,
+    "VEV_5100": -100.0,
+    "VEV_5200": -192.0,
+    "VEV_5300": -57.0,
+    "VEV_5400": -463.0,
+    "VEV_5500": -111.0,
+    "VEV_6000": 0.0,
+    "VEV_6500": 0.0
+  },
+  "final_pnl_total": -988.0,
+  "generated_at": "2026-04-26T07:14:43+00:00",
+  "matching": {
+    "price_slippage_bps": 0.0,
+    "queue_penetration": 1.0,
+    "trade_match_mode": "all"
+  },
+  "own_trade_count": 506,
+  "run_id": "qpconv_a0p008_h400_l10_q0p98_s0p1_m1_clip4_pos40_dh20_hi300_hc60-rust-1777187678487-round3-day+1",
+  "tick_count": 10000,
+  "trader_path": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_velvet_qp_conv/generated_traders/qpconv_a0p008_h400_l10_q0p98_s0p1_m1_clip4_pos40_dh20_hi300_hc60.py"
+}
