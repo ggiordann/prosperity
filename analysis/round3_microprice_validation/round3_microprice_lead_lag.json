@@ -1,0 +1,422 @@
+[
+  {
+    "product": "HYDROGEL_PACK",
+    "lead": 1,
+    "corr_micro_edge_future": 0.29698147543165543,
+    "corr_imbalance_future": -0.3267816709336313,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "lead": 2,
+    "corr_micro_edge_future": 0.21645118125571244,
+    "corr_imbalance_future": -0.24041405660336587,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "lead": 3,
+    "corr_micro_edge_future": 0.17934821836980305,
+    "corr_imbalance_future": -0.20016832175538396,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "lead": 5,
+    "corr_micro_edge_future": 0.1372182307343517,
+    "corr_imbalance_future": -0.15358629342887378,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "lead": 10,
+    "corr_micro_edge_future": 0.0974036622069188,
+    "corr_imbalance_future": -0.11117083467019073,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "lead": 1,
+    "corr_micro_edge_future": 0.22695721761642215,
+    "corr_imbalance_future": -0.32083282979856537,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "lead": 2,
+    "corr_micro_edge_future": 0.17603954088190452,
+    "corr_imbalance_future": -0.24516967298544323,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "lead": 3,
+    "corr_micro_edge_future": 0.15003146338822115,
+    "corr_imbalance_future": -0.2093693687594812,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "lead": 5,
+    "corr_micro_edge_future": 0.11645297981410217,
+    "corr_imbalance_future": -0.1611010965519359,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "lead": 10,
+    "corr_micro_edge_future": 0.08513120611145697,
+    "corr_imbalance_future": -0.11548158103233812,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4000",
+    "lead": 1,
+    "corr_micro_edge_future": 0.48022345879008715,
+    "corr_imbalance_future": -0.4753673582346243,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4000",
+    "lead": 2,
+    "corr_micro_edge_future": 0.3913036333624242,
+    "corr_imbalance_future": -0.390971482131839,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4000",
+    "lead": 3,
+    "corr_micro_edge_future": 0.3405980726378721,
+    "corr_imbalance_future": -0.34114279604084685,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4000",
+    "lead": 5,
+    "corr_micro_edge_future": 0.28261394435423115,
+    "corr_imbalance_future": -0.2804143450181436,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4000",
+    "lead": 10,
+    "corr_micro_edge_future": 0.2041951311243669,
+    "corr_imbalance_future": -0.2056624462476501,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4500",
+    "lead": 1,
+    "corr_micro_edge_future": 0.39735410153658346,
+    "corr_imbalance_future": -0.40891673377570914,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4500",
+    "lead": 2,
+    "corr_micro_edge_future": 0.3109256100908539,
+    "corr_imbalance_future": -0.32215185420559345,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4500",
+    "lead": 3,
+    "corr_micro_edge_future": 0.2671094505429325,
+    "corr_imbalance_future": -0.27539658049658733,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4500",
+    "lead": 5,
+    "corr_micro_edge_future": 0.21707466176870005,
+    "corr_imbalance_future": -0.22296008161496114,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_4500",
+    "lead": 10,
+    "corr_micro_edge_future": 0.1531712570471684,
+    "corr_imbalance_future": -0.1588059707439878,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5000",
+    "lead": 1,
+    "corr_micro_edge_future": 0.19333665086465954,
+    "corr_imbalance_future": -0.19906315338738467,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5000",
+    "lead": 2,
+    "corr_micro_edge_future": 0.13955581814808182,
+    "corr_imbalance_future": -0.1440556915890051,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5000",
+    "lead": 3,
+    "corr_micro_edge_future": 0.11750301998868962,
+    "corr_imbalance_future": -0.11880098130692511,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5000",
+    "lead": 5,
+    "corr_micro_edge_future": 0.09238616004066147,
+    "corr_imbalance_future": -0.0932780282343601,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5000",
+    "lead": 10,
+    "corr_micro_edge_future": 0.06519992702999887,
+    "corr_imbalance_future": -0.06425209541478646,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5100",
+    "lead": 1,
+    "corr_micro_edge_future": 0.2111566134096143,
+    "corr_imbalance_future": -0.16126024603328903,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5100",
+    "lead": 2,
+    "corr_micro_edge_future": 0.1546310218258744,
+    "corr_imbalance_future": -0.11526910613797099,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5100",
+    "lead": 3,
+    "corr_micro_edge_future": 0.12459321737650575,
+    "corr_imbalance_future": -0.09615709020985462,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5100",
+    "lead": 5,
+    "corr_micro_edge_future": 0.0928419099733169,
+    "corr_imbalance_future": -0.07378033383165669,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5100",
+    "lead": 10,
+    "corr_micro_edge_future": 0.0671468373663797,
+    "corr_imbalance_future": -0.04965449634561956,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5200",
+    "lead": 1,
+    "corr_micro_edge_future": 0.2777385918368991,
+    "corr_imbalance_future": -0.12819664011859577,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5200",
+    "lead": 2,
+    "corr_micro_edge_future": 0.2153629820711664,
+    "corr_imbalance_future": -0.08590488334248901,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5200",
+    "lead": 3,
+    "corr_micro_edge_future": 0.17574157887766553,
+    "corr_imbalance_future": -0.07448630041351391,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5200",
+    "lead": 5,
+    "corr_micro_edge_future": 0.147093147900612,
+    "corr_imbalance_future": -0.059656338247521756,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5200",
+    "lead": 10,
+    "corr_micro_edge_future": 0.09840577477559662,
+    "corr_imbalance_future": -0.03885523277423438,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5300",
+    "lead": 1,
+    "corr_micro_edge_future": 0.3496241297187621,
+    "corr_imbalance_future": -0.07993977935439184,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5300",
+    "lead": 2,
+    "corr_micro_edge_future": 0.2875344629776572,
+    "corr_imbalance_future": -0.05471311695894173,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5300",
+    "lead": 3,
+    "corr_micro_edge_future": 0.25035735443077284,
+    "corr_imbalance_future": -0.049616643528227033,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5300",
+    "lead": 5,
+    "corr_micro_edge_future": 0.2047757524118701,
+    "corr_imbalance_future": -0.03816314618359503,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5300",
+    "lead": 10,
+    "corr_micro_edge_future": 0.15302215243979936,
+    "corr_imbalance_future": -0.026608665782068913,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5400",
+    "lead": 1,
+    "corr_micro_edge_future": 0.2727593219700157,
+    "corr_imbalance_future": -0.03629304446932423,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5400",
+    "lead": 2,
+    "corr_micro_edge_future": 0.24022141791745305,
+    "corr_imbalance_future": -0.02826693212456606,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5400",
+    "lead": 3,
+    "corr_micro_edge_future": 0.22086235237990764,
+    "corr_imbalance_future": -0.027017872634375155,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5400",
+    "lead": 5,
+    "corr_micro_edge_future": 0.19311557535861915,
+    "corr_imbalance_future": -0.02489460490768934,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5400",
+    "lead": 10,
+    "corr_micro_edge_future": 0.15180377742699144,
+    "corr_imbalance_future": -0.01456774847033145,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5500",
+    "lead": 1,
+    "corr_micro_edge_future": 0.2868372590235371,
+    "corr_imbalance_future": -0.01045893656555439,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5500",
+    "lead": 2,
+    "corr_micro_edge_future": 0.2588528311042226,
+    "corr_imbalance_future": -0.009773113955780207,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5500",
+    "lead": 3,
+    "corr_micro_edge_future": 0.24565307026565658,
+    "corr_imbalance_future": -0.008530001859789626,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5500",
+    "lead": 5,
+    "corr_micro_edge_future": 0.22633066920630834,
+    "corr_imbalance_future": -0.0024970970807116975,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_5500",
+    "lead": 10,
+    "corr_micro_edge_future": 0.19842274340400085,
+    "corr_imbalance_future": -0.006280560225945742,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6000",
+    "lead": 1,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6000",
+    "lead": 2,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6000",
+    "lead": 3,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6000",
+    "lead": 5,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6000",
+    "lead": 10,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6500",
+    "lead": 1,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6500",
+    "lead": 2,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6500",
+    "lead": 3,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6500",
+    "lead": 5,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  },
+  {
+    "product": "VEV_6500",
+    "lead": 10,
+    "corr_micro_edge_future": NaN,
+    "corr_imbalance_future": NaN,
+    "corr_flow_future": NaN
+  }
+]

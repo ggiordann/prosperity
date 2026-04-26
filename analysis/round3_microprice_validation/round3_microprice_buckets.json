@@ -1,0 +1,482 @@
+[
+  {
+    "product": "HYDROGEL_PACK",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.09375580493050256,
+    "avg_next_return": -0.33366666666666667,
+    "avg_next_return_pct": -3.337542944124341e-05
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.01575,
+    "avg_next_return_pct": 1.5944360468034425e-06
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.001,
+    "avg_next_return_pct": 1.245124729383199e-07
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.015916666666666666,
+    "avg_next_return_pct": -1.5745659644881092e-06
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.09206431259857982,
+    "avg_next_return": 0.3345557592932155,
+    "avg_next_return_pct": 3.3521150804530816e-05
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -1.30893307111718,
+    "avg_next_return": -0.30466666666666664,
+    "avg_next_return_pct": -5.8025288920495514e-05
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": -0.4405513180367745,
+    "avg_next_return": -0.277296216036006,
+    "avg_next_return_pct": -5.280332460105168e-05
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.024583333333333332,
+    "avg_next_return_pct": -4.64900182970923e-06
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.4061410188618173,
+    "avg_next_return": 0.34958333333333336,
+    "avg_next_return_pct": 6.661798979211485e-05
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 1.301520288205733,
+    "avg_next_return": 0.2645,
+    "avg_next_return_pct": 5.040510717906603e-05
+  },
+  {
+    "product": "VEV_4000",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.1265071634276744,
+    "avg_next_return": -0.23408333333333334,
+    "avg_next_return_pct": -0.00018626816691134145
+  },
+  {
+    "product": "VEV_4000",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.015583333333333333,
+    "avg_next_return_pct": -1.2243918354204436e-05
+  },
+  {
+    "product": "VEV_4000",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.008583333333333333,
+    "avg_next_return_pct": 7.162233563269836e-06
+  },
+  {
+    "product": "VEV_4000",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.012083333333333333,
+    "avg_next_return_pct": -9.420864584958515e-06
+  },
+  {
+    "product": "VEV_4000",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.11916853371373486,
+    "avg_next_return": 0.26071011835305885,
+    "avg_next_return_pct": 0.0002099136437380418
+  },
+  {
+    "product": "VEV_4500",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.08304322024652899,
+    "avg_next_return": -0.17575,
+    "avg_next_return_pct": -0.0002324292998116019
+  },
+  {
+    "product": "VEV_4500",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.0125,
+    "avg_next_return_pct": -1.5999280489132833e-05
+  },
+  {
+    "product": "VEV_4500",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.005333333333333333,
+    "avg_next_return_pct": 7.905942371518984e-06
+  },
+  {
+    "product": "VEV_4500",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.0105,
+    "avg_next_return_pct": -1.32968100419668e-05
+  },
+  {
+    "product": "VEV_4500",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.07595190627727388,
+    "avg_next_return": 0.20103350558426406,
+    "avg_next_return_pct": 0.0002706576650327777
+  },
+  {
+    "product": "VEV_5000",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -1.6168216101275903,
+    "avg_next_return": -0.26808333333333334,
+    "avg_next_return_pct": -0.0010592470223912132
+  },
+  {
+    "product": "VEV_5000",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": -0.30304846573199906,
+    "avg_next_return": -0.10708333333333334,
+    "avg_next_return_pct": -0.0004204603890609171
+  },
+  {
+    "product": "VEV_5000",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.0014166666666666668,
+    "avg_next_return_pct": 1.4483300708880247e-06
+  },
+  {
+    "product": "VEV_5000",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.23855538279284094,
+    "avg_next_return": 0.1386897816302717,
+    "avg_next_return_pct": 0.0005582049197603296
+  },
+  {
+    "product": "VEV_5000",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 1.6092345983516507,
+    "avg_next_return": 0.2445,
+    "avg_next_return_pct": 0.0009812463714033916
+  },
+  {
+    "product": "VEV_5100",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -1.084802111974647,
+    "avg_next_return": -0.25387564594099016,
+    "avg_next_return_pct": -0.0015492264872563233
+  },
+  {
+    "product": "VEV_5100",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": -0.16538266980285757,
+    "avg_next_return": -0.07608333333333334,
+    "avg_next_return_pct": -0.00046178493911616013
+  },
+  {
+    "product": "VEV_5100",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.010083333333333333,
+    "avg_next_return_pct": -5.215934846796553e-05
+  },
+  {
+    "product": "VEV_5100",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.13221671349190184,
+    "avg_next_return": 0.08991666666666667,
+    "avg_next_return_pct": 0.0005722113196265108
+  },
+  {
+    "product": "VEV_5100",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 1.0730642145791047,
+    "avg_next_return": 0.25508333333333333,
+    "avg_next_return_pct": 0.0015839758863647887
+  },
+  {
+    "product": "VEV_5200",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.6207484452242411,
+    "avg_next_return": -0.28741666666666665,
+    "avg_next_return_pct": -0.0028678741039155583
+  },
+  {
+    "product": "VEV_5200",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.005916666666666666,
+    "avg_next_return_pct": 7.112814861176019e-05
+  },
+  {
+    "product": "VEV_5200",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.007583333333333333,
+    "avg_next_return_pct": -5.8831825270301566e-05
+  },
+  {
+    "product": "VEV_5200",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0005833333333333334,
+    "avg_next_return_pct": 2.0587884979150117e-05
+  },
+  {
+    "product": "VEV_5200",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.6179376331409129,
+    "avg_next_return": 0.2914652442073679,
+    "avg_next_return_pct": 0.0029924784379682864
+  },
+  {
+    "product": "VEV_5300",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.3343313918181631,
+    "avg_next_return": -0.22916666666666666,
+    "avg_next_return_pct": -0.004787262299236606
+  },
+  {
+    "product": "VEV_5300",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.0010833333333333333,
+    "avg_next_return_pct": 1.8833649622852907e-05
+  },
+  {
+    "product": "VEV_5300",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0016666666666666668,
+    "avg_next_return_pct": 7.331535244511633e-05
+  },
+  {
+    "product": "VEV_5300",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.005083333333333333,
+    "avg_next_return_pct": -5.3111945420494875e-05
+  },
+  {
+    "product": "VEV_5300",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.33447523024727577,
+    "avg_next_return": 0.23453908984830804,
+    "avg_next_return_pct": 0.005058854977745815
+  },
+  {
+    "product": "VEV_5400",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.06245293805370381,
+    "avg_next_return": -0.059666666666666666,
+    "avg_next_return_pct": -0.0035777712110192754
+  },
+  {
+    "product": "VEV_5400",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.0003333333333333333,
+    "avg_next_return_pct": 9.314275608638753e-05
+  },
+  {
+    "product": "VEV_5400",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.00025,
+    "avg_next_return_pct": 0.00010359681217804609
+  },
+  {
+    "product": "VEV_5400",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.00025,
+    "avg_next_return_pct": 0.00017963326968315914
+  },
+  {
+    "product": "VEV_5400",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.0653301120368634,
+    "avg_next_return": 0.059509918319719954,
+    "avg_next_return_pct": 0.003964138004729547
+  },
+  {
+    "product": "VEV_5500",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.027367842367912763,
+    "avg_next_return": -0.02775,
+    "avg_next_return_pct": -0.0036665943141190476
+  },
+  {
+    "product": "VEV_5500",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.00016666666666666666,
+    "avg_next_return_pct": 0.0002771622875287567
+  },
+  {
+    "product": "VEV_5500",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": -0.0003333333333333333,
+    "avg_next_return_pct": 0.0002127269660164397
+  },
+  {
+    "product": "VEV_5500",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.00016666666666666666,
+    "avg_next_return_pct": 0.0003729031897182052
+  },
+  {
+    "product": "VEV_5500",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.027400141290437077,
+    "avg_next_return": 0.027504584097349558,
+    "avg_next_return_pct": 0.004812331264498742
+  },
+  {
+    "product": "VEV_6000",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.0021126290237843217,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6000",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.0016346636209453615,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "bucket": 0,
+    "n": 6000,
+    "avg_micro_edge": -0.003168038521679256,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "bucket": 1,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "bucket": 2,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "bucket": 3,
+    "n": 6000,
+    "avg_micro_edge": 0.0,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "bucket": 4,
+    "n": 6000,
+    "avg_micro_edge": 0.0022683618845062725,
+    "avg_next_return": 0.0,
+    "avg_next_return_pct": 0.0
+  }
+]

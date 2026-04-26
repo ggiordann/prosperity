@@ -1,0 +1,98 @@
+[
+  {
+    "product": "HYDROGEL_PACK",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.3036485410702058,
+    "hit_rate": 0.9737373737373738,
+    "proxy_pnl": 7199.688221335113
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.2328855905044502,
+    "hit_rate": 0.4961332878426021,
+    "proxy_pnl": 11002.894994380367
+  },
+  {
+    "product": "VEV_4000",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.4817526279726623,
+    "hit_rate": 0.994535519125683,
+    "proxy_pnl": 11864.917800729827
+  },
+  {
+    "product": "VEV_4500",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.40073832950850363,
+    "hit_rate": 0.9963570127504554,
+    "proxy_pnl": 5866.786990642828
+  },
+  {
+    "product": "VEV_5000",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.19481863030580396,
+    "hit_rate": 0.4471430483072394,
+    "proxy_pnl": 9357.279168508961
+  },
+  {
+    "product": "VEV_5100",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.21283077079900356,
+    "hit_rate": 0.4411051866214251,
+    "proxy_pnl": 5903.463852760406
+  },
+  {
+    "product": "VEV_5200",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.2796171416882206,
+    "hit_rate": 0.45075757575757575,
+    "proxy_pnl": 3715.8931713929414
+  },
+  {
+    "product": "VEV_5300",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.35179863749211604,
+    "hit_rate": 0.437125748502994,
+    "proxy_pnl": 2052.2642008423927
+  },
+  {
+    "product": "VEV_5400",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.27426509521090503,
+    "hit_rate": 0.41626650660264103,
+    "proxy_pnl": 273.652449982826
+  },
+  {
+    "product": "VEV_5500",
+    "w_micro": 1.5,
+    "w_inv_imb": 1.5,
+    "corr_signal_next_return": 0.2871948344080491,
+    "hit_rate": 0.3553178847296494,
+    "proxy_pnl": 121.48280488997251
+  },
+  {
+    "product": "VEV_6000",
+    "w_micro": 0.25,
+    "w_inv_imb": 0.25,
+    "corr_signal_next_return": NaN,
+    "hit_rate": 0.0,
+    "proxy_pnl": 0.0
+  },
+  {
+    "product": "VEV_6500",
+    "w_micro": 0.25,
+    "w_inv_imb": 0.25,
+    "corr_signal_next_return": NaN,
+    "hit_rate": 0.0,
+    "proxy_pnl": 0.0
+  }
+]
