@@ -99,6 +99,19 @@ class Trader:
         "quote_size": 10,
     }
 
+    HYDROGEL_PROFILE = {
+        "micro_l3": 1.35,
+        "micro_l1": 0.75,
+        "imb_l1": 0.65,
+        "imb_l3": -0.75,
+        "wall": 0.55,
+        "depth": -0.45,
+        "slope": 0.55,
+        "reversion": 0.10,
+        "take_size": 18,
+        "quote_size": 12,
+    }
+
     OPTION_PROFILES: Dict[str, Dict[str, float]] = {
         "VEV_4000": {
             "micro_l3": 1.45,
@@ -237,6 +250,15 @@ class Trader:
             take_scale=cfg_float("underlying_take_scale", 1.0),
             quote_scale=cfg_float("underlying_quote_scale", 1.0),
         )
+        self.hydrogel_signal_enabled = cfg_float("hydrogel_signal_enabled", 1.0) >= 0.5
+        self.hydrogel_profile = self.apply_profile_scales(
+            self.HYDROGEL_PROFILE,
+            micro_scale=cfg_float("hydrogel_micro_scale", 1.0),
+            structure_scale=cfg_float("hydrogel_structure_scale", 1.0),
+            reversion_scale=cfg_float("hydrogel_reversion_scale", 1.0),
+            take_scale=cfg_float("hydrogel_take_scale", 1.0),
+            quote_scale=cfg_float("hydrogel_quote_scale", 1.0),
+        )
         self.option_profiles = {
             product: self.apply_profile_scales(
                 profile,
@@ -306,7 +328,16 @@ class Trader:
         hydrogel_depth = state.order_depths.get("HYDROGEL_PACK")
         if hydrogel_depth is not None:
             position = int(state.position.get("HYDROGEL_PACK", 0))
-            result["HYDROGEL_PACK"] = self.passive_hydrogel(hydrogel_depth, position)
+            if self.hydrogel_signal_enabled:
+                hydrogel_orders, _ = self.trade_spot(
+                    "HYDROGEL_PACK",
+                    hydrogel_depth,
+                    position,
+                    self.hydrogel_profile,
+                )
+                result["HYDROGEL_PACK"] = hydrogel_orders
+            else:
+                result["HYDROGEL_PACK"] = self.passive_hydrogel(hydrogel_depth, position)
 
         return result, 0, ""
 
