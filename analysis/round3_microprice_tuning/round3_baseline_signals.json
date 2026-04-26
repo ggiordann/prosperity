@@ -1,0 +1,72 @@
+[
+  {
+    "product": "HYDROGEL_PACK",
+    "signal": "micro_edge",
+    "corr": 0.29698147543165543,
+    "hit_rate": 0.9739854318418314,
+    "proxy_pnl": 4454.982687281264
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "signal": "imbalance",
+    "corr": 0.3267816709336313,
+    "hit_rate": 0.9737373737373738,
+    "proxy_pnl": 344.80946027547753
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "signal": "flow",
+    "corr": NaN,
+    "hit_rate": NaN,
+    "proxy_pnl": 0.0
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "signal": "hybrid",
+    "corr": 0.30364854107020606,
+    "hit_rate": 0.9737373737373738,
+    "proxy_pnl": 2399.8960737783705
+  },
+  {
+    "product": "HYDROGEL_PACK",
+    "signal": "wall_mid",
+    "corr": NaN,
+    "hit_rate": NaN,
+    "proxy_pnl": 0.0
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "signal": "micro_edge",
+    "corr": 0.22695721761642215,
+    "hit_rate": 0.4960464190226975,
+    "proxy_pnl": 7118.4473994101345
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "signal": "imbalance",
+    "corr": 0.32083282979856537,
+    "hit_rate": 0.8349514563106796,
+    "proxy_pnl": 216.8159301767775
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "signal": "flow",
+    "corr": NaN,
+    "hit_rate": NaN,
+    "proxy_pnl": 0.0
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "signal": "hybrid",
+    "corr": 0.23288559050445026,
+    "hit_rate": 0.4961332878426021,
+    "proxy_pnl": 3667.631664793456
+  },
+  {
+    "product": "VELVETFRUIT_EXTRACT",
+    "signal": "wall_mid",
+    "corr": NaN,
+    "hit_rate": NaN,
+    "proxy_pnl": 0.0
+  }
+]
