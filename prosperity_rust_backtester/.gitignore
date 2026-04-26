@@ -11,3 +11,4 @@ dist/
 TUTORIAL_ROUND_*/
 [0-9]*/
 traders/p4*
+LOCAL_WSL_BACKTESTER.md

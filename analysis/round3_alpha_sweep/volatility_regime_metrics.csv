@@ -1,0 +1,133 @@
+product,signal,source_family,description,n,corr_abs_fwd5,abs_corr_abs_fwd5,direction,directed_corr_abs_fwd5,coverage
+HYDROGEL_PACK,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.0029382418433574484,0.0029382418433574484,positive,0.0029382418433574484,0.9994
+HYDROGEL_PACK,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.0063150864438122345,0.0063150864438122345,positive,0.0063150864438122345,0.9992
+HYDROGEL_PACK,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,-0.019874477861549673,0.019874477861549673,inverted,0.019874477861549673,0.9962
+HYDROGEL_PACK,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,-0.007443767680184797,0.007443767680184797,inverted,0.007443767680184797,0.9989
+HYDROGEL_PACK,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,0.009972204277545457,0.009972204277545457,positive,0.009972204277545457,0.9992
+HYDROGEL_PACK,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,-0.008454722477673796,0.008454722477673796,inverted,0.008454722477673796,0.9979
+HYDROGEL_PACK,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.08225433914546108,0.08225433914546108,inverted,0.08225433914546108,0.9995
+HYDROGEL_PACK,spread,spread_regime,Visible best spread.,29985,-0.08244122242502311,0.08244122242502311,inverted,0.08244122242502311,0.9995
+HYDROGEL_PACK,spread_change_1,spread_regime,One-tick spread change.,29982,-0.05456115351024135,0.05456115351024135,inverted,0.05456115351024135,0.9994
+HYDROGEL_PACK,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.029986435396801604,0.029986435396801604,inverted,0.029986435396801604,0.9995
+HYDROGEL_PACK,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.01019194967790177,0.01019194967790177,positive,0.01019194967790177,0.9995
+VELVETFRUIT_EXTRACT,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.004651099079663901,0.004651099079663901,positive,0.004651099079663901,0.9994
+VELVETFRUIT_EXTRACT,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,-0.009478166657079318,0.009478166657079318,inverted,0.009478166657079318,0.9992
+VELVETFRUIT_EXTRACT,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,-0.0025412546142389225,0.0025412546142389225,inverted,0.0025412546142389225,0.9962
+VELVETFRUIT_EXTRACT,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,-0.0094319161908918,0.0094319161908918,inverted,0.0094319161908918,0.9989
+VELVETFRUIT_EXTRACT,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,-0.008409433025105177,0.008409433025105177,inverted,0.008409433025105177,0.9992
+VELVETFRUIT_EXTRACT,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,-0.005322814513159979,0.005322814513159979,inverted,0.005322814513159979,0.9979
+VELVETFRUIT_EXTRACT,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.06664934901772011,0.06664934901772011,inverted,0.06664934901772011,0.9995
+VELVETFRUIT_EXTRACT,spread,spread_regime,Visible best spread.,29985,-0.06616769301522306,0.06616769301522306,inverted,0.06616769301522306,0.9995
+VELVETFRUIT_EXTRACT,spread_change_1,spread_regime,One-tick spread change.,29982,-0.04952257177293185,0.04952257177293185,inverted,0.04952257177293185,0.9994
+VELVETFRUIT_EXTRACT,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.019487884676824125,0.019487884676824125,inverted,0.019487884676824125,0.9995
+VELVETFRUIT_EXTRACT,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.012759464349754631,0.012759464349754631,positive,0.012759464349754631,0.9995
+VEV_4000,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.012618582690174875,0.012618582690174875,positive,0.012618582690174875,0.9994
+VEV_4000,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.04940756882744155,0.04940756882744155,positive,0.04940756882744155,0.9992
+VEV_4000,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,-0.0004647313706124788,0.0004647313706124788,inverted,0.0004647313706124788,0.9962
+VEV_4000,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,0.040582294323521506,0.040582294323521506,positive,0.040582294323521506,0.9989
+VEV_4000,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,0.06103194663848039,0.06103194663848039,positive,0.06103194663848039,0.9992
+VEV_4000,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,0.018161710545821667,0.018161710545821667,positive,0.018161710545821667,0.9979
+VEV_4000,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.3010517364650316,0.3010517364650316,inverted,0.3010517364650316,0.9995
+VEV_4000,spread,spread_regime,Visible best spread.,29985,-0.2922778181162655,0.2922778181162655,inverted,0.2922778181162655,0.9995
+VEV_4000,spread_change_1,spread_regime,One-tick spread change.,29982,-0.21393541072149944,0.21393541072149944,inverted,0.21393541072149944,0.9994
+VEV_4000,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.05875191679849801,0.05875191679849801,inverted,0.05875191679849801,0.9995
+VEV_4000,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.027527006121249,0.027527006121249,positive,0.027527006121249,0.9995
+VEV_4500,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.014165235053538863,0.014165235053538863,positive,0.014165235053538863,0.9994
+VEV_4500,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.03305421790186266,0.03305421790186266,positive,0.03305421790186266,0.9992
+VEV_4500,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,-0.001991204601214205,0.001991204601214205,inverted,0.001991204601214205,0.9962
+VEV_4500,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,0.02500340419088701,0.02500340419088701,positive,0.02500340419088701,0.9989
+VEV_4500,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,0.03885243266869506,0.03885243266869506,positive,0.03885243266869506,0.9992
+VEV_4500,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,0.010423757580071937,0.010423757580071937,positive,0.010423757580071937,0.9979
+VEV_4500,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.20317782441135177,0.20317782441135177,inverted,0.20317782441135177,0.9995
+VEV_4500,spread,spread_regime,Visible best spread.,29985,-0.18965575109107144,0.18965575109107144,inverted,0.18965575109107144,0.9995
+VEV_4500,spread_change_1,spread_regime,One-tick spread change.,29982,-0.1479701389704982,0.1479701389704982,inverted,0.1479701389704982,0.9994
+VEV_4500,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.03751225679615716,0.03751225679615716,inverted,0.03751225679615716,0.9995
+VEV_4500,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.01636264686544842,0.01636264686544842,positive,0.01636264686544842,0.9995
+VEV_5000,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.005518059043294441,0.005518059043294441,positive,0.005518059043294441,0.9994
+VEV_5000,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,-0.0055780998970947045,0.0055780998970947045,inverted,0.0055780998970947045,0.9992
+VEV_5000,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,-0.006188995463912609,0.006188995463912609,inverted,0.006188995463912609,0.9962
+VEV_5000,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,7.361213662892898e-05,7.361213662892898e-05,positive,7.361213662892898e-05,0.9989
+VEV_5000,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,-0.008776663977742793,0.008776663977742793,inverted,0.008776663977742793,0.9992
+VEV_5000,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,-0.0013759921596522714,0.0013759921596522714,inverted,0.0013759921596522714,0.9979
+VEV_5000,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.039507838222789395,0.039507838222789395,inverted,0.039507838222789395,0.9995
+VEV_5000,spread,spread_regime,Visible best spread.,29985,-0.011104478868418474,0.011104478868418474,inverted,0.011104478868418474,0.9995
+VEV_5000,spread_change_1,spread_regime,One-tick spread change.,29982,-0.02695040676278108,0.02695040676278108,inverted,0.02695040676278108,0.9994
+VEV_5000,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.004827754547189573,0.004827754547189573,inverted,0.004827754547189573,0.9995
+VEV_5000,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.006636855032248554,0.006636855032248554,positive,0.006636855032248554,0.9995
+VEV_5100,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.00014317125328427822,0.00014317125328427822,positive,0.00014317125328427822,0.9994
+VEV_5100,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.007584514431216786,0.007584514431216786,positive,0.007584514431216786,0.9992
+VEV_5100,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,0.02009366241414143,0.02009366241414143,positive,0.02009366241414143,0.9962
+VEV_5100,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,0.007373919902854298,0.007373919902854298,positive,0.007373919902854298,0.9989
+VEV_5100,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,-0.0011950543573855527,0.0011950543573855527,inverted,0.0011950543573855527,0.9992
+VEV_5100,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,0.014128422946082932,0.014128422946082932,positive,0.014128422946082932,0.9979
+VEV_5100,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.02572179557703413,0.02572179557703413,inverted,0.02572179557703413,0.9995
+VEV_5100,spread,spread_regime,Visible best spread.,29985,0.010743577271499596,0.010743577271499596,positive,0.010743577271499596,0.9995
+VEV_5100,spread_change_1,spread_regime,One-tick spread change.,29982,-0.008023720373076491,0.008023720373076491,inverted,0.008023720373076491,0.9994
+VEV_5100,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.01070496930120442,0.01070496930120442,inverted,0.01070496930120442,0.9995
+VEV_5100,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.0025121865320875836,0.0025121865320875836,positive,0.0025121865320875836,0.9995
+VEV_5200,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.007531504453938258,0.007531504453938258,positive,0.007531504453938258,0.9994
+VEV_5200,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.01340591637816102,0.01340591637816102,positive,0.01340591637816102,0.9992
+VEV_5200,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,0.043816114277248366,0.043816114277248366,positive,0.043816114277248366,0.9962
+VEV_5200,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,0.021848624625428713,0.021848624625428713,positive,0.021848624625428713,0.9989
+VEV_5200,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,0.007157638094983304,0.007157638094983304,positive,0.007157638094983304,0.9992
+VEV_5200,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,0.0349368735089432,0.0349368735089432,positive,0.0349368735089432,0.9979
+VEV_5200,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.0413569020151752,0.0413569020151752,inverted,0.0413569020151752,0.9995
+VEV_5200,spread,spread_regime,Visible best spread.,29985,0.02054423113135184,0.02054423113135184,positive,0.02054423113135184,0.9995
+VEV_5200,spread_change_1,spread_regime,One-tick spread change.,29982,-0.009018679559172103,0.009018679559172103,inverted,0.009018679559172103,0.9994
+VEV_5200,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.0284017719494529,0.0284017719494529,inverted,0.0284017719494529,0.9995
+VEV_5200,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.006074770633805258,0.006074770633805258,positive,0.006074770633805258,0.9995
+VEV_5300,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,-0.0017638240499087297,0.0017638240499087297,inverted,0.0017638240499087297,0.9994
+VEV_5300,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.02524262101099617,0.02524262101099617,positive,0.02524262101099617,0.9992
+VEV_5300,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,0.055850283586370154,0.055850283586370154,positive,0.055850283586370154,0.9962
+VEV_5300,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,0.03379385079097393,0.03379385079097393,positive,0.03379385079097393,0.9989
+VEV_5300,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,0.026703855433398656,0.026703855433398656,positive,0.026703855433398656,0.9992
+VEV_5300,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,0.04839531829423616,0.04839531829423616,positive,0.04839531829423616,0.9979
+VEV_5300,rel_spread,spread_regime,Best spread scaled by mid.,29985,-0.032142313391442266,0.032142313391442266,inverted,0.032142313391442266,0.9995
+VEV_5300,spread,spread_regime,Visible best spread.,29985,0.053234318721827226,0.053234318721827226,positive,0.053234318721827226,0.9995
+VEV_5300,spread_change_1,spread_regime,One-tick spread change.,29982,0.011537644949632156,0.011537644949632156,positive,0.011537644949632156,0.9994
+VEV_5300,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.04792605319347149,0.04792605319347149,inverted,0.04792605319347149,0.9995
+VEV_5300,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,-0.008641712006777118,0.008641712006777118,inverted,0.008641712006777118,0.9995
+VEV_5400,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,-0.007098274187753005,0.007098274187753005,inverted,0.007098274187753005,0.9994
+VEV_5400,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.0712762929905626,0.0712762929905626,positive,0.0712762929905626,0.9992
+VEV_5400,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,0.09932023487176356,0.09932023487176356,positive,0.09932023487176356,0.9962
+VEV_5400,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,0.0705458693614318,0.0705458693614318,positive,0.0705458693614318,0.9989
+VEV_5400,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,0.07731937728301254,0.07731937728301254,positive,0.07731937728301254,0.9992
+VEV_5400,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,0.08615491079243773,0.08615491079243773,positive,0.08615491079243773,0.9979
+VEV_5400,rel_spread,spread_regime,Best spread scaled by mid.,29985,0.018144537211608056,0.018144537211608056,positive,0.018144537211608056,0.9995
+VEV_5400,spread,spread_regime,Visible best spread.,29985,0.10008236763853307,0.10008236763853307,positive,0.10008236763853307,0.9995
+VEV_5400,spread_change_1,spread_regime,One-tick spread change.,29982,0.020544556675736448,0.020544556675736448,positive,0.020544556675736448,0.9994
+VEV_5400,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.04499344280206155,0.04499344280206155,inverted,0.04499344280206155,0.9995
+VEV_5400,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,-0.010634603882192875,0.010634603882192875,inverted,0.010634603882192875,0.9995
+VEV_5500,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,0.004730067090473019,0.004730067090473019,positive,0.004730067090473019,0.9994
+VEV_5500,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,0.27443443854943045,0.27443443854943045,positive,0.27443443854943045,0.9992
+VEV_5500,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,0.12317573856321601,0.12317573856321601,positive,0.12317573856321601,0.9962
+VEV_5500,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,0.21988067813095855,0.21988067813095855,positive,0.21988067813095855,0.9989
+VEV_5500,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,0.29520491653362824,0.29520491653362824,positive,0.29520491653362824,0.9992
+VEV_5500,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,0.15939964433781192,0.15939964433781192,positive,0.15939964433781192,0.9979
+VEV_5500,rel_spread,spread_regime,Best spread scaled by mid.,29985,0.15482086418850544,0.15482086418850544,positive,0.15482086418850544,0.9995
+VEV_5500,spread,spread_regime,Visible best spread.,29985,0.31920951241007794,0.31920951241007794,positive,0.31920951241007794,0.9995
+VEV_5500,spread_change_1,spread_regime,One-tick spread change.,29982,0.03723914819624846,0.03723914819624846,positive,0.03723914819624846,0.9994
+VEV_5500,total_depth_1,liquidity_depth,Top level displayed depth.,29985,-0.05596071374843616,0.05596071374843616,inverted,0.05596071374843616,0.9995
+VEV_5500,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,0.006255012556707505,0.006255012556707505,positive,0.006255012556707505,0.9995
+VEV_6000,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,nan,nan,positive,nan,0.9994
+VEV_6000,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,nan,nan,positive,nan,0.9992
+VEV_6000,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,nan,nan,positive,nan,0.9962
+VEV_6000,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,nan,nan,positive,nan,0.9989
+VEV_6000,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,nan,nan,positive,nan,0.9992
+VEV_6000,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,nan,nan,positive,nan,0.9979
+VEV_6000,rel_spread,spread_regime,Best spread scaled by mid.,29985,nan,nan,positive,nan,0.9995
+VEV_6000,spread,spread_regime,Visible best spread.,29985,nan,nan,positive,nan,0.9995
+VEV_6000,spread_change_1,spread_regime,One-tick spread change.,29982,nan,nan,positive,nan,0.9994
+VEV_6000,total_depth_1,liquidity_depth,Top level displayed depth.,29985,nan,nan,positive,nan,0.9995
+VEV_6000,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,nan,nan,positive,nan,0.9995
+VEV_6500,depth_change_l3,liquidity_depth,One-tick displayed depth change.,29982,nan,nan,positive,nan,0.9994
+VEV_6500,realized_abs_ret_10,volatility_regime,Rolling absolute return over 10 ticks.,29976,nan,nan,positive,nan,0.9992
+VEV_6500,realized_abs_ret_100,volatility_regime,Rolling absolute return over 100 ticks.,29886,nan,nan,positive,nan,0.9962
+VEV_6500,realized_abs_ret_20,volatility_regime,Rolling absolute return over 20 ticks.,29967,nan,nan,positive,nan,0.9989
+VEV_6500,realized_abs_ret_5,volatility_regime,Rolling absolute return over 5 ticks.,29976,nan,nan,positive,nan,0.9992
+VEV_6500,realized_abs_ret_50,volatility_regime,Rolling absolute return over 50 ticks.,29937,nan,nan,positive,nan,0.9979
+VEV_6500,rel_spread,spread_regime,Best spread scaled by mid.,29985,nan,nan,positive,nan,0.9995
+VEV_6500,spread,spread_regime,Visible best spread.,29985,nan,nan,positive,nan,0.9995
+VEV_6500,spread_change_1,spread_regime,One-tick spread change.,29982,nan,nan,positive,nan,0.9994
+VEV_6500,total_depth_1,liquidity_depth,Top level displayed depth.,29985,nan,nan,positive,nan,0.9995
+VEV_6500,total_depth_3,liquidity_depth,Displayed depth across three levels.,29985,nan,nan,positive,nan,0.9995

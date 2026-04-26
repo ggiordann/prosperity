@@ -1,0 +1,21 @@
+[setup] trader=C:\Users\josh\Documents\GitHub\prosperity\round3_alpha_trader.py
+[setup] dataset=C:\Users\josh\Documents\GitHub\prosperity\prosperity_rust_backtester\datasets\round3
+[setup] output_dir=analysis\round3_alpha_tuning_smoke
+[setup] backtester=binary:C:\Users\josh\Documents\GitHub\prosperity\prosperity_rust_backtester\target\release\rust_backtester
+[setup] trader=C:\Users\josh\Documents\GitHub\prosperity\round3_alpha_trader.py
+[setup] dataset=C:\Users\josh\Documents\GitHub\prosperity\prosperity_rust_backtester\datasets\round3
+[setup] output_dir=C:\Users\josh\Documents\GitHub\prosperity\analysis\round3_alpha_tuning_smoke
+[setup] backtester=wsl:C:\Users\josh\Documents\GitHub\prosperity\prosperity_rust_backtester\target\release\rust_backtester
+[setup] trader=C:\Users\josh\Documents\GitHub\prosperity\round3_alpha_trader.py
+[setup] dataset=C:\Users\josh\Documents\GitHub\prosperity\prosperity_rust_backtester\datasets\round3
+[setup] output_dir=C:\Users\josh\Documents\GitHub\prosperity\analysis\round3_alpha_tuning_smoke
+[setup] backtester=wsl:C:\Users\josh\Documents\GitHub\prosperity\prosperity_rust_backtester\target\release\rust_backtester
+[champion] baseline total_pnl=-437790.00 days={0: -437790.0} config={"option_micro_scale": 1.0, "option_reversion_scale": 1.0, "option_structure_scale": 1.0, "residual_prior_weight": 0.2, "underlying_micro_scale": 1.0, "underlying_reversion_scale": 1.0, "underlying_structure_scale": 1.0}
+[pass] 1/1 starting
+[stage] pass=1 step=1/7 parameter=residual_prior_weight
+[eval] residual_prior_weight=0 rc=0 total=-437790.0 score=(-437790.0, -437790.0, -437790.0, -0.0)
+[stop] reached max_candidates limit
+[stage-best] parameter=residual_prior_weight retained current config total_pnl=-437790.00 config={"option_micro_scale": 1.0, "option_reversion_scale": 1.0, "option_structure_scale": 1.0, "residual_prior_weight": 0.2, "underlying_micro_scale": 1.0, "underlying_reversion_scale": 1.0, "underlying_structure_scale": 1.0}
+[pass] 1 made no change to the champion
+[done] evaluated=2 champion_events=1
+[done] best total_pnl=-437790.00 days={0: -437790.0} config={"option_micro_scale": 1.0, "option_reversion_scale": 1.0, "option_structure_scale": 1.0, "residual_prior_weight": 0.2, "underlying_micro_scale": 1.0, "underlying_reversion_scale": 1.0, "underlying_structure_scale": 1.0}

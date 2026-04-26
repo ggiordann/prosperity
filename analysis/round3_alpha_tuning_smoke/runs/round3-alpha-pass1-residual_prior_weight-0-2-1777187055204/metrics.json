@@ -1,0 +1,30 @@
+{
+  "dataset_id": "prices_round_3_day_0",
+  "dataset_path": "datasets/round3/prices_round_3_day_0.csv",
+  "day": 0,
+  "final_pnl_by_product": {
+    "HYDROGEL_PACK": 10126.0,
+    "VELVETFRUIT_EXTRACT": -265726.0,
+    "VEV_4000": -5189.0,
+    "VEV_4500": -4122.0,
+    "VEV_5000": -173751.0,
+    "VEV_5100": -2743.0,
+    "VEV_5200": 1069.0,
+    "VEV_5300": 1111.0,
+    "VEV_5400": 1576.0,
+    "VEV_5500": 9.0,
+    "VEV_6000": -150.0,
+    "VEV_6500": 0.0
+  },
+  "final_pnl_total": -437790.0,
+  "generated_at": "2026-04-26T07:04:16+00:00",
+  "matching": {
+    "price_slippage_bps": 0.0,
+    "queue_penetration": 1.0,
+    "trade_match_mode": "all"
+  },
+  "own_trade_count": 22067,
+  "run_id": "round3-alpha-pass1-residual_prior_weight-0-2-1777187055204",
+  "tick_count": 10000,
+  "trader_path": "/mnt/c/Users/josh/Documents/GitHub/prosperity/round3_alpha_trader.py"
+}

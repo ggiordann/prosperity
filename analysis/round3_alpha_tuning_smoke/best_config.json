@@ -1,0 +1,22 @@
+{
+  "config": {
+    "option_micro_scale": 1.0,
+    "option_reversion_scale": 1.0,
+    "option_structure_scale": 1.0,
+    "residual_prior_weight": 0.2,
+    "underlying_micro_scale": 1.0,
+    "underlying_reversion_scale": 1.0,
+    "underlying_structure_scale": 1.0
+  },
+  "day_pnls": {
+    "0": -437790.0
+  },
+  "run_id": "round3-alpha-baseline-baseline-0p2-0-1777187044565",
+  "score": {
+    "mean_day": -437790.0,
+    "min_day": -437790.0,
+    "negative_std": -0.0,
+    "total": -437790.0
+  },
+  "total_pnl": -437790.0
+}
