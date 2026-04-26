@@ -250,7 +250,7 @@ class Trader:
             take_scale=cfg_float("underlying_take_scale", 1.0),
             quote_scale=cfg_float("underlying_quote_scale", 1.0),
         )
-        self.hydrogel_signal_enabled = cfg_float("hydrogel_signal_enabled", 1.0) >= 0.5
+        self.hydrogel_signal_enabled = cfg_float("hydrogel_signal_enabled", 0.0) >= 0.5
         self.hydrogel_profile = self.apply_profile_scales(
             self.HYDROGEL_PROFILE,
             micro_scale=cfg_float("hydrogel_micro_scale", 1.0),
