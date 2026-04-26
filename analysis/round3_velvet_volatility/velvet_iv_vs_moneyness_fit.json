@@ -1,0 +1,17 @@
+{
+  "input": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_velvet_volatility/velvet_implied_vol_by_strike.csv",
+  "output": "/Users/giordanmasen/Desktop/projects/prosperity/analysis/round3_velvet_volatility/velvet_iv_vs_moneyness.png",
+  "tte_years": 0.0136986301369863,
+  "rows": 179997,
+  "new_3rd_degree_coefficients_high_to_low": [
+    0.24727714821895497,
+    0.03271743568058951,
+    -0.030550060612480577,
+    0.2722019227654766
+  ],
+  "old_quadratic_coefficients_a_b_c": [
+    0.0130522,
+    0.01281602,
+    0.27669756
+  ]
+}
