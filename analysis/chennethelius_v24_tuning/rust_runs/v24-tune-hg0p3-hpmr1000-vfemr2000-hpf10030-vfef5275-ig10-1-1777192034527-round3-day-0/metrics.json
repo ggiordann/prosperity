@@ -1,0 +1,30 @@
+{
+  "dataset_id": "prices_round_3_day_0",
+  "dataset_path": "datasets/round3/prices_round_3_day_0.csv",
+  "day": 0,
+  "final_pnl_by_product": {
+    "HYDROGEL_PACK": 42681.0,
+    "VELVETFRUIT_EXTRACT": 18216.0,
+    "VEV_4000": 17861.0,
+    "VEV_4500": 25944.0,
+    "VEV_5000": 38653.0,
+    "VEV_5100": 33685.0,
+    "VEV_5200": 23576.5,
+    "VEV_5300": 15099.0,
+    "VEV_5400": 10305.5,
+    "VEV_5500": 2487.5,
+    "VEV_6000": 0.0,
+    "VEV_6500": 0.0
+  },
+  "final_pnl_total": 228508.5,
+  "generated_at": "2026-04-26T08:27:17+00:00",
+  "matching": {
+    "price_slippage_bps": 0.0,
+    "queue_penetration": 1.0,
+    "trade_match_mode": "all"
+  },
+  "own_trade_count": 2088,
+  "run_id": "v24-tune-hg0p3-hpmr1000-vfemr2000-hpf10030-vfef5275-ig10-1-1777192034527-round3-day-0",
+  "tick_count": 10000,
+  "trader_path": "/mnt/c/Users/josh/Documents/GitHub/prosperity/.research_repos/p4-chennethelius/strategies/round3/v24_partial_hedge.py"
+}

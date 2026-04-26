@@ -1,0 +1,28 @@
+{
+  "config": {
+    "hedge_gain": 0.0,
+    "hp_fair_static": 10030,
+    "hp_mr_gain": 1000,
+    "hp_quote_edge": 3,
+    "hp_quote_size": 30,
+    "hp_take_max_pay": -6,
+    "informed_gain_s": 10,
+    "vfe_fair_static": 5275,
+    "vfe_mr_gain": 2000,
+    "vfe_quote_edge": 1,
+    "vfe_quote_size": 30,
+    "vfe_take_max_pay": -2
+  },
+  "day_pnls": {
+    "0": 229525.5,
+    "1": 316469.0,
+    "2": 168772.5
+  },
+  "day_std_pnl": 60612.02238051091,
+  "mean_day_pnl": 238255.66666666666,
+  "min_day_pnl": 168772.5,
+  "own_trades": 6734,
+  "pseudo_sharpe": 3.930831826909557,
+  "run_id": "v24-tune-hg0-hpmr1000-vfemr2000-hpf10030-vfef5275-ig10-2-1777192045808",
+  "target_pnl": 714767.0
+}

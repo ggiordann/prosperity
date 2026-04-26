@@ -1,0 +1,10 @@
+feature,strategy_count,avg_total_pnl,median_total_pnl,best_strategy,best_pnl
+drawdown_controls,5,460820.70,679344.00,v24_partial_hedge,706155.00
+ema_trend,25,498581.78,681055.00,v19_vfe_mr_3000,716239.00
+full_limits_focus,27,465636.20,679344.00,v19_vfe_mr_3000,716239.00
+informed_flow,26,457906.56,680199.50,v19_vfe_mr_3000,716239.00
+inventory_aware,24,488832.75,688609.00,v19_vfe_mr_3000,716239.00
+kalman_mean_reversion,25,498152.78,681055.00,v19_vfe_mr_3000,716239.00
+microprice_fair,27,465636.20,679344.00,v19_vfe_mr_3000,716239.00
+option_iv_smile,12,213986.71,127907.00,v24_partial_hedge,706155.00
+vev_divergence_mm,27,465636.20,679344.00,v19_vfe_mr_3000,716239.00

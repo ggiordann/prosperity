@@ -1,0 +1,14 @@
+{
+  "hedge_gain": 0.0,
+  "hp_fair_static": 10030,
+  "hp_mr_gain": 1000,
+  "hp_quote_edge": 3,
+  "hp_quote_size": 30,
+  "hp_take_max_pay": -6,
+  "informed_gain_s": 10,
+  "vfe_fair_static": 5275,
+  "vfe_mr_gain": 2000,
+  "vfe_quote_edge": 1,
+  "vfe_quote_size": 30,
+  "vfe_take_max_pay": -2
+}

@@ -1,0 +1,3 @@
+run_id,total_pnl,day_0_pnl,day_1_pnl,day_2_pnl,min_day_pnl,mean_day_pnl,day_std_pnl,pseudo_sharpe,own_trades,hedge_gain,hp_fair_static,hp_mr_gain,hp_take_max_pay,hp_quote_edge,hp_quote_size,vfe_fair_static,vfe_mr_gain,vfe_take_max_pay,vfe_quote_edge,vfe_quote_size,informed_gain_s
+v24-tune-hg0-hpmr1000-vfemr2000-hpf10030-vfef5275-ig10-2-1777192045808,714767.00,229525.50,316469.00,168772.50,168772.50,238255.67,60612.02,3.930832,6734,0.0,10030,1000,-6,3,30,5275,2000,-2,1,30,10
+v24-tune-hg0p3-hpmr1000-vfemr2000-hpf10030-vfef5275-ig10-1-1777192034527,706155.00,228508.50,307599.00,170047.50,170047.50,235385.00,56365.29,4.176063,6696,0.3,10030,1000,-6,3,30,5275,2000,-2,1,30,10
