@@ -1,0 +1,2 @@
+epoch,train_loss,train_price_loss,train_voucher_loss,train_volatility_loss,validation_loss,validation_price_loss,validation_voucher_loss,validation_volatility_loss,learning_rate
+1.0,1.7057418525218964,1.0530259236693382,0.40094727650284767,1.327832579612732,2.379303067922592,1.2651673729997128,0.9697372987866402,1.353383257985115,0.001

@@ -1,0 +1,11 @@
+{
+  "max_abs_position": 45.0,
+  "max_drawdown": 42320.0,
+  "max_gross_exposure": 23310.0,
+  "mean_gross_exposure": 89.90836703741152,
+  "sharpe_ratio": -0.10377061487722274,
+  "total_pnl": -8190.0,
+  "trade_count": 539.0,
+  "turnover": 591816.0,
+  "win_rate": 0.46063829787234045
+}

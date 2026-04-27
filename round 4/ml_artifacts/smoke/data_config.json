@@ -1,0 +1,45 @@
+{
+  "data_dir": "/Users/giordanmasen/Downloads/ROUND_4",
+  "train_days": [
+    1
+  ],
+  "validation_days": [
+    2
+  ],
+  "test_days": [
+    3
+  ],
+  "price_pattern": "prices_round_4_day_{day}.csv",
+  "trade_pattern": "trades_round_4_day_{day}.csv",
+  "underlying_product": "VELVETFRUIT_EXTRACT",
+  "hydrogel_products": [
+    "HYDROGEL",
+    "HYDROGEL_PACK"
+  ],
+  "voucher_prefix": "VEV",
+  "top_book_levels": 3,
+  "rolling_windows": [
+    5,
+    10,
+    20
+  ],
+  "momentum_windows": [
+    1,
+    5,
+    10
+  ],
+  "price_horizons": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "voucher_fair_horizon": 5,
+  "realized_vol_horizon": 20,
+  "sequence_length": 16,
+  "top_traders": 16,
+  "trader_activity_window": 20,
+  "expiry_days": 5.0,
+  "epsilon": 1e-08
+}

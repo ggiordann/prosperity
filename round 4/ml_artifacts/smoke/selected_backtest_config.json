@@ -1,0 +1,29 @@
+{
+  "position_limits": {
+    "HYDROGEL": 100,
+    "HYDROGEL_PACK": 100,
+    "VELVETFRUIT_EXTRACT": 100,
+    "VEV_4000": 200,
+    "VEV_4500": 200,
+    "VEV_5000": 200,
+    "VEV_5100": 200,
+    "VEV_5200": 200,
+    "VEV_5300": 200,
+    "VEV_5400": 200,
+    "VEV_5500": 200,
+    "VEV_6000": 200,
+    "VEV_6500": 200
+  },
+  "asset_order_size": 8,
+  "voucher_order_size": 12,
+  "min_edge": 0.25,
+  "asset_vol_threshold_multiplier": 0.25,
+  "voucher_vol_threshold_multiplier": 0.04,
+  "spread_threshold_multiplier": 0.5,
+  "max_gross_exposure": 1500000.0,
+  "stop_loss": 25000.0,
+  "risk_aversion": 0.0,
+  "flatten_on_stop": true,
+  "maker_fee_per_unit": 0.0,
+  "taker_fee_per_unit": 0.0
+}

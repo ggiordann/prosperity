@@ -1,0 +1,116 @@
+{
+  "model_path": "/Users/giordanmasen/Desktop/projects/prosperity/round 4/ml_artifacts/baseline/round4_multi_output_model.pt",
+  "output_dir": "/Users/giordanmasen/Desktop/projects/prosperity/round 4/ml_artifacts/baseline",
+  "feature_count": 106,
+  "train_samples": 20000,
+  "validation_samples": 5000,
+  "test_samples": 5000,
+  "backtest_metrics": {
+    "total_pnl": -8190.0,
+    "sharpe_ratio": -0.10377061487722274,
+    "max_drawdown": 42320.0,
+    "win_rate": 0.46063829787234045,
+    "trade_count": 539.0,
+    "turnover": 591816.0,
+    "mean_gross_exposure": 89.90836703741152,
+    "max_gross_exposure": 23310.0,
+    "max_abs_position": 45.0
+  },
+  "data_config": {
+    "data_dir": "/Users/giordanmasen/Downloads/ROUND_4",
+    "train_days": [
+      1
+    ],
+    "validation_days": [
+      2
+    ],
+    "test_days": [
+      3
+    ],
+    "price_pattern": "prices_round_4_day_{day}.csv",
+    "trade_pattern": "trades_round_4_day_{day}.csv",
+    "underlying_product": "VELVETFRUIT_EXTRACT",
+    "hydrogel_products": [
+      "HYDROGEL",
+      "HYDROGEL_PACK"
+    ],
+    "voucher_prefix": "VEV",
+    "top_book_levels": 3,
+    "rolling_windows": [
+      5,
+      10,
+      20
+    ],
+    "momentum_windows": [
+      1,
+      5,
+      10
+    ],
+    "price_horizons": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "voucher_fair_horizon": 5,
+    "realized_vol_horizon": 20,
+    "sequence_length": 32,
+    "top_traders": 16,
+    "trader_activity_window": 20,
+    "expiry_days": 5.0,
+    "epsilon": 1e-08
+  },
+  "training_config": {
+    "output_dir": "/Users/giordanmasen/Desktop/projects/prosperity/round 4/ml_artifacts/baseline",
+    "encoder_type": "lstm",
+    "hidden_size": 96,
+    "dense_size": 128,
+    "num_layers": 2,
+    "dropout": 0.15,
+    "batch_size": 512,
+    "epochs": 6,
+    "learning_rate": 0.001,
+    "weight_decay": 1e-05,
+    "patience": 6,
+    "min_delta": 1e-05,
+    "num_workers": 0,
+    "max_train_samples": 20000,
+    "max_eval_samples": 5000,
+    "seed": 7,
+    "device": "cpu",
+    "price_loss_weight": 1.0,
+    "voucher_loss_weight": 0.8,
+    "volatility_loss_weight": 0.25,
+    "gradient_clip_norm": 1.0
+  },
+  "backtest_config": {
+    "position_limits": {
+      "HYDROGEL": 100,
+      "HYDROGEL_PACK": 100,
+      "VELVETFRUIT_EXTRACT": 100,
+      "VEV_4000": 200,
+      "VEV_4500": 200,
+      "VEV_5000": 200,
+      "VEV_5100": 200,
+      "VEV_5200": 200,
+      "VEV_5300": 200,
+      "VEV_5400": 200,
+      "VEV_5500": 200,
+      "VEV_6000": 200,
+      "VEV_6500": 200
+    },
+    "asset_order_size": 8,
+    "voucher_order_size": 12,
+    "min_edge": 0.25,
+    "asset_vol_threshold_multiplier": 0.35,
+    "voucher_vol_threshold_multiplier": 0.08,
+    "spread_threshold_multiplier": 0.65,
+    "max_gross_exposure": 1500000.0,
+    "stop_loss": 25000.0,
+    "risk_aversion": 0.15,
+    "flatten_on_stop": true,
+    "maker_fee_per_unit": 0.0,
+    "taker_fee_per_unit": 0.0
+  }
+}
