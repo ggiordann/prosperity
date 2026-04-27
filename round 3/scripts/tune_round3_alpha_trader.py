@@ -17,11 +17,11 @@ from pathlib import Path
 from typing import Iterable
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 BACKTESTER_DIR = (REPO_ROOT / "prosperity_rust_backtester").resolve()
 ROUND3_DATASET = (BACKTESTER_DIR / "datasets" / "round3").resolve()
-TRADER_PATH = (REPO_ROOT / "round3_alpha_trader.py").resolve()
-OUTPUT_DIR = (REPO_ROOT / "analysis" / "round3_alpha_tuning").resolve()
+TRADER_PATH = (REPO_ROOT / "round 3" / "strategies" / "round3_alpha_trader.py").resolve()
+OUTPUT_DIR = (REPO_ROOT / "round 3" / "analysis" / "round3_alpha_tuning").resolve()
 BACKTESTER_RELEASE_BIN = (BACKTESTER_DIR / "target" / "release" / "rust_backtester").resolve()
 BACKTESTER_DEBUG_BIN = (BACKTESTER_DIR / "target" / "debug" / "rust_backtester").resolve()
 

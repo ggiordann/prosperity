@@ -12,10 +12,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_INPUT = REPO_ROOT / "analysis" / "round3_velvet_volatility" / "velvet_implied_vol_by_strike.csv"
-DEFAULT_OUTPUT = REPO_ROOT / "analysis" / "round3_velvet_volatility" / "velvet_iv_vs_moneyness.png"
-DEFAULT_SUMMARY = REPO_ROOT / "analysis" / "round3_velvet_volatility" / "velvet_iv_vs_moneyness_fit.json"
+REPO_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_INPUT = REPO_ROOT / "round 3" / "analysis" / "round3_velvet_volatility" / "velvet_implied_vol_by_strike.csv"
+DEFAULT_OUTPUT = REPO_ROOT / "round 3" / "analysis" / "round3_velvet_volatility" / "velvet_iv_vs_moneyness.png"
+DEFAULT_SUMMARY = REPO_ROOT / "round 3" / "analysis" / "round3_velvet_volatility" / "velvet_iv_vs_moneyness_fit.json"
 
 TTE_YEARS = 5.0 / 365.0
 PRODUCT_ORDER = ("VEV_5000", "VEV_5100", "VEV_5200", "VEV_5300", "VEV_5400", "VEV_5500")

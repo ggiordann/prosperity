@@ -124,13 +124,18 @@ The repo is organized by round:
 - `datasets/round3/trades_round_3_day_1.csv`
 - `datasets/round3/prices_round_3_day_2.csv`
 - `datasets/round3/trades_round_3_day_2.csv`
-- `datasets/round4/`
+- `datasets/round4/prices_round_4_day_1.csv`
+- `datasets/round4/trades_round_4_day_1.csv`
+- `datasets/round4/prices_round_4_day_2.csv`
+- `datasets/round4/trades_round_4_day_2.csv`
+- `datasets/round4/prices_round_4_day_3.csv`
+- `datasets/round4/trades_round_4_day_3.csv`
 - `datasets/round5/`
 - `datasets/round6/`
 - `datasets/round7/`
 - `datasets/round8/`
 
-Right now the bundled public data is the raw IMC tutorial day data in `datasets/tutorial/`, the raw round 1 day data in `datasets/round1/`, the raw round 2 day data in `datasets/round2/`, the raw round 3 day data in `datasets/round3/`, plus a sample tutorial `submission.log` produced with the bundled basic trader. The remaining round folders are there so future round files can be placed in the correct folder instead of being mixed together.
+Right now the bundled public data is the raw IMC tutorial day data in `datasets/tutorial/`, the raw round 1 day data in `datasets/round1/`, the raw round 2 day data in `datasets/round2/`, the raw round 3 day data in `datasets/round3/`, the raw round 4 day data in `datasets/round4/`, plus a sample tutorial `submission.log` produced with the bundled basic trader. The remaining round folders are there so future round files can be placed in the correct folder instead of being mixed together.
 If you place a portal `submission.log` file into a round folder, the backtester will use it. `submission.log` is also generated for persisted runs.
 
 ## CLI
@@ -196,7 +201,7 @@ make tutorial CARRY=1
 Supported input formats:
 
 - normalized dataset JSON files
-- IMC day data as matching `prices_*.csv` and `trades_*.csv`
+- IMC day data as matching `prices_*.csv` and `trades_*.csv`, with optional paired `observations_*.csv`
 - portal submission logs such as `submission.log`
 
 Day selection behavior:
@@ -238,6 +243,7 @@ Behavior:
 - `--dataset` accepts either a path or a short alias
 - when `--dataset` points to a directory, every supported dataset in that directory is run
 - `prices_*.csv` files are paired automatically with matching `trades_*.csv` files from the same folder
+- matching `observations_*.csv` files are loaded automatically when present and exposed through `state.observations.conversionObservations`
 - `latest` and `tutorial` run the full bundled tutorial round bundle: day `-2`, day `-1`, and the sample tutorial submission log
 - use `--day <n>` to run only the matching day dataset within the round bundle; this excludes submission files
 - `metrics.json` is always written under `runs/<backtest-id>/`
@@ -406,7 +412,8 @@ The Docker image builds the project in a clean container and runs the zero-argum
 - `datasets/round1/` bundled raw IMC round 1 CSVs
 - `datasets/round2/` bundled raw IMC round 2 CSVs
 - `datasets/round3/` bundled raw IMC round 3 CSVs
-- `datasets/round4/` ... `datasets/round8/` placeholders for future round data
+- `datasets/round4/` bundled raw IMC round 4 CSVs
+- `datasets/round5/` ... `datasets/round8/` placeholders for future round data
 - `runs/` persisted outputs when `--persist` is used
 - `runs/<backtest-id>/` combined bundle for persisted multi-day runs, including `combined.log` and `manifest.json`
 

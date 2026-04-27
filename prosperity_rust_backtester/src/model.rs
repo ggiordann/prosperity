@@ -229,6 +229,9 @@ pub fn materialize_submission_json_if_missing(path: &Path) -> Result<Option<Path
 const ACTIVITY_HEADER_PREFIX: &str =
     "day;timestamp;product;bid_price_1;bid_volume_1;bid_price_2;bid_volume_2";
 const TRADE_HEADER_PREFIX: &str = "timestamp;buyer;seller;symbol;currency;price;quantity";
+const OBSERVATION_HEADER_PREFIX: &str =
+    "timestamp,bidPrice,askPrice,transportFees,exportTariff,importTariff,sugarPrice,sunlightIndex";
+const ROUND4_CONVERSION_PRODUCT: &str = "MAGNIFICENT_MACARONS";
 
 fn load_json_dataset(path: &Path) -> Result<NormalizedDataset> {
     let payload = fs::read_to_string(path)
@@ -325,6 +328,18 @@ fn load_price_csv_dataset(path: &Path) -> Result<NormalizedDataset> {
         .into_iter()
         .map(|trade| SubmissionTradeHistoryRow { day: None, trade })
         .collect::<Vec<_>>();
+    let observation_path = paired_observations_csv(path).with_context(|| {
+        format!(
+            "unsupported CSV input {}; expected a prices_*.csv filename",
+            path.display()
+        )
+    })?;
+    let day_hint = day_from_path(path);
+    let mut observations_by_key = if observation_path.is_file() {
+        load_observations_csv(&observation_path, day_hint)?
+    } else {
+        BTreeMap::new()
+    };
 
     let mut metadata = IndexMap::new();
     metadata.insert(
@@ -335,15 +350,30 @@ fn load_price_csv_dataset(path: &Path) -> Result<NormalizedDataset> {
         "trade_rows".to_string(),
         Value::Number((trade_history.len() as u64).into()),
     );
+    metadata.insert(
+        "observation_rows".to_string(),
+        Value::Number((observations_by_key.len() as u64).into()),
+    );
 
-    build_dataset_from_activities(
+    let mut dataset = build_dataset_from_activities(
         path,
         dataset_id_from_path(path),
         format!("imc_csv:{}", file_name),
         &activities_log,
         trade_history,
         metadata,
-    )
+    )?;
+
+    for tick in &mut dataset.ticks {
+        if let Some(observations) = observations_by_key
+            .remove(&(tick.day, tick.timestamp))
+            .or_else(|| observations_by_key.remove(&(None, tick.timestamp)))
+        {
+            tick.observations = observations;
+        }
+    }
+
+    Ok(dataset)
 }
 
 fn build_dataset_from_activities(
@@ -561,6 +591,79 @@ fn load_trades_csv(path: &Path) -> Result<Vec<MarketTrade>> {
     Ok(trades)
 }
 
+fn load_observations_csv(
+    path: &Path,
+    day_hint: Option<i64>,
+) -> Result<BTreeMap<(Option<i64>, i64), ObservationState>> {
+    let payload = fs::read_to_string(path)
+        .with_context(|| format!("failed to read observations CSV {}", path.display()))?;
+    let mut observations = BTreeMap::new();
+
+    for (line_number, line) in payload.lines().enumerate() {
+        if line_number == 0 {
+            if line.trim() != OBSERVATION_HEADER_PREFIX {
+                bail!("unexpected observations header in {}", path.display());
+            }
+            continue;
+        }
+        if line.trim().is_empty() {
+            continue;
+        }
+
+        let fields: Vec<&str> = line.split(',').collect();
+        if fields.len() < 8 {
+            bail!(
+                "invalid observations row {} in {}; expected 8 columns",
+                line_number + 1,
+                path.display()
+            );
+        }
+
+        let timestamp = parse_required_i64(fields[0], "timestamp")?;
+        let mut conversion = IndexMap::new();
+        let mut values = IndexMap::new();
+        values.insert(
+            "bidPrice".to_string(),
+            parse_required_f64(fields[1], "bidPrice")?,
+        );
+        values.insert(
+            "askPrice".to_string(),
+            parse_required_f64(fields[2], "askPrice")?,
+        );
+        values.insert(
+            "transportFees".to_string(),
+            parse_required_f64(fields[3], "transportFees")?,
+        );
+        values.insert(
+            "exportTariff".to_string(),
+            parse_required_f64(fields[4], "exportTariff")?,
+        );
+        values.insert(
+            "importTariff".to_string(),
+            parse_required_f64(fields[5], "importTariff")?,
+        );
+        values.insert(
+            "sugarPrice".to_string(),
+            parse_required_f64(fields[6], "sugarPrice")?,
+        );
+        values.insert(
+            "sunlightIndex".to_string(),
+            parse_required_f64(fields[7], "sunlightIndex")?,
+        );
+        conversion.insert(ROUND4_CONVERSION_PRODUCT.to_string(), values);
+
+        observations.insert(
+            (day_hint, timestamp),
+            ObservationState {
+                plain: IndexMap::new(),
+                conversion,
+            },
+        );
+    }
+
+    Ok(observations)
+}
+
 fn parse_optional_i64(value: &str) -> Result<Option<i64>> {
     if value.trim().is_empty() {
         return Ok(None);
@@ -584,6 +687,13 @@ fn parse_optional_f64(value: &str) -> Result<Option<f64>> {
     Ok(Some(value.trim().parse::<f64>().with_context(|| {
         format!("failed to parse float value {value}")
     })?))
+}
+
+fn parse_required_f64(value: &str, field_name: &str) -> Result<f64> {
+    value
+        .trim()
+        .parse::<f64>()
+        .with_context(|| format!("failed to parse {field_name} value {value}"))
 }
 
 fn parse_price_i64(value: &str) -> Result<i64> {
@@ -616,6 +726,24 @@ fn paired_trades_csv(path: &Path) -> Option<PathBuf> {
         return None;
     }
     Some(path.with_file_name(file_name.replacen("prices_", "trades_", 1)))
+}
+
+fn paired_observations_csv(path: &Path) -> Option<PathBuf> {
+    let file_name = path.file_name()?.to_str()?;
+    if !file_name.starts_with("prices_") {
+        return None;
+    }
+    Some(path.with_file_name(file_name.replacen("prices_", "observations_", 1)))
+}
+
+fn day_from_path(path: &Path) -> Option<i64> {
+    let file_name = path.file_name()?.to_str()?.to_ascii_lowercase();
+    let start = file_name.find("day_")?;
+    let suffix = &file_name[start + 4..];
+    let end = suffix
+        .find(|ch: char| !ch.is_ascii_digit() && ch != '-')
+        .unwrap_or(suffix.len());
+    suffix[..end].parse::<i64>().ok()
 }
 
 fn dataset_id_from_path(path: &Path) -> String {
@@ -712,6 +840,60 @@ mod tests {
         let message = format!("{error:#}");
         assert!(message.contains("missing paired trades CSV"));
         assert!(message.contains("trades_round_1_day_0.csv"));
+
+        fs::remove_dir_all(scratch).expect("scratch dir should be cleaned up");
+    }
+
+    #[test]
+    fn paired_observations_csv_populates_conversion_observations() {
+        let unique = format!(
+            "model-observations-{}",
+            std::time::SystemTime::now()
+                .duration_since(std::time::UNIX_EPOCH)
+                .expect("clock should be after epoch")
+                .as_nanos()
+        );
+        let scratch = std::env::temp_dir().join(unique);
+        fs::create_dir_all(&scratch).expect("scratch dir should exist");
+
+        let prices_path = scratch.join("prices_round_4_day_1.csv");
+        let trades_path = scratch.join("trades_round_4_day_1.csv");
+        let observations_path = scratch.join("observations_round_4_day_1.csv");
+
+        fs::write(
+            &prices_path,
+            concat!(
+                "day;timestamp;product;bid_price_1;bid_volume_1;bid_price_2;bid_volume_2;bid_price_3;bid_volume_3;",
+                "ask_price_1;ask_volume_1;ask_price_2;ask_volume_2;ask_price_3;ask_volume_3;mid_price;profit_and_loss\n",
+                "1;0;MAGNIFICENT_MACARONS;624;20;;;;;631;10;;;;;627.5;0.0\n"
+            ),
+        )
+        .expect("prices csv should be written");
+        fs::write(
+            &trades_path,
+            concat!(
+                "timestamp;buyer;seller;symbol;currency;price;quantity\n",
+                "0;;;MAGNIFICENT_MACARONS;SEASHELLS;631.0;1\n"
+            ),
+        )
+        .expect("trades csv should be written");
+        fs::write(
+            &observations_path,
+            concat!(
+                "timestamp,bidPrice,askPrice,transportFees,exportTariff,importTariff,sugarPrice,sunlightIndex\n",
+                "0,627.0,628.5,1.0,9.0,-3.0,200.0,60.0\n"
+            ),
+        )
+        .expect("observations csv should be written");
+
+        let dataset = load_dataset(&prices_path).expect("round 4 csv dataset should load");
+        let observations = &dataset.ticks[0].observations.conversion["MAGNIFICENT_MACARONS"];
+
+        assert_eq!(dataset.ticks[0].day, Some(1));
+        assert_eq!(observations["bidPrice"], 627.0);
+        assert_eq!(observations["askPrice"], 628.5);
+        assert_eq!(observations["transportFees"], 1.0);
+        assert_eq!(observations["sunlightIndex"], 60.0);
 
         fs::remove_dir_all(scratch).expect("scratch dir should be cleaned up");
     }

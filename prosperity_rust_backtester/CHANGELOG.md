@@ -1,5 +1,23 @@
 # Changelog
 
+## v0.4.9 - 2026-04-26
+
+### Changed
+
+- Whitelist the crate package contents so crates.io publishes ignore unrelated local dataset folders that are not part of the release.
+
+## v0.4.8 - 2026-04-26
+
+### Added
+
+- Bundle the raw IMC round 4 day CSVs under `datasets/round4/` with the official filenames from the latest round 4 download.
+
+### Changed
+
+- Load `observations_*.csv` automatically whenever a paired IMC `prices_*.csv` dataset includes conversion-observation data.
+- Make round 4 the default zero-argument dataset now that it is the latest populated bundled round.
+- Update the README to document the bundled round 4 data and observation-file pairing behavior.
+
 ## v0.4.7 - 2026-04-24
 
 ### Changed

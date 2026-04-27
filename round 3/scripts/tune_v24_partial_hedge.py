@@ -32,12 +32,12 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 BACKTESTER_DIR = (REPO_ROOT / "prosperity_rust_backtester").resolve()
 TRADER_PATH = (
     REPO_ROOT / ".research_repos" / "p4-chennethelius" / "strategies" / "round3" / "v24_partial_hedge.py"
 ).resolve()
-OUTPUT_DIR = (REPO_ROOT / "analysis" / "chennethelius_v24_tuning").resolve()
+OUTPUT_DIR = (REPO_ROOT / "round 3" / "analysis" / "chennethelius_v24_tuning").resolve()
 RUN_OUTPUT_DIR = (OUTPUT_DIR / "rust_runs").resolve()
 BACKTESTER_RELEASE_BIN = (BACKTESTER_DIR / "target" / "release" / "rust_backtester").resolve()
 BACKTESTER_DEBUG_BIN = (BACKTESTER_DIR / "target" / "debug" / "rust_backtester").resolve()

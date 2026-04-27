@@ -9,9 +9,9 @@ import numpy as np
 import pandas as pd
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 ROUND3_DIR = REPO_ROOT / "prosperity_rust_backtester" / "datasets" / "round3"
-OUT_DIR = REPO_ROOT / "analysis" / "round3_microprice_tuning"
+OUT_DIR = REPO_ROOT / "round 3" / "analysis" / "round3_microprice_tuning"
 ROUND3_DAYS = (0, 1, 2)
 TARGET_PRODUCTS = ("HYDROGEL_PACK", "VELVETFRUIT_EXTRACT")
 

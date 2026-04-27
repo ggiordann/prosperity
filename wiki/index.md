@@ -12,4 +12,4 @@
 - [tutorial-round-simulator-practice](tutorial-round-simulator-practice.md)
 - [round-1-trading-groundwork](round-1-trading-groundwork.md)
 - [round-2-growing-your-outpost](round-2-growing-your-outpost.md)
-- [round-3-gloves-off](round-3-gloves-off.md)
+- [round-3-gloves-off](../round%203/wiki/round-3-gloves-off.md)

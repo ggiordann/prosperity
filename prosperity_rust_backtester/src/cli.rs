@@ -1948,7 +1948,7 @@ mod tests {
     #[test]
     fn dataset_alias_defaults_to_latest_round() {
         let dataset = resolve_dataset_input(None).expect("dataset should resolve");
-        assert_eq!(dataset.label, "round3");
+        assert_eq!(dataset.label, "round4");
         assert_eq!(dataset.roots.len(), 1);
         assert!(dataset.auto_selected);
     }

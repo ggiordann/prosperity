@@ -47,10 +47,10 @@ from textwrap import dedent
 from typing import Iterable
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 BACKTESTER_DIR = (REPO_ROOT / "prosperity_rust_backtester").resolve()
 ROUND3_DIR = (BACKTESTER_DIR / "datasets" / "round3").resolve()
-OUT_DIR = (REPO_ROOT / "analysis" / "round3_hydrogel_fine_tuning").resolve()
+OUT_DIR = (REPO_ROOT / "round 3" / "analysis" / "round3_hydrogel_fine_tuning").resolve()
 GENERATED_TRADER_DIR = OUT_DIR / "generated_traders"
 RUST_RUN_DIR = OUT_DIR / "rust_runs"
 

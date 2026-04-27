@@ -24,6 +24,7 @@ data/autoresearch/
 data/quant/
 artifacts/runs/
 artifacts/reports/
+round 3/reports/
 artifacts/portal/
 artifacts/submissions/
 artifacts/strategies/

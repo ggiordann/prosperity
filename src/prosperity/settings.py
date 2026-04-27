@@ -13,7 +13,7 @@ from prosperity.paths import RepoPaths
 
 class BacktesterSettings(BaseModel):
     path: str = "prosperity_rust_backtester"
-    default_dataset: str = "round2"
+    default_dataset: str = "round4"
     default_products_mode: str = "summary"
 
 

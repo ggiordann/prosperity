@@ -11,11 +11,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 STRATEGY_DIR = REPO_ROOT / ".research_repos" / "p4-chennethelius" / "strategies" / "round3"
 BACKTESTER_DIR = REPO_ROOT / "prosperity_rust_backtester"
 BACKTESTER_BIN = BACKTESTER_DIR / "target" / "release" / "rust_backtester"
-OUTPUT_DIR = REPO_ROOT / "analysis" / "chennethelius_round3_review"
+OUTPUT_DIR = REPO_ROOT / "round 3" / "analysis" / "chennethelius_round3_review"
 
 RESULTS_CSV = OUTPUT_DIR / "round3_results.csv"
 PER_DAY_CSV = OUTPUT_DIR / "round3_results_per_day.csv"

@@ -41,12 +41,12 @@ from typing import Iterable
 
 import pandas as pd
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
-BASE_TRADER_PATH = REPO_ROOT / "round3_velvet_gamma_scalper.py"
+REPO_ROOT = Path(__file__).resolve().parents[2]
+BASE_TRADER_PATH = REPO_ROOT / "round 3" / "strategies" / "round3_velvet_gamma_scalper.py"
 BACKTESTER_DIR = REPO_ROOT / "prosperity_rust_backtester"
 RUST_BINARY = BACKTESTER_DIR / "target" / "release" / "rust_backtester"
 ROUND3_DIR = BACKTESTER_DIR / "datasets" / "round3"
-OUT_DIR = REPO_ROOT / "analysis" / "round3_velvet_gamma_scalper"
+OUT_DIR = REPO_ROOT / "round 3" / "analysis" / "round3_velvet_gamma_scalper"
 GENERATED_TRADER_DIR = OUT_DIR / "generated_traders"
 RUST_RUN_DIR = OUT_DIR / "rust_runs"
 

@@ -29,13 +29,13 @@ from dataclasses import dataclass
 from pathlib import Path
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 BACKTESTER_DIR = (REPO_ROOT / "prosperity_rust_backtester").resolve()
 BACKTESTER_BIN = (BACKTESTER_DIR / "target" / "release" / "rust_backtester").resolve()
 ROUND3_REVIEW_CSV = (
-    REPO_ROOT / "analysis" / "chennethelius_round3_review" / "round3_results.csv"
+    REPO_ROOT / "round 3" / "analysis" / "chennethelius_round3_review" / "round3_results.csv"
 ).resolve()
-OUTPUT_DIR = (REPO_ROOT / "analysis" / "round3_submission_robustness").resolve()
+OUTPUT_DIR = (REPO_ROOT / "round 3" / "analysis" / "round3_submission_robustness").resolve()
 SUMMARY_CSV = OUTPUT_DIR / "round3_submission_robustness.csv"
 REPORT_MD = OUTPUT_DIR / "round3_submission_robustness.md"
 

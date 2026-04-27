@@ -10,7 +10,7 @@ from pathlib import Path
 from textwrap import dedent
 
 
-REPO_ROOT = Path(__file__).resolve().parents[1]
+REPO_ROOT = Path(__file__).resolve().parents[2]
 BACKTESTER_DIR = (REPO_ROOT / "prosperity_rust_backtester").resolve()
 ROUND3_DATASET = (BACKTESTER_DIR / "datasets" / "round3").resolve()
 ROUND3_DAYS = (0, 1, 2)
@@ -283,7 +283,7 @@ def main() -> None:
     print(f"ROUND3_DATASET exists: {ROUND3_DATASET.exists()}", flush=True)
     print(f"BACKTESTER_DIR exists: {BACKTESTER_DIR.exists()}", flush=True)
     
-    out_dir = REPO_ROOT / "analysis" / "round3_frankfurt_methods"
+    out_dir = REPO_ROOT / "round 3" / "analysis" / "round3_frankfurt_methods"
     out_dir.mkdir(parents=True, exist_ok=True)
     summary_rows = []
     walk_forward_rows = []
