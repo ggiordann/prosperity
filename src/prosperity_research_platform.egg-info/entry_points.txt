@@ -1,2 +1,0 @@
-[console_scripts]
-prosperity = prosperity.cli:app

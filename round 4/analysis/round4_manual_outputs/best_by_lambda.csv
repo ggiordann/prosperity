@@ -1,0 +1,6 @@
+objective,name,expected_pnl,std_100,q
+objective_lambda_0,pure_max_positive_edge,163453.4119964352,586178.4466162466,"(0, 0, 0, 0, 0, 0, -50, 50, 50, -50, -50, 500)"
+objective_lambda_0.25,pure_excluding_edge_below_0.01,162222.16659282797,343191.1782550144,"(0, 0, 0, 0, 0, 0, 0, 50, 50, -50, -50, 500)"
+objective_lambda_0.5,pure_excluding_edge_below_0.01,162222.16659282797,343191.1782550144,"(0, 0, 0, 0, 0, 0, 0, 50, 50, -50, -50, 500)"
+objective_lambda_1,pure_excluding_edge_below_0.05,116372.22843259596,292584.5675916628,"(0, 0, 0, 0, 0, 0, 0, 50, 50, -50, -50, 0)"
+objective_lambda_2,pure_excluding_edge_below_0.05,116372.22843259596,292584.5675916628,"(0, 0, 0, 0, 0, 0, 0, 50, 50, -50, -50, 0)"

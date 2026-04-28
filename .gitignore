@@ -6,6 +6,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+*.egg-info/
 .coverage
 .venv/
 venv/
@@ -34,3 +35,5 @@ artifacts/strategies/
 playwright-report/
 test-results/
 node_modules/
+/tmp_backtests/
+/prosperity_rust_backtester/runs/
