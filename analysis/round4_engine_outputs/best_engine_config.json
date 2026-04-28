@@ -1,0 +1,101 @@
+{
+  "data": {
+    "data_dir": "prosperity_rust_backtester/datasets/round4",
+    "epsilon": 1e-09,
+    "expiry_days_at_round4": 4.0,
+    "hydrogel_product": "HYDROGEL_PACK",
+    "momentum_windows": [
+      1,
+      5,
+      10
+    ],
+    "price_pattern": "prices_round_4_day_{day}.csv",
+    "rolling_windows": [
+      5,
+      10,
+      20
+    ],
+    "test_days": [
+      3
+    ],
+    "ticks_per_day": 10000,
+    "top_book_levels": 3,
+    "trade_pattern": "trades_round_4_day_{day}.csv",
+    "trader_activity_window": 20,
+    "trader_alpha_horizon": 5,
+    "train_days": [
+      1
+    ],
+    "underlying_product": "VELVETFRUIT_EXTRACT",
+    "validation_days": [
+      2
+    ],
+    "voucher_products": [
+      "VEV_4000",
+      "VEV_4500",
+      "VEV_5000",
+      "VEV_5100",
+      "VEV_5200",
+      "VEV_5300",
+      "VEV_5400",
+      "VEV_5500",
+      "VEV_6000",
+      "VEV_6500"
+    ]
+  },
+  "output_dir": "analysis/round4_engine_outputs",
+  "risk": {
+    "arbitrage_order_size": 16,
+    "flatten_on_stop": true,
+    "maker_fee_per_unit": 0.0,
+    "market_making_quote_size": 2,
+    "market_order_size": 10,
+    "max_daily_loss": 30000.0,
+    "max_gross_exposure": 2200000.0,
+    "max_product_notional": 1250000.0,
+    "position_limits": {
+      "HYDROGEL_PACK": 200,
+      "VELVETFRUIT_EXTRACT": 200,
+      "VEV_4000": 300,
+      "VEV_4500": 300,
+      "VEV_5000": 300,
+      "VEV_5100": 300,
+      "VEV_5200": 300,
+      "VEV_5300": 300,
+      "VEV_5400": 300,
+      "VEV_5500": 300,
+      "VEV_6000": 300,
+      "VEV_6500": 300
+    },
+    "stop_loss": 45000.0,
+    "taker_fee_per_unit": 0.0,
+    "voucher_order_size": 18
+  },
+  "strategy": {
+    "combined_signal_threshold": 0.7,
+    "directional_voucher_trading_enabled": false,
+    "execution_cost_multiplier": 5.0,
+    "imbalance_momentum_window": 1,
+    "imbalance_threshold": 0.12,
+    "market_making_base_spread": 2.5,
+    "market_making_enabled": false,
+    "market_making_inventory_multiplier": 0.65,
+    "market_making_max_spread": 12.0,
+    "market_making_min_spread": 2.0,
+    "market_making_vol_multiplier": 0.85,
+    "mean_reversion_min_edge": 0.5,
+    "mean_reversion_vol_multiplier": 0.85,
+    "mean_reversion_window": 20,
+    "trader_alpha_threshold": 0.08,
+    "trader_reliability_floor": 0.28,
+    "voucher_cross_edge": 0.25,
+    "voucher_delta_hedge": 1.0,
+    "voucher_intrinsic_edge": 0.4,
+    "weights": {
+      "imbalance": 0.95,
+      "market_making_inventory": 0.2,
+      "mean_reversion": 0.85,
+      "trader": 0.55
+    }
+  }
+}
