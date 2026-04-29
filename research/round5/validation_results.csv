@@ -1,0 +1,109 @@
+name,path,test_day,n_products,returncode,test_pnl,stdout_tail
+val_train_pos2_test2_micro,research/round5/generated_traders/val_train_pos2_test2_micro.py,2,39,0,90042.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_pos2_test2_micro.py --dataset round5 --day 2 --products off --artifact-mode none`
+trader: val_train_pos2_test2_micro.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7508     90042.00  runs/backtest-1777385689758
+"
+val_train_pos2_test2_mm,research/round5/generated_traders/val_train_pos2_test2_mm.py,2,39,0,72643.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_pos2_test2_mm.py --dataset round5 --day 2 --products off --artifact-mode none`
+trader: val_train_pos2_test2_mm.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7352     72643.50  runs/backtest-1777385686406
+"
+val_train_totalpos_test2_micro,research/round5/generated_traders/val_train_totalpos_test2_micro.py,2,39,0,90042.0,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_totalpos_test2_micro.py --dataset round5 --day 2 --products off --artifact-mode none`
+trader: val_train_totalpos_test2_micro.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7508     90042.00  runs/backtest-1777385682751
+"
+val_train_totalpos_test2_mm,research/round5/generated_traders/val_train_totalpos_test2_mm.py,2,39,0,72643.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_totalpos_test2_mm.py --dataset round5 --day 2 --products off --artifact-mode none`
+trader: val_train_totalpos_test2_mm.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7352     72643.50  runs/backtest-1777385679374
+"
+val_train_pos2_test3_micro,research/round5/generated_traders/val_train_pos2_test3_micro.py,3,38,0,136844.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_pos2_test3_micro.py --dataset round5 --day 3 --products off --artifact-mode none`
+trader: val_train_pos2_test3_micro.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+3               3    10000        8908    136844.00  runs/backtest-1777385703818
+"
+val_train_pos2_test3_mm,research/round5/generated_traders/val_train_pos2_test3_mm.py,3,38,0,115104.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_pos2_test3_mm.py --dataset round5 --day 3 --products off --artifact-mode none`
+trader: val_train_pos2_test3_mm.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+3               3    10000        8760    115104.50  runs/backtest-1777385700498
+"
+val_train_totalpos_test3_micro,research/round5/generated_traders/val_train_totalpos_test3_micro.py,3,38,0,136844.0,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_totalpos_test3_micro.py --dataset round5 --day 3 --products off --artifact-mode none`
+trader: val_train_totalpos_test3_micro.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+3               3    10000        8908    136844.00  runs/backtest-1777385696905
+"
+val_train_totalpos_test3_mm,research/round5/generated_traders/val_train_totalpos_test3_mm.py,3,38,0,115104.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_totalpos_test3_mm.py --dataset round5 --day 3 --products off --artifact-mode none`
+trader: val_train_totalpos_test3_mm.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+3               3    10000        8760    115104.50  runs/backtest-1777385693557
+"
+val_train_pos2_test4_micro,research/round5/generated_traders/val_train_pos2_test4_micro.py,4,34,0,127876.0,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_pos2_test4_micro.py --dataset round5 --day 4 --products off --artifact-mode none`
+trader: val_train_pos2_test4_micro.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+4               4    10000        7104    127876.00  runs/backtest-1777385717499
+"
+val_train_pos2_test4_mm,research/round5/generated_traders/val_train_pos2_test4_mm.py,4,34,0,128498.0,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_pos2_test4_mm.py --dataset round5 --day 4 --products off --artifact-mode none`
+trader: val_train_pos2_test4_mm.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+4               4    10000        6985    128498.00  runs/backtest-1777385714219
+"
+val_train_totalpos_test4_micro,research/round5/generated_traders/val_train_totalpos_test4_micro.py,4,34,0,127876.0,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_totalpos_test4_micro.py --dataset round5 --day 4 --products off --artifact-mode none`
+trader: val_train_totalpos_test4_micro.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+4               4    10000        7104    127876.00  runs/backtest-1777385710650
+"
+val_train_totalpos_test4_mm,research/round5/generated_traders/val_train_totalpos_test4_mm.py,4,34,0,128498.0,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/val_train_totalpos_test4_mm.py --dataset round5 --day 4 --products off --artifact-mode none`
+trader: val_train_totalpos_test4_mm.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+4               4    10000        6985    128498.00  runs/backtest-1777385707396
+"

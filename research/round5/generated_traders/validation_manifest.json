@@ -1,0 +1,74 @@
+[
+  {
+    "name": "val_train_totalpos_test2_mm",
+    "path": "research/round5/generated_traders/val_train_totalpos_test2_mm.py",
+    "test_day": 2,
+    "n_products": 39
+  },
+  {
+    "name": "val_train_totalpos_test2_micro",
+    "path": "research/round5/generated_traders/val_train_totalpos_test2_micro.py",
+    "test_day": 2,
+    "n_products": 39
+  },
+  {
+    "name": "val_train_pos2_test2_mm",
+    "path": "research/round5/generated_traders/val_train_pos2_test2_mm.py",
+    "test_day": 2,
+    "n_products": 39
+  },
+  {
+    "name": "val_train_pos2_test2_micro",
+    "path": "research/round5/generated_traders/val_train_pos2_test2_micro.py",
+    "test_day": 2,
+    "n_products": 39
+  },
+  {
+    "name": "val_train_totalpos_test3_mm",
+    "path": "research/round5/generated_traders/val_train_totalpos_test3_mm.py",
+    "test_day": 3,
+    "n_products": 38
+  },
+  {
+    "name": "val_train_totalpos_test3_micro",
+    "path": "research/round5/generated_traders/val_train_totalpos_test3_micro.py",
+    "test_day": 3,
+    "n_products": 38
+  },
+  {
+    "name": "val_train_pos2_test3_mm",
+    "path": "research/round5/generated_traders/val_train_pos2_test3_mm.py",
+    "test_day": 3,
+    "n_products": 38
+  },
+  {
+    "name": "val_train_pos2_test3_micro",
+    "path": "research/round5/generated_traders/val_train_pos2_test3_micro.py",
+    "test_day": 3,
+    "n_products": 38
+  },
+  {
+    "name": "val_train_totalpos_test4_mm",
+    "path": "research/round5/generated_traders/val_train_totalpos_test4_mm.py",
+    "test_day": 4,
+    "n_products": 34
+  },
+  {
+    "name": "val_train_totalpos_test4_micro",
+    "path": "research/round5/generated_traders/val_train_totalpos_test4_micro.py",
+    "test_day": 4,
+    "n_products": 34
+  },
+  {
+    "name": "val_train_pos2_test4_mm",
+    "path": "research/round5/generated_traders/val_train_pos2_test4_mm.py",
+    "test_day": 4,
+    "n_products": 34
+  },
+  {
+    "name": "val_train_pos2_test4_micro",
+    "path": "research/round5/generated_traders/val_train_pos2_test4_micro.py",
+    "test_day": 4,
+    "n_products": 34
+  }
+]

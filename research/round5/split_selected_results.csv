@@ -1,0 +1,623 @@
+name,path,n_products,oval_m,oval_t,oval_e,square_m,square_t,square_e,returncode,total_pnl,day_2,day_3,day_4,stdout_tail
+split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p5,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p5.py,38,1.25,5.5,1.0,0.75,6.0,0.5,0,604354.5,186449.5,201740.5,216164.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p5.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7177    186449.50  runs/backtest-1777386629042-round5-day+2
+D+3               3    10000        8744    201740.50  runs/backtest-1777386629042-round5-day+3
+D+4               4    10000        7844    216164.50  runs/backtest-1777386629042-round5-day+4
+TOTAL             -    30000       23765    604354.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p5,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p5.py,38,1.25,5.5,0.5,0.75,6.0,0.5,0,604275.5,186628.5,201066.5,216580.5,"    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p5.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7180    186628.50  runs/backtest-1777386613288-round5-day+2
+D+3               3    10000        8747    201066.50  runs/backtest-1777386613288-round5-day+3
+D+4               4    10000        7853    216580.50  runs/backtest-1777386613288-round5-day+4
+TOTAL             -    30000       23780    604275.50  -
+"
+split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p0.py,38,1.25,5.5,1.0,0.75,6.0,0.0,0,603565.5,185898.5,201755.5,215911.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm0p75_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7186    185898.50  runs/backtest-1777386621205-round5-day+2
+D+3               3    10000        8747    201755.50  runs/backtest-1777386621205-round5-day+3
+D+4               4    10000        7850    215911.50  runs/backtest-1777386621205-round5-day+4
+TOTAL             -    30000       23783    603565.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p0.py,38,1.25,5.5,0.5,0.75,6.0,0.0,0,603486.5,186077.5,201081.5,216327.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm0p75_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7189    186077.50  runs/backtest-1777386605380-round5-day+2
+D+3               3    10000        8750    201081.50  runs/backtest-1777386605380-round5-day+3
+D+4               4    10000        7859    216327.50  runs/backtest-1777386605380-round5-day+4
+TOTAL             -    30000       23798    603486.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p5,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p5.py,38,1.25,5.5,0.0,0.75,6.0,0.5,0,602583.5,184800.5,201216.5,216566.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p5.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7190    184800.50  runs/backtest-1777386597374-round5-day+2
+D+3               3    10000        8749    201216.50  runs/backtest-1777386597374-round5-day+3
+D+4               4    10000        7855    216566.50  runs/backtest-1777386597374-round5-day+4
+TOTAL             -    30000       23794    602583.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p0.py,38,1.25,5.5,0.0,0.75,6.0,0.0,0,601794.5,184249.5,201231.5,216313.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm0p75_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7199    184249.50  runs/backtest-1777386589535-round5-day+2
+D+3               3    10000        8752    201231.50  runs/backtest-1777386589535-round5-day+3
+D+4               4    10000        7861    216313.50  runs/backtest-1777386589535-round5-day+4
+TOTAL             -    30000       23812    601794.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p5,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p5.py,38,1.25,5.0,0.5,0.75,6.0,0.5,0,599222.5,184729.5,200254.5,214238.5,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p5.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7184    184729.50  runs/backtest-1777386581750-round5-day+2
+D+3               3    10000        8757    200254.50  runs/backtest-1777386581750-round5-day+3
+D+4               4    10000        7872    214238.50  runs/backtest-1777386581750-round5-day+4
+TOTAL             -    30000       23813    599222.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p0.py,38,1.25,5.0,0.5,0.75,6.0,0.0,0,598433.5,184178.5,200269.5,213985.5,"ng pyo3-macros v0.27.2
+   Compiling rust_backtester v0.5.0 (/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester)
+    Finished `release` profile [optimized] target(s) in 7.97s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm0p75_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7193    184178.50  runs/backtest-1777386573973-round5-day+2
+D+3               3    10000        8760    200269.50  runs/backtest-1777386573973-round5-day+3
+D+4               4    10000        7878    213985.50  runs/backtest-1777386573973-round5-day+4
+TOTAL             -    30000       23831    598433.50  -
+"
+split_om1p25_ot5p5_oe1p0_sm0p75_st6p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st6p5_se0p0.py,38,1.25,5.5,1.0,0.75,6.5,0.0,0,594591.5,186519.5,196691.5,211380.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st6p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm0p75_st6p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7182    186519.50  runs/backtest-1777386629035-round5-day+2
+D+3               3    10000        8733    196691.50  runs/backtest-1777386629035-round5-day+3
+D+4               4    10000        7843    211380.50  runs/backtest-1777386629035-round5-day+4
+TOTAL             -    30000       23758    594591.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm0p75_st6p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st6p5_se0p0.py,38,1.25,5.5,0.5,0.75,6.5,0.0,0,594512.5,186698.5,196017.5,211796.5,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st6p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm0p75_st6p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7185    186698.50  runs/backtest-1777386613277-round5-day+2
+D+3               3    10000        8736    196017.50  runs/backtest-1777386613277-round5-day+3
+D+4               4    10000        7852    211796.50  runs/backtest-1777386613277-round5-day+4
+TOTAL             -    30000       23773    594512.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p5,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p5.py,38,1.5,6.0,0.5,0.75,6.0,0.5,0,593069.5,179715.5,198751.5,214602.5,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p5.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7207    179715.50  runs/backtest-1777386660215-round5-day+2
+D+3               3    10000        8768    198751.50  runs/backtest-1777386660215-round5-day+3
+D+4               4    10000        7883    214602.50  runs/backtest-1777386660215-round5-day+4
+TOTAL             -    30000       23858    593069.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm0p75_st6p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st6p5_se0p0.py,38,1.25,5.5,0.0,0.75,6.5,0.0,0,592820.5,184870.5,196167.5,211782.5," for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st6p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm0p75_st6p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7195    184870.50  runs/backtest-1777386597504-round5-day+2
+D+3               3    10000        8738    196167.50  runs/backtest-1777386597504-round5-day+3
+D+4               4    10000        7854    211782.50  runs/backtest-1777386597504-round5-day+4
+TOTAL             -    30000       23787    592820.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p0,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p0.py,38,1.5,6.0,0.5,0.75,6.0,0.0,0,592280.5,179164.5,198766.5,214349.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm0p75_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7216    179164.50  runs/backtest-1777386652481-round5-day+2
+D+3               3    10000        8771    198766.50  runs/backtest-1777386652481-round5-day+3
+D+4               4    10000        7889    214349.50  runs/backtest-1777386652481-round5-day+4
+TOTAL             -    30000       23876    592280.50  -
+"
+split_om1p25_ot5p5_oe1p0_sm0p75_st5p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st5p0_se0p0.py,38,1.25,5.5,1.0,0.75,5.0,0.0,0,592234.5,171927.5,197922.5,222384.5,"or file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st5p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm0p75_st5p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7209    171927.50  runs/backtest-1777386621215-round5-day+2
+D+3               3    10000        8777    197922.50  runs/backtest-1777386621215-round5-day+3
+D+4               4    10000        7869    222384.50  runs/backtest-1777386621215-round5-day+4
+TOTAL             -    30000       23855    592234.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm0p75_st5p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st5p0_se0p0.py,38,1.25,5.5,0.5,0.75,5.0,0.0,0,592155.5,172106.5,197248.5,222800.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st5p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm0p75_st5p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7212    172106.50  runs/backtest-1777386605374-round5-day+2
+D+3               3    10000        8780    197248.50  runs/backtest-1777386605374-round5-day+3
+D+4               4    10000        7878    222800.50  runs/backtest-1777386605374-round5-day+4
+TOTAL             -    30000       23870    592155.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm0p75_st5p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st5p0_se0p0.py,38,1.25,5.5,0.0,0.75,5.0,0.0,0,590463.5,170278.5,197398.5,222786.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st5p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm0p75_st5p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7222    170278.50  runs/backtest-1777386589558-round5-day+2
+D+3               3    10000        8782    197398.50  runs/backtest-1777386589558-round5-day+3
+D+4               4    10000        7880    222786.50  runs/backtest-1777386589558-round5-day+4
+TOTAL             -    30000       23884    590463.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm0p75_st6p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st6p5_se0p0.py,38,1.25,5.0,0.5,0.75,6.5,0.0,0,589459.5,184799.5,195205.5,209454.5," lock on package cache
+    Blocking waiting for file lock on shared package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st6p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm0p75_st6p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7189    184799.50  runs/backtest-1777386581737-round5-day+2
+D+3               3    10000        8746    195205.50  runs/backtest-1777386581737-round5-day+3
+D+4               4    10000        7871    209454.50  runs/backtest-1777386581737-round5-day+4
+TOTAL             -    30000       23806    589459.50  -
+"
+split_om1p25_ot5p5_oe1p0_sm0p75_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st5p5_se0p0.py,38,1.25,5.5,1.0,0.75,5.5,0.0,0,588886.5,175990.5,193996.5,218899.5,"or file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p75_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm0p75_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7202    175990.50  runs/backtest-1777386621228-round5-day+2
+D+3               3    10000        8764    193996.50  runs/backtest-1777386621228-round5-day+3
+D+4               4    10000        7857    218899.50  runs/backtest-1777386621228-round5-day+4
+TOTAL             -    30000       23823    588886.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm0p75_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st5p5_se0p0.py,38,1.25,5.5,0.5,0.75,5.5,0.0,0,588807.5,176169.5,193322.5,219315.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p75_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm0p75_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7205    176169.50  runs/backtest-1777386605398-round5-day+2
+D+3               3    10000        8767    193322.50  runs/backtest-1777386605398-round5-day+3
+D+4               4    10000        7866    219315.50  runs/backtest-1777386605398-round5-day+4
+TOTAL             -    30000       23838    588807.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm0p75_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st5p5_se0p0.py,38,1.25,5.5,0.0,0.75,5.5,0.0,0,587115.5,174341.5,193472.5,219301.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p75_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm0p75_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7215    174341.50  runs/backtest-1777386589545-round5-day+2
+D+3               3    10000        8769    193472.50  runs/backtest-1777386589545-round5-day+3
+D+4               4    10000        7868    219301.50  runs/backtest-1777386589545-round5-day+4
+TOTAL             -    30000       23852    587115.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm0p75_st5p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st5p0_se0p0.py,38,1.25,5.0,0.5,0.75,5.0,0.0,0,587102.5,170207.5,196436.5,220458.5,"or file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 8.01s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st5p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm0p75_st5p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7216    170207.50  runs/backtest-1777386573946-round5-day+2
+D+3               3    10000        8790    196436.50  runs/backtest-1777386573946-round5-day+3
+D+4               4    10000        7897    220458.50  runs/backtest-1777386573946-round5-day+4
+TOTAL             -    30000       23903    587102.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm0p75_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st5p5_se0p0.py,38,1.25,5.0,0.5,0.75,5.5,0.0,0,583754.5,174270.5,192510.5,216973.5,"or file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 8.00s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p75_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm0p75_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7209    174270.50  runs/backtest-1777386573968-round5-day+2
+D+3               3    10000        8777    192510.50  runs/backtest-1777386573968-round5-day+3
+D+4               4    10000        7885    216973.50  runs/backtest-1777386573968-round5-day+4
+TOTAL             -    30000       23871    583754.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm0p75_st6p5_se0p0,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st6p5_se0p0.py,38,1.5,6.0,0.5,0.75,6.5,0.0,0,583306.5,179785.5,193702.5,209818.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st6p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm0p75_st6p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7212    179785.50  runs/backtest-1777386660226-round5-day+2
+D+3               3    10000        8757    193702.50  runs/backtest-1777386660226-round5-day+3
+D+4               4    10000        7882    209818.50  runs/backtest-1777386660226-round5-day+4
+TOTAL             -    30000       23851    583306.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p5,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p5.py,38,1.5,5.5,0.5,0.75,6.0,0.5,0,582782.5,173448.5,192624.5,216709.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p5.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7214    173448.50  runs/backtest-1777386644582-round5-day+2
+D+3               3    10000        8795    192624.50  runs/backtest-1777386644582-round5-day+3
+D+4               4    10000        7897    216709.50  runs/backtest-1777386644582-round5-day+4
+TOTAL             -    30000       23906    582782.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p0,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p0.py,38,1.5,5.5,0.5,0.75,6.0,0.0,0,581993.5,172897.5,192639.5,216456.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm0p75_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7223    172897.50  runs/backtest-1777386636784-round5-day+2
+D+3               3    10000        8798    192639.50  runs/backtest-1777386636784-round5-day+3
+D+4               4    10000        7903    216456.50  runs/backtest-1777386636784-round5-day+4
+TOTAL             -    30000       23924    581993.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm0p75_st5p0_se0p0,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st5p0_se0p0.py,38,1.5,6.0,0.5,0.75,5.0,0.0,0,580949.5,165193.5,194933.5,220822.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st5p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm0p75_st5p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7239    165193.50  runs/backtest-1777386652509-round5-day+2
+D+3               3    10000        8801    194933.50  runs/backtest-1777386652509-round5-day+3
+D+4               4    10000        7908    220822.50  runs/backtest-1777386652509-round5-day+4
+TOTAL             -    30000       23948    580949.50  -
+"
+split_om1p25_ot5p5_oe1p0_sm1p0_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm1p0_st6p0_se0p0.py,38,1.25,5.5,1.0,1.0,6.0,0.0,0,579446.5,174093.5,195159.5,210193.5,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm1p0_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm1p0_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7217    174093.50  runs/backtest-1777386629017-round5-day+2
+D+3               3    10000        8824    195159.50  runs/backtest-1777386629017-round5-day+3
+D+4               4    10000        7881    210193.50  runs/backtest-1777386629017-round5-day+4
+TOTAL             -    30000       23922    579446.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm1p0_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm1p0_st6p0_se0p0.py,38,1.25,5.5,0.5,1.0,6.0,0.0,0,579367.5,174272.5,194485.5,210609.5,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm1p0_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm1p0_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7220    174272.50  runs/backtest-1777386613295-round5-day+2
+D+3               3    10000        8827    194485.50  runs/backtest-1777386613295-round5-day+3
+D+4               4    10000        7890    210609.50  runs/backtest-1777386613295-round5-day+4
+TOTAL             -    30000       23937    579367.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm1p0_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm1p0_st6p0_se0p0.py,38,1.25,5.5,0.0,1.0,6.0,0.0,0,577675.5,172444.5,194635.5,210595.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm1p0_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm1p0_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7230    172444.50  runs/backtest-1777386597439-round5-day+2
+D+3               3    10000        8829    194635.50  runs/backtest-1777386597439-round5-day+3
+D+4               4    10000        7892    210595.50  runs/backtest-1777386597439-round5-day+4
+TOTAL             -    30000       23951    577675.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm0p75_st5p5_se0p0,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st5p5_se0p0.py,38,1.5,6.0,0.5,0.75,5.5,0.0,0,577601.5,169256.5,191007.5,217337.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p75_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm0p75_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7232    169256.50  runs/backtest-1777386652514-round5-day+2
+D+3               3    10000        8788    191007.50  runs/backtest-1777386652514-round5-day+3
+D+4               4    10000        7896    217337.50  runs/backtest-1777386652514-round5-day+4
+TOTAL             -    30000       23916    577601.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm1p0_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm1p0_st6p0_se0p0.py,38,1.25,5.0,0.5,1.0,6.0,0.0,0,574314.5,172373.5,193673.5,208267.5,"ng for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm1p0_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm1p0_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7224    172373.50  runs/backtest-1777386581756-round5-day+2
+D+3               3    10000        8837    193673.50  runs/backtest-1777386581756-round5-day+3
+D+4               4    10000        7909    208267.50  runs/backtest-1777386581756-round5-day+4
+TOTAL             -    30000       23970    574314.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm0p75_st6p5_se0p0,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st6p5_se0p0.py,38,1.5,5.5,0.5,0.75,6.5,0.0,0,573019.5,173518.5,187575.5,211925.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st6p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm0p75_st6p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7219    173518.50  runs/backtest-1777386644586-round5-day+2
+D+3               3    10000        8784    187575.50  runs/backtest-1777386644586-round5-day+3
+D+4               4    10000        7896    211925.50  runs/backtest-1777386644586-round5-day+4
+TOTAL             -    30000       23899    573019.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm0p75_st5p0_se0p0,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st5p0_se0p0.py,38,1.5,5.5,0.5,0.75,5.0,0.0,0,570662.5,158926.5,188806.5,222929.5,"    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st5p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm0p75_st5p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7246    158926.50  runs/backtest-1777386636790-round5-day+2
+D+3               3    10000        8828    188806.50  runs/backtest-1777386636790-round5-day+3
+D+4               4    10000        7922    222929.50  runs/backtest-1777386636790-round5-day+4
+TOTAL             -    30000       23996    570662.50  -
+"
+split_om1p25_ot5p5_oe1p0_sm1p0_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm1p0_st5p5_se0p0.py,38,1.25,5.5,1.0,1.0,5.5,0.0,0,569695.5,172053.5,197331.5,200310.5,"    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm1p0_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm1p0_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7228    172053.50  runs/backtest-1777386629027-round5-day+2
+D+3               3    10000        8835    197331.50  runs/backtest-1777386629027-round5-day+3
+D+4               4    10000        7885    200310.50  runs/backtest-1777386629027-round5-day+4
+TOTAL             -    30000       23948    569695.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm1p0_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm1p0_st5p5_se0p0.py,38,1.25,5.5,0.5,1.0,5.5,0.0,0,569616.5,172232.5,196657.5,200726.5,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm1p0_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm1p0_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7231    172232.50  runs/backtest-1777386613280-round5-day+2
+D+3               3    10000        8838    196657.50  runs/backtest-1777386613280-round5-day+3
+D+4               4    10000        7894    200726.50  runs/backtest-1777386613280-round5-day+4
+TOTAL             -    30000       23963    569616.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm1p0_st6p0_se0p0,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm1p0_st6p0_se0p0.py,38,1.5,6.0,0.5,1.0,6.0,0.0,0,568161.5,167359.5,192170.5,208631.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm1p0_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm1p0_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7247    167359.50  runs/backtest-1777386660207-round5-day+2
+D+3               3    10000        8848    192170.50  runs/backtest-1777386660207-round5-day+3
+D+4               4    10000        7920    208631.50  runs/backtest-1777386660207-round5-day+4
+TOTAL             -    30000       24015    568161.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm1p0_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm1p0_st5p5_se0p0.py,38,1.25,5.5,0.0,1.0,5.5,0.0,0,567924.5,170404.5,196807.5,200712.5," for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm1p0_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm1p0_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7241    170404.50  runs/backtest-1777386597563-round5-day+2
+D+3               3    10000        8840    196807.50  runs/backtest-1777386597563-round5-day+3
+D+4               4    10000        7896    200712.50  runs/backtest-1777386597563-round5-day+4
+TOTAL             -    30000       23977    567924.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm0p75_st5p5_se0p0,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st5p5_se0p0.py,38,1.5,5.5,0.5,0.75,5.5,0.0,0,567314.5,162989.5,184880.5,219444.5,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p75_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm0p75_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7239    162989.50  runs/backtest-1777386636826-round5-day+2
+D+3               3    10000        8815    184880.50  runs/backtest-1777386636826-round5-day+3
+D+4               4    10000        7910    219444.50  runs/backtest-1777386636826-round5-day+4
+TOTAL             -    30000       23964    567314.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm1p0_st5p5_se0p0,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm1p0_st5p5_se0p0.py,38,1.25,5.0,0.5,1.0,5.5,0.0,0,564563.5,170333.5,195845.5,198384.5," for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm1p0_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm1p0_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7235    170333.50  runs/backtest-1777386581756-round5-day+2
+D+3               3    10000        8848    195845.50  runs/backtest-1777386581756-round5-day+3
+D+4               4    10000        7913    198384.50  runs/backtest-1777386581756-round5-day+4
+TOTAL             -    30000       23996    564563.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm1p0_st5p5_se0p0,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm1p0_st5p5_se0p0.py,38,1.5,6.0,0.5,1.0,5.5,0.0,0,558410.5,165319.5,194342.5,198748.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm1p0_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm1p0_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7258    165319.50  runs/backtest-1777386660216-round5-day+2
+D+3               3    10000        8859    194342.50  runs/backtest-1777386660216-round5-day+3
+D+4               4    10000        7924    198748.50  runs/backtest-1777386660216-round5-day+4
+TOTAL             -    30000       24041    558410.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm1p0_st6p0_se0p0,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm1p0_st6p0_se0p0.py,38,1.5,5.5,0.5,1.0,6.0,0.0,0,557874.5,161092.5,186043.5,210738.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm1p0_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm1p0_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7254    161092.50  runs/backtest-1777386644552-round5-day+2
+D+3               3    10000        8875    186043.50  runs/backtest-1777386644552-round5-day+3
+D+4               4    10000        7934    210738.50  runs/backtest-1777386644552-round5-day+4
+TOTAL             -    30000       24063    557874.50  -
+"
+split_om1p25_ot5p5_oe1p0_sm0p5_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p5_st6p0_se0p0.py,38,1.25,5.5,1.0,0.5,6.0,0.0,0,556915.5,167072.5,181412.5,208430.5,"ng for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe1p0_sm0p5_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe1p0_sm0p5_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7158    167072.50  runs/backtest-1777386621199-round5-day+2
+D+3               3    10000        8723    181412.50  runs/backtest-1777386621199-round5-day+3
+D+4               4    10000        7829    208430.50  runs/backtest-1777386621199-round5-day+4
+TOTAL             -    30000       23710    556915.50  -
+"
+split_om1p25_ot5p5_oe0p5_sm0p5_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p5_st6p0_se0p0.py,38,1.25,5.5,0.5,0.5,6.0,0.0,0,556836.5,167251.5,180738.5,208846.5,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p5_sm0p5_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p5_sm0p5_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7161    167251.50  runs/backtest-1777386605402-round5-day+2
+D+3               3    10000        8726    180738.50  runs/backtest-1777386605402-round5-day+3
+D+4               4    10000        7838    208846.50  runs/backtest-1777386605402-round5-day+4
+TOTAL             -    30000       23725    556836.50  -
+"
+split_om1p25_ot5p5_oe0p0_sm0p5_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p5_st6p0_se0p0.py,38,1.25,5.5,0.0,0.5,6.0,0.0,0,555144.5,165423.5,180888.5,208832.5,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p5_oe0p0_sm0p5_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p5_oe0p0_sm0p5_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7171    165423.50  runs/backtest-1777386589532-round5-day+2
+D+3               3    10000        8728    180888.50  runs/backtest-1777386589532-round5-day+3
+D+4               4    10000        7840    208832.50  runs/backtest-1777386589532-round5-day+4
+TOTAL             -    30000       23739    555144.50  -
+"
+split_om1p25_ot5p0_oe0p5_sm0p5_st6p0_se0p0,research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p5_st6p0_se0p0.py,38,1.25,5.0,0.5,0.5,6.0,0.0,0,551783.5,165352.5,179926.5,206504.5," for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 7.98s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p25_ot5p0_oe0p5_sm0p5_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p25_ot5p0_oe0p5_sm0p5_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7165    165352.50  runs/backtest-1777386573952-round5-day+2
+D+3               3    10000        8736    179926.50  runs/backtest-1777386573952-round5-day+3
+D+4               4    10000        7857    206504.50  runs/backtest-1777386573952-round5-day+4
+TOTAL             -    30000       23758    551783.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm1p0_st5p5_se0p0,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm1p0_st5p5_se0p0.py,38,1.5,5.5,0.5,1.0,5.5,0.0,0,548123.5,159052.5,188215.5,200855.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm1p0_st5p5_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm1p0_st5p5_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7265    159052.50  runs/backtest-1777386644575-round5-day+2
+D+3               3    10000        8886    188215.50  runs/backtest-1777386644575-round5-day+3
+D+4               4    10000        7938    200855.50  runs/backtest-1777386644575-round5-day+4
+TOTAL             -    30000       24089    548123.50  -
+"
+split_om1p5_ot6p0_oe0p5_sm0p5_st6p0_se0p0,research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p5_st6p0_se0p0.py,38,1.5,6.0,0.5,0.5,6.0,0.0,0,545630.5,160338.5,178423.5,206868.5,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot6p0_oe0p5_sm0p5_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot6p0_oe0p5_sm0p5_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7188    160338.50  runs/backtest-1777386652490-round5-day+2
+D+3               3    10000        8747    178423.50  runs/backtest-1777386652490-round5-day+3
+D+4               4    10000        7868    206868.50  runs/backtest-1777386652490-round5-day+4
+TOTAL             -    30000       23803    545630.50  -
+"
+split_om1p5_ot5p5_oe0p5_sm0p5_st6p0_se0p0,research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p5_st6p0_se0p0.py,38,1.5,5.5,0.5,0.5,6.0,0.0,0,535343.5,154071.5,172296.5,208975.5,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/generated_traders/split_om1p5_ot5p5_oe0p5_sm0p5_st6p0_se0p0.py --dataset round5 --products off --artifact-mode none`
+trader: split_om1p5_ot5p5_oe0p5_sm0p5_st6p0_se0p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000        7195    154071.50  runs/backtest-1777386636814-round5-day+2
+D+3               3    10000        8774    172296.50  runs/backtest-1777386636814-round5-day+3
+D+4               4    10000        7882    208975.50  runs/backtest-1777386636814-round5-day+4
+TOTAL             -    30000       23851    535343.50  -
+"

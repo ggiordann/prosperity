@@ -1,0 +1,587 @@
+[
+  {
+    "name": "chat_named_pairs_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p05_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p05_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p05_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p05_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p1_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p1_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p1_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p1_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p2_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p2_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p2_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p2_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p5_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p5_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c0p5_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c0p5_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c1p0_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c1p0_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c1p0_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c1p0_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_named_pairs_c1p0_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_named_pairs_c1p0_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p05_t0p75",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p05_t0p75.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p05_t1p25",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p05_t1p25.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p1_t0p75",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p1_t0p75.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p1_t1p25",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p1_t1p25.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p2_t0p75",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p2_t0p75.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p2_t1p25",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p2_t1p25.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p5_t0p75",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p5_t0p75.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_hedged12_c0p5_t1p25",
+    "path": "research/round5/generated_traders_chat/chat_hedged12_c0p5_t1p25.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p05_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p05_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p05_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p05_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p1_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p1_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p1_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p1_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p2_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p2_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p2_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p2_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p5_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p5_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c0p5_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c0p5_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c1p0_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c1p0_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c1p0_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c1p0_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_micro_c1p0_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_micro_c1p0_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p05_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p05_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p05_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p05_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p1_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p1_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p1_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p1_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p2_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p2_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p2_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p2_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p5_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p5_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c0p5_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c0p5_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c1p0_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c1p0_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c1p0_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c1p0_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_snack_c1p0_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_snack_c1p0_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p05_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p05_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p05_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p05_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p1_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p1_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p1_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p1_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p2_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p2_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p2_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p2_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p5_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p5_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c0p5_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c0p5_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c1p0_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c1p0_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c1p0_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c1p0_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_panel_c1p0_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_panel_c1p0_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p05_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p05_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p05_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p05_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p1_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p1_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p1_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p1_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p2_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p2_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p2_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p2_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p5_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p5_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c0p5_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c0p5_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c1p0_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c1p0_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c1p0_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c1p0_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_pebbles_c1p0_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_pebbles_c1p0_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p05_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p05_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p05_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p05_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p1_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p1_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p1_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p1_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p2_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p2_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p2_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p2_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p5_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p5_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c0p5_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c0p5_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c1p0_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c1p0_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c1p0_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c1p0_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_chat4_c1p0_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_chat4_c1p0_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p05_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p05_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p05_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p05_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p05_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p05_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p1_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p1_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p1_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p1_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p1_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p1_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p2_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p2_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p2_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p2_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p2_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p2_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p5_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p5_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p5_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p5_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c0p5_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c0p5_t1p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c1p0_t0p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c1p0_t0p0.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c1p0_t0p5",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c1p0_t0p5.py",
+    "n_products": 50
+  },
+  {
+    "name": "chat_catz_all_c1p0_t1p0",
+    "path": "research/round5/generated_traders_chat/chat_catz_all_c1p0_t1p0.py",
+    "n_products": 50
+  }
+]

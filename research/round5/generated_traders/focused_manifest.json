@@ -1,0 +1,2354 @@
+[
+  {
+    "name": "focus_totalpos_m0p5_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t3p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t3p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p5_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t3p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t3p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t3p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p5_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t3p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t4p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t4p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p5_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t4p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t4p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t4p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p5_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t4p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t5p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t5p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p5_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t5p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t5p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t5p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p5_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t5p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t6p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p5_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t6p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p5_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p5_t6p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t3p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t3p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p75_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t3p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t3p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t3p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p75_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t3p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t4p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t4p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p75_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t4p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t4p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t4p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p75_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t4p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t5p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t5p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p75_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t5p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t5p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t5p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p75_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t5p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t6p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m0p75_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t6p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m0p75_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m0p75_t6p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t3p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t3p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p0_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t3p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t3p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t3p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p0_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t3p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t4p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t4p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p0_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t4p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t4p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t4p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p0_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t4p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t5p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t5p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p0_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t5p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t5p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t5p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p0_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t5p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t6p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p0_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t6p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p0_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p0_t6p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t3p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t3p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p25_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t3p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t3p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t3p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p25_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t3p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t4p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t4p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p25_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t4p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t4p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t4p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p25_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t4p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t5p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t5p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p25_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t5p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t5p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t5p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p25_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t5p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t6p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p25_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t6p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p25_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p25_t6p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t3p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t3p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p5_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t3p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t3p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t3p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p5_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t3p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t4p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t4p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p5_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t4p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t4p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t4p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p5_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t4p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t5p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t5p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p5_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t5p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t5p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t5p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p5_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t5p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t6p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p5_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t6p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p5_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p5_t6p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t3p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t3p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p75_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t3p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t3p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t3p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p75_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t3p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t4p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t4p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p75_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t4p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t4p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t4p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p75_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t4p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t5p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t5p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p75_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t5p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t5p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t5p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p75_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t5p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t6p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m1p75_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t6p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m1p75_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m1p75_t6p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t3p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t3p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m2p0_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t3p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t3p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t3p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m2p0_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t3p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t4p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t4p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m2p0_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t4p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t4p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t4p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m2p0_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t4p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t5p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t5p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m2p0_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t5p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t5p5_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t5p5_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m2p0_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t5p5_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t6p0_e0p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_totalpos_m2p0_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t6p0_e0p5.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_totalpos_m2p0_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_totalpos_m2p0_t6p0_e1p0.py",
+    "n_products": 38,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p5_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t3p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p5_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t3p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p5_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t3p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p5_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t3p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p5_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t3p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p5_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t3p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p5_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t4p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p5_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t4p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p5_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t4p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p5_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t4p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p5_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t4p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p5_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t4p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p5_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t5p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p5_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t5p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p5_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t5p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p5_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t5p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p5_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t5p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p5_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t5p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p5_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t6p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p5_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t6p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p5_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p5_t6p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p75_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t3p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p75_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t3p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p75_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t3p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p75_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t3p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p75_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t3p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p75_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t3p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p75_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t4p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p75_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t4p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p75_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t4p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p75_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t4p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p75_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t4p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p75_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t4p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p75_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t5p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p75_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t5p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p75_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t5p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p75_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t5p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p75_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t5p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p75_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t5p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m0p75_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t6p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m0p75_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t6p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m0p75_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m0p75_t6p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 0.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p0_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t3p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p0_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t3p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p0_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t3p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p0_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t3p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p0_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t3p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p0_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t3p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p0_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t4p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p0_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t4p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p0_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t4p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p0_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t4p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p0_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t4p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p0_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t4p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p0_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t5p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p0_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t5p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p0_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t5p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p0_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t5p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p0_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t5p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p0_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t5p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p0_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t6p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p0_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t6p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p0_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p0_t6p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p25_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t3p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p25_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t3p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p25_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t3p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p25_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t3p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p25_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t3p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p25_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t3p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p25_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t4p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p25_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t4p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p25_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t4p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p25_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t4p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p25_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t4p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p25_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t4p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p25_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t5p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p25_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t5p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p25_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t5p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p25_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t5p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p25_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t5p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p25_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t5p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p25_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t6p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p25_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t6p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p25_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p25_t6p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.25,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p5_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t3p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p5_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t3p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p5_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t3p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p5_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t3p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p5_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t3p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p5_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t3p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p5_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t4p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p5_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t4p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p5_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t4p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p5_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t4p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p5_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t4p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p5_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t4p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p5_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t5p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p5_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t5p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p5_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t5p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p5_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t5p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p5_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t5p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p5_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t5p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p5_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t6p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p5_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t6p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p5_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p5_t6p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.5,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p75_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t3p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p75_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t3p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p75_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t3p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p75_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t3p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p75_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t3p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p75_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t3p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p75_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t4p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p75_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t4p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p75_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t4p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p75_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t4p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p75_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t4p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p75_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t4p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p75_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t5p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p75_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t5p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p75_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t5p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p75_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t5p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p75_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t5p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p75_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t5p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m1p75_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t6p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m1p75_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t6p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m1p75_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m1p75_t6p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 1.75,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m2p0_t3p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t3p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m2p0_t3p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t3p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m2p0_t3p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t3p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m2p0_t3p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t3p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m2p0_t3p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t3p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m2p0_t3p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t3p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 3.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m2p0_t4p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t4p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m2p0_t4p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t4p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m2p0_t4p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t4p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m2p0_t4p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t4p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m2p0_t4p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t4p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m2p0_t4p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t4p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 4.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m2p0_t5p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t5p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m2p0_t5p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t5p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m2p0_t5p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t5p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.0,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m2p0_t5p5_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t5p5_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m2p0_t5p5_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t5p5_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m2p0_t5p5_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t5p5_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 5.5,
+    "min_edge": 1.0
+  },
+  {
+    "name": "focus_robust_m2p0_t6p0_e0p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t6p0_e0p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.0
+  },
+  {
+    "name": "focus_robust_m2p0_t6p0_e0p5",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t6p0_e0p5.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 0.5
+  },
+  {
+    "name": "focus_robust_m2p0_t6p0_e1p0",
+    "path": "research/round5/generated_traders/focus_robust_m2p0_t6p0_e1p0.py",
+    "n_products": 41,
+    "micro_bias_mult": 2.0,
+    "micro_take_edge": 6.0,
+    "min_edge": 1.0
+  }
+]
