@@ -1,0 +1,251 @@
+name,path,returncode,total_pnl,own_trades,stdout_tail,day_2,trades_day_2,day_3,trades_day_3,day_4,trades_day_4
+hybrid_add_winds75_to_flames,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_add_winds75_to_flames.py,0,282157.5,506,"trader: hybrid_add_winds75_to_flames.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         131     86599.50  runs/backtest-1777466074059-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466074059-round5-day+3
+D+4               4    10000         188    106388.00  runs/backtest-1777466074059-round5-day+4
+TOTAL             -    30000         506    282157.50  -
+",86599.5,131,89170.0,187,106388.0,188
+hybrid_add_rings_to_flames,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_add_rings_to_flames.py,0,281544.5,504,"trader: hybrid_add_rings_to_flames.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         133     90212.50  runs/backtest-1777466072477-round5-day+2
+D+3               3    10000         185     88338.00  runs/backtest-1777466072477-round5-day+3
+D+4               4    10000         186    102994.00  runs/backtest-1777466072477-round5-day+4
+TOTAL             -    30000         504    281544.50  -
+",90212.5,133,88338.0,185,102994.0,186
+hybrid_orderbook_neg50,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_orderbook_neg50.py,0,281111.5,509,"trader: hybrid_orderbook_neg50.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         133     87570.50  runs/backtest-1777466113216-round5-day+2
+D+3               3    10000         186     87926.00  runs/backtest-1777466113216-round5-day+3
+D+4               4    10000         190    105615.00  runs/backtest-1777466113216-round5-day+4
+TOTAL             -    30000         509    281111.50  -
+",87570.5,133,87926.0,186,105615.0,190
+hybrid_orderbook_neg20,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_orderbook_neg20.py,0,280664.5,505,"trader: hybrid_orderbook_neg20.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     87181.50  runs/backtest-1777466074782-round5-day+2
+D+3               3    10000         184     88269.00  runs/backtest-1777466074782-round5-day+3
+D+4               4    10000         189    105214.00  runs/backtest-1777466074782-round5-day+4
+TOTAL             -    30000         505    280664.50  -
+",87181.5,132,88269.0,184,105214.0,189
+hybrid_current,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_current.py,0,280131.5,507,"trader: hybrid_current.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     87181.50  runs/backtest-1777465976485-round5-day+2
+D+3               3    10000         186     88102.00  runs/backtest-1777465976485-round5-day+3
+D+4               4    10000         189    104848.00  runs/backtest-1777465976485-round5-day+4
+TOTAL             -    30000         507    280131.50  -
+",87181.5,132,88102.0,186,104848.0,189
+hybrid_flames_k_m0p75,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m0p75.py,0,275813.5,490,"trader: hybrid_flames_k_m0p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         125     91111.50  runs/backtest-1777466025843-round5-day+2
+D+3               3    10000         181     81758.00  runs/backtest-1777466025843-round5-day+3
+D+4               4    10000         184    102944.00  runs/backtest-1777466025843-round5-day+4
+TOTAL             -    30000         490    275813.50  -
+",91111.5,125,81758.0,181,102944.0,184
+hybrid_flames_k_m1p5,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m1p5.py,0,273150.5,518,"trader: hybrid_flames_k_m1p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         141     84656.50  runs/backtest-1777466027917-round5-day+2
+D+3               3    10000         188     87856.00  runs/backtest-1777466027917-round5-day+3
+D+4               4    10000         189    100638.00  runs/backtest-1777466027917-round5-day+4
+TOTAL             -    30000         518    273150.50  -
+",84656.5,141,87856.0,188,100638.0,189
+hybrid_flames_k_m1p75,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m1p75.py,0,272322.5,517,"trader: hybrid_flames_k_m1p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         137     79952.50  runs/backtest-1777466071870-round5-day+2
+D+3               3    10000         189     91016.00  runs/backtest-1777466071870-round5-day+3
+D+4               4    10000         191    101354.00  runs/backtest-1777466071870-round5-day+4
+TOTAL             -    30000         517    272322.50  -
+",79952.5,137,91016.0,189,101354.0,191
+hybrid_no_flames_signal,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_no_flames_signal.py,0,272233.5,493,"trader: hybrid_no_flames_signal.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         124     89054.50  runs/backtest-1777465978274-round5-day+2
+D+3               3    10000         184     82203.00  runs/backtest-1777465978274-round5-day+3
+D+4               4    10000         185    100976.00  runs/backtest-1777465978274-round5-day+4
+TOTAL             -    30000         493    272233.50  -
+",89054.5,124,82203.0,184,100976.0,185
+hybrid_flames_k_m1p0,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m1p0.py,0,271523.5,504,"trader: hybrid_flames_k_m1p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         133     88519.50  runs/backtest-1777466027383-round5-day+2
+D+3               3    10000         185     85035.00  runs/backtest-1777466027383-round5-day+3
+D+4               4    10000         186     97969.00  runs/backtest-1777466027383-round5-day+4
+TOTAL             -    30000         504    271523.50  -
+",88519.5,133,85035.0,185,97969.0,186
+hybrid_flames_only,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_only.py,0,270990.5,466,"trader: hybrid_flames_only.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          88     89434.00  runs/backtest-1777466025625-round5-day+2
+D+3               3    10000         137     86306.00  runs/backtest-1777466025625-round5-day+3
+D+4               4    10000         241     95250.50  runs/backtest-1777466025625-round5-day+4
+TOTAL             -    30000         466    270990.50  -
+",89434.0,88,86306.0,137,95250.5,241
+static_shift_nosig,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/static_shift_nosig.py,0,263092.5,452,"trader: static_shift_nosig.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          80     91307.00  runs/backtest-1777465837240-round5-day+2
+D+3               3    10000         135     80407.00  runs/backtest-1777465837240-round5-day+3
+D+4               4    10000         237     91378.50  runs/backtest-1777465837240-round5-day+4
+TOTAL             -    30000         452    263092.50  -
+",91307.0,80,80407.0,135,91378.5,237
+pair_dark_rings_blend0p25,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/pair_dark_rings_blend0p25.py,0,238639.5,455,"trader: pair_dark_rings_blend0p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          87    102733.00  runs/backtest-1777465922644-round5-day+2
+D+3               3    10000         130     71110.00  runs/backtest-1777465922644-round5-day+3
+D+4               4    10000         238     64796.50  runs/backtest-1777465922644-round5-day+4
+TOTAL             -    30000         455    238639.50  -
+",102733.0,87,71110.0,130,64796.5,238
+basket_blend0p25,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/basket_blend0p25.py,0,235028.0,167,"trader: basket_blend0p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          54     96399.00  runs/backtest-1777465924271-round5-day+2
+D+3               3    10000          70     78387.00  runs/backtest-1777465924271-round5-day+3
+D+4               4    10000          43     60242.00  runs/backtest-1777465924271-round5-day+4
+TOTAL             -    30000         167    235028.00  -
+",96399.0,54,78387.0,70,60242.0,43
+meanrev_tighter_no_sig,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/meanrev_tighter_no_sig.py,0,214067.5,448,"trader: meanrev_tighter_no_sig.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          83     81737.00  runs/backtest-1777465878921-round5-day+2
+D+3               3    10000         132     59965.00  runs/backtest-1777465878921-round5-day+3
+D+4               4    10000         233     72365.50  runs/backtest-1777465878921-round5-day+4
+TOTAL             -    30000         448    214067.50  -
+",81737.0,83,59965.0,132,72365.5,233
+meanrev_looser_no_sig,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/meanrev_looser_no_sig.py,0,205837.5,454,"trader: meanrev_looser_no_sig.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          80     62080.00  runs/backtest-1777465879119-round5-day+2
+D+3               3    10000         133     65797.00  runs/backtest-1777465879119-round5-day+3
+D+4               4    10000         241     77960.50  runs/backtest-1777465879119-round5-day+4
+TOTAL             -    30000         454    205837.50  -
+",62080.0,80,65797.0,133,77960.5,241
+pair_dark_rings_blend1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/pair_dark_rings_blend1.py,0,200131.5,468,"trader: pair_dark_rings_blend1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          73     84929.00  runs/backtest-1777465922145-round5-day+2
+D+3               3    10000         139     64343.00  runs/backtest-1777465922145-round5-day+3
+D+4               4    10000         256     50859.50  runs/backtest-1777465922145-round5-day+4
+TOTAL             -    30000         468    200131.50  -
+",84929.0,73,64343.0,139,50859.5,256
+static_no_shift_nosig,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/static_no_shift_nosig.py,0,190761.0,218,"trader: static_no_shift_nosig.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          89     90718.00  runs/backtest-1777465837231-round5-day+2
+D+3               3    10000          93     39194.00  runs/backtest-1777465837231-round5-day+3
+D+4               4    10000          36     60849.00  runs/backtest-1777465837231-round5-day+4
+TOTAL             -    30000         218    190761.00  -
+",90718.0,89,39194.0,93,60849.0,36
+basket_blend1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/basket_blend1.py,0,160544.0,138,"trader: basket_blend1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000          35     85681.00  runs/backtest-1777465924472-round5-day+2
+D+3               3    10000          70     71887.00  runs/backtest-1777465924472-round5-day+3
+D+4               4    10000          33      2976.00  runs/backtest-1777465924472-round5-day+4
+TOTAL             -    30000         138    160544.00  -
+",85681.0,35,71887.0,70,2976.0,33
+hybrid_passive_only,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_passive_only.py,0,89519.5,508,"trader: hybrid_passive_only.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         122     24884.50  runs/backtest-1777465978057-round5-day+2
+D+3               3    10000         191     28672.00  runs/backtest-1777465978057-round5-day+3
+D+4               4    10000         195     35963.00  runs/backtest-1777465978057-round5-day+4
+TOTAL             -    30000         508     89519.50  -
+",24884.5,122,28672.0,191,35963.0,195
+leadlag_mid_only,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/leadlag_mid_only.py,0,61768.5,1217,"trader: leadlag_mid_only.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         355    -12618.50  runs/backtest-1777465976128-round5-day+2
+D+3               3    10000         443     31077.00  runs/backtest-1777465976128-round5-day+3
+D+4               4    10000         419     43310.00  runs/backtest-1777465976128-round5-day+4
+TOTAL             -    30000        1217     61768.50  -
+",-12618.5,355,31077.0,443,43310.0,419
+momentum_self50_p0p2,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/momentum_self50_p0p2.py,0,55756.0,1957,"trader: momentum_self50_p0p2.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         601     18760.50  runs/backtest-1777465879807-round5-day+2
+D+3               3    10000         717      4694.50  runs/backtest-1777465879807-round5-day+3
+D+4               4    10000         639     32301.00  runs/backtest-1777465879807-round5-day+4
+TOTAL             -    30000        1957     55756.00  -
+",18760.5,601,4694.5,717,32301.0,639
+mm_mid_edge0,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/mm_mid_edge0.py,0,41145.5,3215,"trader: mm_mid_edge0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         965       601.00  runs/backtest-1777465837229-round5-day+2
+D+3               3    10000        1195     19791.50  runs/backtest-1777465837229-round5-day+3
+D+4               4    10000        1055     20753.00  runs/backtest-1777465837229-round5-day+4
+TOTAL             -    30000        3215     41145.50  -
+",601.0,965,19791.5,1195,20753.0,1055
+reversal_self50_m0p2,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/reversal_self50_m0p2.py,0,40378.5,1849,"trader: reversal_self50_m0p2.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         544      1254.00  runs/backtest-1777465879972-round5-day+2
+D+3               3    10000         665     24021.50  runs/backtest-1777465879972-round5-day+3
+D+4               4    10000         640     15103.00  runs/backtest-1777465879972-round5-day+4
+TOTAL             -    30000        1849     40378.50  -
+",1254.0,544,24021.5,665,15103.0,640
+mm_mid_edge2,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/mm_mid_edge2.py,0,40097.5,3211,"trader: mm_mid_edge2.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         963       571.00  runs/backtest-1777465837208-round5-day+2
+D+3               3    10000        1193     18773.50  runs/backtest-1777465837208-round5-day+3
+D+4               4    10000        1055     20753.00  runs/backtest-1777465837208-round5-day+4
+TOTAL             -    30000        3211     40097.50  -
+",571.0,963,18773.5,1193,20753.0,1055

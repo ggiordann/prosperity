@@ -1,0 +1,241 @@
+{
+  "budget": 1000000,
+  "notes": [
+    "Returns are raw one-day product returns, e.g. 0.20 means +20%.",
+    "PnL per product = budget * allocation * signed_return - budget * allocation^2.",
+    "These ranges are subjective scenario inputs, not official IMC return ranges."
+  ],
+  "products": {
+    "Obsidian cutlery": {
+      "low": 0.05,
+      "mode": 0.24,
+      "high": 0.45
+    },
+    "Pyroflex cells": {
+      "low": -0.22,
+      "mode": -0.09,
+      "high": 0.02
+    },
+    "Thermalite core": {
+      "low": 0.08,
+      "mode": 0.23,
+      "high": 0.42
+    },
+    "Lava cake": {
+      "low": -0.85,
+      "mode": -0.62,
+      "high": -0.30
+    },
+    "Magma ink": {
+      "low": -0.06,
+      "mode": 0.06,
+      "high": 0.20
+    },
+    "Scoria paste": {
+      "low": -0.08,
+      "mode": 0.05,
+      "high": 0.20
+    },
+    "Ashes of the Phoenix": {
+      "low": -0.30,
+      "mode": -0.12,
+      "high": 0.04
+    },
+    "Volcanic incense": {
+      "low": -0.20,
+      "mode": 0.02,
+      "high": 0.25
+    },
+    "Sulfur reactor": {
+      "low": -0.02,
+      "mode": 0.09,
+      "high": 0.22
+    }
+  },
+  "scenarios": {
+    "volcanic_trap": {
+      "weight": 0.35,
+      "overrides": {
+        "Volcanic incense": {
+          "low": -0.25,
+          "mode": -0.05,
+          "high": 0.18
+        }
+      }
+    },
+    "volcanic_neutral": {
+      "weight": 0.35,
+      "overrides": {
+        "Volcanic incense": {
+          "low": -0.20,
+          "mode": 0.02,
+          "high": 0.25
+        }
+      }
+    },
+    "volcanic_momentum": {
+      "weight": 0.30,
+      "overrides": {
+        "Volcanic incense": {
+          "low": -0.05,
+          "mode": 0.12,
+          "high": 0.30
+        }
+      }
+    }
+  },
+  "portfolios": {
+    "user_87pct_vol_buy": {
+      "Obsidian cutlery": {
+        "side": "buy",
+        "pct": 12
+      },
+      "Pyroflex cells": {
+        "side": "sell",
+        "pct": 5
+      },
+      "Thermalite core": {
+        "side": "buy",
+        "pct": 13
+      },
+      "Lava cake": {
+        "side": "sell",
+        "pct": 32
+      },
+      "Magma ink": {
+        "side": "buy",
+        "pct": 3
+      },
+      "Scoria paste": {
+        "side": "buy",
+        "pct": 4
+      },
+      "Ashes of the Phoenix": {
+        "side": "sell",
+        "pct": 7
+      },
+      "Volcanic incense": {
+        "side": "buy",
+        "pct": 6
+      },
+      "Sulfur reactor": {
+        "side": "buy",
+        "pct": 5
+      }
+    },
+    "codex_84pct_vol_short": {
+      "Obsidian cutlery": {
+        "side": "buy",
+        "pct": 12
+      },
+      "Pyroflex cells": {
+        "side": "sell",
+        "pct": 6
+      },
+      "Thermalite core": {
+        "side": "buy",
+        "pct": 13
+      },
+      "Lava cake": {
+        "side": "sell",
+        "pct": 32
+      },
+      "Magma ink": {
+        "side": "buy",
+        "pct": 3
+      },
+      "Scoria paste": {
+        "side": "buy",
+        "pct": 3
+      },
+      "Ashes of the Phoenix": {
+        "side": "sell",
+        "pct": 7
+      },
+      "Volcanic incense": {
+        "side": "sell",
+        "pct": 3
+      },
+      "Sulfur reactor": {
+        "side": "buy",
+        "pct": 5
+      }
+    },
+    "volcanic_flat_81pct": {
+      "Obsidian cutlery": {
+        "side": "buy",
+        "pct": 12
+      },
+      "Pyroflex cells": {
+        "side": "sell",
+        "pct": 5
+      },
+      "Thermalite core": {
+        "side": "buy",
+        "pct": 13
+      },
+      "Lava cake": {
+        "side": "sell",
+        "pct": 32
+      },
+      "Magma ink": {
+        "side": "buy",
+        "pct": 3
+      },
+      "Scoria paste": {
+        "side": "buy",
+        "pct": 4
+      },
+      "Ashes of the Phoenix": {
+        "side": "sell",
+        "pct": 7
+      },
+      "Volcanic incense": {
+        "side": "flat",
+        "pct": 0
+      },
+      "Sulfur reactor": {
+        "side": "buy",
+        "pct": 5
+      }
+    },
+    "ev_opt_prior": {
+      "Obsidian cutlery": {
+        "side": "buy",
+        "pct": 12
+      },
+      "Pyroflex cells": {
+        "side": "sell",
+        "pct": 5
+      },
+      "Thermalite core": {
+        "side": "buy",
+        "pct": 12
+      },
+      "Lava cake": {
+        "side": "sell",
+        "pct": 30
+      },
+      "Magma ink": {
+        "side": "buy",
+        "pct": 3
+      },
+      "Scoria paste": {
+        "side": "buy",
+        "pct": 3
+      },
+      "Ashes of the Phoenix": {
+        "side": "sell",
+        "pct": 6
+      },
+      "Volcanic incense": {
+        "side": "buy",
+        "pct": 2
+      },
+      "Sulfur reactor": {
+        "side": "buy",
+        "pct": 5
+      }
+    }
+  }
+}

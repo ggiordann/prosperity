@@ -1,0 +1,4 @@
+holdout_day,selected_candidates,train_score_sum,holdout_pnl,holdout_positive_candidates,holdout_negative_candidates
+2,15,23105.8625,-15120.5,6,9
+3,20,55923.98249999999,-16306.0,7,13
+4,19,46267.45,-53549.0,7,12

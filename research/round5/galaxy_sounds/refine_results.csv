@@ -1,0 +1,231 @@
+name,path,returncode,total_pnl,own_trades,stdout_tail,day_2,trades_day_2,day_3,trades_day_3,day_4,trades_day_4
+refine_winds_lag78_k0p15,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag78_k0p15.py,0,283385.5,509,"trader: refine_winds_lag78_k0p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     87214.50  runs/backtest-1777466398346-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466398346-round5-day+3
+D+4               4    10000         190    107001.00  runs/backtest-1777466398346-round5-day+4
+TOTAL             -    30000         509    283385.50  -
+",87214.5,132,89170.0,187,107001.0,190
+refine_winds_lag80_k0p15,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag80_k0p15.py,0,283179.5,507,"trader: refine_winds_lag80_k0p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     87381.50  runs/backtest-1777466441516-round5-day+2
+D+3               3    10000         186     88726.00  runs/backtest-1777466441516-round5-day+3
+D+4               4    10000         189    107072.00  runs/backtest-1777466441516-round5-day+4
+TOTAL             -    30000         507    283179.50  -
+",87381.5,132,88726.0,186,107072.0,189
+refine_winds_lag72_k0p15,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag72_k0p15.py,0,283088.5,508,"trader: refine_winds_lag72_k0p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         133     87518.50  runs/backtest-1777466231944-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466231944-round5-day+3
+D+4               4    10000         188    106400.00  runs/backtest-1777466231944-round5-day+4
+TOTAL             -    30000         508    283088.50  -
+",87518.5,133,89170.0,187,106400.0,188
+refine_winds_lag75_k0p15,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag75_k0p15.py,0,282784.5,507,"trader: refine_winds_lag75_k0p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     87214.50  runs/backtest-1777466291210-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466291210-round5-day+3
+D+4               4    10000         188    106400.00  runs/backtest-1777466291210-round5-day+4
+TOTAL             -    30000         507    282784.50  -
+",87214.5,132,89170.0,187,106400.0,188
+refine_winds_lag74_k0p15,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag74_k0p15.py,0,282784.5,507,"trader: refine_winds_lag74_k0p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     87214.50  runs/backtest-1777466289398-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466289398-round5-day+3
+D+4               4    10000         188    106400.00  runs/backtest-1777466289398-round5-day+4
+TOTAL             -    30000         507    282784.50  -
+",87214.5,132,89170.0,187,106400.0,188
+refine_winds75_obneg20,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds75_obneg20.py,0,282690.5,504,"trader: refine_winds75_obneg20.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         131     86599.50  runs/backtest-1777466442901-round5-day+2
+D+3               3    10000         185     89337.00  runs/backtest-1777466442901-round5-day+3
+D+4               4    10000         188    106754.00  runs/backtest-1777466442901-round5-day+4
+TOTAL             -    30000         504    282690.50  -
+",86599.5,131,89337.0,185,106754.0,188
+refine_winds75_rings500,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds75_rings500.py,0,282651.5,506,"trader: refine_winds75_rings500.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         131     89136.50  runs/backtest-1777466441749-round5-day+2
+D+3               3    10000         186     88373.00  runs/backtest-1777466441749-round5-day+3
+D+4               4    10000         189    105142.00  runs/backtest-1777466441749-round5-day+4
+TOTAL             -    30000         506    282651.50  -
+",89136.5,131,88373.0,186,105142.0,189
+refine_winds_lag70_k0p15,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag70_k0p15.py,0,282533.5,508,"trader: refine_winds_lag70_k0p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         133     87518.50  runs/backtest-1777466184733-round5-day+2
+D+3               3    10000         186     88886.00  runs/backtest-1777466184733-round5-day+3
+D+4               4    10000         189    106129.00  runs/backtest-1777466184733-round5-day+4
+TOTAL             -    30000         508    282533.50  -
+",87518.5,133,88886.0,186,106129.0,189
+refine_winds_lag76_k0p15,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag76_k0p15.py,0,282513.5,508,"trader: refine_winds_lag76_k0p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     87214.50  runs/backtest-1777466348596-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466348596-round5-day+3
+D+4               4    10000         189    106129.00  runs/backtest-1777466348596-round5-day+4
+TOTAL             -    30000         508    282513.50  -
+",87214.5,132,89170.0,187,106129.0,189
+refine_winds_lag74_k0p1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag74_k0p1.py,0,282473.5,507,"trader: refine_winds_lag74_k0p1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466232845-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466232845-round5-day+3
+D+4               4    10000         188    106400.00  runs/backtest-1777466232845-round5-day+4
+TOTAL             -    30000         507    282473.50  -
+",86903.5,132,89170.0,187,106400.0,188
+refine_winds_lag72_k0p1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag72_k0p1.py,0,282290.5,507,"trader: refine_winds_lag72_k0p1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86732.50  runs/backtest-1777466231541-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466231541-round5-day+3
+D+4               4    10000         188    106388.00  runs/backtest-1777466231541-round5-day+4
+TOTAL             -    30000         507    282290.50  -
+",86732.5,132,89170.0,187,106388.0,188
+refine_winds_lag75_k0p1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag75_k0p1.py,0,282157.5,506,"trader: refine_winds_lag75_k0p1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         131     86599.50  runs/backtest-1777466290633-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466290633-round5-day+3
+D+4               4    10000         188    106388.00  runs/backtest-1777466290633-round5-day+4
+TOTAL             -    30000         506    282157.50  -
+",86599.5,131,89170.0,187,106388.0,188
+refine_winds_lag76_k0p1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag76_k0p1.py,0,282097.5,506,"trader: refine_winds_lag76_k0p1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         131     86599.50  runs/backtest-1777466347741-round5-day+2
+D+3               3    10000         187     89310.00  runs/backtest-1777466347741-round5-day+3
+D+4               4    10000         188    106188.00  runs/backtest-1777466347741-round5-day+4
+TOTAL             -    30000         506    282097.50  -
+",86599.5,131,89310.0,187,106188.0,188
+refine_winds_lag78_k0p1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag78_k0p1.py,0,281469.5,508,"trader: refine_winds_lag78_k0p1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466398293-round5-day+2
+D+3               3    10000         187     89310.00  runs/backtest-1777466398293-round5-day+3
+D+4               4    10000         189    105256.00  runs/backtest-1777466398293-round5-day+4
+TOTAL             -    30000         508    281469.50  -
+",86903.5,132,89310.0,187,105256.0,189
+refine_winds_lag70_k0p1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag70_k0p1.py,0,280970.5,508,"trader: refine_winds_lag70_k0p1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86732.50  runs/backtest-1777466184884-round5-day+2
+D+3               3    10000         187     89170.00  runs/backtest-1777466184884-round5-day+3
+D+4               4    10000         189    105068.00  runs/backtest-1777466184884-round5-day+4
+TOTAL             -    30000         508    280970.50  -
+",86732.5,132,89170.0,187,105068.0,189
+refine_winds_lag80_k0p1,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag80_k0p1.py,0,280853.5,505,"trader: refine_winds_lag80_k0p1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         131     86599.50  runs/backtest-1777466400084-round5-day+2
+D+3               3    10000         186     88726.00  runs/backtest-1777466400084-round5-day+3
+D+4               4    10000         188    105528.00  runs/backtest-1777466400084-round5-day+4
+TOTAL             -    30000         505    280853.50  -
+",86599.5,131,88726.0,186,105528.0,188
+refine_winds_lag80_k0p05,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag80_k0p05.py,0,280052.5,508,"trader: refine_winds_lag80_k0p05.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466399611-round5-day+2
+D+3               3    10000         187     87893.00  runs/backtest-1777466399611-round5-day+3
+D+4               4    10000         189    105256.00  runs/backtest-1777466399611-round5-day+4
+TOTAL             -    30000         508    280052.50  -
+",86903.5,132,87893.0,187,105256.0,189
+refine_winds_lag72_k0p05,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag72_k0p05.py,0,280052.5,508,"trader: refine_winds_lag72_k0p05.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466184943-round5-day+2
+D+3               3    10000         187     87893.00  runs/backtest-1777466184943-round5-day+3
+D+4               4    10000         189    105256.00  runs/backtest-1777466184943-round5-day+4
+TOTAL             -    30000         508    280052.50  -
+",86903.5,132,87893.0,187,105256.0,189
+refine_winds_lag74_k0p05,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag74_k0p05.py,0,280052.5,508,"trader: refine_winds_lag74_k0p05.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466232211-round5-day+2
+D+3               3    10000         187     87893.00  runs/backtest-1777466232211-round5-day+3
+D+4               4    10000         189    105256.00  runs/backtest-1777466232211-round5-day+4
+TOTAL             -    30000         508    280052.50  -
+",86903.5,132,87893.0,187,105256.0,189
+refine_winds_lag78_k0p05,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag78_k0p05.py,0,280052.5,508,"trader: refine_winds_lag78_k0p05.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466349342-round5-day+2
+D+3               3    10000         187     87893.00  runs/backtest-1777466349342-round5-day+3
+D+4               4    10000         189    105256.00  runs/backtest-1777466349342-round5-day+4
+TOTAL             -    30000         508    280052.50  -
+",86903.5,132,87893.0,187,105256.0,189
+refine_winds_lag76_k0p05,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag76_k0p05.py,0,279852.5,508,"trader: refine_winds_lag76_k0p05.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466347200-round5-day+2
+D+3               3    10000         187     87893.00  runs/backtest-1777466347200-round5-day+3
+D+4               4    10000         189    105056.00  runs/backtest-1777466347200-round5-day+4
+TOTAL             -    30000         508    279852.50  -
+",86903.5,132,87893.0,187,105056.0,189
+refine_winds_lag75_k0p05,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag75_k0p05.py,0,279852.5,508,"trader: refine_winds_lag75_k0p05.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466289540-round5-day+2
+D+3               3    10000         187     87893.00  runs/backtest-1777466289540-round5-day+3
+D+4               4    10000         189    105056.00  runs/backtest-1777466289540-round5-day+4
+TOTAL             -    30000         508    279852.50  -
+",86903.5,132,87893.0,187,105056.0,189
+refine_winds_lag70_k0p05,/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/refine_winds_lag70_k0p05.py,0,279852.5,508,"trader: refine_winds_lag70_k0p05.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         132     86903.50  runs/backtest-1777466184906-round5-day+2
+D+3               3    10000         187     87893.00  runs/backtest-1777466184906-round5-day+3
+D+4               4    10000         189    105056.00  runs/backtest-1777466184906-round5-day+4
+TOTAL             -    30000         508    279852.50  -
+",86903.5,132,87893.0,187,105056.0,189

@@ -1,0 +1,12 @@
+metric,value
+filtered_total,1357756.0
+filtered_day_2,405867.0
+filtered_day_3,514722.0
+filtered_day_4,437167.0
+filtered_trades,1805
+filtered_day_stability_min_over_max,0.7885169081562474
+filtered_day_cv,0.10110285587574777
+unfiltered_total,2557286.5
+unfiltered_trades,3893
+unfiltered_day_stability_min_over_max,0.663724778181671
+unfiltered_day_cv,0.17877043396200903

@@ -1,0 +1,783 @@
+name,path,returncode,total_pnl,stdout_tail,day_2,day_3,day_4,own_trades
+pscale_pebbles_m_1p25,research/round5/pebbles/generated_traders/pscale_pebbles_m_1p25.py,0,428724.0,"    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_m_1p25.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_m_1p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         185    148194.00  runs/backtest-1777466576681-round5-day+2
+D+3               3    10000         211    185892.00  runs/backtest-1777466576681-round5-day+3
+D+4               4    10000         148     94638.00  runs/backtest-1777466576681-round5-day+4
+TOTAL             -    30000         544    428724.00  -
+",148194.0,185892.0,94638.0,544.0
+shift_pebbles_m_m25,research/round5/pebbles/generated_traders/shift_pebbles_m_m25.py,0,427650.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_m_m25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_m_m25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         186    154788.00  runs/backtest-1777466632877-round5-day+2
+D+3               3    10000         180    179876.00  runs/backtest-1777466632877-round5-day+3
+D+4               4    10000         133     92986.00  runs/backtest-1777466632877-round5-day+4
+TOTAL             -    30000         499    427650.00  -
+",154788.0,179876.0,92986.0,499.0
+shift_pebbles_xl_p25,research/round5/pebbles/generated_traders/shift_pebbles_xl_p25.py,0,427488.0,"    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xl_p25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xl_p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    150150.00  runs/backtest-1777466725007-round5-day+2
+D+3               3    10000         196    184952.00  runs/backtest-1777466725007-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466725007-round5-day+4
+TOTAL             -    30000         502    427488.00  -
+",150150.0,184952.0,92386.0,502.0
+shift_pebbles_m_p25,research/round5/pebbles/generated_traders/shift_pebbles_m_p25.py,0,425976.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_m_p25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_m_p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         168    147058.00  runs/backtest-1777466657851-round5-day+2
+D+3               3    10000         197    186627.00  runs/backtest-1777466657851-round5-day+3
+D+4               4    10000         137     92291.00  runs/backtest-1777466657851-round5-day+4
+TOTAL             -    30000         502    425976.00  -
+",147058.0,186627.0,92291.0,502.0
+pscale_pebbles_m_0p75,research/round5/pebbles/generated_traders/pscale_pebbles_m_0p75.py,0,425276.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_m_0p75.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_m_0p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         167    150838.00  runs/backtest-1777466576547-round5-day+2
+D+3               3    10000         180    180655.00  runs/backtest-1777466576547-round5-day+3
+D+4               4    10000         125     93783.00  runs/backtest-1777466576547-round5-day+4
+TOTAL             -    30000         472    425276.00  -
+",150838.0,180655.0,93783.0,472.0
+pscale_pebbles_s_0p75,research/round5/pebbles/generated_traders/pscale_pebbles_s_0p75.py,0,425244.0,"    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_s_0p75.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_s_0p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         176    149720.00  runs/backtest-1777466547645-round5-day+2
+D+3               3    10000         197    183138.00  runs/backtest-1777466547645-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466547645-round5-day+4
+TOTAL             -    30000         510    425244.00  -
+",149720.0,183138.0,92386.0,510.0
+edge_l2,research/round5/pebbles/generated_traders/edge_l2.py,0,424643.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_l2.py --dataset round5 --products off --artifact-mode none`
+trader: edge_l2.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         168    149238.00  runs/backtest-1777466771172-round5-day+2
+D+3               3    10000         194    183019.00  runs/backtest-1777466771172-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466771172-round5-day+4
+TOTAL             -    30000         499    424643.00  -
+",149238.0,183019.0,92386.0,499.0
+edge_m30,research/round5/pebbles/generated_traders/edge_m30.py,0,424637.0,"    Finished `release` profile [optimized] target(s) in 0.02s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_m30.py --dataset round5 --products off --artifact-mode none`
+trader: edge_m30.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466749860-round5-day+2
+D+3               3    10000         192    183533.00  runs/backtest-1777466749860-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466749860-round5-day+4
+TOTAL             -    30000         498    424637.00  -
+",148718.0,183533.0,92386.0,498.0
+edge_xl2,research/round5/pebbles/generated_traders/edge_xl2.py,0,424587.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_xl2.py --dataset round5 --products off --artifact-mode none`
+trader: edge_xl2.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466771147-round5-day+2
+D+3               3    10000         196    183483.00  runs/backtest-1777466771147-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466771147-round5-day+4
+TOTAL             -    30000         502    424587.00  -
+",148718.0,183483.0,92386.0,502.0
+lead_s1p0,research/round5/pebbles/generated_traders/lead_s1p0.py,0,424587.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p0.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466267111-round5-day+2
+D+3               3    10000         196    183483.00  runs/backtest-1777466267111-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466267111-round5-day+4
+TOTAL             -    30000         502    424587.00  -
+",148718.0,183483.0,92386.0,502.0
+edge_xs4,research/round5/pebbles/generated_traders/edge_xs4.py,0,424587.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_xs4.py --dataset round5 --products off --artifact-mode none`
+trader: edge_xs4.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466725947-round5-day+2
+D+3               3    10000         196    183483.00  runs/backtest-1777466725947-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466725947-round5-day+4
+TOTAL             -    30000         502    424587.00  -
+",148718.0,183483.0,92386.0,502.0
+edge_xs0,research/round5/pebbles/generated_traders/edge_xs0.py,0,424587.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_xs0.py --dataset round5 --products off --artifact-mode none`
+trader: edge_xs0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466725349-round5-day+2
+D+3               3    10000         196    183483.00  runs/backtest-1777466725349-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466725349-round5-day+4
+TOTAL             -    30000         502    424587.00  -
+",148718.0,183483.0,92386.0,502.0
+edge_m10,research/round5/pebbles/generated_traders/edge_m10.py,0,424444.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_m10.py --dataset round5 --products off --artifact-mode none`
+trader: edge_m10.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         170    148656.00  runs/backtest-1777466749394-round5-day+2
+D+3               3    10000         197    183402.00  runs/backtest-1777466749394-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466749394-round5-day+4
+TOTAL             -    30000         504    424444.00  -
+",148656.0,183402.0,92386.0,504.0
+lead_s1p0_edge125,research/round5/pebbles/generated_traders/lead_s1p0_edge125.py,0,424072.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p0_edge125.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p0_edge125.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         167    147461.00  runs/backtest-1777466323900-round5-day+2
+D+3               3    10000         193    183737.00  runs/backtest-1777466323900-round5-day+3
+D+4               4    10000         135     92874.00  runs/backtest-1777466323900-round5-day+4
+TOTAL             -    30000         495    424072.00  -
+",147461.0,183737.0,92874.0,495.0
+drop_pebbles_m_1,research/round5/pebbles/generated_traders/drop_pebbles_m_1.py,0,423758.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_m_1.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_m_1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         149    147041.00  runs/backtest-1777466461693-round5-day+2
+D+3               3    10000         171    191671.00  runs/backtest-1777466461693-round5-day+3
+D+4               4    10000         104     85046.00  runs/backtest-1777466461693-round5-day+4
+TOTAL             -    30000         424    423758.00  -
+",147041.0,191671.0,85046.0,424.0
+pscale_pebbles_s_1p25,research/round5/pebbles/generated_traders/pscale_pebbles_s_1p25.py,0,423584.0,"    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_s_1p25.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_s_1p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         167    147461.00  runs/backtest-1777466547663-round5-day+2
+D+3               3    10000         193    183737.00  runs/backtest-1777466547663-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466547663-round5-day+4
+TOTAL             -    30000         497    423584.00  -
+",147461.0,183737.0,92386.0,497.0
+shift_pebbles_xl_p75,research/round5/pebbles/generated_traders/shift_pebbles_xl_p75.py,0,423488.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xl_p75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xl_p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         168    149536.00  runs/backtest-1777466725026-round5-day+2
+D+3               3    10000         196    180102.00  runs/backtest-1777466725026-round5-day+3
+D+4               4    10000         137     93850.00  runs/backtest-1777466725026-round5-day+4
+TOTAL             -    30000         501    423488.00  -
+",149536.0,180102.0,93850.0,501.0
+shift_pebbles_m_p75,research/round5/pebbles/generated_traders/shift_pebbles_m_p75.py,0,423425.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_m_p75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_m_p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         167    148904.00  runs/backtest-1777466658786-round5-day+2
+D+3               3    10000         208    186470.00  runs/backtest-1777466658786-round5-day+3
+D+4               4    10000         135     88051.00  runs/backtest-1777466658786-round5-day+4
+TOTAL             -    30000         510    423425.00  -
+",148904.0,186470.0,88051.0,510.0
+lead_s1p0_edge075,research/round5/pebbles/generated_traders/lead_s1p0_edge075.py,0,423301.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p0_edge075.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p0_edge075.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         175    148294.00  runs/backtest-1777466323938-round5-day+2
+D+3               3    10000         198    183057.00  runs/backtest-1777466323938-round5-day+3
+D+4               4    10000         138     91950.00  runs/backtest-1777466323938-round5-day+4
+TOTAL             -    30000         511    423301.00  -
+",148294.0,183057.0,91950.0,511.0
+drop_pebbles_xs_1,research/round5/pebbles/generated_traders/drop_pebbles_xs_1.py,0,423169.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_xs_1.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_xs_1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466422156-round5-day+2
+D+3               3    10000         196    193988.00  runs/backtest-1777466422156-round5-day+3
+D+4               4    10000         133     80463.00  runs/backtest-1777466422156-round5-day+4
+TOTAL             -    30000         498    423169.00  -
+",148718.0,193988.0,80463.0,498.0
+pscale_pebbles_xl_0p75,research/round5/pebbles/generated_traders/pscale_pebbles_xl_0p75.py,0,423124.0,"    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_xl_0p75.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_xl_0p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    147966.00  runs/backtest-1777466603439-round5-day+2
+D+3               3    10000         196    182772.00  runs/backtest-1777466603439-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466603439-round5-day+4
+TOTAL             -    30000         502    423124.00  -
+",147966.0,182772.0,92386.0,502.0
+drop_pebbles_m_0,research/round5/pebbles/generated_traders/drop_pebbles_m_0.py,0,422722.0,"    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_m_0.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_m_0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         166    146464.00  runs/backtest-1777466461713-round5-day+2
+D+3               3    10000         191    183913.00  runs/backtest-1777466461713-round5-day+3
+D+4               4    10000         133     92345.00  runs/backtest-1777466461713-round5-day+4
+TOTAL             -    30000         490    422722.00  -
+",146464.0,183913.0,92345.0,490.0
+shift_pebbles_xl_m25,research/round5/pebbles/generated_traders/shift_pebbles_xl_m25.py,0,422412.0,"    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 12.60s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xl_m25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xl_m25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    147790.00  runs/backtest-1777466698117-round5-day+2
+D+3               3    10000         196    183152.00  runs/backtest-1777466698117-round5-day+3
+D+4               4    10000         137     91470.00  runs/backtest-1777466698117-round5-day+4
+TOTAL             -    30000         502    422412.00  -
+",147790.0,183152.0,91470.0,502.0
+shift_pebbles_xs_p25,research/round5/pebbles/generated_traders/shift_pebbles_xs_p25.py,0,422099.0,"    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xs_p25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xs_p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466631282-round5-day+2
+D+3               3    10000         197    185702.00  runs/backtest-1777466631282-round5-day+3
+D+4               4    10000         137     87679.00  runs/backtest-1777466631282-round5-day+4
+TOTAL             -    30000         503    422099.00  -
+",148718.0,185702.0,87679.0,503.0
+shift_pebbles_m_m75,research/round5/pebbles/generated_traders/shift_pebbles_m_m75.py,0,421137.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_m_m75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_m_m75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         193    157290.00  runs/backtest-1777466632503-round5-day+2
+D+3               3    10000         178    174894.00  runs/backtest-1777466632503-round5-day+3
+D+4               4    10000         123     88953.00  runs/backtest-1777466632503-round5-day+4
+TOTAL             -    30000         494    421137.00  -
+",157290.0,174894.0,88953.0,494.0
+drop_pebbles_xl_1,research/round5/pebbles/generated_traders/drop_pebbles_xl_1.py,0,420982.0,"    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 18.88s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_xl_1.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_xl_1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         168    146427.00  runs/backtest-1777466518200-round5-day+2
+D+3               3    10000         196    183085.00  runs/backtest-1777466518200-round5-day+3
+D+4               4    10000         137     91470.00  runs/backtest-1777466518200-round5-day+4
+TOTAL             -    30000         501    420982.00  -
+",146427.0,183085.0,91470.0,501.0
+shift_pebbles_xs_p75,research/round5/pebbles/generated_traders/shift_pebbles_xs_p75.py,0,420394.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xs_p75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xs_p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466632277-round5-day+2
+D+3               3    10000         196    184995.00  runs/backtest-1777466632277-round5-day+3
+D+4               4    10000         135     86681.00  runs/backtest-1777466632277-round5-day+4
+TOTAL             -    30000         500    420394.00  -
+",148718.0,184995.0,86681.0,500.0
+edge_s5,research/round5/pebbles/generated_traders/edge_s5.py,0,420290.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_s5.py --dataset round5 --products off --artifact-mode none`
+trader: edge_s5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         163    146466.00  runs/backtest-1777466749023-round5-day+2
+D+3               3    10000         193    183737.00  runs/backtest-1777466749023-round5-day+3
+D+4               4    10000         132     90087.00  runs/backtest-1777466749023-round5-day+4
+TOTAL             -    30000         488    420290.00  -
+",146466.0,183737.0,90087.0,488.0
+pscale_pebbles_xl_1p25,research/round5/pebbles/generated_traders/pscale_pebbles_xl_1p25.py,0,418043.0,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_xl_1p25.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_xl_1p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         170    143659.00  runs/backtest-1777466604207-round5-day+2
+D+3               3    10000         196    181998.00  runs/backtest-1777466604207-round5-day+3
+D+4               4    10000         137     92386.00  runs/backtest-1777466604207-round5-day+4
+TOTAL             -    30000         503    418043.00  -
+",143659.0,181998.0,92386.0,503.0
+lead_plus_mlag,research/round5/pebbles/generated_traders/lead_plus_mlag.py,0,416877.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_plus_mlag.py --dataset round5 --products off --artifact-mode none`
+trader: lead_plus_mlag.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         195    145210.00  runs/backtest-1777466421994-round5-day+2
+D+3               3    10000         232    189652.00  runs/backtest-1777466421994-round5-day+3
+D+4               4    10000         150     82015.00  runs/backtest-1777466421994-round5-day+4
+TOTAL             -    30000         577    416877.00  -
+",145210.0,189652.0,82015.0,577.0
+pscale_pebbles_xs_0p75,research/round5/pebbles/generated_traders/pscale_pebbles_xs_0p75.py,0,416790.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_xs_0p75.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_xs_0p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466547469-round5-day+2
+D+3               3    10000         196    188142.00  runs/backtest-1777466547469-round5-day+3
+D+4               4    10000         133     79930.00  runs/backtest-1777466547469-round5-day+4
+TOTAL             -    30000         498    416790.00  -
+",148718.0,188142.0,79930.0,498.0
+edge_s1,research/round5/pebbles/generated_traders/edge_s1.py,0,416613.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/edge_s1.py --dataset round5 --products off --artifact-mode none`
+trader: edge_s1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         180    144420.00  runs/backtest-1777466749031-round5-day+2
+D+3               3    10000         203    182114.00  runs/backtest-1777466749031-round5-day+3
+D+4               4    10000         143     90079.00  runs/backtest-1777466749031-round5-day+4
+TOTAL             -    30000         526    416613.00  -
+",144420.0,182114.0,90079.0,526.0
+pscale_pebbles_l_1p25,research/round5/pebbles/generated_traders/pscale_pebbles_l_1p25.py,0,415702.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_l_1p25.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_l_1p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         165    145064.00  runs/backtest-1777466577199-round5-day+2
+D+3               3    10000         198    179368.00  runs/backtest-1777466577199-round5-day+3
+D+4               4    10000         136     91270.00  runs/backtest-1777466577199-round5-day+4
+TOTAL             -    30000         499    415702.00  -
+",145064.0,179368.0,91270.0,499.0
+drop_pebbles_s_1,research/round5/pebbles/generated_traders/drop_pebbles_s_1.py,0,415640.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_s_1.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_s_1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         174    150205.00  runs/backtest-1777466461522-round5-day+2
+D+3               3    10000         204    181519.00  runs/backtest-1777466461522-round5-day+3
+D+4               4    10000         133     83916.00  runs/backtest-1777466461522-round5-day+4
+TOTAL             -    30000         511    415640.00  -
+",150205.0,181519.0,83916.0,511.0
+shift_pebbles_l_m25,research/round5/pebbles/generated_traders/shift_pebbles_l_m25.py,0,415152.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_l_m25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_l_m25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         167    143947.00  runs/backtest-1777466659768-round5-day+2
+D+3               3    10000         197    179946.00  runs/backtest-1777466659768-round5-day+3
+D+4               4    10000         135     91259.00  runs/backtest-1777466659768-round5-day+4
+TOTAL             -    30000         499    415152.00  -
+",143947.0,179946.0,91259.0,499.0
+shift_pebbles_l_p25,research/round5/pebbles/generated_traders/shift_pebbles_l_p25.py,0,414737.0,".2
+   Compiling pyo3 v0.27.2
+   Compiling pyo3-macros v0.27.2
+   Compiling rust_backtester v0.5.0 (/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester)
+    Finished `release` profile [optimized] target(s) in 14.77s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_l_p25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_l_p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         170    149405.00  runs/backtest-1777466698311-round5-day+2
+D+3               3    10000         191    177344.00  runs/backtest-1777466698311-round5-day+3
+D+4               4    10000         136     87988.00  runs/backtest-1777466698311-round5-day+4
+TOTAL             -    30000         497    414737.00  -
+",149405.0,177344.0,87988.0,497.0
+drop_pebbles_xs_0,research/round5/pebbles/generated_traders/drop_pebbles_xs_0.py,0,414498.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_xs_0.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_xs_0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466422246-round5-day+2
+D+3               3    10000         196    187307.00  runs/backtest-1777466422246-round5-day+3
+D+4               4    10000         133     78473.00  runs/backtest-1777466422246-round5-day+4
+TOTAL             -    30000         498    414498.00  -
+",148718.0,187307.0,78473.0,498.0
+pscale_pebbles_l_0p75,research/round5/pebbles/generated_traders/pscale_pebbles_l_0p75.py,0,412664.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_l_0p75.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_l_0p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         168    148337.00  runs/backtest-1777466577305-round5-day+2
+D+3               3    10000         187    177735.00  runs/backtest-1777466577305-round5-day+3
+D+4               4    10000         134     86592.00  runs/backtest-1777466577305-round5-day+4
+TOTAL             -    30000         489    412664.00  -
+",148337.0,177735.0,86592.0,489.0
+drop_pebbles_l_1,research/round5/pebbles/generated_traders/drop_pebbles_l_1.py,0,411362.0,"    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 18.95s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_l_1.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_l_1.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    149127.00  runs/backtest-1777466518210-round5-day+2
+D+3               3    10000         191    174461.00  runs/backtest-1777466518210-round5-day+3
+D+4               4    10000         135     87774.00  runs/backtest-1777466518210-round5-day+4
+TOTAL             -    30000         495    411362.00  -
+",149127.0,174461.0,87774.0,495.0
+pscale_pebbles_xs_1p25,research/round5/pebbles/generated_traders/pscale_pebbles_xs_1p25.py,0,410689.0,"    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/pscale_pebbles_xs_1p25.py --dataset round5 --products off --artifact-mode none`
+trader: pscale_pebbles_xs_1p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466547416-round5-day+2
+D+3               3    10000         197    176562.00  runs/backtest-1777466547416-round5-day+3
+D+4               4    10000         135     85409.00  runs/backtest-1777466547416-round5-day+4
+TOTAL             -    30000         501    410689.00  -
+",148718.0,176562.0,85409.0,501.0
+lead_s1p15,research/round5/pebbles/generated_traders/lead_s1p15.py,0,409867.0,"    Finished `release` profile [optimized] target(s) in 0.04s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p15.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p15.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         183    146431.00  runs/backtest-1777466267292-round5-day+2
+D+3               3    10000         204    177279.00  runs/backtest-1777466267292-round5-day+3
+D+4               4    10000         140     86157.00  runs/backtest-1777466267292-round5-day+4
+TOTAL             -    30000         527    409867.00  -
+",146431.0,177279.0,86157.0,527.0
+shift_pebbles_xs_m25,research/round5/pebbles/generated_traders/shift_pebbles_xs_m25.py,0,408899.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xs_m25.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xs_m25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466604394-round5-day+2
+D+3               3    10000         196    180579.00  runs/backtest-1777466604394-round5-day+3
+D+4               4    10000         133     79602.00  runs/backtest-1777466604394-round5-day+4
+TOTAL             -    30000         498    408899.00  -
+",148718.0,180579.0,79602.0,498.0
+shift_pebbles_xs_m75,research/round5/pebbles/generated_traders/shift_pebbles_xs_m75.py,0,406663.0,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xs_m75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xs_m75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    148718.00  runs/backtest-1777466604551-round5-day+2
+D+3               3    10000         196    178980.00  runs/backtest-1777466604551-round5-day+3
+D+4               4    10000         133     78965.00  runs/backtest-1777466604551-round5-day+4
+TOTAL             -    30000         498    406663.00  -
+",148718.0,178980.0,78965.0,498.0
+drop_pebbles_xl_0,research/round5/pebbles/generated_traders/drop_pebbles_xl_0.py,0,405149.0,"    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 18.89s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_xl_0.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_xl_0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         169    146548.00  runs/backtest-1777466518188-round5-day+2
+D+3               3    10000         194    167081.00  runs/backtest-1777466518188-round5-day+3
+D+4               4    10000         137     91520.00  runs/backtest-1777466518188-round5-day+4
+TOTAL             -    30000         500    405149.00  -
+",146548.0,167081.0,91520.0,500.0
+lead_s0p75,research/round5/pebbles/generated_traders/lead_s0p75.py,0,404750.0,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.07s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s0p75.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s0p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         173    150707.00  runs/backtest-1777466212018-round5-day+2
+D+3               3    10000         172    178510.00  runs/backtest-1777466212018-round5-day+3
+D+4               4    10000         118     75533.00  runs/backtest-1777466212018-round5-day+4
+TOTAL             -    30000         463    404750.00  -
+",150707.0,178510.0,75533.0,463.0
+lead_s1p25,research/round5/pebbles/generated_traders/lead_s1p25.py,0,398394.0,"ting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.08s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p25.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p25.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         180    138224.00  runs/backtest-1777466267479-round5-day+2
+D+3               3    10000         211    173625.00  runs/backtest-1777466267479-round5-day+3
+D+4               4    10000         145     86545.00  runs/backtest-1777466267479-round5-day+4
+TOTAL             -    30000         536    398394.00  -
+",138224.0,173625.0,86545.0,536.0
+drop_pebbles_l_0,research/round5/pebbles/generated_traders/drop_pebbles_l_0.py,0,392352.0," v0.27.2
+   Compiling pyo3 v0.27.2
+   Compiling pyo3-macros v0.27.2
+   Compiling rust_backtester v0.5.0 (/Users/giordanmasen/Desktop/projects/prosperity/prosperity_rust_backtester)
+    Finished `release` profile [optimized] target(s) in 19.30s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_l_0.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_l_0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         158    139461.00  runs/backtest-1777466518077-round5-day+2
+D+3               3    10000         185    170331.00  runs/backtest-1777466518077-round5-day+3
+D+4               4    10000         132     82560.00  runs/backtest-1777466518077-round5-day+4
+TOTAL             -    30000         475    392352.00  -
+",139461.0,170331.0,82560.0,475.0
+shift_pebbles_l_p75,research/round5/pebbles/generated_traders/shift_pebbles_l_p75.py,0,390155.0,"    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 13.86s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_l_p75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_l_p75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         155    133001.00  runs/backtest-1777466698462-round5-day+2
+D+3               3    10000         185    171834.00  runs/backtest-1777466698462-round5-day+3
+D+4               4    10000         133     85320.00  runs/backtest-1777466698462-round5-day+4
+TOTAL             -    30000         473    390155.00  -
+",133001.0,171834.0,85320.0,473.0
+shift_pebbles_xl_m75,research/round5/pebbles/generated_traders/shift_pebbles_xl_m75.py,0,388409.0,"    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 13.76s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_xl_m75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_xl_m75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         168    144063.00  runs/backtest-1777466698137-round5-day+2
+D+3               3    10000         193    154926.00  runs/backtest-1777466698137-round5-day+3
+D+4               4    10000         137     89420.00  runs/backtest-1777466698137-round5-day+4
+TOTAL             -    30000         498    388409.00  -
+",144063.0,154926.0,89420.0,498.0
+lead_s1p0_take12,research/round5/pebbles/generated_traders/lead_s1p0_take12.py,0,384018.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p0_take12.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p0_take12.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         159    136008.00  runs/backtest-1777466324491-round5-day+2
+D+3               3    10000         177    165897.00  runs/backtest-1777466324491-round5-day+3
+D+4               4    10000         126     82113.00  runs/backtest-1777466324491-round5-day+4
+TOTAL             -    30000         462    384018.00  -
+",136008.0,165897.0,82113.0,462.0
+lead_s1p5,research/round5/pebbles/generated_traders/lead_s1p5.py,0,382051.0,"    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.05s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p5.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         189    126125.00  runs/backtest-1777466267556-round5-day+2
+D+3               3    10000         234    176932.00  runs/backtest-1777466267556-round5-day+3
+D+4               4    10000         145     78994.00  runs/backtest-1777466267556-round5-day+4
+TOTAL             -    30000         568    382051.00  -
+",126125.0,176932.0,78994.0,568.0
+shift_pebbles_l_m75,research/round5/pebbles/generated_traders/shift_pebbles_l_m75.py,0,380693.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/shift_pebbles_l_m75.py --dataset round5 --products off --artifact-mode none`
+trader: shift_pebbles_l_m75.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         154    128689.00  runs/backtest-1777466658793-round5-day+2
+D+3               3    10000         177    162459.00  runs/backtest-1777466658793-round5-day+3
+D+4               4    10000         130     89545.00  runs/backtest-1777466658793-round5-day+4
+TOTAL             -    30000         461    380693.00  -
+",128689.0,162459.0,89545.0,461.0
+drop_pebbles_s_0,research/round5/pebbles/generated_traders/drop_pebbles_s_0.py,0,378895.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/drop_pebbles_s_0.py --dataset round5 --products off --artifact-mode none`
+trader: drop_pebbles_s_0.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         212    145649.00  runs/backtest-1777466461201-round5-day+2
+D+3               3    10000         284    164435.00  runs/backtest-1777466461201-round5-day+3
+D+4               4    10000         175     68811.00  runs/backtest-1777466461201-round5-day+4
+TOTAL             -    30000         671    378895.00  -
+",145649.0,164435.0,68811.0,671.0
+lead_s0p5,research/round5/pebbles/generated_traders/lead_s0p5.py,0,376389.0,"aiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.09s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s0p5.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s0p5.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         162    139281.00  runs/backtest-1777466211929-round5-day+2
+D+3               3    10000         174    173147.00  runs/backtest-1777466211929-round5-day+3
+D+4               4    10000         101     63961.00  runs/backtest-1777466211929-round5-day+4
+TOTAL             -    30000         437    376389.00  -
+",139281.0,173147.0,63961.0,437.0
+lead_s1p0_take08,research/round5/pebbles/generated_traders/lead_s1p0_take08.py,0,366728.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_s1p0_take08.py --dataset round5 --products off --artifact-mode none`
+trader: lead_s1p0_take08.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         187    138375.00  runs/backtest-1777466324595-round5-day+2
+D+3               3    10000         213    148225.00  runs/backtest-1777466324595-round5-day+3
+D+4               4    10000         137     80128.00  runs/backtest-1777466324595-round5-day+4
+TOTAL             -    30000         537    366728.00  -
+",138375.0,148225.0,80128.0,537.0
+static_no_lead,research/round5/pebbles/generated_traders/static_no_lead.py,0,352928.0," file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Finished `release` profile [optimized] target(s) in 0.12s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/static_no_lead.py --dataset round5 --products off --artifact-mode none`
+trader: static_no_lead.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         234    142328.00  runs/backtest-1777466212010-round5-day+2
+D+3               3    10000         299    155555.00  runs/backtest-1777466212010-round5-day+3
+D+4               4    10000         208     55045.00  runs/backtest-1777466212010-round5-day+4
+TOTAL             -    30000         741    352928.00  -
+",142328.0,155555.0,55045.0,741.0
+curve_sum,research/round5/pebbles/generated_traders/curve_sum.py,0,344974.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/curve_sum.py --dataset round5 --products off --artifact-mode none`
+trader: curve_sum.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         236    141886.00  runs/backtest-1777466378441-round5-day+2
+D+3               3    10000         304    155468.00  runs/backtest-1777466378441-round5-day+3
+D+4               4    10000         188     47620.00  runs/backtest-1777466378441-round5-day+4
+TOTAL             -    30000         728    344974.00  -
+",141886.0,155468.0,47620.0,728.0
+butterfly_m025,research/round5/pebbles/generated_traders/butterfly_m025.py,0,334013.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/butterfly_m025.py --dataset round5 --products off --artifact-mode none`
+trader: butterfly_m025.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         254    153517.00  runs/backtest-1777466378492-round5-day+2
+D+3               3    10000         288    136648.00  runs/backtest-1777466378492-round5-day+3
+D+4               4    10000         199     43848.00  runs/backtest-1777466378492-round5-day+4
+TOTAL             -    30000         741    334013.00  -
+",153517.0,136648.0,43848.0,741.0
+lead_plus_line025,research/round5/pebbles/generated_traders/lead_plus_line025.py,0,319849.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/lead_plus_line025.py --dataset round5 --products off --artifact-mode none`
+trader: lead_plus_line025.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         143    138158.00  runs/backtest-1777466421938-round5-day+2
+D+3               3    10000          80    116400.00  runs/backtest-1777466421938-round5-day+3
+D+4               4    10000         114     65291.00  runs/backtest-1777466421938-round5-day+4
+TOTAL             -    30000         337    319849.00  -
+",138158.0,116400.0,65291.0,337.0
+curve_line025,research/round5/pebbles/generated_traders/curve_line025.py,0,303496.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/curve_line025.py --dataset round5 --products off --artifact-mode none`
+trader: curve_line025.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         103    137823.00  runs/backtest-1777466378509-round5-day+2
+D+3               3    10000          79    120678.00  runs/backtest-1777466378509-round5-day+3
+D+4               4    10000          70     44995.00  runs/backtest-1777466378509-round5-day+4
+TOTAL             -    30000         252    303496.00  -
+",137823.0,120678.0,44995.0,252.0
+curve_line050,research/round5/pebbles/generated_traders/curve_line050.py,0,260847.0,"    Finished `release` profile [optimized] target(s) in 0.03s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/curve_line050.py --dataset round5 --products off --artifact-mode none`
+trader: curve_line050.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         112    119092.00  runs/backtest-1777466378404-round5-day+2
+D+3               3    10000          64    106790.00  runs/backtest-1777466378404-round5-day+3
+D+4               4    10000          66     34965.00  runs/backtest-1777466378404-round5-day+4
+TOTAL             -    30000         242    260847.00  -
+",119092.0,106790.0,34965.0,242.0
+mm_mid_e2,research/round5/pebbles/generated_traders/mm_mid_e2.py,0,50654.0,"    Blocking waiting for file lock on package cache
+    Finished `release` profile [optimized] target(s) in 0.06s
+     Running `/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader /Users/giordanmasen/Desktop/projects/prosperity/research/round5/pebbles/generated_traders/mm_mid_e2.py --dataset round5 --products off --artifact-mode none`
+trader: mm_mid_e2.py
+dataset: round5
+mode: fast
+artifacts: metrics-only
+SET             DAY    TICKS  OWN_TRADES    FINAL_PNL  RUN_DIR
+D+2               2    10000         918     16899.00  runs/backtest-1777466211935-round5-day+2
+D+3               3    10000        1058     19403.00  runs/backtest-1777466211935-round5-day+3
+D+4               4    10000         938     14352.00  runs/backtest-1777466211935-round5-day+4
+TOTAL             -    30000        2914     50654.00  -
+",16899.0,19403.0,14352.0,2914.0

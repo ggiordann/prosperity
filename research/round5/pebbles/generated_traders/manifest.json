@@ -1,0 +1,250 @@
+[
+  {
+    "name": "mm_mid_e2",
+    "path": "research/round5/pebbles/generated_traders/mm_mid_e2.py"
+  },
+  {
+    "name": "static_no_lead",
+    "path": "research/round5/pebbles/generated_traders/static_no_lead.py"
+  },
+  {
+    "name": "lead_s0p5",
+    "path": "research/round5/pebbles/generated_traders/lead_s0p5.py"
+  },
+  {
+    "name": "lead_s0p75",
+    "path": "research/round5/pebbles/generated_traders/lead_s0p75.py"
+  },
+  {
+    "name": "lead_s1p0",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p0.py"
+  },
+  {
+    "name": "lead_s1p15",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p15.py"
+  },
+  {
+    "name": "lead_s1p25",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p25.py"
+  },
+  {
+    "name": "lead_s1p5",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p5.py"
+  },
+  {
+    "name": "lead_s1p0_edge075",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p0_edge075.py"
+  },
+  {
+    "name": "lead_s1p0_edge125",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p0_edge125.py"
+  },
+  {
+    "name": "lead_s1p0_take08",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p0_take08.py"
+  },
+  {
+    "name": "lead_s1p0_take12",
+    "path": "research/round5/pebbles/generated_traders/lead_s1p0_take12.py"
+  },
+  {
+    "name": "curve_sum",
+    "path": "research/round5/pebbles/generated_traders/curve_sum.py"
+  },
+  {
+    "name": "curve_line025",
+    "path": "research/round5/pebbles/generated_traders/curve_line025.py"
+  },
+  {
+    "name": "curve_line050",
+    "path": "research/round5/pebbles/generated_traders/curve_line050.py"
+  },
+  {
+    "name": "butterfly_m025",
+    "path": "research/round5/pebbles/generated_traders/butterfly_m025.py"
+  },
+  {
+    "name": "lead_plus_line025",
+    "path": "research/round5/pebbles/generated_traders/lead_plus_line025.py"
+  },
+  {
+    "name": "lead_plus_mlag",
+    "path": "research/round5/pebbles/generated_traders/lead_plus_mlag.py"
+  },
+  {
+    "name": "drop_pebbles_xs_0",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_xs_0.py"
+  },
+  {
+    "name": "drop_pebbles_xs_1",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_xs_1.py"
+  },
+  {
+    "name": "drop_pebbles_s_0",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_s_0.py"
+  },
+  {
+    "name": "drop_pebbles_s_1",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_s_1.py"
+  },
+  {
+    "name": "drop_pebbles_m_0",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_m_0.py"
+  },
+  {
+    "name": "drop_pebbles_m_1",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_m_1.py"
+  },
+  {
+    "name": "drop_pebbles_l_0",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_l_0.py"
+  },
+  {
+    "name": "drop_pebbles_l_1",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_l_1.py"
+  },
+  {
+    "name": "drop_pebbles_xl_0",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_xl_0.py"
+  },
+  {
+    "name": "drop_pebbles_xl_1",
+    "path": "research/round5/pebbles/generated_traders/drop_pebbles_xl_1.py"
+  },
+  {
+    "name": "pscale_pebbles_xs_0p75",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_xs_0p75.py"
+  },
+  {
+    "name": "pscale_pebbles_xs_1p25",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_xs_1p25.py"
+  },
+  {
+    "name": "pscale_pebbles_s_0p75",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_s_0p75.py"
+  },
+  {
+    "name": "pscale_pebbles_s_1p25",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_s_1p25.py"
+  },
+  {
+    "name": "pscale_pebbles_m_0p75",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_m_0p75.py"
+  },
+  {
+    "name": "pscale_pebbles_m_1p25",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_m_1p25.py"
+  },
+  {
+    "name": "pscale_pebbles_l_0p75",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_l_0p75.py"
+  },
+  {
+    "name": "pscale_pebbles_l_1p25",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_l_1p25.py"
+  },
+  {
+    "name": "pscale_pebbles_xl_0p75",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_xl_0p75.py"
+  },
+  {
+    "name": "pscale_pebbles_xl_1p25",
+    "path": "research/round5/pebbles/generated_traders/pscale_pebbles_xl_1p25.py"
+  },
+  {
+    "name": "shift_pebbles_xs_m75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xs_m75.py"
+  },
+  {
+    "name": "shift_pebbles_xs_m25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xs_m25.py"
+  },
+  {
+    "name": "shift_pebbles_xs_p25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xs_p25.py"
+  },
+  {
+    "name": "shift_pebbles_xs_p75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xs_p75.py"
+  },
+  {
+    "name": "shift_pebbles_m_m75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_m_m75.py"
+  },
+  {
+    "name": "shift_pebbles_m_m25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_m_m25.py"
+  },
+  {
+    "name": "shift_pebbles_m_p25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_m_p25.py"
+  },
+  {
+    "name": "shift_pebbles_m_p75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_m_p75.py"
+  },
+  {
+    "name": "shift_pebbles_l_m75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_l_m75.py"
+  },
+  {
+    "name": "shift_pebbles_l_m25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_l_m25.py"
+  },
+  {
+    "name": "shift_pebbles_l_p25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_l_p25.py"
+  },
+  {
+    "name": "shift_pebbles_l_p75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_l_p75.py"
+  },
+  {
+    "name": "shift_pebbles_xl_m75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xl_m75.py"
+  },
+  {
+    "name": "shift_pebbles_xl_m25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xl_m25.py"
+  },
+  {
+    "name": "shift_pebbles_xl_p25",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xl_p25.py"
+  },
+  {
+    "name": "shift_pebbles_xl_p75",
+    "path": "research/round5/pebbles/generated_traders/shift_pebbles_xl_p75.py"
+  },
+  {
+    "name": "edge_xs0",
+    "path": "research/round5/pebbles/generated_traders/edge_xs0.py"
+  },
+  {
+    "name": "edge_xs4",
+    "path": "research/round5/pebbles/generated_traders/edge_xs4.py"
+  },
+  {
+    "name": "edge_s1",
+    "path": "research/round5/pebbles/generated_traders/edge_s1.py"
+  },
+  {
+    "name": "edge_s5",
+    "path": "research/round5/pebbles/generated_traders/edge_s5.py"
+  },
+  {
+    "name": "edge_m10",
+    "path": "research/round5/pebbles/generated_traders/edge_m10.py"
+  },
+  {
+    "name": "edge_m30",
+    "path": "research/round5/pebbles/generated_traders/edge_m30.py"
+  },
+  {
+    "name": "edge_l2",
+    "path": "research/round5/pebbles/generated_traders/edge_l2.py"
+  },
+  {
+    "name": "edge_xl2",
+    "path": "research/round5/pebbles/generated_traders/edge_xl2.py"
+  }
+]

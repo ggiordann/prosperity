@@ -1,0 +1,102 @@
+[
+  {
+    "name": "mm_mid_edge0",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/mm_mid_edge0.py"
+  },
+  {
+    "name": "mm_mid_edge2",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/mm_mid_edge2.py"
+  },
+  {
+    "name": "static_no_shift_nosig",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/static_no_shift_nosig.py"
+  },
+  {
+    "name": "static_shift_nosig",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/static_shift_nosig.py"
+  },
+  {
+    "name": "meanrev_tighter_no_sig",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/meanrev_tighter_no_sig.py"
+  },
+  {
+    "name": "meanrev_looser_no_sig",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/meanrev_looser_no_sig.py"
+  },
+  {
+    "name": "momentum_self50_p0p2",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/momentum_self50_p0p2.py"
+  },
+  {
+    "name": "reversal_self50_m0p2",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/reversal_self50_m0p2.py"
+  },
+  {
+    "name": "pair_dark_rings_blend1",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/pair_dark_rings_blend1.py"
+  },
+  {
+    "name": "pair_dark_rings_blend0p25",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/pair_dark_rings_blend0p25.py"
+  },
+  {
+    "name": "basket_blend0p25",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/basket_blend0p25.py"
+  },
+  {
+    "name": "basket_blend1",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/basket_blend1.py"
+  },
+  {
+    "name": "leadlag_mid_only",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/leadlag_mid_only.py"
+  },
+  {
+    "name": "hybrid_current",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_current.py"
+  },
+  {
+    "name": "hybrid_passive_only",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_passive_only.py"
+  },
+  {
+    "name": "hybrid_no_flames_signal",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_no_flames_signal.py"
+  },
+  {
+    "name": "hybrid_flames_only",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_only.py"
+  },
+  {
+    "name": "hybrid_flames_k_m0p75",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m0p75.py"
+  },
+  {
+    "name": "hybrid_flames_k_m1p0",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m1p0.py"
+  },
+  {
+    "name": "hybrid_flames_k_m1p5",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m1p5.py"
+  },
+  {
+    "name": "hybrid_flames_k_m1p75",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_flames_k_m1p75.py"
+  },
+  {
+    "name": "hybrid_add_rings_to_flames",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_add_rings_to_flames.py"
+  },
+  {
+    "name": "hybrid_add_winds75_to_flames",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_add_winds75_to_flames.py"
+  },
+  {
+    "name": "hybrid_orderbook_neg20",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_orderbook_neg20.py"
+  },
+  {
+    "name": "hybrid_orderbook_neg50",
+    "path": "/Users/giordanmasen/Desktop/projects/prosperity/research/round5/galaxy_sounds/generated_traders/hybrid_orderbook_neg50.py"
+  }
+]

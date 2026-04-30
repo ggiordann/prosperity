@@ -1,0 +1,18 @@
+type,relationship,reason,in_sample_metric,oos_metric,positive_days
+basket,ROBOT_LAUNDRY global_top8,residual looked mean-reverting but failed edge or final-day validation,0.12623316435815288,2.596140702782152,2
+basket,ROBOT_LAUNDRY same_category,residual looked mean-reverting but failed edge or final-day validation,0.12447831991407698,2.0958289137787407,2
+basket,SNACKPACK_PISTACHIO global_all_ridge,residual looked mean-reverting but failed edge or final-day validation,0.12300979448879319,0.653110626092047,2
+basket,ROBOT_LAUNDRY cross_category_top8,residual looked mean-reverting but failed edge or final-day validation,0.11509157488275441,2.0063791159976625,2
+basket,UV_VISOR_RED same_category,residual looked mean-reverting but failed edge or final-day validation,0.11116869866436048,-0.18742383344829025,2
+basket,UV_VISOR_MAGENTA same_category,residual looked mean-reverting but failed edge or final-day validation,0.10890386054898975,3.6268240306800017,2
+basket,TRANSLATOR_SPACE_GRAY global_all_ridge,residual looked mean-reverting but failed edge or final-day validation,0.102355231297659,1.4767443103292857,2
+basket,UV_VISOR_RED cross_category_top8,residual looked mean-reverting but failed edge or final-day validation,0.10099221551901849,2.9173762620035646,2
+basket,TRANSLATOR_VOID_BLUE global_all_ridge,residual looked mean-reverting but failed edge or final-day validation,0.10067519058459384,2.337939717691539,2
+basket,TRANSLATOR_GRAPHITE_MIST global_all_ridge,residual looked mean-reverting but failed edge or final-day validation,0.09898487012350217,0.7966839835603542,2
+basket,MICROCHIP_SQUARE cross_category_top8,residual looked mean-reverting but failed edge or final-day validation,0.09756798266866451,1.4031177588937753,2
+basket,UV_VISOR_RED global_top8,residual looked mean-reverting but failed edge or final-day validation,0.09620254353651064,2.4883286444370345,2
+basket,MICROCHIP_SQUARE global_top8,residual looked mean-reverting but failed edge or final-day validation,0.09364421068636618,-0.17227009656504824,2
+basket,SLEEP_POD_NYLON same_category,residual looked mean-reverting but failed edge or final-day validation,0.09359399271210049,4.916337798012909,2
+correlation,SLEEP_POD_POLYESTER / SLEEP_POD_COTTON,high blended score but daily return-correlation sign was unstable,0.11256954832985158,-0.0071718067515327095,1
+correlation,PEBBLES_XS / PANEL_2X4,high blended score but daily return-correlation sign was unstable,0.11006270740995532,0.0014084380492237266,1
+lead_lag,TRANSLATOR_ASTRO_BLACK -> UV_VISOR_RED lag 1,large in-sample lag correlation did not survive leave-one-day-out edge,0.014336057241650964,0.05011002200440088,1
