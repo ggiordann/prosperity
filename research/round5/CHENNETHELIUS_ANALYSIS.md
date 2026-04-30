@@ -136,3 +136,71 @@ Results:
 | Galaxy Sounds | 13,740.00 |
 | Oxygen Shakes | 7,915.00 |
 | Snackpacks | 1,320.00 |
+
+## 250k Request Check
+
+Attached file inspected:
+
+`/Users/giordanmasen/Downloads/v30_target_10 (1).py`
+
+Local reproduction:
+
+| Strategy | Day-4 1,000-tick PnL | Full public Round 5 PnL | Notes |
+| --- | ---: | ---: | --- |
+| Attached `v30_target_10 (1).py` | 134,568.50 | 207,370.00 | Directional target-10 market maker; not a 3.5M full strategy locally |
+| `traders/final_round5_trader_150k_alpha.py` | 152,106.00 | 2,624,926.50 | Direct target-inventory alpha on submission-like window |
+| `traders/final_round5_trader_best_alpha.py` | 152,106.00 | 2,711,903.50 | Stronger full-public base plus same 1k alpha branch |
+
+I did not produce a 250k 1,000-tick file because the non-hardcoded/causal alpha tests did not support it. The public day-4 first-1,000-tick drift capture from holding the correct sign at full limit is about 155k before active scalping. Tested causal additions, including live EWMA mean-reversion around target inventory, reduced the 1,000-tick result versus the simpler direct target file. The generated validated alpha families also scored far below 250k on the same 1,000-tick slice.
+
+The best verified upload candidate for a submission-like 1,000-tick replay is:
+
+`traders/final_round5_trader_best_alpha.py`
+
+## Discord Alpha Log Pass
+
+Input inspected:
+
+`/Users/giordanmasen/Desktop/prosperity/IMC Prosperity - Text channels - algo-trading [1476867343068958781] (after 2026-04-28).txt`
+
+Concrete useful hints found:
+
+- "find the best pairs"
+- "within and between groups"
+- "look at covariance matrix"
+- "Mean rev the price ratios"
+- "price ratios are more stable"
+- "snackpack van and choc are the pairs"
+- "microchip!!"
+- "Look at equirag pebbles"
+- "the first 1.5 mil (probably more) is all in pairs trading"
+
+Additional attachments inspected:
+
+- `best_network_250.txt`: raw network weights only, no feature schema; not safely portable into a valid submission.
+- `prosperity4_alpha_lab.py`: research scaffold using PyTorch/sklearn/joblib/pandas; useful as a conceptual confirmation of family/pair priors, but unsupported for final submission and not a drop-in trader.
+
+Validated implementation result:
+
+- Final file: `traders/final_round5_trader_best_alpha.py`
+- Change: expanded `BASKET_SELECTED` to include `MICROCHIP_RECTANGLE`, `SNACKPACK_STRAWBERRY`, `GALAXY_SOUNDS_SOLAR_WINDS`, and `TRANSLATOR_SPACE_GRAY` in addition to the prior `PANEL_2X2`, `PEBBLES_M`, `ROBOT_MOPPING`, and `ROBOT_IRONING`.
+- Day-4 first-1,000-tick PnL stayed at 152,106.00.
+- Full public Round 5 PnL improved from 2,711,903.50 to 2,729,414.50.
+
+Rejected tests:
+
+| Test | Full public PnL | Result |
+| --- | ---: | --- |
+| Add all residual basket models | 2,437,653.00 | Too broad; rejected |
+| Add all snack residual overlays | 2,698,782.50 | Rejected |
+| Add all pebbles residual overlays | 2,647,686.00 | Rejected |
+| Add `MICROCHIP_RECTANGLE` only | 2,716,766.50 | Helpful |
+| Add `SNACKPACK_STRAWBERRY` only | 2,717,535.50 | Helpful |
+| Add `GALAXY_SOUNDS_SOLAR_WINDS` only | 2,715,097.50 | Helpful |
+| Add `TRANSLATOR_SPACE_GRAY` only | 2,715,725.50 | Helpful |
+| Add all four helpful overlays | 2,729,414.50 | Final |
+| Drop any one final overlay | 2,699,737.50 to 2,726,220.50 | Rejected |
+| Replace snackpack chocolate/vanilla with direct stationary-pair model | 2,718,997.50 to 2,722,533.50 | Rejected |
+| Replace microchip square with square/rectangle stationary-pair model | 2,706,644.50 | Rejected |
+
+Conclusion: the real extractable alpha from the log for this codebase is selective residual-pair activation, not wholesale pair trading or an unsupported NN. The chat's broad hints are directionally right, but the profitable implementation is narrow.

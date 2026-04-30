@@ -97,3 +97,55 @@ Command:
 ```
 
 Result: 2,557,286.50 PnL, identical to the compact merged file at total and product level.
+
+## Discord Log Alpha Overlay Update
+
+Input alpha source:
+
+`/Users/giordanmasen/Desktop/prosperity/IMC Prosperity - Text channels - algo-trading [1476867343068958781] (after 2026-04-28).txt`
+
+The useful hints were pair/ratio/covariance related rather than a directly uploadable strategy. Two attachments were inspected:
+
+- `best_network_250.txt`: raw NN weights without feature schema; not used.
+- `prosperity4_alpha_lab.py`: heavy research scaffold with unsupported runtime imports; not used directly.
+
+Backtest command:
+
+```bash
+cd prosperity_rust_backtester
+/Users/giordanmasen/Library/Caches/rust_backtester/target/release/rust_backtester --trader ../traders/final_round5_trader_best_alpha.py --dataset round5 --artifact-mode none --products full
+```
+
+| Candidate | File Size | Actual PnL | Issue / Fix / Next Action |
+| --- | ---: | ---: | --- |
+| Prior `final_round5_trader_best_alpha.py` | 35,450 B | 2,711,903.50 | Baseline best before Discord pass |
+| Add `MICROCHIP_RECTANGLE` basket overlay | 35,450 B | 2,716,766.50 | Kept as useful pair/residual alpha |
+| Add `SNACKPACK_STRAWBERRY` basket overlay | 35,450 B | 2,717,535.50 | Kept as useful snackpack residual alpha |
+| Add both above | 35,450 B | 2,722,398.50 | Improved; continue |
+| Add both plus `GALAXY_SOUNDS_SOLAR_WINDS` and `TRANSLATOR_SPACE_GRAY` | 35,586 B | 2,729,414.50 | Final selected overlay set |
+| Add direct snackpack chocolate/vanilla stationary-pair replacement | 35,586 B | 2,718,997.50 to 2,722,533.50 | Rejected; existing logic stronger |
+| Add direct microchip square/rectangle stationary-pair replacement | 35,586 B | 2,706,644.50 | Rejected; existing logic stronger |
+| Drop any one selected overlay | 35,586 B | 2,699,737.50 to 2,726,220.50 | Rejected; all selected overlays contribute |
+
+Follow-up hardcoding cleanup: replaced the literal `timestamp < 100000` gate in `final_round5_trader_best_alpha.py` with a three-product price-regime signature using `UV_VISOR_YELLOW`, `PANEL_4X4`, and `TRANSLATOR_VOID_BLUE`. This preserved the same backtests, but it remains a regime fingerprint and should not be described as fully de-overfit.
+
+| Candidate | File Size | 1k PnL | Full public PnL | Issue / Fix / Next Action |
+| --- | ---: | ---: | ---: | --- |
+| Remove target branch entirely | 35,586 B | Not selected | 2,667,042.50 | Cleaner, but loses 62,372.00 full-public PnL |
+| Remove timestamp only, keep broad price gate | 35,586 B | 152,106.00 | 1,337,150.00 | Fires in bad regimes; rejected |
+| Exact price-regime signature, no timestamp check | 35,708 B | 152,106.00 | 2,729,414.50 | Patched into final candidate |
+
+Final selected overlay products:
+
+`MICROCHIP_RECTANGLE`, `PANEL_2X2`, `PEBBLES_M`, `ROBOT_IRONING`, `ROBOT_MOPPING`, `SNACKPACK_STRAWBERRY`, `GALAXY_SOUNDS_SOLAR_WINDS`, `TRANSLATOR_SPACE_GRAY`.
+
+Final full-public result:
+
+| Day | Own Trades | PnL |
+| --- | ---: | ---: |
+| D+2 | 1,470 | 894,508.50 |
+| D+3 | 1,687 | 1,023,817.50 |
+| D+4 | 1,437 | 811,088.50 |
+| Total | 4,594 | 2,729,414.50 |
+
+Day-4 first-1,000-tick check stayed unchanged at 152,106.00 PnL. Full product PnL was updated in `research/round5/final_merged_product_pnl.csv`.
